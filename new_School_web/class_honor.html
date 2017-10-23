@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/class_honor.js"></script>
+    <script src="js/imgUp.js"></script>
+    <script>
+        //查询
+        $(function(){
+            $("#btn_seacher").click(function(){
+                var classVal=$("#btn_select option:selected").val();//被选中的option的val值
+
+            });
+        });
+
+        $(function(){
+            //新增荣誉
+            $(".honor_add").click(function(){
+                $(".class_modal").show();
+                $(".class_modal_top h3").html("新增班级荣誉");
+                $("#honorName").blur(function(){
+                    if(!isBlank($(this).val())){
+                        $(".class_modal_row .name").hide();
+                    }
+                });
+
+            });
+        });
+
+        //增加荣誉点击确认按钮，
+        function honorAdd(){
+            var honorName=$("#honorName").find("option:selected").val();//荣誉名称
+            var classId=$("#classId").val();//隐藏值的班级id
+            var clasId=$("#clasId").val();//隐藏值的班级id
+            var optionVal=$(".row_select option:selected" ).val();//获取option的val值
+            $(".class_modal_row .name").hide();
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="class_modal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="classModal()">X</i>
+            </div>
+        <div class="class_modal_con">
+            <form>
+                <div class="class_modal_row">
+                    <span>班级：</span><select class="row_select"><option>88</option></select>
+                    </div>
+                <div class="class_modal_row">
+                    <span>荣誉名称：</span><select id="honorName">
+                        <option>555</option>
+                    </select>
+                </div>
+                <div class="class_modal_row">
+                    <span>备注：</span><textarea id="text" onkeyup="checkLen(this)"></textarea>
+                    <p>（*荣誉备注不可超过30个字！）</p>
+                </div>
+            </form>
+        </div>
+        <div class="class_modal_footer">
+            <a href="javascript:;" onclick="honorAdd()">确定</a><a href="javascript:;" onclick="classModal()">取消</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">荣誉管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf">
+                <div class="btn">
+                    <span>班级：</span>
+                    <select id="btn_select"><option value="777">888</option></select>
+                    <button id="btn_seacher">查询</button>
+                </div>
+
+            </div>
+            <div class="class_rg">
+                <a class="add_dl honor_add" href="javascript:;">新增荣誉</a>
+            </div>
+
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">荣誉编号</th>
+                    <th  class="class_width">班级</th>
+                    <th class="class_width">荣誉名称</th>
+                    <th class="class_width">荣誉图片</th>
+                    <th class="class_width">创建人</th>
+                    <th class="class_width">备注</th>
+                    <th class="class_width">创建时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width honor_txt">20130101</td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width">生活自在！</td>
+                    <td class="class_width ">
+                        <img src="images/honor_icon.png">
+                    </td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">六年一班获取优秀班集体名称</td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="honor_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width honor_txt">8888</td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width">生活自在！</td>
+                    <td class="class_width honor_img">
+                        <img id="img" src="images/honor_icon.png"><input type="hidden" id="ImageUrl" value="88">
+                    </td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">六年一班获取优秀班集体名称六年一班获取优秀班集体名称</td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width_08">
+                        <div class="dl_btn">
+                            <input class="honor_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <input type="hidden" id="className" value="3">
+    <input type="hidden" id="classId">
+</div>
+</body>
+</html>

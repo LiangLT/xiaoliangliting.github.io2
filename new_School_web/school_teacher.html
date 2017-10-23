@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/basestyle.css">
+    <link type="text/css" rel="stylesheet" href="css/tabel.css">
+    <script src="js/jquery.min.js"></script>
+
+    <style>
+        .red_err{ color: #d60a2f; display: block;text-align: center; font-style: normal;}
+    </style>
+    <script>
+        $(function(){
+            //关闭
+            $(".close_btn").click(function(){
+                $("#ml_del").hide();
+                $("#modify_form").hide();
+            });
+
+            //添加
+            $("#add_btn").click(function(){
+                $("#add_form").show(function(){
+                    $(".us_modal_top p").html("添加教师");
+                    //判断是否为空
+                    function isInputBlank(_val){
+                        if(_val==null || _val=="" || _val==undefined){
+                            return true;
+                        }
+                        return false;
+                    }
+
+                    /**检查是否为手机号码形式**/
+                    function isInputPhone(str){
+                        var mobile = /^1(3|4|5|7|8)\d{9}$/;
+                        return mobile.test(str);
+                    }
+
+                    //教师编号
+                    $(".txt_id").blur(function(){
+                        var txtId=$(".txt_id").val();
+                        if(isInputBlank(txtId)){
+                            $(".txt_id").css("border","1px solid #d60a2f").focus();
+                            $(this).siblings(".red_err").html("教师编号不能为空");
+                            return false;
+                        }
+                        else{
+                            $(".txt_id").css("border","1px solid #ddd");
+                            $(this).siblings(".red_err").html("");
+                        }
+                    });
+
+                    //教师名称
+                    $(".txt_name").blur(function(){
+                        var txtName=$(".txt_name").val();
+                        if(isInputBlank(txtName)){
+                            $(".txt_name").css("border","1px solid #d60a2f").focus();
+                            $(this).siblings(".red_err").html("教师名称不能为空！");
+                            return false;
+                        }
+                        else{
+                            $(".txt_name").css("border","1px solid #ddd");
+                            $(this).siblings(".red_err").html("");
+                        }
+                    });
+
+                    //联系方式
+                    $(".txt_mobile").blur(function(){
+                        var mobile_Id=$(".txt_mobile").val();
+                        if(isInputBlank(mobile_Id)){
+                            $(".txt_mobile").css("border","1px solid #d60a2f").focus();
+                            $(this).siblings(".red_err").html("手机号码不能为空！");
+                            return false;
+                        }
+                        else if(!isInputPhone(mobile_Id)){
+                            $(".txt_mobile").css("border","1px solid #d60a2f").focus();
+                            $(this).siblings(".red_err").html("手机号码有误，请重填！");
+                        }
+                        else{
+                            $(".txt_mobile").css("border","1px solid #ddd");
+                            $(this).siblings(".red_err").html("");
+                        }
+                    });
+
+                    //确认
+                    $("#add_click").click(function(){
+                        var txtId=$(".txt_id").val();
+                        var txtName=$(".txt_name").val();
+                        var mobile_Id=$(".txt_mobile").val();
+                        if(!isInputBlank(txtId) && !isInputBlank(txtName) && !isInputBlank(mobile_Id)){
+                            //alert("111");
+                            data=JSON.stringify({"txtId":txtId,"txtName":txtName,"mobile_Id":mobile_Id});
+                            $.ajax({
+                                url:"",
+                                type:"POST",
+                                dataTpye:"text",
+                                data:data,
+                                success:function(resp){
+                                    //alert("1111");
+                                    $("#add_form").hide();
+                                }
+                            });
+                        }
+                        else{
+                            alert("添加失败，内容不能为空！")
+                        }
+
+                    })
+                });
+
+                $(".close_btn").click(function(){
+                    $("#add_form").hide();
+                });
+            });
+
+            //修改
+            $(".change").click(function(){
+              var changeRadio=$("input:radio[name='rd']:checked").val();
+                if(changeRadio){
+                    $("#modify_form").show(function(){
+                        //判断教师名称是否为空
+                        $(".change_txt").blur(function(){
+                            var change_txt=$(".change_txt").val();
+                            if(change_txt==null || change_txt=="" || change_txt==undefined){
+                                $(".change_txt").css("border","1px solid #d60a2f").focus();
+                                $(this).siblings(".red_err").html("教师名称不能为空！");
+                                return true;
+                            }
+                            else{
+                                $(".change_txt").css("border","1px solid #ddd");
+                                $(this).siblings(".red_err").html("");
+                            }
+                        });
+                        //确定修改
+                        $("#change_click").click(function(){
+                            var change_txt=$(".change_txt").val();
+                            if(change_txt == ""){
+                                $(".change_txt").css("border","1px solid #d60a2f").focus();
+                                $(".change_txt").siblings(".red_err").html("教师名称不能为空！");
+                                return false;
+                            }
+                            else{
+                                data=JSON.stringify({"change_txt":change_txt});
+                                $.ajax({
+                                    url:"",
+                                    type:"POST",
+                                    dataTpye:"text",
+                                    data:data,
+                                    success:function(resp){
+                                        if(resp=="OK"){
+                                            $("#modify_form").hide();
+                                        }
+                                        else{
+                                            alert("修改失败！");
+                                        }
+                                    }
+                                });
+                            }
+                        });
+
+                    });
+                }
+                else{
+                    $("#ml_del").show();
+                    $(".modal_dele").html("请先选择！");
+                }
+
+            });
+            //修改结束
+        });
+    </script>
+</head>
+<body>
+
+    <div id="ml_del" class="user_modal" style="display: none;">
+        <div class="us_modal_con">
+            <div class="us_modal_top clearfix">
+                <p>提示信息</p><i class="close_btn">X</i>
+            </div>
+            <div class="us_modal_body">
+                <div class="modal_dele"></div>
+            </div>
+            <div class="us_modal_footer">
+                <a id="ml_true" href="javascript:;">确认</a>
+                <a class="close_btn" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+    <!-- 窗口-->
+    <div id="add_form" class="user_modal" style="display: none;">
+        <div class="us_modal_con">
+            <div class="us_modal_top clearfix">
+                <p></p><i class="close_btn">X</i>
+            </div>
+            <div class="us_modal_body">
+                <form id="fm_add" method="post" action="" >
+                    <p><span>教师编号：</span><input class="txt_id" type="text"><i class="red_err"></i></p>
+                    <p><span>教师名称：</span><input class="txt_name" type="text"><i class="red_err"></i></p>
+                    <p><span>性别：</span><input class="check" type="radio" name="che"><label>男</label><input class="check" type="radio" name="che"><label>女</label></p>
+                    <p><span>所管理科目：</span><select><option>语文</option></select></p>
+                    <p><span>联系方式：</span><input class="txt_mobile" type="text"><i class="red_err"></i></p>
+                </form>
+            </div>
+            <div class="us_modal_footer">
+                <a id="add_click" href="javascript:;">确认添加</a>
+                <a class="close_btn" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+    <!-- 窗口-->
+
+    <!-- 修改-->
+    <div id="modify_form" class="user_modal" style="display: none;">
+        <div class="us_modal_con">
+            <div class="us_modal_top clearfix">
+                <p>修改教师</p><i class="close_btn">X</i>
+            </div>
+            <div class="us_modal_body">
+                <form id="fm_modify" method="post" action="" >
+                    <p><span>教师编号：</span>01122222</p>
+                    <p><span>教师名称：</span><input class="change_txt" type="text"><i class="red_err"></i></p>
+                    <p><span>性别：</span><label>男</label></p>
+                    <p><span>所管理科目：</span><select><option>语文</option></select></p>
+                    <p><span>联系方式：</span><input class="change_mobile" type="text"><i class="red_err"></i></p>
+                </form>
+            </div>
+            <div class="us_modal_footer">
+                <a id="change_click" href="javascript:;">确认添加</a>
+                <a class="close_btn" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+    <!-- 修改-->
+    <div class="layout">
+        <div class="layout_contrian">
+            <div class="ly_body clearfix">
+
+                <div class="ly_rg">
+                    <div class="stu_messg">
+                        当前位置：<a class="stu_hover" href="javascript:;">教师管理</a>
+                    </div>
+
+                    <div class="list_stu clearfix">
+                        <div class="lf_s">
+                            <form class="from_lf">
+                                <c:choose>
+                                    <c:when test="${not empty requestScope.Field }">
+                                        <input type="text" id="seach" value="${requestScope.Field}">
+                                    </c:when>
+                                    <c:when test="${empty requestScope.Field }">
+                                        <input type="text" id="seach" placeholder="请输入教师姓名">
+                                    </c:when>
+                                </c:choose>
+                                <input class="input_btn" onclick="seachClick()" type="button" value="搜索">
+                            </form>
+
+                        </div>
+                        <div class="stu_rg">
+                            <a id="add_btn" href="JavaScript:;">添加教师</a>
+                            <input class="change" type="button" value="修改">
+                            <a class="del" href="javascrip:;">删除</a>
+                        </div>
+
+                    </div>
+                    <div class="ly_tabel">
+                        <table class="tabel_style" cellpadding="0" cellspacing="0">
+                            <thead class="ly_thead">
+                                <tr class="th_tr">
+                                    <th class="td_width">序号</th>
+                                    <th class="td_width6">教师编号</th>
+                                    <th class="td_width6">教师名称</th>
+                                    <th class="td_width5">科目</th>
+                                    <th class="td_width3">性别</th>
+                                    <th class="td_width6">联系方式</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ly_tbody">
+                                <c:forEach items="${page.objList }" var="teacher">
+                                    <tr id="tb_tr" class="tb_tr">
+                                        <td class="td_width "><input type="radio" name="rd" value="${teacher.account}"></td>
+                                        <td class="td_width6 ">${teacher.teacher_id}</td>
+                                        <td class="td_width6 ">${teacher.teacher_name}</td>
+                                        <td class="td_width5">${teacher.subject.subject_name}</td>
+                                        <c:choose>
+                                            <c:when test="${teacher.status==true}">
+                                                <td class="td_width3">男</td>
+                                            </c:when>
+                                            <c:when test="${teacher.status==false}">
+                                                <td class="td_width3">女</td>
+                                            </c:when>
+                                        </c:choose>
+
+                                        <td class="td_width6 ">${teacher.teacher_phone}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6"><div style="text-align: center" id="pager"></div></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="currentPage" value="${page.nowpage }">
+    <input type="hidden" id="pagecount" value="${page.countpage }">
+</body>
+    <script>
+        $(function(){
+            //搜索
+            seachClick=function(seachClick){
+                if(typeof(seachClick) != "undefined"){
+                    location.href="../../NopApi/customer/school_teacher.action?nowpage=" + seachClick  +
+                            "&Condition=account" + "&values=" +$("#seach").val();
+                }
+                else{
+                    location.href="../../NopApi/customer/school_teacher.action?nowpage=" + $("#currentPage").val()  + "&Condition=account" +
+                            "&values=" +$("#seach").val();
+                }
+            }
+
+            //弹窗方法
+            function show_modal(){
+                $("#ml_del").show(
+                function modalTxt(){
+                    $(".modal_dele").html("请先选择！");
+                });
+            }
+            //删除按钮
+            $(".del").click(function(){
+                var del=$('input:radio[name="rd"]:checked').val();
+                if(del==null){
+                    show_modal();
+                    return false;
+                }
+                else{
+                    $("#ml_del").show(function(){
+                        $(".modal_dele").html("您确定要删除吗？");
+                        $("#ml_true").click(function(){
+                            var obj=$('input[name="rd"]:checked').val();
+                            data=JSON.stringify({"account":obj,"currentPage":$("#currentPage").val()})
+                            $.ajax({
+                                type:"POST",
+                                url:"",
+                                contentType: "application/json;charset=utf-8", //必须有
+                                dataType:"json",
+                                data:data,
+                                success:function(result){
+                                    window.location="../../NopApi/customer/school_teacher.action?nowpage=" + result.currentPage;
+                                }
+                            });
+
+                        })
+                    });
+                }
+            });
+        });
+    </script>
+
+</html>

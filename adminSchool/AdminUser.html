@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/Administrator.css">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/select_box.js"  charset="utf-8"></script>
+    <script src="js/modal_blur.js"></script>
+    <script>
+        $(function(){
+
+            //注销内容---用户管理
+            $(".del_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Uname=$(this).parents("td").siblings(".Uname").text();
+                        $(".modal_footer a").first().addClass("User_del");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定为“"+Uname+"”用户注销吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".User_del").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+
+            //锁定内容
+            $(".lock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function() {
+                        var Uname = $(this).parents("td").siblings(".Uname").text();
+                        $(".modal_footer a").first().addClass("User_lock");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要锁定“"+Uname+"”用户吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".User_lock").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+
+            //解锁内容
+            $(".Ulock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function() {
+                        var Uname = $(this).parents("td").siblings(".Uname").text();
+                        $(".modal_footer a").first().addClass("User_ulock");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要解锁“"+Uname+"”用户吗？");
+                        $(".User_ulock").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<!-- ====注销，锁定，解锁窗口==-->
+    <div class="div_modal" id="divModal"></div>
+<!-- ====注销，锁定，解锁窗口===-->
+
+<!-- 新增用户窗口-->
+    <div class="user_modal">
+        <div class="us_modal_con">
+            <div class="us_modal_top clearfix">
+                <p>新建用户</p><i class="close_btn">X</i>
+            </div>
+            <div class="us_modal_body">
+                <form id="submit_fm" method="post" action="">
+                    <p><span>用户昵称：</span><input id="user_NickName" class="input_01" type="text"><span class="name_err"></span></p>
+                    <p><span>用户账号：</span><input id="user_account" type="text" placeholder="请输入6-12位数字、英文"><span class="name_err_01"></span></p>
+                    <p><span>手机号码：</span><input id="user_phone" type="text"><span class="p_txt"></span></p>
+                    <p><span>用户密码：</span><input id="user_password" type="password"><span class="name_err5"></span></p> <!--<p><span>收费情况：</span><input class="check" type="checkbox"><label>未缴费</label><input class="check" type="checkbox"><label>已缴费</label></p>-->
+                    <div class="us_modal_footer">
+                        <a class="true_btn" href="javascript:;">确认添加</a>
+                        <a class="close_btn" href="javascript:;">取消</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+<!-- 新增用户窗口-->
+    <div class="Admin_layout">
+        <div class="Admin_top clearfix">
+            <div class="top_left">
+                <h2>管理员后台</h2>
+            </div>
+            <div class="top_right">
+                <a href="javascript:;">用户名：Administrator</a><span>|</span><a href="AdminLogin.html">安全退出</a>
+            </div>
+        </div>
+        <div class="Admin_con clearfix">
+            <div class="con_left">
+                <div class="left_bg">
+                    <ul>
+                        <li><a href="AdminIndex.html"><span class="Ico_img_01"></span><span class="span_title">主页</span></a> </li>
+                        <li class="ahover"><a href="AdminUser.html"><span class="Ico_img_02"></span><span class="span_title">用户管理</span></a> </li>
+                        <li><a href="AdAgency.html"><span class="Ico_img_03"></span><span class="span_title">经销商管理</span></a> </li>
+                        <li><a href="AdSchool.html"><span class="Ico_img_04"></span><span class="span_title">学校管理</span></a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="con_right">
+                <div class="con_body">
+                    <div class="body_title">
+                        当前位置：<a href="AdminIndex.html">首页</a><span>></span><a class="text_color" href="javascript:;">用户管理</a>
+                    </div>
+                    <div class="seach clearfix">
+                        <form class="from_lf">
+                            <div class="select_div">
+                                <select>
+                                    <option>账号</option>
+                                    <option>手机号码</option>
+                                    <option>昵称</option>
+                                </select>
+                            </div>
+                            <input type="text"><input class="input_btn" type="button" value="搜索">
+                        </form>
+                        <div class="add_btn">
+                            <a class="del_data" href="#">注销</a>
+                            <a class="lock_data" href="#">锁定</a>
+                            <a class="Ulock_data" href="#">解锁</a>
+                            <a id="add_user" href="#">新增用户</a>
+                        </div>
+                    </div>
+                    <div class="ly_con">
+                        <div class="con_tabel">
+                            <table class="table">
+                                <tr class="con_th Newcon_th">
+                                    <th class="td_width3"></th>
+                                    <th class="td_width">用户昵称</th>
+                                    <th class="td_width">用户账号</th>
+                                    <th class="td_width">手机号码</th>
+                                    <th class="td_width2">用户类型</th>
+                                    <th class="td_width2">用户状态</th>
+                                    <th class="td_width1">最后登录时间</th>
+                                    <th class="td_width1">注册时间</th>
+                                </tr>
+                                <tr class="click">
+                                    <td class="td_width3"><input class="click_btn" name="rd" type="radio"></td>
+                                    <td class="td_width Uname" >筱筱</td>
+                                    <td class="td_width">1234567890</td>
+                                    <td class="td_width">01234567890</td>
+                                    <td class="td_width2">老师</td>
+                                    <td class="td_width2">正常</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+
+                                </tr>
+                                <tr class="click">
+                                    <td class="td_width3"><input class="click_btn" name="rd" type="radio"></td>
+                                    <td class="td_width Uname">1234567890</td>
+                                    <td class="td_width">1234567890</td>
+                                    <td class="td_width">01234567890</td>
+                                    <td class="td_width2">老师</td>
+                                    <td class="td_width2">正常</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+
+                                </tr>
+                                <tr class="click">
+                                    <td class="td_width3"><input class="click_btn" name="rd" type="radio"></td>
+                                    <td class="td_width Uname">1234567890</td>
+                                    <td class="td_width">1234567890</td>
+                                    <td class="td_width">01234567890</td>
+                                    <td class="td_width2">老师</td>
+                                    <td class="td_width2">正常</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+
+                                </tr>
+                                <tr class="click">
+                                    <td class="td_width3"><input class="click_btn" name="rd" type="radio"></td>
+                                    <td class="td_width Uname">1234567890</td>
+                                    <td class="td_width">1234567890</td>
+                                    <td class="td_width">01234567890</td>
+                                    <td class="td_width2">老师</td>
+                                    <td class="td_width2">正常</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+                                    <td class="td_width1">2017-06-15 11:32:14</td>
+                                </tr>
+                            </table>
+                            <div class="align-center" id="pager"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

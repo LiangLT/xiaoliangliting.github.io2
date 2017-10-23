@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/school_class.css">
+    <link type="text/css" rel="stylesheet" href="css/jedate.css">
+    <link type="text/css" rel="stylesheet" href="css/jeDate-test.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script src="js/school_common.js"></script>
+    <script src="js/weekSection.js"></script>
+    <script src="js/weekTest.js"></script>
+
+    <script>
+        $(function(){
+            //年份
+            $("#yearShow").each(function(){
+                var myDate=new Date(),//获取当前时间
+                        getMonths=myDate.getMonth()+1,//获取当前月份
+                        getYears=myDate.getFullYear(),//获取当前年份
+                        getYearsAdd=getYears+1,//当前年份加1
+                        getYearsSub=getYears-1;//当前年份减1
+                if(getMonths<9){
+                    $(this).val(getYearsSub+'-'+getYears);
+                }
+                else if(getMonths>=9){
+                    $(this).val(getYears+'-'+getYearsAdd);
+                }
+            });
+
+
+            //开学时间,年月日
+            $("#sendOneStart").jeDate({
+                dateCell:"#sendStart",
+                format:"YYYY-MM-DD",
+                minDate:'2010-01-01',
+                maxDate:'3000-12-30',
+            });
+            $("#sendTwoStart").jeDate({
+                dateCell:"#sendStart",
+                format:"YYYY-MM-DD",
+                minDate:'2010-01-01',
+                maxDate:'3000-12-30',
+            });
+
+
+
+            //周数
+            $("#weekNum").each(function(){
+                var weekNum=["请选择周数","1周","2周","3周","4周","5周","6周","7周","8周","9周","10周",
+                    "11周","12周","13周","14周","15周","16周","17周","18周","19周","20周"];
+                for(var i=0;i<weekNum.length;i++){
+                    var option='<option value="'+i+'">'+weekNum[i]+'</option>';
+                    $(this).append(option);
+                }
+            });
+
+            var arrPicth=["请选择","1","2","3","4","5","6","7"];
+            //上课天数
+            for(var i=0;i<arrPicth.length;i++){
+                var picthOpt='<option value="'+i+'">'+arrPicth[i]+'</option>';
+                $("#classDays").append(picthOpt);
+            }
+
+            //学期保存
+            $("#weekYes").click(function(){
+                var yearShow=$("#yearShow").val(),//学年
+                        sendOneStart=$("#sendOneStart").val(),//开学时间
+                        sendTwoStart=$("#sendTwoStart").val(),//开学时间
+                        weekNum=$("#weekNum").val();//上课周数
+                if(isBlank(sendOneStart) || isBlank(sendTwoStart)  || weekNum==0 ){
+                    alert("请选择学期、开学时间和上课周数！");
+                }
+                else{
+                    //后台操作
+                    alert(yearShow+sendOneStart+sendTwoStart+weekNum);
+                }
+            });
+
+
+        });
+
+        /**********************节次设置**************************/
+        //是否早读
+        $(function(){
+            $("#radioCheck:radio").click(function(){
+                $("#readList").show();
+            });
+            $("#isCheck:radio").click(function(){
+                $("#readList").hide();
+            });
+
+
+        });
+
+
+
+        function saveForm(){
+            var readStar=$(".readStar").val(),//早读开始时间
+                readEnd=$(".readEnd").val(),//早读结束时间
+                radioCheck=$("#rdCheck").find("input[name='radio']:checked").val(),//是否早读选中值
+                classDays=$("#classDays").find("option:selected").val(),//上课天数
+                    amNum=$("#amNum").find("option:selected").val(),//上午节数
+                    pmNum=$("#pmNum").find("option:selected").val(),//下午节数
+                    nightNum=$("#nightNum").find("option:selected").val();//晚上节数
+            var timeVal=$(".contentRow").find(".time");//开始、结束时间
+            //上午节数
+            var amTime0=$("#amTime0").val(),//上课时间，第一节上课
+                amTime1=$("#amTime1").val(),//上课时间，第一节下课
+                amTime2=$("#amTime2").val(),//上课时间，第二节上课
+                amTime3=$("#amTime3").val(),//上课时间，第二节下课
+                amTime4=$("#amTime4").val(),//上课时间，第三节上课
+                amTime5=$("#amTime5").val(),//上课时间，第三节下课
+                amTime6=$("#amTime6").val(),//上课时间，第四节上课
+                amTime7=$("#amTime7").val(),//上课时间，第四节下课
+                amTime8=$("#amTime8").val(),//上课时间，第五节上课
+                amTime9=$("#amTime9").val();//上课时间，第五节下课
+            //下午节数
+            var pmTime0=$("#pmTime0").val(),//下午第一节上课时间
+                pmTime1=$("#pmTime1").val(),//下午第一节下课时间
+                pmTime2=$("#pmTime2").val(),//下午第二节上课时间
+                pmTime3=$("#pmTime3").val(),//下午第二节下课时间
+                pmTime4=$("#pmTime4").val(),//下午第三节上课时间
+                pmTime5=$("#pmTime5").val();//下午第三节下课时间
+            //晚上节数
+            var ngTime0=$("#ngTime0").val(),//第一节上课
+                ngTime1=$("#ngTime1").val(),//第一节下课
+                ngTime2=$("#ngTime2").val(),//第二节上课
+                ngTime3=$("#ngTime3").val(),//第二节下课
+                ngTime4=$("#ngTime4").val(),//第三节上课
+                ngTime5=$("#ngTime5").val(),//第三节下课
+                ngTime6=$("#ngTime6").val(),//第四节上课
+                ngTime7=$("#ngTime7").val();//第四节下课
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">时间节次设置</a>
+    </div>
+    <div class="week_container">
+        <div class="conHeader">
+            <div class="conHeaderTitle">学期设置</div>
+            <div class="headerList clearfix">
+                <div class="headerList1">
+                    <span>学年：</span>
+                    <input id="yearShow" type="text" disabled>
+                </div>
+                <div class="headerList1">
+                    <span>第一学期开学时间：</span>
+                    <div class="list_time">
+                        <input id="sendOneStart" type="text" value="" placeholder="请选择开学时间" readonly ><i></i>
+                    </div>
+                </div>
+                <div class="headerList1">
+                    <span>第二学期开学时间：</span>
+                    <div class="list_time">
+                        <input id="sendTwoStart" type="text" value="" placeholder="请选择开学时间" readonly ><i></i>
+                    </div>
+
+                </div>
+                <div class="headerList1">
+                    <span>上课周数：</span>
+                    <select id="weekNum">
+                    </select>
+                    <input type="hidden" id="weekNumHid" value="5">
+                </div>
+            </div>
+            <div class="headerBtn">
+                <a id="weekYes" href="javascript:;">保存</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="contentHeader">
+                节次设置
+            </div>
+            <div class="contentMain">
+                <div class="rows" id="rows">
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>上课天数：</span>
+                            <select id="classDays">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contentRow" id="rad">
+                        <div class="contentRead" id="rdCheck">
+                            <span>是否早读：</span>
+                            <label><input id="radioCheck" type="radio" name="radio" value="0">是</label>
+                            <label><input id="isCheck" type="radio" name="radio" value="1">否</label>
+                        </div>
+                        <div class="readList clearfix" id="readList" style="display: none;">
+                            <div class="readDate">
+                                <span>早读开始时间：</span><input class="readStar" type="text" id="test05" value="" placeholder="请选择早读开始时间" readonly><i></i>
+                            </div>
+                            <div class="readDate">
+                                <span>早读结束时间：</span><input class="readEnd" type="text" id="test06" value="" placeholder="请选择早读结束时间" readonly><i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>上午节数：</span>
+                            <input type="hidden" id="amHidden" value="5">
+                            <select id="amNum">
+                                <option value="0">请选择</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix" id="rowManagement">
+
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>下午节数：</span>
+                            <input type="hidden" id="pmHidden" value="3">
+                            <select id="pmNum">
+                                <option value="0">请选择</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix" id="pmManagement">
+
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>晚上节数：</span>
+                            <input type="hidden" id="nightHidden" value="4">
+                            <select id="nightNum">
+                                <option value="0">请选择</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix" id="nightManagement">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="contentSave">
+                <a href="javascript:;" onclick="saveForm()">保存</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/weekOnload.js"></script>
+<script src="js/weekOnloadThree.js"></script>
+<script>
+    $(function(){
+            var ss=5;
+            $("#classDays").val(ss);//上课天数
+            $("#weekNum").val();//上课周数
+
+            //是否早读
+
+            var radioCheck=$("#rdCheck").find("input[name='radio']");
+            if(radioCheck.val()==0 && $("#rdCheck").find("input[name='radio']:checked")==true){
+                $("#readList").show();
+            }
+            else{
+                $("#readList").hide();
+            }
+        var s=5;
+        var b=3;
+        var a=3;
+        //上午
+        $("#amTime0").val(a);//上课时间，第一节上课
+        $("#amTime1").val();//上课时间，第一节下课
+        $("#amTime2").val();//上课时间，第二节上课
+        $("#amTime3").val();//上课时间，第二节下课
+        $("#amTime4").val();//上课时间，第三节上课
+        $("#amTime5").val();//上课时间，第三节下课
+        $("#amTime6").val();//上课时间，第四节上课
+        $("#amTime7").val();//上课时间，第四节下课
+        $("#amTime8").val();//上课时间，第五节上课
+        $("#amTime9").val();//上课时间，第五节下课
+        //下午节数
+        $("#pmTime0").val(s);//下午第一节上课时间
+        $("#pmTime1").val();//下午第一节下课时间
+        $("#pmTime2").val();//下午第二节上课时间
+        $("#pmTime3").val();//下午第二节下课时间
+        $("#pmTime4").val();//下午第三节上课时间
+        $("#pmTime5").val();//下午第三节下课时间
+
+        //晚上节数
+        $("#ngTime0").val(b);//第一节上课
+        $("#ngTime1").val();//第一节下课
+        $("#ngTime2").val();//第二节上课
+        $("#ngTime3").val();//第二节下课
+        $("#ngTime4").val();//第三节上课
+        $("#ngTime5").val();//第三节下课
+        $("#ngTime6").val();//第四节上课
+        $("#ngTime7").val();//第四节下课
+        $("#classDays").find("option:selected").val();//上课天数
+    });
+</script>
+
+<script type="text/javascript">
+    /*
+    $(function(){
+        $.ajax({
+            url:"SelectData.action",
+            type:"POST",
+            dataTpye:"json",
+            contentType: "application/json;charset=utf-8", //必须有
+            success:function(result){
+                //上午
+                $("#amTime0").val(result[0].sectionOneSatrtTime);//上课时间，第一节上课,sectionOneSatrtTime代表数据库里面的字段
+                $("#amTime1").val(result[0].sectionOneEndTime);//上课时间，第一节下课
+                $("#amTime2").val(result[0].sectionTwoStartTime);//上课时间，第二节上课
+                $("#amTime3").val(result[0].sectionTwoEndTime);//上课时间，第二节下课
+                $("#amTime4").val(result[0].sectionThreeStartTime);//上课时间，第三节上课
+                $("#amTime5").val(result[0].sectionThreeEndTime);//上课时间，第三节下课
+                $("#amTime6").val(result[0].sectionFourStartTime);//上课时间，第四节上课
+                $("#amTime7").val(result[0].sectionFourEndTime);//上课时间，第四节下课
+                $("#amTime8").val(result[0].sectionFiveSatrtTime);//上课时间，第五节上课
+                $("#amTime9").val(result[0].sectionFiveEndTime);//上课时间，第五节下课
+
+                //下午节数
+                $("#pmTime0").val(result[0].sectionSixSatrtTime);//下午第一节上课时间
+                $("#pmTime1").val(result[0].sectionSixEndTime);//下午第一节下课时间
+                $("#pmTime2").val(result[0].sectionSevenStartTime);//下午第二节上课时间
+                $("#pmTime3").val(result[0].sectionSevenEndTime);//下午第二节下课时间
+                $("#pmTime4").val(result[0].sectionEightSatrtTime);//下午第三节上课时间
+                $("#pmTime5").val(result[0].sectionEightEndTime);//下午第三节下课时间
+
+                //晚上节数
+                $("#ngTime0").val(result[0].sectionNineStartTime);//第一节上课
+                $("#ngTime1").val(result[0].sectionNineEndTime);//第一节下课
+                $("#ngTime2").val(result[0].sectionTenStartTime);//第二节上课
+                $("#ngTime3").val(result[0].sectionTenEndTime);//第二节下课
+                $("#ngTime4").val(result[0].sectionElevenStartTime);//第三节上课
+                $("#ngTime5").val(result[0].sectionElevenEndTime);//第三节下课
+                $("#ngTime6").val(result[0].sectionTwelveStartTime);//第四节上课
+                $("#ngTime7").val(result[0].sectionTwelveEndTime);//第四节下课
+            }
+        })
+        var weekNumaHid=$("#weekNumHid").val();//上课周数
+        alert(weekNumaHid)
+        //$("#weekNum").val(weekNumHid);
+        $("#weekNum").find("option:selected").val(weekNumHid);
+        alert($("#weekNum").val());
+
+    });
+    */
+</script>
+
+
+<!--success:function(result){-->
+<!--if(result){-->
+<!--//赋值-->
+<!--$("#hi").val(result.classGrade.id-->
+
+<!--);-->
+<!--$("#className").val(result.classGrade.name-->
+
+<!--);-->
+<!--teacher_id = result.classGrade.id-->
+
+<!--;-->
+<!--$("#teacherName").val(result.classGrade.teacher_name);-->
+<!--$("#teacherPhone").val(result.classGrade.teacher_phone);-->
+<!--//循环遍历该班级下的所有老师和科目-->
+<!--$.each(result.list, function(i,item){-->
+<!--var oList = get.byClass("get")[0];-->
+<!--var oUl = get.byTagName("ul", oList)[0];-->
+<!--var aLi = get.byTagName("li", oList);-->
+<!--var oLi = document.createElement("li");-->
+<!--oLi.innerHTML = "<div class=\"label_list\">\-->
+    <!--<div class=\"subject_name\">" + item.subject_name.replace(/<[^>]*>|&nbsp;/ig, "") + "</div>\-->
+    <!--<div class=\"subject\">" + item.teacher_name + "</div>\-->
+    <!--\<div class=\"closebtn\" onclick=\"	rem($(this).parents('li').remove())\"></div>\-->
+<!--</div>";-->
+<!--//保存到数组-->
+<!--aLi.length ? oUl.insertBefore(oLi, aLi[0]) : oUl.appendChild(oLi);//添加在前面的后面-->
+<!--})-->
+<!--}-->
+
+
+</html>

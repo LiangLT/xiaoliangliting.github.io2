@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/school_common.js"></script>
+    <script>
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        $(function(){
+            changeIndex();//更新序列号
+            //新增
+            $(".addRep").click(function(){
+                $("#repModal").show();
+                $("#repModalFt a").attr("id","addRep");
+                $(".class_modal_top h3").html("添加报修类别");
+                var rep_name=$("#rep_name").val();
+
+                $("#rep_name").blur(function(){
+                    if(isBlank(rep_name)){
+                        $(".class_modal_con").css("padding","20px 20px");
+                        $(".class_modal_row .name").hide();
+                    }
+
+                });
+            });
+            //新增点击确定
+            $(document).on("click","#addRep",function(){
+                var rep_name=$("#rep_name").val();//报修名称
+                var rep_comment=$("#rep_comment").val();//备注
+                if(isBlank(rep_name)){
+                    $(".class_modal_con").css("padding","35px 20px");
+                    $(".class_modal_row .name").show();
+                    $(".class_modal_row .name b").html("报修名称不能为空!");
+                }
+                else{
+                    //后台操作
+                    alert(rep_name+rep_comment);
+                }
+
+            });
+
+            //修改
+            $(".changeRepairs").click(function(){
+                $("#repModal").show();
+                $("#repModalFt a").attr("id","changeRep");
+                $(".class_modal_top h3").html("修改报修类别");
+                var repId=
+                        '<div class="class_modal_row ">'+
+                            '<span>报修编号：</span><input type="text" id="rep_id" disabled>'+
+                        '</div>';
+                $(repId).prependTo(".class_modal_con form");
+                var repairId=$(this).parents("tr").find(".repairId").val(),//报修名称id
+                    repTdTxt=$(this).parents("tr").find("td").eq(1).text(),//报修名称
+                    repTdComment=$(this).parents("tr").find("td").eq(2).text();//报修名称
+                $("#rep_id").val(repairId);
+                $("#rep_name").val(repTdTxt);
+                $("#rep_comment").val(repTdComment);
+            });
+            //修改点击确定
+            $(document).on("click","#changeRep",function(){
+                var rep_id=$("#rep_id").val(),//报修id
+                    rep_name=$("#rep_name").val(),//报修名称
+                    rep_comment=$("#rep_comment").val();//备注
+                alert(rep_id+rep_name+rep_comment);
+            });
+
+            //删除
+            $(".delRepair").click(function(){
+                $("#cancelModal").show();
+                var repairId=$(this).parents("tr").find(".repairId").val();//报修名称id
+                var repTdTxt=$(this).parents("tr").find("td").eq(1).text();//报修名称
+                var DivRow='<p>'+"您确定要注销“"+repTdTxt+"”的学生卡吗？"+'</p>';
+                    $("#delModal").append(DivRow);
+
+                //后台操作
+                $("#delRep").click(function(){
+                    alert(repairId);
+                });
+            });
+            //查看
+            $(".viewRepair").click(function(){
+                $("#repModal").show();
+                $(".class_modal_top h3").html("查看报修类别");
+                $(".class_modal_con form").remove();
+                var listDiv=
+                        '<div class="class_modal_row ">'+
+                            '<span>报修名称：</span><div class="view viewName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                            '<span>备注：</span><div class="view inforTxt"></div> '+
+                        '</div>';
+                $(".class_modal_con").append(listDiv);
+                    var viewTxt=$(this).parents("tr").find("td").eq(1).text();
+                    var viewInfor=$(this).parents("tr").find("td p").text();
+
+                $(".viewName").text(viewTxt);
+                $(".inforTxt").text(viewInfor);
+
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<!--修改-->
+<div class="class_modal" id="repModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con">
+            <form>
+                <div class="class_modal_row ">
+                   <span>报修名称：</span><input type="text" id="rep_name" ><div class="name" style="display: none"><i class="bgRed"></i><b></b></div>
+                </div>
+               <div class="class_modal_row">
+                   <span>备注：</span><textarea id="rep_comment" onkeyup="checkLen(this)"></textarea>
+                   <p>（*备注不可超过200个字！）</p>
+               </div>
+            </form>
+        </div>
+        <div class="class_modal_footer" id="repModalFt">
+            <a href="javascript:;" >确定</a>
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+<div class="class_modal" id="cancelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+            </div>
+        <div class="class_modal_con" id="delModal"></div>
+        <div class="class_modal_footer" id="ftModal">
+            <a id="delRep" href="javascript:;">确定</a>
+        </div>
+        </div>
+    </div>
+<!--注销-->
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">报修管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_rg">
+                <a class="add_dl addRep" href="javascript:;">新增报修</a>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">名称</th>
+                    <th class="class_width">备注</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">办公用品<input type="hidden" class="repairId" value="报修名称id"></td>
+                    <td class="class_width" style="width: 100px;">
+                        <p class="ellipsis">办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品
+                            办公用品办公用品办公用品办公用品办公用品办公用品办公用品办公用品
+                        </p>
+                    </td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="changeRepairs change" type="button" value="修改">
+                            <input class="change viewRepair" type="button" value="查看">
+                            <input class="delRepair del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

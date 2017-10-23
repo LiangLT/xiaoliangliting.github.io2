@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/teacher_modal.js"></script>
+
+    <script>
+        $(function(){
+            //通知
+//            $("#send_infor").click(function(){
+//               // modalShow();
+//                var checkbox=$(".word_right input:checkbox[name='newslist']:checked").val();
+//                var textArea=$("#textarea").val();//文本框的值
+//                $(this).each(function(){
+//                    if( textArea != null && checkbox != null){
+//
+//                        $("#true_del").show();
+//                        $(".modal_body").children(".p_con").html("您确定要给学生家长发送作业吗？");
+//                        //向后台发送数据，点击弹窗确认
+//                        $(".send_True").click(function(){
+//                            $("#list li").find("input:checkbox[name='newslist']:checked").each(function(){
+//                                var seleName=$(this).parents(".label").text();
+//                                var parents=$(this).siblings("input[name='hidden']").val();
+//                                alert(textArea+','+seleName+','+parents);
+//                            });
+//                        });
+//                        return false;
+//                    }
+//                    else{
+//                        modalShow();
+//                        $(".modal_body").children(".p_con").html("请您先输入作业或先选择要发送学生姓名!");
+//                        $("#true_del").hide();
+//                    }
+//                    var divModal=$("#bg");
+//                    parent.openDialog(divModal);
+//                });
+//
+//            });
+
+        });
+    </script>
+</head>
+<body>
+    <!--通知-->
+    <div class="div_modal" id="divModal" style="display: none"></div>
+    <div class="container">
+        <div class="container_main">
+            <div class="main_edit ">
+                <div class="wording clearfix">
+                    <div class="word_send clearfix">
+                        <p>作业发布</p>
+                        <textarea id="textarea" placeholder="请输入作业" onkeyup="checkLen(this)"> </textarea>
+                        <div class="word_count">还可以输入<i id="count">200</i>个字</div>
+                        <div class="text_btn">
+                            <a id="send_infor" href="javascript:;">确定发送</a>
+                        </div>
+                    </div>
+                    <div class="word_right">
+                        <h4><input id="Checkbox1" type="checkbox" onclick="seleAll()">选择学生</h4>
+                        <ul id="list">
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓<input type="hidden" name="hidden" value=""></label></li>
+
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓444晓<input type="hidden" name="hidden" value="222"></label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓<input type="hidden" name="hidden" value="333"></label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓66晓<input type="hidden" name="hidden" value="444"></label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓<input type="hidden" name="hidden" value="555"></label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                            <li><label class="label"><input type="checkbox" name="newslist">莫晓晓</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function checkLen(obj)
+    {
+        //字符控制
+        var maxChars = 200;//最多字符数
+        if (obj.value.length > maxChars)
+            obj.value = obj.value.substring(0,maxChars);
+        var curr = maxChars - obj.value.length;
+        document.getElementById("count").innerHTML = curr.toString();
+    }
+
+
+</script>
+</html>

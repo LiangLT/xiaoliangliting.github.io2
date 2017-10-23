@@ -1,0 +1,37 @@
+html,body,div,ul,li,ol,input,textarea,span,a,img,p,h1,h2,h3,h4,h5,h6,form,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.clearfix::before,.clearfix::after{
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+}
+input,textarea {
+    outline-style: none;
+    outline: none;
+    border: 0;
+    -webkit-appearance: none;
+    resize: none;
+
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+body{
+    font-size: 14px;
+    font-family: "Î¢ÈíÑÅºÚ";
+    color: #333;
+}
+img {
+    vertical-align: middle;
+}

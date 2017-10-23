@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <link rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script src="js/school_common.js"></script>
+    <script>
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        $(function(){
+            changeIndex();//更新序列号
+
+            //实现日期选择联动
+            var start = {
+                format: 'YYYY-MM-DD',
+                minDate: '2010-01-01 23:59:59', //设定最小日期为当前日期
+                //festival:true,
+                maxDate: $.nowDate({DD:0}), //最大日期
+                choosefun: function(elem,datas){
+                    end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                    endDates();
+                },
+                okfun:function (elem,datas) {
+
+                }
+            };
+            var end = {
+                format: 'YYYY-MM-DD',
+                minDate: $.nowDate({DD:0}), //设定最小日期为当前日期
+                //festival:true,
+                maxDate: '3000-12-30 23:59:59', //最大日期
+                choosefun: function(elem,datas){
+                    start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+            function endDates() {
+                end.trigger = false;
+                $("#inpend").jeDate(end);
+            }
+            $("#sendStart").jeDate(start);
+            $("#sendEnd").jeDate(end);
+
+            //处理
+            $(".repDeal").click(function(){
+                $("#repModal").show();
+                $(".class_modal_container").css("top","10%");
+                $(".class_modal_top h3").html("报修处理");
+                $("#repModalFt a").attr("id","repDealBtn");
+                var tdTxt=$(this).parents("tr").find("td"),//td的值
+                        repDeId=$(this).parents("tr").find(".repDeId").val(),//编号id
+                    reDePhone=$(this).parents("tr").find(".reDePhone").val(),//联系方式
+                    reDeLocation=$(this).parents("tr").find(".reDeLocation").val();//联系地址
+                var repService=$(".repService").val();//维修状态
+
+                $(".repDeType").text(tdTxt.eq(1).text());
+                $(".repDeName").text(tdTxt.eq(2).text());
+                $(".repDePhone").text(reDePhone);
+                $(".repDeReason").text(tdTxt.eq(4).text());
+                $(".repDeLocation").text(reDeLocation);
+                $("#repDeId").val(repDeId);
+                $("#serviceState").val(repService);
+
+                var repServiceName=$(".repServiceName").val(),//维修人
+                        repServicePhone=$(".repServicePhone").val();//维修电话
+                $("#serviceName").val(repServiceName);//维修人
+                $("#servicePhone").val(repServicePhone);//维修电话
+
+                $("#serviceName").blur(function(){
+                    var serviceName=$(this).val();
+                    if(!isBlank(serviceName)){
+                        $(".deal1").css("margin","0");
+                        $(".class_modal_row .name1").hide();
+                    }
+                });
+
+                $("#servicePhone").blur(function(){
+                    var servicePhone=$(this).val();
+                    if(!isBlank(servicePhone)){
+                        $(".deal2").css("margin","0");
+                        $(".class_modal_row .name2").hide();
+                    }
+                });
+
+            });
+            //处理点击确认
+            $(document).on("click","#repDealBtn",function(){
+                var repDeId=$("#repDeId").val(),//报修类型id
+                    serviceName=$("#serviceName").val(),//维修人
+                    servicePhone=$("#servicePhone").val(),//维修电话
+                    serviceState=$("#serviceState").find("option:selected").val();//维修状态
+
+                if(isBlank(serviceName) || isBlank(servicePhone)){
+                    if(isBlank(serviceName)){
+                        $(".deal1").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name1").show();
+                        $(".class_modal_row .name .txt1").html("维修人不能为空!");
+                    }
+                    if(isBlank(servicePhone)){
+                        $(".deal2").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name2").show();
+                        $(".class_modal_row .name .txt2").html("维修电话不能为空!");
+                    }
+                }
+                else{
+                    alert(repDeId+serviceName+servicePhone+serviceState);
+                }
+            });
+
+            //查看
+            $(".repView").click(function(){
+                $("#repModal").show();
+                $(".class_modal_container").css("top","10%");
+                $(".class_modal_top h3").html("查看报修申请信息");
+                $(".class_modal_con form").remove();
+                $("#repModalFt a").remove();
+                var listDiv=
+                        '<div class="class_modal_row ">'+
+                        '<span>报修编号：</span><div class="view reId"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修人：</span><div class="view reName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修类别：</span><div class="view reType"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修时间：</span><div class="view reDate"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>联系电话：</span><div class="view rePhone"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>联系地址：</span><div class="view reLocation"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span class="viewSpan">原因：</span><div class="view viewReason"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>处理结果：</span><div class="view reResult"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>处理时间：</span><div class="view reSeDate"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修人：</span><div class="view reSeName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修电话：</span><div class="view reSePhone"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修状态：</span><div class="view reSeState"></div> '+
+                        '</div>';
+                $("#viewDiv1").append(listDiv);
+
+                var viewText=$(this).parents("tr").find("td"),//表格td
+                        repDeId=$(".repDeId").val(),//报修编号
+                        repAppName=$(".repAppName").val(),//报修编号
+                        reApPhone=$(".reDePhone").val(),//联系方式
+                        reApLocation=$(".reDeLocation").val(),//联系地址
+                        repDealDate=$(".repDealDate").val(),//处理时间
+                        repServiceName=$(".repServiceName").val(),//维修人
+                        repServicePhone=$(".repServicePhone").val();//维修电话
+
+                $(".reId").text(repDeId);//报修编号
+                $(".reName").text(viewText.eq(2).text());//报修人
+                $(".reType").text(viewText.eq(1).text());//报修类别
+                $(".reDate").text(viewText.eq(3).text());//报修时间
+                $(".rePhone").text(reApPhone);//报修时间
+                $(".reLocation").text(reApLocation);//报修时间
+                $(".viewReason").text(viewText.eq(4).text());//原因
+                $(".reResult").text(viewText.eq(5).text());//结果
+                $(".reSeDate").text(repDealDate);//处理时间
+                $(".reSeName").text(repServiceName);//维修人
+                $(".reSePhone").text(repServicePhone);//维修人电话
+                $(".reSeState").text(viewText.eq(6).text());//维修状态
+
+                var footerBtn='<a href="javascript:;" onclick="modalDel()" >确定</a>';
+                $("#repModalFt").append(footerBtn);
+            });
+
+        });
+
+        //查询
+        function btnRepDeal(){
+            var repType=$("#repType").find("option:selected").val();//报修类别
+            var repResult=$("#repResult").find("option:selected").val();//报修结果
+            var sendStart=$("#sendStart").val(),//报修时间
+                    sendEnd=$("#sendEnd").val(),//时间
+                    repState=$("#repState").find("option:selected").val();//维修状态
+
+            alert(repType+repResult+sendStart+sendEnd+repState);
+        }
+
+    </script>
+
+</head>
+<body>
+<!--修改-->
+<div class="class_modal" id="repModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con" id="viewDiv1">
+            <form>
+                <div class="class_modal_row">
+                    <span>报修类型：</span><div class="view repDeType"></div>
+                    <!--<input type="hidden" id="repDeId" value="报修类型id0">-->
+                </div>
+                <div class="class_modal_row">
+                    <span>报修人：</span><div class="view repDeName"></div>
+                </div>
+                <div class="class_modal_row ">
+                   <span>联系电话：</span><div class="view repDePhone"></div>
+                </div>
+                <div class="class_modal_row ">
+                   <span>联系地址：</span><div class="view repDeLocation"></div>
+                </div>
+               <div class="class_modal_row">
+                   <span class="viewSpan">原因：</span><div class="view repDeReason viewReason1"></div>
+               </div>
+                <div class="rep_title">报修处理</div>
+                <div class="class_modal_row deal1">
+                    <span>维修人：</span><input type="text" id="serviceName">
+                    <div class="name name1" style="display: none"><i class="bgRed"></i><b class="txt1"></b></div>
+                </div>
+                <div class="class_modal_row deal2">
+                    <span>维修电话：</span><input type="text" id="servicePhone">
+                    <div class="name name2" style="display: none"><i class="bgRed"></i><b class="txt2"></b></div>
+                </div>
+                <div class="class_modal_row">
+                    <span>维修状态：</span>
+                    <select id="serviceState">
+                        <option value="1">已维修</option>
+                        <option value="2">未维修</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="class_modal_footer" id="repModalFt">
+            <a href="javascript:;" >确定</a>
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+<div class="class_modal" id="cancelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+            </div>
+        <div class="class_modal_con" id="delModal"></div>
+        <div class="class_modal_footer" id="ftModal">
+            <a id="delRep" href="javascript:;">确定</a>
+        </div>
+        </div>
+    </div>
+<!--注销-->
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">报修处理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf">
+                <div class="btn">
+                    <span>报修类别：</span>
+                    <select id="repType">
+                        <option>办公用品</option>
+                        <option>办公电脑</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <span>报修时间：
+                    </span><input type="text"   class="dateIcon" id="sendStart" readonly="readonly" placeholder="请选择开始时间">-
+                    <input type="text" class="dateIcon" id="sendEnd" readonly="readonly" placeholder="请选择结束时间">
+                </div>
+                <div class="btn">
+                    <span>处理结果：</span>
+                    <select id="repResult">
+                        <option>已处理</option>
+                        <option>未处理</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <span>维修状态：</span>
+                    <select id="repState">
+                        <option>已维修</option>
+                        <option>未维修</option>
+                    </select>
+                </div>
+
+                <div class="btn">
+                    <button onclick="btnRepDeal()">查询</button>
+                </div>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">报修类别</th>
+                    <th  class="class_width ">报修人</th>
+                    <th  class="class_width ">报修时间</th>
+                    <th  class="class_width ">原因</th>
+                    <th  class="class_width ">处理结果</th>
+                    <th  class="class_width ">维修状态</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">办公用品<input type="hidden" class="repDeId" value="报修类型id"></td>
+                    <td class="class_width ">刘老师
+                        <input type="hidden" class="reDePhone" value="联系方式">
+                        <input type="hidden" class="reDeLocation" value="联系地址">
+                    </td>
+                    <td class="class_width ">2017-09-11</td>
+                    <td class="class_width" >
+                        <p class="ellipsis">办公用品
+                        </p>
+                    </td>
+                    <td class="class_width ">已处理
+                        <input type="hidden" class="repDaelName">
+                        <input type="hidden" class="repDealDate" value="处理时间">
+                    </td>
+                    <td class="class_width ">已维修
+                        <input type="hidden" class="repServiceName" value="维修人">
+                        <input type="hidden" class="repServicePhone" value="维修人的联系方式">
+                    </td>
+
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="repDeal change" type="button" value="处理">
+                            <input class="repView change" type="button" value="查看">
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

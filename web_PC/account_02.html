@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+<script src="js/jquery-1.11.1.js"></script>
+<script>
+	$(function() {
+		$(".posit_list select").click(function(){
+			$(".posit_list01").toggle();
+			
+			});
+		});
+</script>
+</head>
+
+<body id="bodyState">
+
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="#">对账</a>
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="order_info">
+                <div class="line_info02">
+                    <div class="line_info01 bor_done">
+                        <div class="line_mun">1</div>
+                        <div class="line_name">选择对账期间</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="line_info01">
+                        <div class="line_mun">2</div>
+                        <div class="line_name">核对期间下明细</div>
+                        <div class="clear"></div>
+                    </div>
+              	</div>                       
+              	<div class="line_btn">
+                    <a href="account02_info.html"><img src="images/account_info.png">对账明细</a>
+                </div>
+                <div class="auexe_btn">
+                    <a href="account02_info.html">导出execel</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="account_01">
+            	<div class="accun_date">
+                	<div class="accun_name">
+                    	<div class="posit_list">开始期间：<select><option>2016年3月</option></select></div><div class="posit_list">结束期间：<select><option>2016年3月</option></select></div>
+                        <div class="posit_list01" style="display:block;">
+                        	<span>2016-04-26<label>至</label>2016-05-25</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="accun_date">
+                	<div class="accun_name01">
+                    	期初余额：396.20
+                    </div>
+                    <div class="accun_name01">
+                    	本月余额：396.20
+                    </div>
+                    <div class="accun_name01">
+                    	完成比率：100%
+                    </div>
+                    <div class="accun_name01">
+                    	保证金余额：396.20
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="accun_date">
+                	
+                    <div class="accun_name01">
+                    	定金余额：396.20
+                    </div>
+                    <div class="accun_name01">
+                    	定金：0
+                    </div>
+                    <div class="accun_name01">
+                    	贷款余额：0
+                    </div>
+                    <div class="accun_name01">
+                    	担保余额：0
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="accun_date">
+                	
+                    <div class="accun_name01">
+                    	广告装修返点余额：0
+                    </div>
+                    <div class="accun_name01">
+                    	物料费余额：0
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="tabel_content1">
+               <table class="tablestyle1" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="bot_left" colspan="1">&nbsp;</th>
+                            <th colspan="2">交易信息</th>
+                            <th colspan="2">单据类型</th>
+                            <th colspan="1">销售金额</th>
+                            <th colspan="2">折让金额</th>
+                            <th colspan="1">折让金额</th>
+                            <th colspan="1">收款金额</th>
+                            <th colspan="1">其他费用</th>
+                            <th colspan="1">物料销售金额</th>
+                            <th colspan="1">结余</th>
+                            <th colspan="1">备注</th>
+                            <th class="bor_right" colspan="2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="trhover">
+                            <td class="br_none td_pad trhover" colspan="16">
+                                <div class="user_04">
+                                    <p><input class="checkbox02" type="checkbox"><span>全选</span></p>
+                                    <p><a href="#">核对</a></p>
+                                    <div class="clear"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr class="selecttr">
+                            <td class="bot_left" colspan="1"><input class="checkbox02" type="checkbox" checked></td>
+                            <td colspan="2">
+                                <p>2016-3-9</p>
+                                <p>SH89333322</td>
+                            <td colspan="2">
+                                正常销售
+                            </td>
+                            <td colspan="1">4452</td>
+                            <td colspan="2">
+                                0
+                            </td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">
+                                0
+                            </td>
+                            <td colspan="1">
+                                556
+                            </td>
+                            <td colspan="1">
+                                5,061,003.00
+                            </td>
+                            <td colspan="1">
+                                4,788.20
+                            </td>
+                            <td colspan="1">
+                                客户佛山出货
+                            </td>
+                            <td class="user_03 bor_right" colspan="2">
+                                已核对
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bot_left" colspan="1"><input class="checkbox02" type="checkbox" ></td>
+                            <td colspan="2">
+                                <p>2016-3-9</p>
+                                <p>SH89333322</td>
+                            <td colspan="2">
+                                正常销售
+                            </td>
+                            <td colspan="1">4452</td>
+                            <td colspan="2">
+                                0
+                            </td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">
+                                0
+                            </td>
+                            <td colspan="1">
+                                556
+                            </td>
+                            <td colspan="1">
+                                5,061,003.00
+                            </td>
+                            <td colspan="1">
+                                4,788.20
+                            </td>
+                            <td colspan="1">
+                                客户佛山出货
+                            </td>
+                            <td class="user_03 bor_right" colspan="2">
+                                <a class="accoun_info" href="capital_infomation_01mg.html">详情</a> 
+                                <a href="#">核对</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bot_left" colspan="1"><input class="checkbox02" type="checkbox" ></td>
+                            <td colspan="2">
+                                <p>2016-3-9</p>
+                                <p>SH89333322</td>
+                            <td colspan="2">
+                                正常销售
+                            </td>
+                            <td colspan="1">4452</td>
+                            <td colspan="2">
+                                0
+                            </td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">
+                                0
+                            </td>
+                            <td colspan="1">
+                                556
+                            </td>
+                            <td colspan="1">
+                                5,061,003.00
+                            </td>
+                            <td colspan="1">
+                                4,788.20
+                            </td>
+                            <td colspan="1">
+                                客户佛山出货
+                            </td>
+                            <td class="user_03 bor_right" colspan="2">
+                                <a class="accoun_info" href="capital_infomation_01mg.html">详情</a> 
+                                <a href="#">核对</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bot_left" colspan="1"><input class="checkbox02" type="checkbox" ></td>
+                            <td colspan="2">
+                                <p>2016-3-9</p>
+                                <p>SH89333322</td>
+                            <td colspan="2">
+                                正常销售
+                            </td>
+                            <td colspan="1">4452</td>
+                            <td colspan="2">
+                                0
+                            </td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">
+                                0
+                            </td>
+                            <td colspan="1">
+                                556
+                            </td>
+                            <td colspan="1">
+                                5,061,003.00
+                            </td>
+                            <td colspan="1">
+                                4,788.20
+                            </td>
+                            <td colspan="1">
+                                客户佛山出货
+                            </td>
+                            <td class="user_03 bor_right" colspan="2">
+                                <a class="accoun_info" href="capital_infomation_01mg.html">详情</a> 
+                                <a href="#">核对</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bot_left" colspan="1"><input class="checkbox02" type="checkbox" ></td>
+                            <td colspan="2">
+                                <p>2016-3-9</p>
+                                <p>SH89333322</td>
+                            <td colspan="2">
+                                正常销售
+                            </td>
+                            <td colspan="1">4452</td>
+                            <td colspan="2">
+                                0
+                            </td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">
+                                0
+                            </td>
+                            <td colspan="1">
+                                556
+                            </td>
+                            <td colspan="1">
+                                5,061,003.00
+                            </td>
+                            <td colspan="1">
+                                4,788.20
+                            </td>
+                            <td colspan="1">
+                                客户佛山出货
+                            </td>
+                            <td class="user_03 bor_right" colspan="2">
+                                <a class="accoun_info" href="capital_infomation_01mg.html">详情</a> 
+                                <a href="#">核对</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="accoun_list02">
+                            <td class="list_right" colspan="6">合计:</td>
+                            <td colspan="2">4,400,452.00</td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">0</td>
+                            <td colspan="1">4,400,452.00</td>
+                            <td colspan="1">4,400,452.00</td>
+                            <td colspan="1">4,400,452.00</td>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+                <div class="accoun_name1">请在本月对账单发出10个工作日内核对确认，如过期不核对，视为对本月对账单无异议。</div>
+            </div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/menu.js"></script>
+
+<script type="text/javascript">
+function setTab(name,cursel,n){
+	for(i=1;i<=n;i++){
+	  var menu=document.getElementById(name+i);
+	  var con=document.getElementById("con_"+name+"_"+i);
+	  menu.className=i==cursel?"hover":"";
+	  con.style.display=i==cursel?"block":"none";
+	}
+}
+</script>
+
+</head>
+
+<body>
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="order.html">我的订货</a><span>></span><a href="#">订货详情</a>
+            <div class="con_back">
+            	<a href="#">返回</a>
+            </div>
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="information">
+                 <h3>订货单</h3>
+                 <div class="order_panelss">
+                    <div class="plans">
+                         <span>订货单号：201345333344455</span>
+                    </div>
+                    <div class="plans">
+                         <span>订货日期：2016-3-3</span>
+                    </div>
+                    <div class="plans">
+                        <span>交易状态：商家已审核</span>
+                    </div>
+                    <div class="clear"></div>
+                 </div>
+                 <div class="order_panelss">
+                     <span>客户：广东新陶源陶瓷营销部</span>
+                 </div>
+                 <div class="clear"></div>
+            </div>
+            <div class="panel_content">
+                <div id="lib_Tab1" class="lib_Tab01">
+                    <div class="lib_Menubox01">
+                        <ul>
+                          <li id="one1" onclick="setTab('one',1,4)" class="hover">原始单明细</li>
+                          <li id="one2" onclick="setTab('one',2,3)" >商家审核明细</li>
+                          <li id="one3" onclick="setTab('one',3,4)" >提货计划</li>
+                          <li id="one4" onclick="setTab('one',4,4)" >已提明细</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lib_Contentbox01 lib_tabborder">  
+                        <div id="con_one_1">
+                        	<div class="tabel_content1">
+                               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="bot_left width_01">产品</th>
+                                            <th colspan="1">单价（元）</th>
+                                            <th colspan="1">数量</th>
+                                            <th colspan="1">货品重量</th>
+                                            <th class="bor_right" colspan="2">产品金额</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">25.50/片</td>
+                                            <td colspan="1">350350350片</td>
+                                            <td colspan="1">16KG</td>
+                                            <td class="bor_right" colspan="2">
+                                                <p>￥5,000.00</p>
+                                                <p>运费：￥80.00</p>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                       
+                                        <tr>
+                                            <td class="bor_right bot_left all_shop" colspan="11">
+                                                <span>货品重量：300KG</span>
+                                                <span>订货金额：￥4000.00</span>
+                                            </td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="oin_name">
+                            	<span>备注：原始单明细</span>
+                            </div>
+                        </div>
+                      
+                      <div id="con_one_2"  style="display:none;">
+                        	<div class="tabel_content1">
+                               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                        	<th class="bot_left" colspan="1">产品</th>
+                                            <th colspan="1">单价（元）</th>
+                                            <th colspan="1">数量</th>
+                                            <th colspan="1">货品重量</th>
+                                            <th colspan="1">产品金额</th>
+                                            <th colspan="1">提货量</th>
+                                            <th colspan="1">未提量</th>
+                                            <th colspan="1">冲销量</th>
+                                             <th class="bor_right" colspan="1">退货量</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td class="bot_left" colspan="1">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">25.50/片</td>
+                                            <td colspan="1">350,350,350.00箱</td>
+                                            <td colspan="1">16KG</td>
+                                            <td colspan="1">
+                                                <p>26455000.00</p>
+                                                <div class="panel_span" id="menu">
+                                                    <ul class="nav_01">
+                                                        <li><span>其他费用：5.00</span><a class="img_r"><img src="images/ice_info.png"></a>
+                                                            <div class="panel_s01">
+                                                                <ul>
+                                                                    <li class="bg_list">其他费用详情：</li>
+                                                                    <li>装车费￥3.00</li>
+                                                                    <li>包装费￥2.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">100箱</td>
+                                            <td colspan="1">250箱</td>
+                                            <td colspan="1">100</td>
+                                            <td class="bor_right" colspan="1">100</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left" colspan="1">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">25.50/片</td>
+                                            <td colspan="1">350,350,350.00箱</td>
+                                            <td colspan="1">16KG</td>
+                                            <td colspan="1">
+                                                <p>26455000.00</p>
+                                                <div class="panel_span" id="menu">
+                                                    <ul class="nav_01">
+                                                        <li><span>其他费用：5.00</span><a class="img_r"><img src="images/ice_info.png"></a>
+                                                            <div class="panel_s01">
+                                                                <ul>
+                                                                    <li class="bg_list">其他费用详情：</li>
+                                                                    <li>装车费￥3.00</li>
+                                                                    <li>包装费￥2.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">100箱</td>
+                                            <td colspan="1">250箱</td>
+                                            <td colspan="1">100</td>
+                                            <td class="bor_right" colspan="1">100</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left" colspan="1">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">25.50/片</td>
+                                            <td colspan="1">350,350,350.00箱</td>
+                                            <td colspan="1">16KG</td>
+                                            <td colspan="1">
+                                                <p>26455000.00</p>
+                                                <div class="panel_span" id="menu">
+                                                    <ul class="nav_01">
+                                                        <li><span>其他费用：5.00</span><a class="img_r"><img src="images/ice_info.png"></a>
+                                                            <div class="panel_s01">
+                                                                <ul>
+                                                                    <li class="bg_list">其他费用详情：</li>
+                                                                    <li>装车费￥3.00</li>
+                                                                    <li>包装费￥2.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">100箱</td>
+                                            <td colspan="1">250箱</td>
+                                            <td colspan="1">100</td>
+                                            <td class="bor_right" colspan="1">100</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left" colspan="1">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">25.50/片</td>
+                                            <td colspan="1">350,350,350.00箱</td>
+                                            <td colspan="1">16KG</td>
+                                            <td colspan="1">
+                                                <p>26455000.00</p>
+                                                <div class="panel_span" id="menu">
+                                                    <ul class="nav_01">
+                                                        <li><span>其他费用：5.00</span><a class="img_r"><img src="images/ice_info.png"></a>
+                                                            <div class="panel_s01">
+                                                                <ul>
+                                                                    <li class="bg_list">其他费用详情：</li>
+                                                                    <li>装车费￥3.00</li>
+                                                                    <li>包装费￥2.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td colspan="1">100箱</td>
+                                            <td colspan="1">250箱</td>
+                                            <td colspan="1">100</td>
+                                            <td class="bor_right" colspan="1">100</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td class="bor_right bot_left all_shop" colspan="12">
+                                                <span>货品总重：300KG</span>
+                                                <span>订货金额：￥4000.00元</span>
+                                            </td>
+                                        </tr> 
+                                    </tbody>
+                                   
+                                </table>
+                          </div>
+                          <div class="oin_name">
+                            <span>备注：商家审核明细</span>
+                         </div>
+                        </div>
+                      
+                        <div id="con_one_3" style="display:none;">
+                       		<div class="tabel_content1">
+                               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="bot_left width_01">产品</th>
+                                            <th colspan="1">计划提货量</th>
+                                            <th colspan="1">合计量</th>
+                                            <th colspan="1">状态</th>
+                                            <th class="bor_right" colspan="2">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td class="bot_left bor_right order_span" colspan="6">
+                                                <span>2016-3-8</span>
+                                                <span>XS4234442</span>
+                                                <span>江门</span>
+                                                <span>计划提货：2016-3-8</span>
+                                                <div class="ab_right">
+                                                    <span>司机：李要来</span>
+                                                    <span>车牌：324566</span>
+                                                </div>
+                                                
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>700KG</p>
+                                                <p>200KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>等待商家审核</p>
+                                            </td>
+                                            <td class="del_btn bor_right" colspan="2" rowspan="2">
+
+                                                <p><a href="plan_order.html">详情</a></p>
+                                                <div class="ornow_shop01">
+                                                    <a href="edit_planorder.html">货运信息修改</a>
+                                                </div>
+                                                <div class="ornow_shop01">
+                                                    <a href="#">取消提货计划</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td class="bot_left bor_right order_span" colspan="6">
+                                                <span>2016-3-8</span>
+                                                <span>XS4234442</span>
+                                                <span>江门</span>
+                                                <span>计划提货：2016-3-8</span>
+                                                <div class="ab_right">
+                                                    <span>司机：李要来</span>
+                                                    <span>车牌：324566</span>
+                                                </div>
+                                                
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>700000KG</p>
+                                                <p>200KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>等待商家审核</p>
+                                            </td>
+                                            <td class="del_btn bor_right" colspan="2" rowspan="2">
+
+                                                <p><a href="#">详情</a></p>
+                                                <div class="ornow_shop01">
+                                                    <a href="#">货运信息修改</a>
+                                                </div>
+                                                <div class="ornow_shop01">
+                                                    <a href="#">取消提货计划</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                      
+                        <div id="con_one_4" style="display:none" >
+                      		<div class="tabel_content1">
+                               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="bot_left width_01">产品</th>
+                                            <th colspan="1">提货量</th>
+                                            <th colspan="1">合计提货量</th>
+                                            <th class="bor_right" colspan="2">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td class="bot_left bor_right order_span" colspan="6">
+                                                <span>2016-3-8</span>
+                                                <span>XS4234442</span>
+                                                <span>江门</span>
+                                                <div class="ab_right">                                                </div>
+                                                
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>700KG</p>
+                                                <p>200KG</p>
+                                            </td>
+                                            <td class="del_btn bor_right" colspan="2" rowspan="2">
+                                                <p><a href="plan_orderinfor.html">详情</a></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td class="bot_left bor_right order_span" colspan="6">
+                                            	
+                                                <span>2016-3-8</span>
+                                                <span>XS4234442</span>
+                                                <span>江门</span>
+                                                <div class="ab_right"> </div>
+                                                
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                   <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            <td class="bor_right" colspan="1" rowspan="2">
+                                                <p>700000KG</p>
+                                                <p>200KG</p>
+                                            </td>
+                                            <td class="del_btn bor_right" colspan="2" rowspan="2">
+                                                <p><a href="plan_orderinfor.html">详情</a></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bot_left width_01">
+                                                <div class="position position01">
+                                                    <div class="posit_left">
+                                                        <img src="images/info_img.jpg">
+                                                    </div>
+                                                    <div class="posit_right">
+                                                        <h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                                        
+                                                        <div class="span_pad">
+                                                            <span>规格：800*800</span>
+                                                            <span>优等</span>
+                                                            <span>24g</span>
+                                                        </div>
+                                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                                        <p>色号：20160407</p>
+                                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </td>
+                                            <td class="bor_right" colspan="1">
+                                            	<p>350片</p>
+                                            	<p>100KG</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>		
+                    </div>	
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //更新序列号
+        function changeIndex(){
+            var i=1;
+            $(".class_tabel tbody tr").each(function(){
+                $(this).find("td:first").text(i++);
+            });
+        }
+        //关闭modal
+        function classModal(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        //关闭modal,删除弹窗
+        function closeModal(){
+            $("#modalClose").remove();
+        }
+        //字符控制
+        function checkLen(obj)
+        {
+            var maxChars = 30;//最多字符数
+            if (obj.value.length > maxChars){
+                obj.value = obj.value.substring(0,maxChars);
+            }
+        }
+        //判断是否为数字
+        function isNumber(str){
+            var number=/^([0-9]\d?|100)$/;//只可以输入1-100
+            return number.test(str);//test用来测试对象的格式
+        }
+
+        $(function(){
+            changeIndex();//更新序列号
+        });
+        //modal
+        var modalDiv=
+                '<div class="class_modal" id="modalClose">' +
+                '<div class="class_modal_container">' +
+                '<div class="class_modal_top clearfix">' +
+                '<h3></h3><i onclick="closeModal()">X</i>' +
+                '</div>' +
+                '<div class="class_modal_con" id="delModal"></div>' +
+                '<div class="class_modal_footer" id="ftModal"></div>' +
+                '</div>' +
+                '</div>';
+
+            //新增班级德育
+            $(document).on("click",".classEduAdd",function(){
+                $(".class_modal").show();
+                $(".class_modal_top h3").html("添加班级德育");
+                $(".class_modal_footer a").attr("id","classEdSave");
+                var addNum=
+                        '<div class="class_modal_row">'+
+                            '<span>德育分数：</span>'+
+                            '<input class="edNum" type="text" id="edNum">'+
+                            '<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>'+
+                            '<a class="edSave" href="javascript:;">保存</a>'+
+                        '</div>' +
+                        '<div class="class_modal_row">'+
+                            '<span>已选德育：</span>'+
+                            '<ul id="listEd" class="clearfix">'+
+                            '</ul>'+
+                        '</div>';
+                $("#conNum").append(addNum);
+                //德育分数获取焦点
+                $("#edNum").blur(function(){
+                    if(!isNumber($(this).val())){
+                        $(".class_modal_row .name").show();
+                        $(".class_modal_row .name b").html("*请输入分数，分数为0-100分！");
+                    }
+                    else{
+                        $(".class_modal_row .name").hide();
+                    }
+                });
+
+                //点击保存
+                $(".edSave").click(function(){
+                    var edName=$("#edName").find("option:selected").val(),//德育类型
+                            edNum=$("#edNum").val(),
+                            listEd=$("#listEd");
+                    if(!isNumber(edNum)){
+                        $(".class_modal_row .name").show();
+                        $(".class_modal_row .name b").html("*请输入分数，分数为0-100分！");
+                    }
+                    else{
+                        var list="<li>"+edName+'，'+edNum+"<i>X</i><input type='hidden' id='clEdId' value='"+edName+"'></li>";
+                        $(list).prependTo(listEd);
+
+                    }
+                    var listEds=$("#listEd").find("li").length;
+                    if(listEds>1){
+                        $(".class_modal_container").css("top","10%");
+                        $(".class_modal_con").css("height","550px");
+                    }
+                    //del
+                    $("#listEd i").click(function(){
+                        var clEdId=$("#clEdId").val();
+                        alert(clEdId);
+                        $(this).parent("li").remove();
+                    });
+                });
+
+            });
+            //新增班级德育，点保存的按钮，后台操作
+            $(document).on("click","#classEdSave",function(){
+                var class_id_opt=$("#class_id").find("option:selected").val(),//被选中的班级option的值
+                    edName=$("#edName").find("option:selected").val(),//被选中的德育类型option的值
+                    edNum=$("#edNum").val(),//德育分数
+                    creaName=$("#creaName").val();//创建人
+                var listEd=$("#listEd").find("li").length;//
+                if(listEd<1){
+                    alert("请先把德育类型和德育分数保存！再点确认！")
+                }
+                else{
+                    //后台操作
+                    alert(edName+','+creaName+','+class_id_opt+','+edNum);
+                }
+            });
+
+            //删除
+            $(function(){
+                $(".edu_del").click(function(){
+                    $(modalDiv).prependTo("body");
+                    $(".class_modal_top h3").html("温馨提示");
+                    $(this).parents("tr").find(".eduTypeId").attr("id","classEdId");//给德育编号隐藏值添加一个id
+                    var classEdId=$(this).parents("tr").find("#classEdId").val(),//德育编号隐藏值
+                            claId=$(this).parents("tr").find(".claId").text(),//班级
+                            class_edu_title=$(this).parents("tr").find(".class_edu_title").text();//德育名称
+                    var DivRow='<p>'+"您确定要删除“"+claId+"的"+class_edu_title+"”吗？"+'</p>';
+                    $("#delModal").append(DivRow);
+                    var footerBtn='<a id="delEdu" href="javascript:;">确定</a>';
+                    $("#ftModal").append(footerBtn);
+
+                    //后台操作
+                    $("#delEdu").on("click",function(){
+                        alert(classEdId);
+                    });
+                });
+            });
+
+            //修改班级德育
+            $(document).on("click",".edu_change",function(){
+                $(".class_modal").show();
+                $(".class_modal_top h3").html("修改班级德育");
+                $(".class_modal_footer a").attr("id","classEdChange");
+                $("#conNum form").children(".nameEdu").remove();
+                var addEdName=
+                        '<div class="class_modal_row">'+
+                        '<span>班德编号：</span><input type="text" id="eduTypeId" disabled>'+
+                        '</div>'+
+                        '<div class="class_modal_row">'+
+                            '<span>班级：</span><input type="text" id="class_id" disabled><input type="hidden" id="classId" value="">'+
+                        '</div>';
+                $(addEdName).prependTo("#conNum form");
+                var addNum=
+                        '<div class="class_modal_row">'+
+                            '<span>德育分数：</span>' +
+                            '<input type="text" id="edNum">'+
+                            '<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>'+
+                        '</div>';
+                $("#conNum").find("form").append(addNum);
+                $("#creaName").attr("disabled","disabled");
+                var  claId=$(this).parents("tr").find(".claId").text(),//班级,//表格td
+                        classEdType=$(this).parents("tr").find(".classEdType").val(),//德育类型
+                        classNum=$(this).parents("tr").find(".classNum").text(),//表格td
+                        teacherName=$(this).parents("tr").find(".teacherName").text(),//创建人
+                        eduTypeId=$(this).parents("tr").find(".eduTypeId").val(),//隐藏值班德编号
+                        classId=$(this).parents("tr").find(".classId").val();//隐藏值班级编号
+                    $("#class_id").val(claId);
+                    $("#edName").val(classEdType);
+                    $("#edNum").val(classNum);
+                    $("#creaName").val(teacherName);
+                    $("#eduTypeId").val(eduTypeId);
+                    $("#classId").val(classId);
+
+                //德育分数获取焦点
+                $("#edNum").blur(function(){
+                    if(!isNumber($(this).val())){
+                        $(".class_modal_row .name").show();
+                        $(".class_modal_row .name b").html("*请输入分数，分数为0-100分！");
+                    }
+                    else{
+                        $(".class_modal_row .name").hide();
+                    }
+                });
+            });
+            //修改确定按钮，后台操作
+        $(document).on("click","#classEdChange",function(){
+            var  class_id=$("#class_id").val(),//班级
+                    edName=$("#edName").find("option:selected").val(),//被选中的德育类型option的值
+                    edNum=$("#edNum").val(),//德育分数
+                    creaName=$("#creaName").val(),//创建人
+                    eduTypeId= $("#eduTypeId").val(),//班德编号
+                    classId= $("#classId").val();//班级id
+
+        });
+
+        //条件查询
+        $(document).on("click","#eduSearch",function(){
+            var eduSearchCla=$("#eduSearchCla").find("option:selected").val();//班级的option值
+            var eduType=$("#eduType").find("option:selected").val();//德育类型的option值
+            //alert(eduSearchCla+eduType);
+        });
+    </script>
+
+</head>
+<body>
+    <div class="class_modal" style="display: none">
+        <div class="class_modal_container">
+            <div class="class_modal_top clearfix">
+                <h3></h3><i onclick="classModal()">X</i>
+            </div>
+            <div class="class_modal_con" id="conNum">
+                <form>
+                    <div class="class_modal_row nameEdu">
+                        <span>班级：</span><select id="class_id">
+                            <option value="1">六年级（1）班</option>
+                            <option value="2">六年级（2）班</option>
+                            <option value="3">六年级（3）班</option>
+                        </select>
+                    </div>
+                    <div class="class_modal_row">
+                        <span>创建人：</span><input type="text" id="creaName">
+                    </div>
+                    <div class="class_modal_row">
+                        <span>德育类型：</span><select id="edName">
+                            <option value="1">爱国主义 </option>
+                            <option value="2">理想教育</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="class_modal_footer">
+                <a href="javascript:;" id="classEdSave" >确定</a>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">班级德育管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf clearfix">
+                <div class="btn">
+                    <span>班级：</span>
+                    <select id="eduSearchCla"><option value="777">888</option></select>
+                </div>
+                <div class="btn">
+                    <span>德育类型：</span>
+                    <select id="eduType"><option value="777">888</option></select>
+                </div>
+                <div class="btn">
+                    <button id="eduSearch">查询</button>
+                </div>
+            </div>
+            <div class="class_rg">
+                <a class="add_dl classEduAdd" href="javascript:;">新增班级德育</a>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">班级</th>
+                    <th  class="class_width">德育类型</th>
+                    <th class="class_width">分数</th>
+                    <th class="class_width">创建人</th>
+                    <th class="class_width">操作时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width claId">六年级（1）班<input class="eduTypeId" type="hidden" value="999"><input class="classId" type="hidden" value="888"></td>
+                    <td class="class_width class_edu_title">理想教育<input class="classEdType" type="hidden" value="2"></td>
+                    <td class="class_width classNum">100</td>
+                    <td class="class_width teacherName">刘老师</td>
+                    <td class="class_width">2017-09-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="edu_change change" type="button" value="修改">
+                            <input class="edu_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width claId">六年级（2）班</td>
+                    <td class="class_width class_edu_title">理想教育<input class="classEdType" type="hidden" value="2"></td>
+                    <td class="class_width classNum">100</td>
+                    <td class="class_width teacherName">刘老师</td>
+                    <td class="class_width">2017-09-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="edu_change change" type="button" value="修改">
+                            <input class="edu_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width claId">六年级（3）班</td>
+                    <td class="class_width class_edu_title">理想教育<input class="classEdType" type="hidden" value="2"></td>
+                    <td class="class_width classNum">100</td>
+                    <td class="class_width teacherName">刘老师</td>
+                    <td class="class_width">2017-09-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="edu_change change" type="button" value="修改">
+                            <input class="edu_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width claId">六年级（4）班</td>
+                    <td class="class_width class_edu_title">爱国主义<input class="classEdType" type="hidden"  value="1"></td>
+                    <td class="class_width classNum">100</td>
+                    <td class="class_width teacherName">刘老师</td>
+                    <td class="class_width">2017-09-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="edu_change change" type="button" value="修改">
+                            <input class="edu_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

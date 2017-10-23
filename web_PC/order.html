@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+
+
+<script type="text/javascript">
+function setTab(name,cursel,n){
+	for(i=1;i<=n;i++){
+	  var menu=document.getElementById(name+i);
+	  var con=document.getElementById("con_"+name+"_"+i);
+	  menu.className=i==cursel?"hover":"";
+	  con.style.display=i==cursel?"block":"none";
+	}
+}
+</script>
+
+</head>
+
+<body>
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="#">我的订货</a>
+            
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="search01">
+            	<div id="lib_Tab1" class="lib_Tab">
+                    <div class="lib_Menubox">
+                        <ul>
+                          <li id="one1" onclick="setTab('one',1,4)" class="hover">单号</li>
+                          <li id="one2" onclick="setTab('one',2,3)" >产品</li>
+                          <li id="one3" onclick="setTab('one',3,4)" >司机</li>
+                          <li id="one4" onclick="setTab('one',4,
+                          4)" >车牌号码</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lib_Contentbox lib_tabborder">  
+                      <div id="con_one_1">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入订单单号"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      
+                      <div id="con_one_2" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入产品"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      <div id="con_one_3" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入司机姓名"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      <div id="con_one_4" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入车牌号码"><a href="#">搜索</a>
+                        </div>
+                      </div>	
+                    </div>	
+                </div>
+            
+                <div class="clear"></div>
+            </div>
+            <div class="con_heading">
+                <div class="col-xs-5 ">
+                    <div class="s_input">
+                    	<span>日期：</span><input type="text"><img src="images/dateIco.png"><span>至</span><input type="text"><img src="images/dateIco.png">
+                    </div>
+                </div>
+                <div class="col-xs-3 ">
+                	<div class="s_input">
+                    	<span>单据状态</span><select><option>作废</option></select>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-xs-2">
+                	<div class="s_input">
+                    	<span>产品情况</span><select><option>待审核</option></select>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-xs-2">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="tabel_content1">
+            	<div class="user_10">
+                    <input class="checkbox02" type="checkbox"><span>全选</span>
+                    <a href="#">合并派车</a>
+                </div>
+                <div class="exe_btn">
+                	<a href="#">导出execel</a>
+                </div>
+                <div class="clear"></div>
+               <table class="tablestyle tabel_mar" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                    	<tr>
+                        	<td class="bot_left backgroung"><input class="checkbox03" type="checkbox"></td>
+                        	<td class=" bor_right order_span backgroung" colspan="8">
+                            	
+                                <span>XS4234442</span>
+                                <span>2016-3-8</span>
+                                <span>江门</span>
+                                <span>32KG</span>
+                                <span>￥100,000.00</span>
+                                <span class="fl_right blue">已完成</span>
+                                <div class="clear"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th colspan="1"  class="bot_left" >&nbsp;
+                            	
+                            </th>
+                            <th class="width_01" >产品</th>
+                            <th colspan="1">单价（元）</th>
+                            <th colspan="1">数量</th>
+                            <th colspan="1">货品重量</th>
+                            <th colspan="1">订货金额</th>
+                            <th colspan="2">状态</th>
+                            <th class="bor_right width_02">操作</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td class="bot_left" colspan="1"><input class="checkbox03" type="checkbox"></td>
+                        	<td class="width_01">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="1">350,350.00箱</td>
+                            <td colspan="1">16KG</td>
+                            <td colspan="1">
+                            	<p>￥5,000.00</p>
+                                <p>运费：￥80.00</p>
+                            </td>
+                             <td class="bor_right"  colspan="2">
+                                <p>待审核</p>
+                            </td>
+                            <td class="del_btn bor_right width_02" rowspan="4">
+                            	<p><a href="order_information.html">详情</a></p>
+                                <div class="ornow_shop">
+                                	<a href="order_carser01.html">我要派车</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="ornow_shop">
+                                	<a href="#">修改订单</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="ornow_shop01">
+                                	<a href="edit_planorder.html">取消订单</a>
+                                	<div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left tabft bor_right" colspan="8">
+                            	<span>开单量：20</span>
+                                <span>未提量：5</span>
+                                <span>派车量：15</span>
+                                <span>已提量：15</span>
+                                <span>冲销量：0</span>
+                                <span>退货量：0</span>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="1"><input class="checkbox03" type="checkbox"></td>
+                        	<td  class="width_01">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="1">350箱</td>
+                            <td colspan="1">16KG</td>
+                            <td colspan="1">
+                            	<p>￥5,000.00</p>
+                                <p>运费：￥80.00</p>
+                            </td>
+                             <td class="bor_right"  colspan="2">
+                            	<p>待审核</p>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                        	<td class="bot_left tabft bor_right" colspan="8">
+                            	<span>开单量：20</span>
+                                <span>未提量：5</span>
+                                <span>派车量：15</span>
+                                <span>已提量：15</span>
+                                <span>冲销量：0</span>
+                                <span>退货量：0</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <table class="tablestyle tabel_mar" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                    	<tr>
+                        	<td class="bot_left backgroung"><input class="checkbox03" type="checkbox"></td>
+                        	<td class=" bor_right order_span backgroung" colspan="8">
+                            	
+                                <span>XS4234442</span>
+                                <span>2016-3-8</span>
+                                <span>江门</span>
+                                <span>32KG</span>
+                                <span>￥100,000.00</span>
+                                <span class="fl_right blue">已完成</span>
+                                <div class="clear"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th colspan="1"  class="bot_left" >&nbsp;
+                            	
+                            </th>
+                            <th class="width_01" >产品</th>
+                            <th colspan="1">单价（元）</th>
+                            <th colspan="1">数量</th>
+                            <th colspan="1">货品重量</th>
+                            <th colspan="1">订货金额</th>
+                            <th colspan="2">状态</th>
+                            <th class="bor_right width_02">操作</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td class="bot_left" colspan="1"><input class="checkbox03" type="checkbox"></td>
+                        	<td class="width_01">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="1">350,350.00箱</td>
+                            <td colspan="1">16KG</td>
+                            <td colspan="1">
+                            	<p>￥5,000.00</p>
+                                <p>运费：￥80.00</p>
+                            </td>
+                             <td class="bor_right"  colspan="2">
+                                <p>待审核</p>
+                            </td>
+                            <td class="del_btn bor_right width_02" rowspan="4">
+                            	<p><a href="order_information.html">详情</a></p>
+                                <div class="ornow_shop">
+                                	<a href="order_carser01.html">我要派车</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="ornow_shop">
+                                	<a href="#">修改订单</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="ornow_shop01">
+                                	<a href="edit_planorder.html">取消订单</a>
+                                	<div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left tabft bor_right" colspan="8">
+                            	<span>开单量：20</span>
+                                <span>未提量：5</span>
+                                <span>派车量：15</span>
+                                <span>已提量：15</span>
+                                <span>冲销量：0</span>
+                                <span>退货量：0</span>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="1"><input class="checkbox03" type="checkbox"></td>
+                        	<td  class="width_01">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="1">350箱</td>
+                            <td colspan="1">16KG</td>
+                            <td colspan="1">
+                            	<p>￥5,000.00</p>
+                                <p>运费：￥80.00</p>
+                            </td>
+                             <td class="bor_right"  colspan="2">
+                            	<p>待审核</p>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                        	<td class="bot_left tabft bor_right" colspan="8">
+                            	<span>开单量：20</span>
+                                <span>未提量：5</span>
+                                <span>派车量：15</span>
+                                <span>已提量：15</span>
+                                <span>冲销量：0</span>
+                                <span>退货量：0</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <table class="tablestyle tabel_mar" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <tfoot>
+                    	<tr>
+                        	<td class="bot_left bor_right bor_top" colspan="10">
+                            	<div class="foot_page">
+                                	<a class="page_01" href="#">上一页</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">6</a>
+                                    <a href="#">7</a>
+                                    <span>...</span>
+                                    <a class="page_01" href="#">下一页</a>
+                                    <span>共18页</span><span>到第</span><input class="input_02" type="text">页<button>确定</button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title>stocking</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/simpla.jquery.configuration.js" type="text/javascript"></script>
+<script>
+	$(function() {
+        $(".search_01").click(function(){
+			$(".search_content").toggle();
+			});
+			
+		$("#myBtn01").click(function(){
+				$("#myDiv05 .windows").show();
+				$(".mengban").show();
+				document.getElementById("bodyState").className ="scrollState_hidden";
+			});
+			$("#closeBtn01").click(function(){
+				$("#myDiv05 .windows").hide();
+				$(".mengban").hide();
+				document.getElementById("bodyState").className ="scrollState_auto";
+			});
+			
+		$("#loading_search").click(function(){
+				$("tbody.load ").show();
+				$("tbody#tbody_load").hide();
+				$("tfoot#tfoot_load").hide();
+				document.getElementById("bodyState").className ="scrollState_hidden";
+			});
+		
+		$("#cilck").click(function(){
+			$("#cilck_01").show();
+			});
+		$(".ice_btn").click(function(){
+			$("#cilck_01").hide();
+			});
+			
+		$("#more_01").click(function(){
+			$("#search_con01").hide();
+			$("#sea_con_01").show();
+			});
+		$("#valu_flase").click(function(){
+			$("#sea_con_01").hide();
+			$("#search_con01").show();
+			});
+		});
+</script>
+</head>
+
+<body id="bodyState">
+<!--modal-->
+	<div class="mengban"></div>
+	<div id="myDiv05">
+        <div class="windows windows_layout_03">
+            <div class="window_Head">
+            	加入购物车
+              <div id="closeBtn01" class="ico_close"><img src="images/ico_close.png" width="16" height="8"></div>
+            </div>
+            <div class="window_Content">
+            	<div class="reason_01">
+                	<img src="images/find_finally.png">已成功加入购物车
+                </div>
+            </div>
+            <div class="windows_Footer">
+                <div class="btnArea">
+                    <a class="btn" href="stocking.html">返回产品列表</a>
+                    <a class="wbtn01" href="shopping.html">去购物车结算</a>
+                </div>
+            </div>
+  		</div>
+	</div>
+    
+<!--modal-->
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+      <div class="con_nav">
+      	当前位置：经销商服务中心<span>></span><a href="#">库存查询</a>
+      </div>
+      <div class="content_tab bor_top">
+       	  <div class="search">
+            	<div class="search_left">
+                	<input type="text" placeholder="请输入产品名称或编号"><a id="loading_search" href="#">搜索</a>
+                </div>
+                <div class="search_right">
+                	<a href="shopping.html"><img src="images/ice_guowubg.png"><span>购物车</span></a>
+                    
+                    <div class="right_mun">6</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="great_search">
+            	<div class="search_02">
+                	<span>所有分类</span><span>></span>
+                    <a class="search_style" id="cilck_01" href="#">提货点：广州<span class="ice_btn"></span></a>
+                </div>
+            	<div class="search_01">高级筛选 </div>
+                <div class="clear"></div>
+                <div class="search_content" style="display:none">
+                	<!--提货点 -->
+                    <div class="sea_con bor_bottom">
+                    	<div class="search_con01" id="search_con01">
+                            <div class="sea_left">
+                                提货点：
+                            </div>
+                            <div class="sea_middle">
+                                <ul>
+                                    <li><a href="#">不限</a></li>
+                                    <li><a id="cilck" href="#">广州</a></li>
+                                    <li><a class="blue_color" href="#">中山</a></li>
+                                    <li><a href="#">广西</a></li>
+                                    <li><a href="#">江门</a></li>
+                                    <li><a href="#">珠海</a></li>
+                                    <li><a href="#">不限</a></li>
+                                    <li><a href="#">广州</a></li>
+                                    <li><a class="blue_color" href="#">中山</a></li>
+                                    <li><a href="#">广西</a></li>
+                                    <li><a href="#">江门</a></li>
+                                    <li><a href="#">珠海</a></li>
+                                    <li><a href="#">不限</a></li>
+                                    <li><a href="#">广州</a></li>
+                                    <li><a class="blue_color" href="#">中山</a></li>
+                                    <li><a href="#">广西</a></li>
+                                    <li><a href="#">江门</a></li>
+                                    <li><a href="#">珠海</a></li>
+                                </ul>
+                            </div>
+                            <div class="sea_right">
+                                <a class="more_01" id="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                        <!--点开多选提货点 -->
+                        <div class="sea_con_01" id="sea_con_01" style="display:none">
+                        	<div class="sea_left">
+                                提货点：
+                            </div>
+                            <div class="sea_middle stoking_middle">
+                                <ul>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                     <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                     <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                     <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                     <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广州</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">中山</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">广西</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">江门</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">
+                                    珠海</a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="list_up">
+                                		<a class="valu_true" href="#">确认</a><a class="valu_flase" id="valu_flase" href="#">取消</a>
+                            		</div>
+
+                        </div>
+                    </div>
+                    <!--提货点 -->
+                    <!--等级 -->
+                    <div class="sea_con bor_bottom">
+                    	<div class="search_con01">
+                        	<div class="sea_left">
+                                等级：
+                            </div>
+                            <div class="sea_middle">
+                                <ul>
+                                    <li><a href="#">不限</a></li>
+                                    <li><a href="#">优等</a></li>
+                                    <li><a class="blue_color" href="#">一等</a></li>
+                                    <li><a href="#">二等</a></li>
+                                    <li><a href="#">合格</a></li>
+                                </ul>
+                            </div>
+                            <div class="sea_right">
+                                <a class="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                    	<!--点击多选等级 -->
+                        <div class="sea_con_01"  style="display:none">
+                        	<div class="sea_left">
+                                等级：
+                            </div>
+                            <div class="sea_middle stoking_middle">
+                                <ul>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">优等</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">一等</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">二等</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">合格</a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="list_up">
+                                <a class="valu_true" href="#">确认</a><a class="valu_flase" href="#">取消</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--等级 -->
+                    <!--产品类别-->
+                    <div class="sea_con bor_bottom">
+                    	<div class="search_con01">
+                        	<div class="sea_left">
+                                产品类别：
+                            </div>
+                            <div class="sea_middle">
+                                <ul>
+                                    <li><a class="blue_color" href="#">不限</a></li>
+                                    <li><a href="#">XXXXX</a></li>
+                                    <li><a href="#">XXXXXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                    <li><a href="#">XXXXXXX</a></li>
+                                </ul>
+                            </div>
+                            <div class="sea_right">
+                                <a class="more_02" href="#">更多</a>
+                                <a class="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                    	<!--点开产品类别多选 -->
+                        <div class="sea_con_01"  style="display:none">
+                        	<div class="sea_left">
+                                产品类别：
+                            </div>
+                            <div class="sea_middle stoking_middle">
+                            	<ul>
+                                    <li class="total">
+                                        <ul class="total_01">
+                                            <li><a href="#">A</a></li>
+                                            <li><a href="#">B</a></li>
+                                            <li><a href="#">C</a></li>
+                                            <li><a href="#">D</a></li>
+                                            <li><a href="#">E</a></li>
+                                            <li><a href="#">F</a></li>
+                                            <li><a href="#">G</a></li>
+                                            <li><a href="#">H</a></li>
+                                            <li><a href="#">I</a></li>
+                                            <li><a href="#">J</a></li>
+                                            <li><a href="#">K</a></li>
+                                            <li><a href="#">L</a></li>
+                                            <li><a href="#">M</a></li>
+                                            <li><a href="#">N</a></li>
+                                            <li><a href="#">O</a></li>
+                                            <li><a href="#">P</a></li>
+                                            <li><a href="#">R</a></li>
+                                            <li><a href="#">S</a></li>
+                                            <li><a href="#">T</a></li>
+                                            <li><a href="#">U</a></li>
+                                            <li><a href="#">V</a></li>
+                                            <li><a href="#">W</a></li>
+                                            <li><a href="#">X</a></li>
+                                            <li><a href="#">Y</a></li>
+                                            <li><a href="#">Z</a></li>
+                                            <li><a href="#">其他</a></li>
+                                            <li class="list_01"><input class="list_input01" type="text" placeholder="可输入拼音、汉字查找产品类别"><a class="list_input02" href="#">查找</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            <li><a href="#"><input class="checkbox01" type="checkbox">XXXXX</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                 </ul>
+                            </div>
+                            <div class="sea_right">
+                                <a class="more_02" href="#">更多</a>
+                                <a class="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                        <!--点开产品类别更多 -->
+                        <div class="sea_con_01" >
+                        	<div class="sea_left">
+                                产品类别：
+                            </div>
+                            <div class="sea_middle stoking_middle">
+                            	<ul>
+                                    <li class="total">
+                                        <ul class="total_01">
+                                            <li><a href="#">A</a></li>
+                                            <li><a href="#">B</a></li>
+                                            <li><a href="#">C</a></li>
+                                            <li><a href="#">D</a></li>
+                                            <li><a href="#">E</a></li>
+                                            <li><a href="#">F</a></li>
+                                            <li><a href="#">G</a></li>
+                                            <li><a href="#">H</a></li>
+                                            <li><a href="#">I</a></li>
+                                            <li><a href="#">J</a></li>
+                                            <li><a href="#">K</a></li>
+                                            <li><a href="#">L</a></li>
+                                            <li><a href="#">M</a></li>
+                                            <li><a href="#">N</a></li>
+                                            <li><a href="#">O</a></li>
+                                            <li><a href="#">P</a></li>
+                                            <li><a href="#">R</a></li>
+                                            <li><a href="#">S</a></li>
+                                            <li><a href="#">T</a></li>
+                                            <li><a href="#">U</a></li>
+                                            <li><a href="#">V</a></li>
+                                            <li><a href="#">W</a></li>
+                                            <li><a href="#">X</a></li>
+                                            <li><a href="#">Y</a></li>
+                                            <li><a href="#">Z</a></li>
+                                            <li><a href="#">其他</a></li>
+                                            <li class="list_01"><input class="list_input01" type="text" placeholder="可输入拼音、汉字查找产品类别"><a class="list_input02" href="#">查找</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            <li><a href="#">XXXX</a></li>
+                                            <li><a href="#">XXXXX</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                 </ul>
+                            </div>
+                            <div class="sea_right" style="display:none;">
+                                <a class="more_02" href="#">收起</a>
+                                <a class="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--产品类别 -->
+                     <!--规格 -->
+                    <div class="sea_con bor_bottom">
+                    	
+                    	<div class="search_con01">
+                        	<div class="sea_left">
+                                规格：
+                            </div>
+                            <div class="sea_middle">
+                                <ul>
+                                    <li><a href="#">不限</a></li>
+                                    <li><a href="#">600*600</a></li>
+                                    <li><a class="blue_color" href="#">800*800</a></li>
+                                    <li><a href="#">1000*1000</a></li>
+                                    <li><input class="list_input" type="text"><span>*</span><input  class="list_input" type="text"><a class="true_list" href="#">确认</a></li>
+                                </ul>
+                            </div>
+                            <div class="sea_right">
+                                <a class="more_01" href="#">多选</a>
+                            </div>
+                        </div>
+                        <!--点击规格多选 -->
+                        <div class="sea_con_01"  style="display:none">
+                        	<div class="sea_left">
+                                规格：
+                            </div>
+                            <div class="sea_middle stoking_middle">
+                                <ul>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">不限</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">600*600</a></li>
+                                    <li><a class="blue_color" href="#"><input class="checkbox01" type="checkbox">800*800</a></li>
+                                    <li><a href="#"><input class="checkbox01" type="checkbox">1000*10
+                                    00</a></li>
+                                    <li><input class="list_input" type="text"><span>*</span><input  class="list_input" type="text"><a class="true_list" href="#">确认</a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="list_up">
+                                <a class="valu_true" href="#">确认</a><a class="valu_flase" href="#">取消</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--规格 -->
+                    <div class="clear"></div>
+                </div>
+            </div>  
+            <div class="clear"></div>
+            <div class="tabel_content">
+                <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="bot_left">产品</th>
+                            <th>单价</th>
+                            <th>库存</th>
+                            <th class="bor_right width_03">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="load" style="display:none;">
+                    	<tr>
+                        	<td class="bor_top_01 bor_bottom_01">
+    							<div id="loadDiv"><img src="images/loading.gif"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody id="tbody_load">
+                    	<tr>
+                        	<td class="bot_left">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                    <div class="posit_infor">
+                                    	<a href="stocking_information.html">详情<img src="images/arrow_pull.png"></a>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td>25.50/片</td>
+                            <td>库存充足</td>
+                            <td class="width_03">
+                            	<div class="input_01">
+                                	<input type="text"><select><option>片</option></select>
+                                </div>
+                                
+                               	<div class="now_shop">
+                                	<a href="place_order.html">立即购卖</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="now_shop_01">
+                                	<a id="myBtn01" href="#">加入购物车</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                    <div class="posit_infor">
+                                    	<a href="">详情<img src="images/arrow_pull.png"></a>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td>25.50/片</td>
+                            <td>库存充足</td>
+                            <td class="width_03">
+                            	<div class="input_01">
+                                	<input type="text"><select><option>片</option></select>
+                                </div>
+                               	<div class="now_shop">
+                                	<a href="#">立即购卖</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="now_shop_01">
+                                	<a href="#">加入购物车</a>
+                                    <div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                    <div class="posit_infor">
+                                    	<a href="">详情<img src="images/arrow_pull.png"></a>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td>25.50/片</td>
+                            <td>库存充足</td>
+                            <td class="width_03">
+                            	<div class="input_01">
+                                	<input type="text"><select><option>片</option></select>
+                                </div>
+                               	<div class="now_shop">
+                                	<a href="#">立即购卖</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="now_shop_01">
+                                	<a href="#">加入购物车</a>
+                                    <div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                    <div class="posit_infor">
+                                    	<a href="">详情<img src="images/arrow_pull.png"></a>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td>25.50/片</td>
+                            <td>库存充足</td>
+                            <td class="width_03">
+                            	<div class="input_01">
+                                	<input type="text"><select><option>片</option></select>
+                                </div>
+                               	<div class="now_shop">
+                                	<a href="#">立即购卖</a>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="now_shop_01">
+                                	<a href="#">加入购物车</a>
+                                    <div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    <tfoot id="tfoot_load">
+                    	<tr>
+                        	<td class="bot_left" colspan="4">
+                            	<div class="foot_page">
+                                	<a class="page_01 bg_color" href="#">上一页</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">6</a>
+                                    <a href="#">7</a>
+                                    <span>...</span>
+                                    <a class="page_01" href="#">下一页</a>
+                                    <span>共18页</span><span>到第</span><input class="input_02" type="text">页<button>确定</button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

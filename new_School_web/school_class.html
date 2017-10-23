@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/basestyle.css">
+    <link type="text/css" rel="stylesheet" href="css/tabel.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/del_Modal.js"></script>
+    <script src="js/add_modal.js"></script>
+
+    <script>
+        //二级下拉框提示
+        var arr=new Array();
+        arr['语文']=['语文老师1','语文老师2','语文老师3'];
+        arr['数学']=['数学老师1','数学老师2','数学老师3'];
+        window.onload=function(){
+            // 向科目名称赋值下拉列表框
+            var subjectSel=document.getElementById("subject_name");
+            for(temp in arr){
+                subjectSel.add(new Option(temp,temp));
+            }
+        }
+        function setSubjext(){
+            var teacherSel=document.getElementById("teacher_name");
+            teacherSel.options.length=1;
+            // 获取选中的科目信息
+            var subject=document.getElementById("subject_name").value;
+            // 如果选择的是"提示信息"则不需要赋值
+            if(subject=="") return;
+            for(i=0;i<arr[subject].length;i++){
+                teacherSel.add(new Option(arr[subject][i],arr[subject][i]));
+            }
+        }
+
+         $(function(){
+            //点击出现新增科目select
+            $("#add_group").click(function(){
+                $("#add_select").toggle();
+            });
+        });
+    </script>
+
+    <script>
+         /****获取id, class, tagName ******/
+        var get = {
+            byId: function(id) {
+                return typeof id === "string" ? document.getElementById(id) : id
+            },
+            byClass: function(sClass, oParent) {
+                var aClass = [];
+                var reClass = new RegExp("(^| )" + sClass + "( |$)");
+                var aElem = this.byTagName("*", oParent);
+                for (var i = 0; i < aElem.length; i++) reClass.test(aElem[i].className) && aClass.push(aElem[i]);
+                return aClass
+            },
+            byTagName: function(elem, obj) {
+                return (obj || document).getElementsByTagName(elem)
+            }
+        };
+        /*********事件绑定, 保存*******/
+        var EventUtil = {
+            addHandler: function (oElement, sEvent, fnHandler) {
+                oElement.addEventListener ? oElement.addEventListener(sEvent, fnHandler, false) : (oElement["_" + sEvent + fnHandler] = fnHandler, oElement[sEvent + fnHandler] = function () {oElement["_" + sEvent + fnHandler]()}, oElement.attachEvent("on" + sEvent, oElement[sEvent + fnHandler]))
+            },
+            addLoadHandler: function (fnHandler) {
+                this.addHandler(window, "load", fnHandler)
+            }
+        };
+
+        EventUtil.addLoadHandler(function ()
+        {
+            var oUserName = get.byId("subject_name");//select的值
+            var oConBox = get.byId("teacher_name");//select的值
+            var oSendBtn = get.byId("keep");
+            //为保存按钮绑定发送事件
+            EventUtil.addHandler(oSendBtn, "click", fnSend);
+            //添加
+            function fnSend ()
+            {
+                var oList = get.byClass("get")[0];
+                var oUl = get.byTagName("ul", oList)[0];
+                var aLi = get.byTagName("li", oList);
+                var oLi = document.createElement("li");
+                oLi.innerHTML = "<div class=\"label_list\">\
+							 	<div class=\"subject\">" + oUserName.value + "</div>\
+								<div class=\"subject_name\">" + oConBox.value.replace(/<[^>]*>|&nbsp;/ig, "") + "</div>\
+								\<div class=\"closebtn\" onclick=\"$(this).parents('li').remove()\"></div>\
+							 </div>";
+                //插入元素
+                 aLi.length ? oUl.insertBefore(oLi, aLi[0]) : oUl.appendChild(oLi);//添加在前面的后面
+            };
+        });
+    </script>
+
+    <!-- 查看-->
+    <script>
+        //查看
+        $(function(){
+            $("#check_info").click(function(){
+                var delRadio=$('input:radio[name="rd"]:checked').val();
+                $(".tabel_style").find("tr").each(function(){
+                    if(delRadio != null){
+                        $("#check_modal").show();
+                        $(".us_modal_top p").html("查看班级信息");
+                        //执行ajax
+                        ajaxFun();
+                    }
+                    else{
+                        $("#stu_del").show();
+                        $(".us_modal_top p").html("温馨提示");
+                        $(".modal_dele").html("请先选择！");
+                    }
+                });
+            });
+        });
+
+        /* ajax代码部分，从jquery帮助文档可直接拷贝 */
+        function ajaxFun() {
+            //ajax执行体
+            $.ajax({
+                //提交方式
+                type : "POST",
+                //访问servleturl
+                url : "",
+                //服务器成功返回结果后，会把结果保存到data中
+                success : function(data) {
+                    if(data){
+                        //先把modal_jq的内容部分清空
+                        $("#modal_jq").empty();
+                        //eval获取返回的JSON对象集合
+                        var d = eval('(' + data + ')');
+//                        var d = eval('(' + data + ')');
+                        //把数据显示到页面的方法
+                        showData(d);
+                    }
+                    else{
+                        alert(777)
+                    }
+
+                }
+            });
+        }
+        /* 显示数据 */
+        function showData(d) {
+            //循环遍历一边d
+            for ( var i = 0; i < d.length; i++) {
+                //d[i].name是数据库里的字段
+                var html = "<p><span>班级：</span>" + d[i] + "</p>"  +  "<p><span>班主任：</span>"+ d[i] + "</p>" + "<p><span>班主任联系方式：</span>"+ d[i] + "</p>"+
+                        "<p><span>科目名称：</span>"+ d[i] + "</p>"+"<p><span>科目老师：</span>"+ d[i]
+                        + "</p>";
+                //通过表体id把显示文本显示到网页中
+                $("#modal_jq").append(html);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<!--添加-->
+<div id="gender_modal" class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>添加班级</p>
+            <i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <form>
+                <p><span>班级：</span><input class="class_val_1" type="text"><i class="red_err"></i></p>
+                <div class="select_btn">
+                    <span>班主任：</span>
+                    <div class="nice-select">
+                        <input id="customerId" type="text" oninput="searchList(this.value)" >
+                        <ul id="select_id" style="display: none;">
+                            <li class="">Java</li>
+                            <li class="">PHP</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="group">
+                    <span>班级科目：</span>
+                    <div id="get" class="get">
+                        <ul>
+                            <li class="">
+                                <div class="label_list">
+                                    <div class="subject">语文 </div>
+                                    <div class="subject_name ">语文老师</div>
+                                    <div class="closebtn" onclick="$(this).parents('li').remove()"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="addLabel" id="add_group"></div>
+                </div>
+                <div class="select_btn" id="add_select" style="display: none">
+                    <span>新增科目：</span><select id="subject_name" onchange="setSubjext()">
+                    <option>请选择科目名称</option>
+                </select>
+                <select id="teacher_name">
+                    <option>请选择科目老师</option>
+                </select>
+                    <a id="keep" href="javascript:;">保存</a>
+                </div>
+            </form>
+        </div>
+        <div class="us_modal_footer">
+            <a class="add_gender" href="javascript:;">确定</a>
+            <a class="change_class" href="javascript:;">修改</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+<!--查询-->
+<div id="check_modal" class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>查看班级信息</p>
+            <i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body" id="modal_jq">
+
+        </div>
+        <div class="us_modal_footer">
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+<!--查询end-->
+
+<!--删除-->
+<div id="stu_del" class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>温馨提示</p>
+            <i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <div class="modal_dele"></div>
+        </div>
+        <div class="us_modal_footer">
+            <a class="del_class" href="javascript:;">确认</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="layout">
+    <div class="layout_contrian">
+        <div class="ly_body clearfix">
+            <div class="ly_rg">
+                <div class="stu_messg">
+                    当前位置：<a class="stu_hover" href="javascript:;">班级管理</a>
+                </div>
+
+                <div class="list_stu clearfix">
+                    <div class="lf_s">
+                        <form class="from_lf">
+                            <c:choose>
+                                <c:when test="${not empty requestScope.Field }">
+                                    <input type="text" id="seach" value="${requestScope.Field}">
+                                </c:when>
+                                <c:when test="${empty requestScope.Field }">
+                                    <input type="text" id="seach" placeholder="请输入班主任名称！">
+                                </c:when>
+                            </c:choose>
+                            <input class="input_btn" onclick="seachClick()" type="button" value="搜索">
+                        </form>
+                    </div>
+
+                    <div class="stu_rg">
+                        <a id="add_btn" href="JavaScript:;">添加班级</a>
+                        <a id="check_info" href="JavaScript:;">查看</a>
+                        <a id="change_btn" href="JavaScript:;">修改</a>
+                        <a class="gd_del del" href="javascrip:;">删除</a>
+                    </div>
+                </div>
+
+                <div class="ly_tabel">
+                    <table class="tabel_style" cellpadding="0" cellspacing="0">
+                        <thead class="ly_thead">
+                            <tr  class="th_tr">
+                                <th>单选</th>
+                                <th>班级</th>
+                                <th>班主任</th>
+                                <th>班主任联系方式</th>
+                            </tr>
+                        </thead>
+                        <tbody class="ly_tbody">
+                        <c:forEach items="${page.objList }" var="class">
+                            <tr class="tb_tr">
+                                <td><input type="radio" name="rd" value="${class.account}" ></td>
+                                <td>${class.class_id}</td>
+                                <td>${class.class_teacher}</td>
+                                <td>${class.class_phone}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="8"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="currentPage" value="${page.nowpage }">
+<input type="hidden" id="pagecount" value="${page.countpage }">
+</body>
+<script>
+    $(function(){
+        //搜索
+        seachClick=function(seachClick){
+            if(typeof(seachClick) != "undefined"){
+                location.href="../../NopApi/customer/school_class.action?nowpage=" + seachClick  +
+                        "&Condition=account" + "&values=" +$("#seach").val();
+            }
+            else{
+                location.href="../../NopApi/customer/school_class.action?nowpage=" + $("#currentPage").val()  + "&Condition=account" +
+                        "&values=" +$("#seach").val();
+            }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/school_common.js"></script>
+    <script src="js/imgUp.js"></script>
+    <script>
+        function closeModal(){
+            $("#modalClose").remove();
+            window.location.reload();
+        }
+
+        function honorModal(){
+            $("#honorModal").hide();
+            window.location.reload();
+        }
+
+        $(function(){
+            changeIndex();//更新序号
+            //新增荣誉
+            $(".honorAddStyle").click(function(){
+
+                $(".class_modal").show();
+                $("#honorName").blur(function(){
+                    var honorName=$(this).val();//荣誉名称
+                    if(!isBlank(honorName)){
+                        $(".panel").css("margin","0 0 0 0");
+                        $(".class_modal_row .name").hide();
+                    }
+                });
+
+            });
+
+            $(".honAddTypeBtn").click(function(){
+                var honorNames=$("#honorName").val();//荣誉名称
+                var picNum=$(".pic_lf").find("ul li");//上传数
+//                alert(picNum.length);
+                if(isBlank(honorNames) || picNum.length < 1){
+                    if(isBlank(honorNames)){
+                        $(".panel").css("margin","30px 0 0 0");
+                        $(".class_modal_row .name").show();
+                        $(".class_modal_row .name b").html("荣誉名称不能为空!");
+                        return false;
+                    }
+                    if(picNum.length<1){
+                        alert("您还没上传图片，请上传图片，再确定！")
+                    }
+                }
+                else {
+                    //后台操作
+                    $("#horModal").submit();
+                }
+            });
+
+            //删除
+            var modalDiv=
+                    '<div class="class_modal"  id="modalClose">' +
+                    '<div class="class_modal_container">' +
+                    '<div class="class_modal_top clearfix">' +
+                    '<h3></h3><i onclick="closeModal()">X</i>' +
+                    '</div>' +
+                    '<div class="class_modal_con" id="delModalHonor"></div>' +
+                    '<div class="class_modal_footer" id="delBtn"></div>' +
+                    '</div>' +
+                    '</div>';
+            $(".DelHonorStype").click(function(){
+                var honorId=$(this).parents("tr").find("td").eq(1).text();//荣誉编号
+                var honorName=$(this).parents("tr").find("td").eq(2).text();//荣誉名称
+                var honorImg=$(this).parents("tr").find(".honorImg").val();//隐藏图片的val值
+                $(modalDiv).prependTo("body");//把弹窗添加到body中
+                $(".class_modal_top h3").html("温馨提示");
+                var DivRow='<p>'+"您确定要删除“"+honorName+"”荣誉吗？"+'</p>';
+                    $("#delModalHonor").append(DivRow);
+                var footerBtn='<a class="delHonor" href="javascript:;">确定</a>';
+                    $("#delBtn").append(footerBtn);
+
+
+                $(document).on("click",".delHonor",function(){
+                    alert(honorId+honorImg);
+                });
+            });
+
+        });
+
+        //增加荣誉点击确认按钮，
+
+
+    </script>
+</head>
+<body>
+<div class="class_modal" id="honorModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>新增荣誉</h3><i onclick="honorModal()">X</i>
+            </div>
+        <div class="class_modal_con">
+            <form id="horModal">
+                <div class="class_modal_row panel">
+                    <span>荣誉名称：</span><input type="text" id="honorName">
+                    <div class="name" style="display: none"><i class="bgRed"></i><b></b></div>
+                </div>
+                <div class="class_modal_row">
+                    <div class="pic_name">荣誉图片：</div>
+                    <div class="pic_up">
+                    <div class="pic_lf">
+                        <ul></ul>
+                    </div>
+                    <div class="img_btn">
+                        <a href="javascript:;">上传图片<input class="file" type="file" id="file" name="file" accept="image/jpg,image/jpeg,image/png,image/bmp"> </a>
+                        <!--<div>*请上传小于1M的照片，大小为：100*100的比例</div>-->
+                    </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="class_modal_footer">
+            <a href="javascript:;" class="honAddTypeBtn">确定</a><a href="javascript:;" onclick="honorModal()">取消</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">荣誉类别管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+
+            <div class="class_rg">
+                <a class="add_dl honorAddStyle" href="javascript:;">新增荣誉类别</a>
+            </div>
+
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">荣誉编号</th>
+                    <th class="class_width">荣誉名称</th>
+                    <th class="class_width">荣誉图片</th>
+                    <th class="class_width">创建时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width honor_txt">20130101</td>
+                    <td class="class_width">生活自在！</td>
+                    <td class="class_width ">
+                        <img class="imgWidth" src="images/honor_icon.png"><input type="hidden" class="honorImg" value="11">
+                    </td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <a class="DelHonorStype del" href="javascript:;">删除</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width honor_txt">8888</td>
+                    <td class="class_width">生活自在！</td>
+                    <td class="class_width honor_img">
+                        <img id="img" src="images/honor_icon.png"><input type="hidden" id="ImageUrl" value="88">
+                    </td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width_08">
+                        <div class="dl_btn">
+                            <a class="DelHonorStype del" href="javascript:;">删除</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

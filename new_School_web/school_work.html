@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/school_class.css">
+    <link type="text/css" rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script src="js/weekTest.js"></script>
+    <script src="js/school_common.js"></script>
+    <script>
+        function wordSelect(elem){
+            var wkDate=["请选择星期","星期一","星期二","星期三","星期四","星期五","星期六","星期日"];
+            for(var i=0; i<wkDate.length;i++){
+                var opt='<option value="'+i+'">'+wkDate[i]+'</option>';
+                $(elem).append(opt);
+            }
+        }
+        $(function(){
+            wordSelect("#wordStar");
+            wordSelect("#wordEnd");
+
+            $("#wordBtn").click(function(){
+                var wordStar=$("#wordStar").find("option:selected").val(),//考勤区间
+                    wordEnd=$("#wordEnd").find("option:selected").val();
+                var getTime0=$("#getTime0").val(),//上午到校时间
+                    leaveTime0=$("#leaveTime0").val(),//上午离校时间
+                    getTime1=$("#getTime1").val(),//下午到校时间
+                    leaveTime1=$("#leaveTime1").val();//下午离校时间
+                if( wordStar==0 || wordEnd==0 || isBlank(getTime0) || isBlank(leaveTime0) || isBlank(getTime1) || isBlank(leaveTime1)) {
+                    alert("考勤区间和到校时间、离校时间不能为空！")
+                }
+                else{
+                    //后台操作
+
+                }
+
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">考勤规则</a>
+    </div>
+
+    <div class="working">
+        <div class="workRow">
+            <div class="row_list">
+                <p>考勤区间</p>
+                <div class="row_time">
+                    <span>考勤区间：</span>
+                    <select id="wordStar">
+                    </select>
+                    <i>至</i>
+                    <select id="wordEnd">
+                    </select>
+                </div>
+
+            </div>
+            <div class="row_list">
+                <p>上午：</p>
+                <div class="row_time">
+                    <span>到校时间：</span>
+                    <input type="text" id="getTime0" onclick="testDate(this)" value="" placeholder="请选择到校时间" readonly><b></b>
+                </div>
+                <div class="row_time">
+                    <span>离校时间：</span>
+                    <input type="text" id="leaveTime0" onclick="testDate(this)"  value="" placeholder="请选择离校时间" readonly><b></b>
+                </div>
+
+            </div>
+            <div class="row_list">
+                <p>下午：</p>
+                <div class="row_time">
+                    <span>到校时间：</span>
+                    <input type="text" id="getTime1" onclick="testDate(this)"  value="" placeholder="请选择到校时间" readonly><b></b>
+                </div>
+                <div class="row_time">
+                    <span>离校时间：</span>
+                    <input type="text" id="leaveTime1" onclick="testDate(this)"  value="" placeholder="请选择离校时间" readonly><b></b>
+                </div>
+            </div>
+            <div class="row_btn">
+                <a id="wordBtn" href="javascript:;">保存</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

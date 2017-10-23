@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/class_honor.js"></script>
+    <script src="js/imgUpMien.js"></script>
+
+    <script>
+        //加载方法
+        $(function(){
+            changeIndex();//更新序列号
+        });
+        //关闭modal
+        function closeModal(){
+            $(".class_modal").hide();
+
+        }
+        function checkLen(obj)
+        {
+            var maxChars = 15;//最多字符数
+            if (obj.value.length > maxChars){
+                obj.value = obj.value.substring(0,maxChars);
+            }
+        }
+
+        //获取顶部的html
+        $(function(){
+
+            $.ajax({
+                url:"class_top.html",//获取静态页面
+                type:"GET",
+                datatype:"text",
+                success:function(data){
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/honor_white.png"><p>班级风采</p></a>');
+                }
+            });
+
+            var mienModal=
+                    '<form>' +
+                        '<div class="class_modal_row"><span>班级：</span><input type="text" id="class_id"  value="" disabled></div>' +
+                        '<div class="class_modal_row">'+
+                            '<span>风采标题：</span><input type="text" id="mien_title" onkeyup="checkLen(this)">'+
+                            '<p>*风采标题不能超过15个字</p>'+
+                            '<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>'+
+                        '</div>' +
+                        '<div class="class_modal_row">'+
+                            '<div class="pic_name">风采图片：</div>'+
+                            '<div class="pic_up">'+
+                                '<div class="pic_lf">'+
+                                    '<ul><li><img src="images/default.jpg"> </li></ul>'+
+                                '</div>' +
+                            '<div class="img_btn">'+
+                            '<a href="javascript:;">上传图片<input class="file" type="file" id="file" name="file" accept="image/jpg,image/jpeg,image/png,image/bmp"> </a>'+
+                            '</div>'+
+                    '</div>' +
+                    '</div>' +
+                    '</form>';
+
+            //新增
+            $(".mien_add").click(function(){
+                $(".class_modal").show();
+                $(".class_modal_top h3").html("新增班级风采");
+                var classId=$("#classId").val();
+                $("#class_id").val(classId);
+                $("#mien_title").blur(function(){
+                    if(!isBlank($(this).val())){
+                        $(".class_modal_row .name").hide();
+                    }
+                });
+            });
+            //新增点击确定按钮
+            $(".addMien").click(function(){
+                var mien_title=$("#mien_title").val();
+                if(isBlank(mien_title)){
+                    $(".class_modal_row .name").show();
+                    $(".class_modal_row .name b").html("荣誉名称不能为空!");
+                }
+                else{
+                    //后台操作
+                    $("#sublimeMien").submit();
+                }
+            });
+
+            //修改
+            $(".mien_change").click(function(){
+                $(modalDiv).prependTo("body");//把弹窗添加到body中
+                $(".class_modal_top h3").html("修改班级风采");
+                $(".class_modal_con").append(mienModal);
+                var del="<p class='imgList'><img class='onClickDel' src='images/del.png'></p>";
+                    $(".pic_up").find("ul li").append(del);
+                $(".img_btn").hide();
+//                var mienChange=
+//                        '<div class="mien_change">'+
+//                        '<a href="javascript:;">修改图片<input class="fileChange" name="file" type="file" id="fileChange" accept="image/jpg,image/jpeg,image/png,image/bmp"></a>'+
+//                        '</div>'+
+//                        '<p class="change_p">*请上传小于1M的照片，大小为：390*300</p>';
+//                $(".pic_up").append(mienChange);
+                var titleTdTxt=$(this).parents("td").siblings(); //获取每个td的值
+                $("#class_id").val(titleTdTxt.eq(2).text());//班级id
+                $("#mien_title").val(titleTdTxt.eq(1).text());//风采标题
+
+            });
+
+            //删除
+            $(".mien_del").click(function(){
+                var mien_title=$(this).parents("td").siblings(".mien_txt").text();//风采标题
+                var mien_txt=$(this).parents("td").siblings(".mien_txt").find("input[type='hidden']").val();//获取风采编号
+                $(modalDiv).prependTo("body");//把弹窗添加到body中
+                $(".class_modal_top h3").html("温馨提示");
+                var DivRow='<p>'+"您确定要删除“"+mien_title+"”吗？"+'</p>';
+                $(".class_modal_con").append(DivRow);
+                var footerBtn='<a class="delMine" href="javascript:;">确定</a>';
+                $(".class_modal_footer").append(footerBtn);
+
+                //后台操作
+                $(".delMine").click(function(){
+
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<!--<div class="class_modal" >-->
+    <!--<div class="class_modal_container">-->
+        <!--<form id="sublimeMien">-->
+            <!--<div class="class_modal_top clearfix"><h3></h3><i onclick="closeModal()">X</i></div>-->
+            <!--<div class="class_modal_con">-->
+                <!--<div class="class_modal_row"><span>班级：</span><input type="text" id="class_id"  value="" disabled></div>-->
+                <!--<div class="class_modal_row">-->
+                    <!--<span>风采标题：</span><input type="text" id="mien_title" onkeyup="checkLen(this)">-->
+                    <!--<p>*风采标题不能超过15个字</p>-->
+                    <!--<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>-->
+                <!--</div>-->
+                <!--<div class="class_modal_row">-->
+                    <!--<div class="pic_name">风采图片：</div>-->
+                    <!--<div class="pic_up">-->
+                        <!--<div class="pic_lf">-->
+                            <!--<ul>-->
+                                <!--<li><img src="images/default.jpg"> </li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;<div class="mien_change">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="javascript:;">修改图片<input class="fileChange" name="file" type="file" id="fileChange" accept="image/jpg,image/jpeg,image/png,image/bmp"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--<div class="img_btn">-->
+                            <!--<a href="javascript:;">上传图片<input class="file" type="file" id="file" name="file" accept="image/jpg,image/jpeg,image/png,image/bmp"> </a>-->
+                        <!--</div>-->
+                        <!--<p>*请上传小于1M的照片，大小为：390*300</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="class_modal_footer">-->
+                <!--<a class="addMien" href="javascript:;">发布</a>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+<!--$("#ff").submit();-->
+<!--262*100-->
+
+<div class="container">
+    <div class="declaration">
+        <div class="class_btn">
+            <a  href="javascript:;" onclick="preview()">预览</a>
+            <a class="add_dl mien_add" href="javascript:;">新增风采</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">标题</th>
+                    <th  class="class_width">班级</th>
+                    <th class="class_width">发布人</th>
+                    <th class="class_width">发布时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width mien_txt">春雨<input type="hidden" value="888"></td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-09-02 11:11:11</td>
+
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="mien_change change" type="button" value="修改">
+                            <input class="mien_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width mien_txt">春雨<input type="hidden" value="888"></td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-09-02 11:11:11</td>
+
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="honor_change change" type="button" value="修改">
+                            <input class="mien_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="classId" value="六年级（2）班">
+</body>
+</html>

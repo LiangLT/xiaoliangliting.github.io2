@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/phone.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:"menu.html",//获取静态页面
+                type: "GET",
+                datatype: "html",
+                success: function (data) {
+                    var dataHtml=$(data).siblings("#navAjax");
+                    var htmlLen=$(dataHtml).find("li");
+                    $(htmlLen).eq(2).find("img").attr("src","images/function_hover.png");
+                    $(htmlLen).eq(2).find("p").addClass("nav_check");
+                    $("body").append(dataHtml);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <header class="commonHeader">
+        <div class="headUser">应用</div>
+    </header>
+    <div class="bannerIndex" id="banner">
+        <ul>
+            <li>
+                <img src="images/banner.png">
+            </li>
+            <li>
+                <img src="images/banner1.png">
+            </li>
+            <li>
+                <img src="images/banner2.png">
+            </li>
+        </ul>
+        <div class="bannerIcon" id="bannerIcon">
+        </div>
+    </div>
+    <div class="edu_main">
+        <div class="row">
+            <h3>教育应用</h3>
+            <div class="rowList clearfix">
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_my_child.png">
+                        <p>我的小孩</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_edu_study_online.png">
+                        <p>在线学习</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_live_class.png">
+                        <p>直播课堂</p>
+                    </a>
+                </div>
+            </div>
+            <div class="rowList clearfix">
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_edu_info.png">
+                        <p>教育资讯</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_edu_func_sub.png">
+                        <p>功能订阅</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_pickup.png">
+                        <p>预约接送</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>其他应用</h3>
+            <div class="rowList clearfix">
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_traffic_check.png">
+                        <p>交通查询</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_life_service.png">
+                        <p>生活服务</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_medical_service.png">
+                        <p>医疗服务</p>
+                    </a>
+                </div>
+            </div>
+            <div class="rowList clearfix">
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_live_interaction.png">
+                        <p>直播互动</p>
+                    </a>
+                </div>
+                <div class="col_01">
+                    <a href="javascript:;">
+                        <img src="images/xah_public_service.png">
+                        <p>公共服务</p>
+                    </a>
+                </div>
+                <div class="col_01">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+</body>
+<script>
+    //banner轮播图
+//    var banner=document.getElementById("banner");
+//    var list=banner.getElementsByTagName("li");
+//    var index=0;
+//    function bn(){
+//        for(var i=0;i<list.length;i++){
+//            list[i].style.display="none";
+//        }
+//        index++;
+//        if(index>list.length-1){
+//            index=0;
+//        }
+//        list[index].style.display="block";
+//    }
+//    var time=setInterval(bn,1000);
+//    //鼠标离开时
+//    banner.onmouseout=function(){
+//        setInterval(bn,1000);
+//    }
+//    //鼠标经过时
+//    banner.onmouseover=function(){
+//        clearInterval(time)
+//    }
+
+
+</script>
+</html>

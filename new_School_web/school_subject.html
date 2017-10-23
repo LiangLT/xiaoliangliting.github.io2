@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/basestyle.css">
+    <link type="text/css" rel="stylesheet" href="css/tabel.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/add_modal.js"></script>
+</head>
+<body>
+<div id="gender_modal" class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p></p>
+            <i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <div class="gender_con">
+                <p><span>科目名称：</span><input class="subject_txt" type="text"><i class="red_err"></i></p>
+            </div>
+        </div>
+        <div class="us_modal_footer">
+            <a id="add_gender" href="javascript:;">添加科目</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+
+<div id="subject_del" class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>温馨提示</p>
+            <i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <div class="modal_dele"></div>
+        </div>
+        <div class="us_modal_footer">
+            <a class="del_subject" href="javascript:;">确认</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="layout">
+    <div class="layout_contrian">
+        <div class="ly_body clearfix">
+            <div class="ly_rg">
+                <div class="stu_messg">
+                    当前位置：<a class="stu_hover" href="javascript:;">科目管理</a>
+                </div>
+
+                <div class="list_stu clearfix">
+                    <div class="stu_rg">
+                        <a id="add_btn" href="JavaScript:;">添加科目</a>
+                        <a class="gd_del del" href="javascrip:;">删除</a>
+                    </div>
+                </div>
+
+                <div class="ly_tabel">
+                    <table class="tabel_style" cellpadding="0" cellspacing="0">
+                        <thead class="ly_thead">
+                            <tr  class="th_tr">
+                                <th></th>
+                                <th>科目编号</th>
+                                <th>科目名称</th>
+                                <th></th>
+                                <th>科目编号</th>
+                                <th>科目名称</th>
+                            </tr>
+                        </thead>
+                        <tbody class="ly_tbody">
+                        <c:forEach items="${page.objList }" var="subject">
+                            <tr class="tb_tr">
+                                <td><input type="radio" name="rd" value="${subject.account}"></td>
+                                <td>${subject.subject_id}</td>
+                                <td>${subject.subject_name}</td>
+                                <td><input type="radio" name="rd" value="${subject.account}"></td>
+                                <td>${subject.subject_id}</td>
+                                <td>${subject.subject_name}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="currentPage" value="${page.nowpage }">
+<input type="hidden" id="pagecount" value="${page.countpage }">
+</body>
+<script>
+    $(function(){
+        //添加
+        $("#add_btn").click(function(){
+            $("#gender_modal").show();
+
+            $(".us_modal_top p").html("添加科目");
+            $("#add_gender").click(function(){
+                var subject_txt=$(".subject_txt").val();
+                if(subject_txt==null || subject_txt=="" || subject_txt==undefined){
+                    $(".subject_txt").css("border","1px solid #d60a2f").focus();
+                    $(".red_err").html("科目名称不能为空！");
+                    return false;
+                }
+                else {
+                    $(".subject_txt").css("border","1px solid #ddd").focus();
+                    $(".red_err").html("");
+                    data=JSON.stringify({"subject_txt":subject_txt});
+                    $.ajax({
+                        url:"",
+                        data:data,
+                        type:"POST",
+                        dataType:"text",
+                        contentType: "application/json;charset=utf-8",
+                        success:function(result){
+                            if(result=="OK"){
+                                window.location="../../NopApi/customer/school_subject.action?nowpage=" + result.gender_txt;
+                            }
+                            else{
+                                alert("添加失败！");
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        //取消
+        $(".close_btn").click(function(){
+            $(".user_modal").hide();
+        });
+
+        //删除弹窗方法
+        function show_modal(){
+            $("#subject_del").show(
+                function modalTxt(){
+                    $(".modal_dele").html("请先选择！");
+                });
+        }
+        //删除
+        $(".gd_del").click(function(){
+            //$("#gender_del").show();
+            var gd_del=$('input:radio[name="rd"]:checked').val();
+            if(gd_del==null){
+                show_modal();
+                return false;
+            }
+            else{
+                $("#subject_del").show(function(){
+                    $(".modal_dele").html("您确定要删除吗？");
+                    $(".del_subject").click(function(){
+                        var obj=$('input[name="rd"]:checked').val();
+                        data=JSON.stringify({"account":obj,"currentPage":$("#currentPage").val()})
+                        $.ajax({
+                            type:"POST",
+                            url:"",
+                            contentType: "application/json;charset=utf-8", //必须有
+                            //dataType:"json",
+                            data:data,
+                            success:function(result){
+                                if(result=="OK"){
+                                    window.location="../../NopApi/customer/school_subject.action?nowpage=" + result.currentPage;
+                                }
+                                else{
+                                    alert("删除失败！");
+                                }
+                            }
+                        });
+
+                    })
+                });
+            }
+        });
+    });
+</script>
+</html>

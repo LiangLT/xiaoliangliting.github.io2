@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+    function test(){
+        var s = document.getElementById("txt");
+        location.href="b.html?"+"txt="+encodeURI(s.value);
+    }
+</SCRIPT>
+<body>
+
+<input type="text" id="txt">
+</br>
+<input type="button" value="TEST" onclick="test()"/>
+
+<input type="text" id="txt" value="" />
+<input type="button" id="btn" value="go" />
+
+<p id="p" style="border:solid 1px red; margin:50px; height:50px;"></p>
+
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            location.href="222.html?txt="+$("#txt").val();//发送txt里面的内容
+                })
+
+
+
+
+
+
+    })
+    $(document).ready(function(){
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);  //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+                context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+        }
+        $("#p").text(GetQueryString("txt"));
+    })
+
+</script>
+
+
+</body>
+</html>

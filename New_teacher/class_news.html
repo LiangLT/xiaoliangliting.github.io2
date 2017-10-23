@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <!--<script src="js/tabs.jquery.js"></script>-->
+
+    <script>
+        //获取顶部的html
+        $(function() {
+            //changeIndex();//更新序列号
+            $.ajax({
+                url: "class_top.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/newsIcon.png"><p>新闻资讯</p></a>');
+                }
+            });
+
+
+
+            $("#newsBtn").find("li").click(function(){
+                var newsTitle=$(this).find(".list_title h4").text();//标题\
+                var newsId=$(this).find(".list_title .newsId").val();
+                alert(newsId);
+                $.ajax({
+                    url: "class_news_infor.html",//获取静态页面
+                    type: "GET",
+                    datatype: "text",
+                    success: function (data) {
+                        var dataHtml=$(data);//转换成文档
+                        var ajaxBody=$(dataHtml).siblings("#ajaxInformation");//获取到所需要的div
+                        var title=$(dataHtml).siblings("#ajaxInformation").find(".information_con h1").text();//调用页面的标题
+                        if(newsTitle==title){
+                            $("#newsInformation div").remove("div");
+                            $(ajaxBody).prependTo("#newsInformation");
+                            $(".news_location a").text(newsTitle);//当前位置的标题显示
+                        }
+                        else {
+                            $("#newsInformation div").remove("div");
+                            $(".news_location a").text(newsTitle);//当前位置的标题显示
+                        }
+                    }
+                });
+            });
+
+
+        });
+
+        $(function(){
+            $("#newsBtn").find("li").first().attr("id","ss");//给第一个li添加id标签
+            var titleOne=$("#ss").find(".list_title h4").text();//资询中心的第一个新闻标题
+            $.ajax({
+                url: "class_news_infor.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    var dataHtml=$(data);//转换成文档
+                    var ajaxBody=$(dataHtml).siblings("#ajaxInformation");//获取到所需要的div
+                    var title=$(dataHtml).siblings("#ajaxInformation").find(".information_con h1").text();//调用页面的标题
+                    if(titleOne==title){
+                        $("#newsInformation div").remove("div");
+                        $(ajaxBody).prependTo("#newsInformation");
+                        $(".news_location a").text(titleOne);//当前位置的标题显示
+                    }
+                }
+            });
+        });
+        //限定字数，出现省略号
+        $(function(){
+            $("#newsBtn").find("li").each(function(){
+                var txtNumber=$(this).find(".list_title p");
+                var strHtml=txtNumber.html().slice(0,20)+'...';
+                txtNumber.html(strHtml);
+                //alert(txtNumber.html());
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="new_container">
+    <div class="news" id="newsInfor">
+        <div class="news_lf">
+            <div class="news_tab">
+                <h3>资讯中心</h3>
+                <ul class="news_nav" id="newsBtn">
+                    <li>
+                        <a href="javascript:;" class="current">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营<input class="newsId" value="22" type="hidden"></h4>
+                                    <p></p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="news_rg">
+
+            <div class="news_location">
+                <i></i><span>当前位置：资讯中心</span><b> > </b><a href="javascript:;"></a>
+            </div>
+            <div class="newsInformation" id="newsInformation">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

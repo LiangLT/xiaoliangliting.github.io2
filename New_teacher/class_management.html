@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //获取顶部的html
+        $(function(){
+            $.ajax({
+                url:"class_top.html",//获取静态页面
+                type:"GET",
+                datatype:"text",
+                success:function(data){
+                    $(data).prependTo("body");
+                }
+            });
+
+
+
+            $("#weekCheck").click(function(){
+                $(".showWeek").show();
+                $(".showWeek").find("dd").remove();
+                var weekNum=["第一周","第二周","第三周","第四周","第五周","第六周","第七周","第八周","第九周","第十周","第十一周","第十二周",
+                    "第十三周","第十四周","第十五周", "第十六周","第十七周", "第十八周","第十九周","第二十周","第二十一周","第二十二周","第二十三周"];
+                for(var i=0;i<weekNum.length;i++){
+                    var dd="<dd>"+weekNum[i]+"<input type='hidden' value='"+i+"'></dd>";
+                    $(".showWeek").append(dd);
+                }
+            });
+            $(document).on("click",".showWeek dd",function(){
+
+                var t=$(this).find("input[type='hidden']").val();
+                var aarTxt=$(this).text();
+               $("#weekCheck").text(aarTxt);//默认周数值
+                $(".showWeek").hide();
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="ajaxBody">
+        <div class="management">
+            <div class="management_con clearfix">
+                <div class="manage_lf">
+                    <div class="man_top clearfix">
+                        <div class="man_title">七年级（1）班</div>
+                        <ul class="man_top_con">
+                            <li><span>班主任：</span><p>刘老师</p></li>
+                            <li><span>人数：</span><p>10人</p></li>
+                            <li>
+                                <span>宣言：</span>
+                                <p>活出真我活出真我活出真我活出真我活出真我活出真我活出真我</p>
+                                <div class="writeIcon">
+                                    <a  href="class_declaration.html"><img src="images/writeIcon.png"></a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="man_top_honor">
+                            <dl>
+                                <dt><img src="images/class_honor.png"> 班级荣誉</dt>
+                                <dd><img src="images/honor_icon.png"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="man_con clearfix">
+                        <div class="man_con_lf">
+                            <div class="lf_img">
+                                <div class="lf_name"><a href="class_mien.html">班级风采<img src="images/writeIcon.png"></a> </div>
+                                <div class="lf_mien">
+                                    <a href="class_mien.html"> <img src="images/class.jpg"></a>
+                                    <div class="mien_title">
+                                        春雨
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="man_con_rg">
+                            <h3>班级德育</h3>
+                            <ul>
+                                <li  class="clearfix">
+                                    <span class="span_01">理想教育</span>
+                                    <span class="span_02">99分</span>
+                                </li>
+                                <li  class="clearfix">
+                                    <span class="span_01">理想教育</span>
+                                    <span class="span_02">99分</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="man_words">温馨提示：班级风采的图片的大小比例为：787*300</div>
+                    </div>
+                    <div class="man_menu">
+                        <div class="nav_class">
+                            <ul class="clearfix">
+                                <li>
+                                    <a href="class_honor.html">
+                                        <img src="images/menuIcon_01.png">
+                                        <p>荣誉</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="class_duty.html">
+                                        <img src="images/menuIcon_02.png">
+                                        <p>值日表</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="class_check.html">
+                                        <img src="images/menuIcon_03.png">
+                                        <p>考勤</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="class_rep_application.html">
+                                        <img src="images/menuIcon_04.png">
+                                        <p>报修</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="class_news.html">
+                                        <img src="images/menuIcon_05.png">
+                                        <p>资讯</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="class_notice.html">
+                                        <img src="images/menuIcon_06.png">
+                                        <p>公告</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="manage_rg">
+                    <div class="man_rg_header">
+                        <div class="man_rg_check">
+                            <h3>今日考勤</h3>
+                            <div class="check_list">
+                                <p>今日缺勤：<i>4人</i></p>
+                                <p>今日迟到：<i>0人</i></p>
+                            </div>
+                            <div class="check_dl">
+                                <div class="check_week">
+                                    <h2>今日值日：</h2>
+                                    <!--<div class="check_top">-->
+                                        <!--&lt;!&ndash;<div class="">&ndash;&gt;-->
+                                            <!--&lt;!&ndash; &ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--<h6 id="weekCheck">选择周数<i></i></h6>-->
+                                        <!--<dl class="showWeek">-->
+
+                                        <!--</dl>-->
+
+                                    <!--</div>-->
+
+                                </div>
+
+                                <ul>
+                                    <li>
+                                        <img src="images/default.jpg">
+                                        <p>小刘同学</p>
+                                    </li>
+                                    <li>
+                                        <img src="images/default.jpg">
+                                        <p>小刘同学</p>
+                                    </li>
+                                    <li>
+                                        <img src="images/default.jpg">
+                                        <p>小刘同学</p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="man_rg_con">
+                        <div class="con_dl">
+                            <dl>
+                                <dt>
+                                    <h3>课程表</h3>
+                                </dt>
+                                <dd>
+                                    <ul class="clearfix">
+                                        <li>正在上课</li>
+                                        <li>语文</li>
+                                        <li>刘老师</li>
+                                    </ul>
+                                </dd>
+                                <dd>
+                                    <ul class="clearfix">
+                                        <li>即将上课</li>
+                                        <li>语文</li>
+                                        <li>刘老师</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="man_rg_footer">
+                        <div class="man_ft_con">
+                            <h3>通知公告</h3>
+                            <ul>
+                                <li>
+                                    <span class="span_li01">图片</span>
+                                    <span class="span_li02">2017-09-15</span>
+                                </li>
+                                <li>
+                                    <span class="span_li01">图片</span>
+                                    <span class="span_li02">2017-09-15</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function changeIndex(){
+            var i=1;
+            $(".class_tabel tbody tr").each(function(){
+                $(this).find("td:first").text(i++);
+            });
+        }
+
+        //字符控制
+        function checkLen(obj)
+        {
+            var maxChars = 200;//最多字符数
+            if (obj.value.length > maxChars){
+                obj.value = obj.value.substring(0,maxChars);
+            }
+        }
+
+        //获取顶部的html
+        $(function(){
+            $.ajax({
+                url:"class_top.html",//获取静态页面
+                type:"GET",
+                datatype:"text",
+                success:function(data){
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/classNav_tools.png"><p>报修申请</p></a>');
+                }
+            });
+            changeIndex();//更新序列号
+        });
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        //判断是否为空
+        function isInputBlank(_val){
+            if(_val==null || _val=="" || _val==undefined){
+                return true;
+            }
+            return false;
+        }
+
+        /**检查是否为手机号码形式**/
+        function isInputPhone(str){
+            var mobile = /^1(3|4|5|7|8)\d{9}$/;
+            return mobile.test(str);
+        }
+
+
+        $(function(){
+            //添加
+            $(".addRepApp").click(function(){
+                $("#repModal").show();
+                $(".class_modal_top h3").html("添加报修申请");
+                $("#repModalBtn a").attr("id","addRepAppBtn");//给确定按钮添加id
+                $(".class_modal_container").css("top","10%");
+
+                $("#repAppPhone").blur(function(){
+                    var repAppPhone=$(this).val();
+                    if(!isInputPhone(repAppPhone)){
+                        $(".repApp_01").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name_01").show();
+                        $(".class_modal_row .name .txt_01").html("报修联系方式格式不对!");
+                        return false;
+                    }
+                    else if(isInputPhone(repAppPhone)){
+                        $(".repApp_01").css("margin","0");
+                        $(".class_modal_row .name_01").hide();
+                    }
+                });
+
+                $("#repAppLocation").blur(function(){
+                    var  repAppLocation=$(this).val();//联系地址
+                    if(!isInputBlank(repAppLocation)){
+                        $(".repApp_02").css("margin","0");
+                        $(".class_modal_row .name_02").hide();
+                    }
+                });
+
+                $("#repAppReason").blur(function(){
+                    var repAppReason=$(this).val();
+                    if(!isInputBlank(repAppReason)){
+                        $(".repApp_03").css("margin","0");
+                        $(".class_modal_row .name_03").hide();
+                    }
+                });
+                $("#repAppName").blur(function(){
+                    var repAppName=$(this).val();
+                    if(!isInputBlank(repAppName)){
+                        $(".repApp_04").css("margin","0");
+                        $(".class_modal_row .name_04").hide();
+                    }
+                });
+
+            });
+            //添加点击按钮
+            $(document).on("click","#addRepAppBtn",function(){
+                var repAppType=$("#repAppType").find("option:selected").val(),//报修类别
+                        repAppPhone=$("#repAppPhone").val(),//联系方式
+                        repAppLocation=$("#repAppLocation").val(),//联系地址
+                        repAppReason=$("#repAppReason").val(),//原因
+                        repAppName=$("#repAppName").val();//报修人
+                if(isInputBlank(repAppPhone) || isInputBlank(repAppLocation) || isInputBlank(repAppReason)){
+                    if(repAppPhone==""||repAppPhone==null|| repAppPhone==undefined) {
+                        $(".repApp_01").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name_01").show();
+                        $(".class_modal_row .name .txt_01").html("报修联系方式不能为空!");
+                    }
+                    if(isInputBlank(repAppLocation)){
+                        $(".repApp_02").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name_02").show();
+                        $(".class_modal_row .name .txt_02").html("报修联系地址不能为空!");
+                    }
+                    if(isInputBlank(repAppReason)){
+                        $(".repApp_03").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name_03").show();
+                        $(".class_modal_row .name .txt_03").html("报修原因不能为空!");
+                    }
+                    if(isInputBlank(repAppName)){
+                        $(".repApp_04").css("margin","35px 0 0 0");
+                        $(".class_modal_row .name_04").show();
+                        $(".class_modal_row .name .txt_04").html("报修人不能为空!");
+                    }
+                }
+                else{
+                    //后台操作
+                    alert(repAppType+','+repAppPhone+','+repAppLocation+','+repAppReason+','+repAppName);
+                }
+
+            });
+
+
+            //修改
+            $(".changeRepApp").click(function(){
+                $("#repModal").show();
+                $("#repModalBtn a").attr("id","changeRepAppBtn");//给确定按钮添加id
+                $(".class_modal_top h3").html("修改报修申请");
+                $(".class_modal_container").css("top","10%");
+                var Adddiv=
+                        '<div class="class_modal_row repApp_01">'+
+                        '<span>报修编号：</span><input type="text" id="repAppId" disabled >'+
+                        '</div>';
+                    $(Adddiv).prependTo(".class_modal_con form");
+                var repAppType=$(this).parents("tr").find(".repAppType").val(),//表格中的报修类别，隐藏值
+                    repAppPhone=$(this).parents("tr").find(".repAppPhone").val(),//表格中的联系方式，隐藏值
+                    repAppLocation=$(this).parents("tr").find(".repAppLocation").val(),//表格中的联系地址，隐藏值
+                    repAppReason=$(this).parents("tr").find("td").eq(3).text(),//表格中的原因
+                    repAppId=$(this).parents("tr").find(".repAppId").val(),//报修编号，隐藏值
+                        repAppName=$(this).parents("tr").find(".repAppName").val();//报修人
+                $("#repAppType").val(repAppType);//报修类别
+                $("#repAppPhone").val(repAppPhone);//联系方式
+                $("#repAppLocation").val(repAppLocation);//联系地址
+                $("#repAppReason").val(repAppReason);//原因
+                $("#repAppId").val(repAppId);
+                $("#repAppName").val(repAppName);
+                $("#repAppName").attr("disabled","disabled");
+            });
+
+            $(document).on("click","#changeRepAppBtn",function(){
+                var repAppType=$("#repAppType").find("option:selected").val(),//报修类别
+                        repAppPhone=$("#repAppPhone").val(),//联系方式
+                        repAppLocation=$("#repAppLocation").val(),//联系地址
+                        repAppReason=$("#repAppReason").val(),//原因
+                        repAppId=$("#repAppId").val(),//报修编号
+                        repAppName=$("#repAppName").val();//报修人
+                alert(repAppId+','+repAppType+','+repAppPhone+','+repAppLocation+','+repAppReason+','+repAppName)
+            });
+
+            //删除
+            $(".delRepApp").click(function(){
+                $("#cancelModal").show();
+                var delRepType=$(this).parents("tr").find("td").eq(1).text(),//报修类别
+                        repAppId=$(this).parents("tr").find(".repAppId").val();//报修编号，隐藏值
+                var DivRow='<p>'+"您确定要删除“"+delRepType+"”吗？"+'</p>';
+                $("#delModal").append(DivRow);
+                //删除点击确定
+                $("#delRepAppBtn").click(function(){
+                    alert(repAppId);
+                });
+            });
+
+            //查看
+            $(".viewRepApp").click(function(){
+                $("#repModal").show();
+                $(".class_modal_container").css("top","10%");
+                $(".class_modal_top h3").html("查看报修申请信息");
+                $(".class_modal_con form").remove();
+                $("#repModalBtn a").remove();
+                var listDiv=
+                        '<div class="class_modal_row ">'+
+                        '<span>报修编号：</span><div class="view reId"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修人：</span><div class="view reName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修类别：</span><div class="view reType"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>报修时间：</span><div class="view reDate"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>联系电话：</span><div class="view rePhone"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>联系地址：</span><div class="view reLocation"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span class="viewSpan">原因：</span><div class="view inforTxt"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>处理结果：</span><div class="view reResult"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>处理时间：</span><div class="view reSeDate"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修人：</span><div class="view reSeName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修电话：</span><div class="view reSePhone"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span>维修状态：</span><div class="view reSeState"></div> '+
+                        '</div>';
+                $("#viewDiv").append(listDiv);
+
+                var viewText=$(this).parents("tr").find("td"),//表格td
+                        reApId=$(".repAppId").val(),//报修编号
+                        repAppName=$(".repAppName").val(),//报修编号
+                        reApPhone=$(".repAppPhone").val(),//联系方式
+                        reApLocation=$(".repAppLocation").val(),//联系地址
+                        repAppDealDate=$(".repAppDealDate").val(),//处理时间
+                        repServiceName=$(".repServiceName").val(),//维修人
+                        repServicePhone=$(".repServicePhone").val();//维修电话
+
+                $(".reId").text(reApId);//报修编号
+                $(".reName").text(repAppName);//报修人
+                $(".reType").text(viewText.eq(1).text());//报修类别
+                $(".reDate").text(viewText.eq(2).text());//报修时间
+                $(".rePhone").text(reApPhone);//报修时间
+                $(".reLocation").text(reApLocation);//报修时间
+                $(".inforTxt").text(viewText.eq(3).text());//原因
+                $(".reResult").text(viewText.eq(4).text());//结果
+                $(".reSeDate").text(repAppDealDate);//处理时间
+                $(".reSeName").text(repServiceName);//维修人
+                $(".reSePhone").text(repServicePhone);//维修人电话
+                $(".reSeState").text(viewText.eq(5).text());//维修状态
+
+                var footerBtn='<a href="javascript:;" onclick="modalDel()" >确定</a>';
+                    $("#repModalBtn").append(footerBtn);
+            });
+        });
+    </script>
+
+</head>
+<body>
+<!--修改-->
+<div class="class_modal" id="repModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con" id="viewDiv">
+            <form>
+                <div class="class_modal_row repApp_04">
+                    <span>报修人：</span><input type="text" id="repAppName" >
+                    <div class="name name_04" style="display: none"><i class="bgRed"></i><b class="txt_04"></b></div>
+                </div>
+                <div class="class_modal_row ">
+                   <span>报修类别：</span>
+                    <select id="repAppType">
+                        <option value="1">办公电脑</option>
+                        <option value="2">办公用品</option>
+                    </select>
+                </div>
+                <div class="class_modal_row repApp_01">
+                   <span>联系电话：</span><input type="text" id="repAppPhone" >
+                    <div class="name name_01" style="display: none"><i class="bgRed"></i><b class="txt_01"></b></div>
+                </div>
+                <div class="class_modal_row repApp_02">
+                   <span>联系地址：</span><input type="text" id="repAppLocation" >
+                    <div class="name name_02" style="display: none"><i class="bgRed"></i><b class="txt_02"></b></div>
+                </div>
+               <div class="class_modal_row repApp_03">
+                   <span>原因：</span><textarea class="" name="repAppReason" id="repAppReason" cols="100" rows="15" onkeyup="checkLen(this)"></textarea>
+                   <p>（*备注不可超过200个字！）</p>
+                   <div class="name name_03" style="display: none"><i class="bgRed"></i><b class="txt_03"></b></div>
+               </div>
+            </form>
+        </div>
+        <div class="class_modal_footer" id="repModalBtn">
+            <a href="javascript:;" >确定</a>
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+    <div class="class_modal" id="cancelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+            </div>
+        <div class="class_modal_con" id="delModal"></div>
+        <div class="class_modal_footer" id="ftModal">
+            <a id="delRepAppBtn" href="javascript:;">确定</a>
+        </div>
+        </div>
+    </div>
+<!--注销-->
+<div class="container">
+    <div class="declaration">
+        <div class="class_btn">
+            <a class="add_dl addRepApp" href="javascript:;">新增报修</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">报修类别</th>
+                    <th class="class_width">报修时间</th>
+                    <th class="class_width">原因</th>
+                    <th class="class_width">处理结果</th>
+                    <th class="class_width">维修状态</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">
+                        办公电脑
+
+                        <input type="hidden" class="repAppType" value="1"><!-- 报修类别-->
+                        <input type="hidden" class="repAppId" value="报修编号">
+                        <input type="hidden" class="repAppName" value="报修人">
+                    </td>
+                    <td class="class_width">2017-09-02 11:22:00</td>
+                    <td class="class_width ellipsis">黑屏
+                        <input type="hidden" class="repAppPhone" value="13531409665">
+                        <input type="hidden" class="repAppLocation" value="六年级（2）班窗口">
+                    </td>
+                    <td class="class_width">未处理<input type="hidden" class="repAppDealDate" value="处理时间"></td>
+                    <td class="class_width">
+                        未维修
+                        <input type="hidden" class="repServiceName" value="维修人">
+                        <input type="hidden" class="repServicePhone" value="维修电话">
+                    </td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <a class="changeRepApp change" href="javascript:;">修改</a>
+                            <a class="viewRepApp change" href="javascript:;">查看</a>
+                            <a class="delRepApp del" href="javascript:;">删除</a>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">
+                        办公电脑
+
+                        <input type="hidden" class="repAppType" value="1"><!-- 报修类别-->
+                        <input type="hidden" class="repAppId" value="报修编号">
+                        <input type="hidden" class="repAppName" value="报修人">
+                    </td>
+                    <td class="class_width">2017-09-02 11:22:00</td>
+                    <td class="class_width ellipsis">黑屏
+                        <input type="hidden" class="repAppPhone" value="13531409665">
+                        <input type="hidden" class="repAppLocation" value="六年级（2）班窗口">
+                    </td>
+                    <td class="class_width">已处理<input type="hidden" class="repAppDealDate" value="处理时间"></td>
+                    <td class="class_width">
+                        已维修
+                        <input type="hidden" class="repServiceName" value="维修人">
+                        <input type="hidden" class="repServicePhone" value="维修电话">
+                        <input type="hidden" class="repServiceState" value="维修状态">
+                    </td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="changeRepApp change" type="button" value="修改">
+                            <input class="viewRepApp change" type="button" value="查看">
+                            <input class="delRepApp del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

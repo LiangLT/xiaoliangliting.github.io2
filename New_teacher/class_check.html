@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+    <link rel="stylesheet" href="css/jedate.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+
+    <script>
+        //获取顶部的html
+        $(function() {
+            //changeIndex();//更新序列号
+            $.ajax({
+                url: "class_top.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/checkIconss.png"><p>考勤管理</p></a>');
+                }
+            });
+
+
+            //实现日期选择联动
+            var start = {
+                format: 'YYYY-MM-DD',
+                minDate: '2010-01-01 23:59:59', //设定最小日期为当前日期
+                //festival:true,
+                maxDate: $.nowDate({DD:0}), //最大日期
+                choosefun: function(elem,datas){
+                    end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                    endDates();
+                },
+                okfun:function (elem,datas) {
+
+                }
+            };
+
+            var end = {
+                format: 'YYYY-MM-DD',
+                minDate: $.nowDate({DD:0}), //设定最小日期为当前日期
+                //festival:true,
+                maxDate: '3000-12-30 23:59:59', //最大日期
+                choosefun: function(elem,datas){
+                    start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+            function endDates() {
+                end.trigger = false;
+                $("#inpend").jeDate(end);
+            }
+            $("#classStart").jeDate(start);
+            $("#classEnd").jeDate(end);
+
+
+        });
+
+        //搜索
+        function searchBtn(){
+            var searchState=$("#searchState").find("option:selected").val(),//考勤状态
+                    classStart=$("#classStart").val(),//开始时间
+                    classEnd=$("#classEnd").val();//结束时间
+
+            if(searchState==0 || isBlank(classStart) || isBlank(classEnd)){
+                alert("请先选择考勤状态、开始时间和结束时间，再查询！");
+            }
+            else{
+                alert(searchState+classEnd+classStart);
+            }
+        }
+    </script>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="declaration">
+        <div class="clearfix">
+            <div class="class_lf">
+                <ul class="clearfix">
+                    <li>
+                        <span>考勤状态：</span>
+                        <select id="searchState">
+                            <option>请选择考勤状态</option>
+                            <option>到校</option>
+                            <option>缺勤</option>
+                            <option>迟到</option>
+                            <option>请假</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>开始时间：</span>
+                        <input type="text" id="classStart" readonly placeholder="请选择开始时间"><i></i>
+                    </li>
+                    <li>
+                        <span>结束时间：</span>
+                        <input type="text" id="classEnd" readonly placeholder="请选择结束时间"><i></i>
+                    </li>
+                    <li>
+                        <a href="javascript:;" onclick="searchBtn()">查询</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <div class="class_tabel">
+           <table cellpadding="0" cellspacing="0">
+               <thead>
+                    <tr>
+                        <th class="class_width_05">序号</th>
+                        <th class="class_width">考勤时间</th>
+                        <th class="class_width">姓名</th>
+                        <th class="class_width">状态</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                        <td class="class_width_05">1</td>
+                        <td class="class_width">2017-09-18 00:00:00</td>
+                        <td class="class_width">刘同学</td>
+                        <td class="class_width">缺勤</td>
+                    </tr>
+                    <tr>
+                        <td class="class_width_05">1</td>
+                        <td class="class_width">2017-09-18 00:00:00</td>
+                        <td class="class_width">莫同学</td>
+                        <td class="class_width">上课</td>
+                    </tr>
+               </tbody>
+           </table>
+       </div>
+    </div>
+</div>
+
+</body>
+</html>

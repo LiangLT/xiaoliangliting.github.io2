@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/teacher_modal.js"></script>
+</head>
+<body id="top">
+<div class="navbar_top">
+    <div class="header">
+        <h1><img src="images/logo_white.png">讯安汇</h1>
+        <div class="nav">
+            <a  class="hoverBg" href="new_teacher.html"   ><img src="images/class.png"><p>我的班级</p></a>
+        </div>
+        <div class="top_right">
+            <ul>
+                <li>
+                    <a  href="javascript:;">
+                        <img src="images/teacher.png">
+                        <span>您好，刘老师</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="javascript:;">
+                        <img src="images/exit.png"><span>退出</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="new_menu">
+    <div class="menu_page clearfix">
+        <div class="page_nav">
+            <div class="nav_img">
+                <img src="images/portrait_100_100.jpg">
+            </div>
+            <div class="nav_name">
+                <p>教师名称：莫老师</p>
+                <p>所属班级：一年级（1）班</p>
+                <p>所属科目：语文</p>
+            </div>
+            <ul>
+                <li><a class="lis" href="teacher_grade.html" target="mainFrame"><img src="images/grade_icon_01.png"> 成绩录入</a> </li>
+                <li><a href="teacher_examine.html" target="mainFrame"><img src="images/send_icon_01.png">成绩通知</a> </li>
+                <li><a href="teacher_send.html" target="mainFrame"><img src="images/word_icon_01.png">作业发布</a> </li>
+                <li><a class="class_btn" href="class_management.html"><img src="images/word_icon_01.png">班级管理</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container_main clearfix">
+        <iframe id="iframeId" src="" name="mainFrame" width="100%" height="1000px" frameborder="0" >
+        </iframe>
+        <div id="dialog" style="position: fixed; top: 0;">
+            <div class="div_modal" id="divModal" ></div>
+        </div>
+    </div>
+    <div class="con"></div>
+</div>
+</body>
+<script>
+    $(function(){
+        var listNum=$(".page_nav ul").find("li");
+        if(listNum.length>3){
+            $(".page_nav ul li").addClass("listNum");
+        }
+    });
+
+    function openDialog(setText) {
+        $('#divModal').append(setText);//将子页面的弹创附加到div中
+        $('#dialog>div').css("display","block");
+    }
+    function openImg(pic){
+        $(pic).prependTo("#top");
+    }
+</script>
+</html>

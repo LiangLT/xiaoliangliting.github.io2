@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <link rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/school_common.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+
+    <script>
+
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        $(function(){
+            changeIndex();//更新序列号
+
+            //实现日期选择联动
+            var start = {
+                format: 'YYYY-MM-DD',
+                minDate: '2010-01-01 23:59:59', //设定最小日期为当前日期
+                //festival:true,
+                maxDate: $.nowDate({DD:0}), //最大日期
+                choosefun: function(elem,datas){
+                    end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                    endDates();
+                },
+                okfun:function (elem,datas) {
+
+                }
+            };
+
+            var end = {
+                format: 'YYYY-MM-DD',
+                minDate: $.nowDate({DD:0}), //设定最小日期为当前日期
+                //festival:true,
+                maxDate: '3000-12-30 23:59:59', //最大日期
+                choosefun: function(elem,datas){
+                    start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+            function endDates() {
+                end.trigger = false;
+                $("#inpend").jeDate(end);
+            }
+            $("#sendStart").jeDate(start);
+            $("#sendEnd").jeDate(end);
+
+
+            //新增公告
+            $(".addNotice").click(function(){
+                $("#newsModal").show();
+                $(".class_modal_container").css("top","15%");
+                $(".class_modal_top h3").html("发布公告");
+                $("#noticeFt").find("a").attr("id","addNoticeBtn");
+                $("#noticeTitle").blur(function(){
+                    var noticeTitle=$(this).val();
+                    if(!isBlank(noticeTitle)){
+                        $(".notice1").css("margin","0");
+                        $(".name1").hide();
+                    }
+                });
+                $("#noticeCon").blur(function(){
+                    var noticeCon=$(this).val();
+                    if(!isBlank(noticeCon)){
+                        $(".notice2").css("margin","0");
+                        $(".name2").hide();
+                    }
+                });
+
+                $("#noticeName").blur(function(){
+                    var noticeName=$(this).val();
+                    if(!isBlank(noticeName)){
+                        $(".notice3").css("margin","0");
+                        $(".name3").hide();
+                    }
+                });
+
+            });
+            //点击确定按钮
+            $(document).on("click","#addNoticeBtn",function(){
+                var noticeClassId=$("#noticeClassId").find("option:selected").val(),//班级
+                    noticeClassType=$("#noticeClassType").find("option:selected").val(),//类型
+                        noticeBool=$("#noticeBool").find("option:selected").val(),//是否置顶
+                        noticeName=$("#noticeName").val(),//创建人
+                        noticeTitle=$("#noticeTitle").val(),//公告标题
+                        noticeCon=$("#noticeCon").val();//公告内容
+                if(isBlank(noticeTitle)||isBlank(noticeCon) ||isBlank(noticeName)){
+                    if(isBlank(noticeTitle)){
+                        $(".notice1").css("margin","35px 0 0 0");
+                        $(".name1").show();
+                        $(".name1 b").html("公告标题不能为空！");
+                    }
+                    if(isBlank(noticeCon)){
+                        $(".notice2").css("margin","35px 0 0 0");
+                        $(".name2").show();
+                        $(".name2 b").html("公告内容不能为空！");
+                    }
+                    if(isBlank(noticeName)){
+                        $(".notice3").css("margin","35px 0 0 0");
+                        $(".name3").show();
+                        $(".name3 b").html("创建人不能为空！");
+                    }
+                }
+                else{
+                    $("#DelModal").show();
+                    $("#conModal p").remove();
+                    $("#footerModal a").remove();
+                    var pCon='<p>您确定要发布吗？公告发布之后不能再修改！</p>'
+                        $("#conModal").append(pCon);
+                    var footerDiv='<a href="javascript:;" id="footerTrue">确定</a>' +
+                            '<a href="javascript:;" id="footerFalse">取消</a>';
+                        $("#footerModal").append(footerDiv);
+                    //确定发布
+                    $(document).on("click","#footerTrue",function(){
+                        //后台操作
+                        alert(noticeClassId+noticeClassType+noticeBool+noticeName+noticeTitle+noticeCon);
+                        $("#DelModal").hide();
+                        $("#newsModal").hide();
+                        window.location.reload();
+                    });
+                    //取消发布
+                    $(document).on("click","#footerFalse",function(){
+                        $("#DelModal").hide();
+                        $("#newsModal").show();
+                    });
+
+                }
+            });
+
+
+            //删除
+            $(".noticeDel").click(function(){
+                $("#DelModal").show();
+                var title_notice_id=$(this).parents("tr").find(".title_notice_id").val(),//标题id
+                    tdTitle=$(this).parents("tr").find("td").eq(1).text(); //标题
+                var pCon='<p>'+"您确定要把“"+tdTitle+"”删除吗？"+'</p>';
+                    $("#conModal").append(pCon);
+                var footerDiv='<a href="javascript:;" id="noticeDelBtn">确定</a>';
+                    $("#footerModal").append(footerDiv);
+
+                //点击确定删除,后台操作
+                $("#noticeDelBtn").click(function(){
+                    alert(title_notice_id)
+                });
+            });
+
+            //查看
+            $(".noticeView").click(function(){
+                $("#newsModal").show();
+
+                $(".class_modal_top h3").html("查看公告");
+                $(".class_modal_con form").remove();
+                $("#noticeFt a").remove();
+                var notice_con=$(this).parents("tr").find(".notice_con").val(),//标题内容
+                    tdTitle=$(this).parents("tr").find("td").eq(1).text(); //标题
+                var listDiv=
+                        '<div class="class_modal_row ">'+
+                        '<span>公告标题：</span><div class="view viewName"></div> '+
+                        '</div>'+
+                        '<div class="class_modal_row ">'+
+                        '<span class="viewSpan">公告内容：</span><div class="view viewReason"></div> '+
+                        '</div>';
+                $("#conNotice").append(listDiv);
+
+                $(".viewName").text(tdTitle);
+                $(".viewReason").text(notice_con);
+                var footer='<a href="javascript:;" onclick="modalDel()">确定</a>';
+                $("#noticeFt").append(footer);
+            });
+
+            //修改
+            $(".noticeChange").click(function(){
+                $("#newsModal").show();
+                $(".class_modal_top h3").html("修改公告位置");
+                $(".class_modal_con form").remove();
+                $("#noticeFt a").remove();
+
+                var listDiv=
+                        '<div class="class_modal_row ">'+
+                        '<span>是否置顶：</span>' +
+                        '<select id="optionSelect">' +
+                        '<option value="1">是</option>' +
+                        '<option value="0">否</option>' +
+                        '</select>'+
+                        '</div>';
+                $("#conNotice").append(listDiv);
+               var optionSelected= $(this).parents("tr").find(".optionSelected").val();
+                    $("#optionSelect").val(optionSelected);
+
+                var footer='<a href="javascript:;" id="noticeChangeBtn">确定</a>';
+                    $("#noticeFt").append(footer);
+                //修改确定
+                var title_notice_id=$(this).parents("tr").find(".title_notice_id").val();//标题ID
+                $(document).on("click","#noticeChangeBtn",function(){
+                    var optionSelectVal=$("#optionSelect").find("option:selected").val();
+                    alert(title_notice_id+optionSelectVal);
+                });
+
+            });
+        });
+        //查询
+        function searchNotice(){
+            var sendStart=$("#sendStart").val();//发布开始时间
+            var sendEnd=$("#sendEnd").val();//结束时间
+            var newsName=$("#newsName").val();//公告标题
+            alert(sendStart+sendEnd+newsName)
+
+        }
+    </script>
+
+</head>
+<body>
+
+
+
+<!--新增-->
+<div class="class_modal" id="newsModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con" id="conNotice" >
+            <form id="newsForm">
+                <div class="class_modal_row">
+                    <span>班级：</span>
+                    <select id="noticeClassId">
+                        <option value="100">全部</option>
+                        <option>六年级（1）班</option>
+                        <option>六年级（2）班</option>
+                        <option>六年级（3）班</option>
+                        <option>六年级（4）班</option>
+                    </select>
+                </div>
+                <div class="class_modal_row">
+                    <span>类型：</span>
+                    <select id="noticeClassType">
+                        <option value="0">班级</option>
+                        <option value="1">家长</option>
+                    </select>
+                </div>
+                <div class="class_modal_row">
+                    <span>是否置顶：</span>
+                    <select id="noticeBool">
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </div>
+                <div class="class_modal_row notice3">
+                    <span>创建人：</span>
+                    <input type="text" id="noticeName">
+                    <div class="name name3" style="display: none"><i class="bgRed"></i><b></b></div>
+                </div>
+                <div class="class_modal_row notice1">
+                    <span>公告标题：</span>
+                    <input type="text" id="noticeTitle">
+                    <div class="name name1" style="display: none"><i class="bgRed"></i><b></b></div>
+                </div>
+                <div class="class_modal_row notice2">
+                    <span>公告内容：</span>
+                    <textarea id="noticeCon"></textarea>
+                    <div class="name name2" style="display: none"><i class="bgRed"></i><b></b></div>
+                </div>
+            </form>
+        </div>
+        <div class="class_modal_footer" id="noticeFt">
+            <a href="javascript:;">发布</a>
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+<div class="class_modal" id="DelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con" id="conModal"></div>
+        <div class="class_modal_footer" id="footerModal"></div>
+    </div>
+</div>
+<!--注销-->
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">发布公告</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf">
+                <div class="btn">
+                    <span>发布日期：</span>
+                    <input type="text" class="dateIcon" id="sendStart" readonly="readonly" placeholder="请选择时间">-
+                    <input type="text" class="dateIcon" id="sendEnd" readonly="readonly" placeholder="请选择时间">
+
+                </div>
+                <div class="btn">
+                    <span>公告标题：</span>
+                    <input type="text" id="newsName" style="min-width: 200px;">
+                </div>
+                <div class="btn">
+                    <button onclick="searchNotice()">查询</button>
+                </div>
+            </div>
+            <div class="class_rg">
+                <a class="add_dl addNotice" href="javascript:;">新增公告</a>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">标题</th>
+                    <th class="class_width">创建人</th>
+                    <th class="class_width">发布时间</th>
+                    <th class="class_width">是否置顶</th>
+                    <th class="class_width">接收人类型</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="class_width_05">1</td>
+                        <td class="class_width">图片
+                            <input type="hidden" class="title_notice_id" value="标题id">
+                            <input type="hidden" class="notice_con" value="标题内容">
+                        </td>
+                        <td class="class_width">刘老师</td>
+                        <td class="class_width">2017-09-08 00:00:00</td>
+                        <td class="class_width">是<input type="hidden" class="optionSelected" value="1"></td>
+                        <td class="class_width">班级</td>
+                        <td class="class_width">
+                            <div class="dl_btn">
+                                <input class="change noticeChange" type="button" value="修改">
+                                <input class="change noticeView" type="button" value="查看">
+                                <input class="del noticeDel" type="button" value="删除">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="class_width_05">1</td>
+                        <td class="class_width">图片
+                            <input type="hidden" class="title_notice_id" value="标题id">
+                            <input type="hidden" class="notice_con" value="标题内容">
+                        </td>
+                        <td class="class_width">刘老师</td>
+                        <td class="class_width">2017-09-08 00:00:00</td>
+                        <td class="class_width">否<input type="hidden" class="optionSelected" value="0"></td>
+                        <td class="class_width">班级</td>
+                        <td class="class_width">
+                            <div class="dl_btn">
+                                <input class="change noticeChange" type="button" value="修改">
+                                <input class="change noticeView" type="button" value="查看">
+                                <input class="del noticeDel" type="button" value="删除">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

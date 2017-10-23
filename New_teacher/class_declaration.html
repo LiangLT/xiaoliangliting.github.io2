@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/class_declaration.js"></script>
+    <script>
+        //获取顶部的html
+        $(function(){
+            $.ajax({
+                url:"class_top.html",//获取静态页面
+                type:"GET",
+                datatype:"text",
+                success:function(data){
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/delcIcon.png"><p>班级宣言</p></a>');
+                }
+            });
+            changeIndex();//更新序列号
+        });
+        function changeIndex(){
+            var i=1;
+            $(".class_tabel tbody tr").each(function(){
+                $(this).find("td:first").text(i++);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="declaration">
+            <div class="class_btn">
+                <a  href="javascript:;" onclick="preview()">预览</a>
+                <a class="add_dl declaration_add" href="javascript:;">新增宣言</a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="class_tabel">
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="class_width_05">序号</th>
+                        <th class="class_width">宣言编号</th>
+                        <th class="class_width">班级</th>
+                        <th class="class_width">班主任</th>
+                        <th class="class_width">年份</th>
+                        <th class="class_width">操作时间</th>
+                        <th class="class_width_20">班级宣言</th>
+                        <th class="class_width">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="class_width_05">1</td>
+                            <td class="txt class_width" >20130101<input class="hidden" type="hidden" value=""></td>
+                            <td class="class_width">六年级（1）班</td>
+                            <td class="class_width">刘老师</td>
+                            <td class="class_width">2017</td>
+                            <td class="class_width">2017-08-09 11:20:00</td>
+                            <td  class="class_width_20">活出真我活出真我活出真我活出真我活出真我！</td>
+                            <td class="class_width">
+                                <div class="dl_btn">
+                                    <input class="change declaration_change" type="button" value="修改">
+                                    <input class="del declaration_del" type="button" value="删除">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="declaration_txt">温馨提示：您添加或修改的班级宣言，将作为最新的班级宣言，会在班级管理页面显示出来！</div>
+            </div>
+            <input id="claName" type="hidden" value="">
+            <input id="teacherName" type="hidden" value="">
+            <input id="classId" type="hidden" value="">
+            <input id="teacherId" type="hidden" value="">
+        </div>
+    </div>
+</body>
+</html>

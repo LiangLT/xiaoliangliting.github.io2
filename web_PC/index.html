@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title>index</title>
+<link rel="stylesheet" href="css/basestyle.css" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#bg_left li .list_nav").hide();
+		$("#bg_left li .list_nav ").parent().find("ul").slideToggle("slow");
+		$("#bg_left li a.list_search").click(function(){
+			$(this).parent().siblings().find("ul").slideUp("normal");
+			$(this).next().slideToggle("normal"); 
+				return false;
+			});
+        $(".list_close").click(function(){
+            $(".line_right").hide();
+        });
+	});
+</script>
+</head>
+
+
+<body>
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="#"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="#">首页</a>
+            <div class="help">
+            	<div class="dt"><a href="help_01.html">帮助中心</a><i class="help_ico"></i><a href="../index.html
+            	">返回到我的博客</a></div>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-xs-2">
+            	<div class="con_left">
+                	<div class="bg_left">
+                    	<ul id="bg_left">
+                            <li>
+                            	<a class="hover_01" href="index.html"><img src="images/index_icon1.png">首页</a>
+                            </li>
+                            <li>
+                            	<a class="list_search" href="#"><img src="images/selectIce02.png">在线查询<span class="list_up02"></span></a>
+                                <ul class="list_nav" style="display:none;">
+                                    <li><a href="stocking.html"
+                                    ><img src="images/navlistIco.png">库存查询</a></li>
+                                    <li><a href="order.html"><img src="images/navlistIco.png">我的订货</a></li>
+                                    <li><a href="capital_01.html"><img src="images/navlistIco.png">我的资金</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                            	<a class="list_search " href="#"><img src="images/service.png">在线业务<span class="list_up01"></span></a>
+                                <ul class="list_nav" style="display:none;">
+                                	<li><a href="place_order.html"><img src="images/navlistIco.png">下订单</a></li>
+                                    <li><a class="title_bg" href="order_carser01.html"><img src="images/navlistIco_gray.png" >我要提货 <i>未开通</i></a>
+
+                                    </li>
+                                    <li><a class="title_bg" href="sever_complaints.html"><img src="images/navlistIco_gray.png">我的投诉<i>未开通</i></a></li>
+                                    <li><a href="account.html"><img src="images/navlistIco.png">对账</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                            	<a class="list_search "  href="#"><img src="images/seggleft01.png">资讯<span class="list_up01"></span></a>
+                                <ul class="list_nav" style="display:none;">
+                                    <li><a href="#"><img src="images/navlistIco.png">促销活动</a></li>
+                                    <li><a href="#"><img src="images/navlistIco.png">企业资讯</a></li>
+                                </ul>
+                            </li>
+                    	</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10">
+            	<div class="con_right">
+                    <div class="user_work">
+                    	<div class="work_01">
+                            <h3>在线查询</h3>
+                           <div class="work_list">
+                            	<ul>
+                                	<li>
+                                    	<div class="work_list05 ">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/selectIce01.png"><p>库存查询</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    	<div class="work_list06">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/dingshopIce01.png">
+                                                <p>我的订货</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    	<div class="work_list07 work_gray">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/moneyIce01.png">
+                                                <p>我的资金</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            	<div class="clear"></div>
+                            </div>
+                            <div class="line_right">
+                                <div class="list_wx">
+                                    <img src="images/wx_ewm.png">
+                                    <p>扫描二维码下载手机APP</p>
+                                    <p>登录时，填写企业账号：XXXXXXXXX</p>
+                                </div>
+                                <div class="list_close">&times;</div>
+                            </div>
+                            <div class="clear"></div>
+
+
+                        </div>
+                        <div class="work_01">
+                            <h3>在线业务</h3>
+                             <div class="work_list ">
+                            	<ul>
+                                	<li>
+                                    	<div class="work_list01 work_gray">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/place_orderiec.png">
+                                                <p>下订单</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    	<div class="work_list02">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/shop_ice01.png">
+                                                <p>我要提货</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    	<div class="work_list03">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/toushuleft.png">
+                                                <p>我要投诉</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    	<div class="work_list04 work_gray">
+                                        	<div class="list_padd">  
+                                                <a href="#"><img src="images/reconIec01.png">
+                                                <p>对账</p></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            	<div class="clear"></div>
+                            </div>
+                            
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="panel_news">
+                    	<div class="user_work">
+                        	<h3>资讯中心</h3>
+                        </div>
+                        <div class="news_01">
+                            <div class="news_info">
+                            	<p class="r_news clear"><a href="#"><span>更多</span><img src="images/arrow_pull.png"></a>
+                                
+                                </p>
+                            	<div class="news_bott">
+                                    <img src="images/hot.png">
+                                    <h3>促销消息</h3>
+                                    <em>Promotional messages</em>
+                                	<div class="clear"></div>
+                                </div>
+                                <div class="list_news01">
+                                        <ul>
+                                            <li><a href="#">促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域 ...</a><p>2016-3-9</p></li>
+                                            <li><a href="#">促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域 ...</a><p>2016-3-9</p></li>
+                                            <li><a href="#">促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域，促销消息滚动文字区域 ...</a><p>2016-3-9</p></li>
+                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news_02">
+                        	<div class="news_info">
+                            	<p class="r_news"><a href="#"><span>更多</span><img src="images/arrow_pull.png"></a></p>
+                                <div class="news_bott">
+                                    <img src="images/qiyezixun.png">
+                                    <h3>企业资讯</h3>
+                                    <em>Promotional messages</em>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="list_news">
+                                    <ul>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        <li>
+                                        	<a href="#">博华陶瓷被国家工商总局认定为“中国驰名商标”</a>
+                                            <p>2016-3-9</p>
+                                        </li>
+                                        
+                                    </ul>
+                            	</div>
+                            </div>
+                        </div>
+                    	<div class="clear"></div>
+                    </div>
+                    <!--在线查询==s-->
+                    <div class="footer_about">
+                        <dl>
+                            <dt>在线查询 </dt>
+                            <dd><a href="help_01.html">如何查找产品</a></dd>
+                            <dd><a href="help_02.html">如何查看订单情况</a> </dd>
+                            <dd><a href="help_03.html">如何查看资金情况</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>在线业务</dt>
+                            <dd><a href="help_04.html">如何下订单</a> </dd>
+                            <dd><a href="help_05.html">如何派车</a> </dd>
+                            <dd><a href="help_06.html">如何对账</a> </dd>
+                        </dl>
+                        <dl>
+                            <dt>常见问题</dt>
+                            <dd><a href="help_07.html">关于登录</a> </dd>
+                            <dd><a href="help_08.html">关于购物车</a> </dd>
+                            <dd><a href="help_09.html">关于下单异常</a> </dd>
+                            <dd><a href="help_10.html">关于订单和对账下载</a> </dd>
+                        </dl>
+                    </div>
+                    <!--在线查询==end-->
+                    <div class="panel_sever">
+                        <p>
+                            <span>售后服务电话：0756-89938321</span>
+                            <span>联系地址：佛山市禅城区蓝狮大道北1389号</span>
+                        </p>
+                        <p>
+                            <span>客服电话：0765-89938321</span>
+                            <span>客服在线：<img src="images/ico_qq.jpg"></span>
+                        </p>
+                    </div>
+                 </div>
+
+                    
+            </div>
+        	<div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+</body>
+</html>

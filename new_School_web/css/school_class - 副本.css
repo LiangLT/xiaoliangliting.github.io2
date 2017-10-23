@@ -1,0 +1,71 @@
+
+    /*==================class_declaration====================*/
+.declaration {  background: #fff; min-height: 1000px; padding: 0 30px;}
+.class_btn { padding: 20px 20px 0 20px;}
+.class_btn .class_lf { float: left; }
+.class_btn .class_rg { float: right; }
+    .class_btn .btn {}
+    .class_btn .btn  button { padding: 4px 30px; margin: 0 10px; border: 1px solid #1997EC; background: #1997EC; color: #fff; border-radius: 5px;}
+    .class_btn .btn select { border: 1px solid #ddd; padding: 4px 10px; border-radius: 2px; min-width: 150px; }
+.class_btn .class_rg  a { padding: 4px 25px; border: 1px solid #1997EC; border-radius: 4px; margin: 0 10px 0 0; color: #1997EC; display: inline-block;}
+.class_btn .class_rg  .add_dl { padding: 4px 16px 4px 25px; background: url("../../../images/addbtn_blue.png") no-repeat; background-position: 6px 6px;}
+.class_btn .class_rg  .add_dl:hover { background: #1997EC url("../../../images/addbtn_white.png") no-repeat; color: #fff; background-position: 6px 6px;}
+.class_tabel { padding: 10px 0;}
+.class_tabel table { width: 100%; text-align: center; border: 1px solid #ddd; border-radius: 5px;}
+.class_tabel table thead tr { background: #eaeaea;}
+.class_tabel table thead tr th, .class_tabel table tbody tr td { border-bottom: 1px solid #ddd; padding: 10px 0;}
+.class_width { width: 10%;}
+.class_width_05 { width: 5%;}
+.class_width_20 { width: 20%;}
+.class_width_08 { width: 8%;}
+.class_img .img { width: 100px; height: 100px;}
+.dl_btn {}
+.dl_btn  input {  padding:5px 20px; border-radius: 4px; margin: 5px 10px 5px 0; cursor: pointer;}
+.dl_btn .change { background: #1997EC; color: #fff;}
+.dl_btn .del { background: #e93c00; color: #fff;}
+.declaration_txt { padding: 8px 10px; color: #444;}
+/**=============modal=============*/
+.class_modal { position: fixed; width: 100%; height: 100%; background: rgba(80, 80, 80, 0.54); z-index: 101;}
+.class_modal .class_modal_container { position: relative; top: 25%; width: 450px; margin: 0 auto; background: #fff; border: 1px solid #ddd; border-radius: 4px; }
+.class_modal .class_modal_container .class_modal_top { height: 50px; line-height: 50px; border-bottom: 1px solid #ddd; background: #f8f8f8;}
+.class_modal .class_modal_container .class_modal_top h3 { padding: 0 15px; float: left;}
+.class_modal .class_modal_container .class_modal_top i { color: #696969; float: right; padding: 0 20px; display: block; font-size: 20px; font-style: normal; cursor: pointer;}
+.class_modal .class_modal_container .class_modal_con { padding: 20px 20px; min-height: 100px; max-height: 500px; overflow-y: auto;}
+.class_modal_con p { text-align: center; line-height: 24px; padding: 50px 20px;}
+.class_modal_row { padding: 10px 0; position: relative;}
+.class_modal_row input { width: 250px; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px;}
+.class_modal_row textarea { width: 250px; vertical-align: top; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px;}
+.class_modal_row span { display: inline-block; width: 80px; text-align: right; margin-right: 7px;}
+.class_modal_row select { width: 250px; padding: 8px 10px; border: 1px solid #ddd;}
+.class_modal_row p { padding: 8px 0 8px 110px; color: #6b6b6b; text-align: left;}
+.class_modal_row .pic_name { position: absolute; width: 80px; margin-right: 7px; text-align: right;}
+.class_modal_row .pic_up { position: relative; width: 310px; margin-left: 87px;}
+.class_modal_row .pic_lf {}
+    .class_modal_row .pic_lf li p {display: block;position: absolute;top: -21px;right: -14px; cursor: pointer;}
+    .class_modal_row .pic_lf li p img { width: 30px; height: 30px;}
+    .class_modal_row .pic_lf li:hover  { border: 1px solid #1997EC;}
+
+.class_modal_row .pic_lf li {display: inline-block; position: relative;  width: 100px; height: 100px; border: 1px solid #ddd; border-radius: 5px; vertical-align: middle; margin: 0 30px 20px 0;}
+.class_modal_row .pic_lf li img { width: 100px;}
+.class_modal_row .img_btn { position: relative;}
+    .class_modal_row .img_btn p { padding:10px 0 0 0; }
+.class_modal_row .img_btn input.file {cursor:pointer;filter:alpha(opacity=0);opacity: 0;position:absolute;left:0;top: 0px;border: 0;z-index:1;width:100px; padding: 0;}
+.class_modal_row .img_btn a {
+    border: 1px solid #1997EC; color: #fff; cursor: pointer;
+    padding: 3px 20px;
+    border-radius: 5px;
+    background: #1997EC;
+}
+
+.class_modal_row .name {position: absolute;top: -29px;width: 250px;border: 1px solid #d6111e;border-radius: 5px;background: #ffffff;left: 87px;padding: 5px 20px;z-index: 107;}
+.class_modal_row .name .bgRed {position: absolute;bottom: -14px;width: 13px;left: 10px;height: 13px;background: url("../../../images/errorIcon.png") no-repeat;}
+.class_modal_row .name b { font-weight: normal; font-style: normal; color: #d6111e;}
+.class_modal_container .class_modal_footer { border-top: 1px solid #ddd; height: 60px; text-align: center; line-height: 60px; background: #f8f8f8;}
+.class_modal_container .class_modal_footer a { border: 1px solid #1997EC; padding: 5px 30px; margin: 0 10px; cursor: pointer; color: #1997EC; border-radius: 5px;}
+.class_modal_container .class_modal_footer a:hover { background: #1997EC; color: #fff;}
+
+/*location*/
+.stu_messg { padding: 20px 0 10px 17px; margin: 0 20px; font-size: 16px; border-bottom: 1px dashed #ddd;}
+.stu_messg span { padding: 0 8px; color: #666666;}
+.stu_messg a:hover { color: #1997EC; text-decoration: underline;}
+.stu_hover { color: #1997EC; text-decoration: underline;}

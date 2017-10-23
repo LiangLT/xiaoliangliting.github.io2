@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/school_class.css">
+    <link type="text/css" rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script src="js/school_common.js"></script>
+    <script>
+        $(function(){
+            //年份
+            $("#yearShow").each(function(){
+                var myDate=new Date(),//获取当前时间
+                        getMonths=myDate.getMonth()+1,//获取当前月份
+                        getYears=myDate.getFullYear(),//获取当前年份
+                        getYearsAdd=getYears+1,//当前年份加1
+                        getYearsSub=getYears-1;//当前年份减1
+                if(getMonths<9){
+                    $(this).val(getYearsSub+'-'+getYears);
+                }
+                else if(getMonths>=9){
+                    $(this).val(getYears+'-'+getYearsAdd);
+                }
+            });
+
+
+            //开学时间
+            $("#sendStart").jeDate({
+                dateCell:"#sendStart",
+                format:"YYYY-MM-DD",
+                minDate:'2010-01-01',
+                maxDate:'3000-12-30',
+            });
+
+            //学期
+            $("#term").each(function(){
+                var termArr=["请选择学期","第一学期","第二学期"];
+                for(var i=0;i<termArr.length;i++){
+                    var option='<option value="'+i+'">'+termArr[i]+'</option>';
+                    $(this).append(option);
+                }
+            });
+
+            //周数
+            $("#weekNum").each(function(){
+                var weekNum=["请选择周数","1周","2周","3周","4周","5周","6周","7周","8周","9周","10周",
+                    "11周","12周","13周","14周","15周","16周","17周","18周","19周","20周"];
+                for(var i=0;i<weekNum.length;i++){
+                    var option='<option value="'+i+'">'+weekNum[i]+'</option>';
+                    $(this).append(option);
+                }
+            });
+
+            //学期保存
+            $("#weekYes").click(function(){
+                var yearShow=$("#yearShow").val(),//学年
+                        term=$("#term").find("option:selected").val(),//学期
+                        sendStart=$("#sendStart").val(),//开学时间
+                        weekNum=$("#weekNum").val();//上课周数
+                if(isBlank(sendStart) || term==0 || weekNum==0 ){
+                    alert("请选择学期、开学时间和上课周数！");
+                }
+                else{
+                    //后台操作
+                    alert(yearShow+term+sendStart+weekNum);
+                }
+            });
+
+        });
+
+        /**********************节次设置**************************/
+        //开始时间
+        function testShow(elem){
+            $.jeDate(elem,{
+                trigger:false,
+                isinitVal:true,
+                minDate: '2016-06-16 23:59:59',
+                maxDate: $.nowDate({DD:0}),
+                format:"hh:mm",
+                zIndex:3000,
+            })
+        }
+
+        //是否早读
+        $(function(){
+            $("#radioCheck:radio").click(function(){
+                $("#readList").show();
+            });
+            $("#isCheck:radio").click(function(){
+                $("#readList").hide();
+            });
+        });
+
+        //节数
+        $(function(){
+            var arrNum=["第一节：","第二节：","第三节：","第四节：","第五节：","第六节：","第七节：",
+                "第八节：","第九节：","第十节：","第十一节：","第十二节："];
+            var arrPicth=["请选择","1","2","3","4","5","6","7"];
+            //上课天数
+            for(var i=0;i<arrPicth.length;i++){
+                var picthOpt='<option value="'+i+'">'+arrPicth[i]+'</option>';
+                $("#classDays").append(picthOpt);
+            }
+            //上午节数
+            for(var i=0;i<arrPicth.length;i++){
+                if(i<6){
+                    var amOpt='<option value="'+i+'">'+arrPicth[i]+'</option>';
+                    $("#amNum").append(amOpt);
+                }
+            }
+
+            var date=
+                    '<div class="managementList">'+
+                        '<span>上课时间：</span>'+
+                        '<input type="text" value="" onclick="testShow(this)" placeholder="请选择上课时间"><i></i>'+
+                    '</div>'+
+                    '<div class="managementList">'+
+                        '<span>下课时间：</span>'+
+                        '<input type="text" value="" onclick="testShow(this)" placeholder="请选择下课时间"><i></i>'+
+                    '</div>';
+            //上午节数
+            $("#amNum").change(function(){
+                var  amNums=$(this).find("option:selected").val();//上午节数的值
+                if(amNums==1){
+                    $("#rowManagement").find("div").remove();
+                    for(var i=0;i<1;i++){
+                        var listOne=
+                                '<div class="manRow clearfix">'+
+                                '<div class="managementName">' +
+                                '<span class="span">'+arrNum[i]+'</span>'+
+                                '</div>'+
+                                '</div>';
+                        $("#rowManagement").append(listOne);
+                    }
+                    $("#rowManagement .manRow").append(date);
+                }
+                else if(amNums==2){
+                    $("#rowManagement").find("div").remove();
+                    for(var j=0;j<2;j++){
+                        var listTwo=
+                                '<div class="manRow clearfix">'+
+                                    '<div class="managementName">' +
+                                        '<span class="span">'+arrNum[j]+'</span>'+
+                                    '</div>'+
+                                '</div>';
+                        $("#rowManagement").append(listTwo);
+
+                    }
+                    $("#rowManagement .manRow").append(date);
+                }
+                else if(amNums==3){
+                    $("#rowManagement").find("div").remove();
+                    for(var j=0;j<3;j++){
+                        var listThird=
+                                '<div class="manRow clearfix">'+
+                                '<div class="managementName">' +
+                                '<span class="span">'+arrNum[j]+'</span>'+
+                                '</div>'+
+                                '</div>';
+                        $("#rowManagement").append(listThird);
+
+                    }
+                    $("#rowManagement .manRow").append(date);
+
+                }
+                else if(amNums==4){
+
+                    $("#rowManagement").find("div").remove();
+                    for(var j=0;j<4;j++){
+                        var listThird=
+                                '<div class="manRow clearfix">'+
+                                '<div class="managementName">' +
+                                '<span class="span">'+arrNum[j]+'</span>'+
+                                '</div>'+
+                                '</div>';
+                        $("#rowManagement").append(listThird);
+
+                    }
+                    $("#rowManagement .manRow").append(date);
+
+                }
+                else if(amNums==5){
+                    $("#rowManagement").find("div").remove();
+                    for(var j=0;j<5;j++){
+                        var listThird=
+                                '<div class="manRow clearfix">'+
+                                '<div class="managementName">' +
+                                '<span class="span">'+arrNum[j]+'</span>'+
+                                '</div>'+
+                                '</div>';
+                        $("#rowManagement").append(listThird);
+
+                    }
+                    $("#rowManagement .manRow").append(date);
+
+                }
+                else{
+                    $("#rowManagement").find("div").remove();
+                }
+            });
+
+
+            //下午节数
+
+        })
+    </script>
+</head>
+<body>
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;"></a>
+    </div>
+    <div class="week_container">
+        <div class="conHeader">
+            <div class="conHeaderTitle">学期设置</div>
+            <div class="headerList clearfix">
+                <div class="headerList1">
+                    <span>学年：</span>
+                    <input id="yearShow" type="text" disabled>
+                </div>
+                <div class="headerList1">
+                    <span>学期：</span>
+                    <select id="term"></select>
+                </div>
+                <div class="headerList1">
+                    <span>开学时间：</span>
+                    <div class="list_time">
+                        <input id="sendStart" type="text" value="" placeholder="请选择开学时间" readonly ><i></i>
+                    </div>
+
+                </div>
+                <div class="headerList1">
+                    <span>上课周数：</span>
+                    <select id="weekNum"></select>
+                </div>
+            </div>
+            <div class="headerBtn">
+                <a id="weekYes" href="javascript:;">保存</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="contentHeader">
+                节次设置
+            </div>
+            <div class="contentMain">
+                <div class="rows">
+                    <div class="contentRow">
+                        <span>上课天数：</span>
+                        <select id="classDays"></select>
+                    </div>
+                    <div class="contentRow">
+                        <div class="contentRead">
+                            <span>是否早读：</span>
+                            <label><input id="radioCheck" type="radio" name="radio" value="1">是</label>
+                            <label><input id="isCheck" type="radio"name="radio" value="2">否</label>
+                        </div>
+                        <div class="readList clearfix" id="readList" style="display: none;">
+                            <div class="readDate">
+                                <span>早读开始时间：</span><input type="text" onclick="testShow(this)" value="" placeholder="请选择早读开始时间" readonly><i></i>
+                            </div>
+                            <div class="readDate">
+                                <span>早读结束时间：</span><input type="text" onclick="testShow(this)" value="" placeholder="请选择早读结束时间" readonly><i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>上午节数：</span>
+                            <select id="amNum">
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix" id="rowManagement">
+
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>下午节数：</span>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix">
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第一节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第二节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第二节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="contentRow">
+                        <div class="rowNum">
+                            <span>晚上节数：</span>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="rowManagement clearfix">
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第一节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第一节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第一节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                            <div class="manRow clearfix">
+                                <div class="managementName">
+                                    <span>第一节：</span>
+                                </div>
+                                <div class="managementList">
+                                    <span>上课时间：</span>
+                                    <input type="text" value="" placeholder="请选择上课时间"><i></i>
+                                </div>
+                                <div class="managementList">
+                                    <span>下课时间：</span>
+                                    <input type="text" value="" placeholder="请选择下课时间"><i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="contentSave">
+                <a href="javascript:;">保存</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* CSS Document */
+/*login*/
+.heading_top { position:absolute; right:10px; top:0; color:#fff; font-size:13px;}
+.heading_top span { color:#e9e9e9;}
+.heading_top a { color:#d5d5d5; padding:0 10px;}
+.heading_top a:hover { color:#fff; text-decoration:underline;}
+/*.footing { position:absolute; bottom:0; left:0; right:0; height:60px; background:#e9e9e9; text-align:center; font-size:12px; line-height:24px; padding:5px 0;}
+.footing a { color:#333; padding:0 5px;}
+.footing a:hover { color:#11b1ed;}*/
+.login_content { position:relative; margin:50px auto; width:1000px;}
+.compan_left01 { position:relative; right:0; padding:10px 10px 10px 10px;}
+.compan_left01 .cpmpan_01 { float:left; width: 585px; }
+.compan_left01 .cpmpan_01 img { width:585px; height:335px; }
+.compan_right01 { float:left; margin:0 10px;padding: 0 27px;width: 300px;height:335px; background:#fff;}
+.compan_right01 h4 { font-size:26px; font-family:"Microsoft YaHei"; color:#008edf; font-weight:400; margin:12px 0;}
+.compan_right01 p { font-size:14px; padding:4px 0 7px 0; position:relative;}
+.compan_right01 input { border:1px solid #e9e9e9; width:84%; *width:82%; padding:9px 5px 9px 41px; }
+.compan_right01 img { position:absolute; left:0; top:11px; }
+.compan_right01 .get_pad { width:100%; position:relative; padding:6px 0 0 0;}
+.compan_right01 .get_pad input { width:auto; margin:5px; border:0; padding:0;}
+.compan_right01 .p_l { float:left;}
+.compan_right01 .p_r { float:right;}
+.compan_right01 .p_r a { color:#008edf;}
+.compan_right01 .p_r a:hover { color:#54C2FE; text-decoration:underline;}
+.compan_right01 .btn_compan { margin:2px 0; text-align:center; padding:7px 10px; background:#008edf; border-radius:4px;}
+.compan_right01 .btn_compan:hover { background:#008efd;}
+.compan_right01 .btn_compan a{ color:#fff;}
+.compan_right01 .btn_compan a:hover { color:#fff;}
+.compan_right01 .p_r01 { float:right; margin:10px;}
+.compan_right01 .p_r01 a { color:#008edf; text-decoration:underline;}
+.compan_right01 .p_r01 a:hover { color:#54C2FE; text-decoration:none;}
+.compan_right01 .color_com { color:#EC6760; margin:0 10px 0 37px; padding: 0 0 10px 0;}
+
+
+/*findPassword*/
+.find_content { width:1000px; margin:30px auto; padding:0 10px;}
+.find_safe { border:1px solid #e9e9e9; padding:20px; position:relative;}
+.find_safe h4 { font-size:15px; font-weight:600; margin:10px 0; color:#000;}
+.safe_01 { background:url(../images/find_pawss.png) left 13px repeat-x; overflow:hidden; margin:20px 0 35px 0; width:828px;}
+.safe_01 ul { margin-right:-300px;}
+.safe_01 li { background-color:#f9f9f9; float:left; display:inline; margin-right:300px; *margin-right:200px;}
+.safe_01 li span { background:url(../images/find_mun01.png) no-repeat; display:block; background-position:6px -4px; padding-top:36px; width:76px; text-align:center; color:#008ed6;}
+.safe_01 .mun_01 span { background-position:-69px -4px; color:#999;}
+.safe_01 .mun_02 span { background-position:-166px -4px; color:#999; }
+.safe_conten { text-align:center; font-size:14px; color:#656565; margin-bottom:10px;}
+.safe_conten input { border:1px solid #e7e7e7; padding:0 5px; height:34px; line-height:34px; border-radius:4px; width:210px; margin:0 4px;}
+.safe_btn { text-align:center; margin:30px 0; font-size:14px;}
+.safe_btn a { color:#fff; background:#008ed6; border-radius:4px; padding:7px 25px;}
+.safe_btn a:hover { box-shadow:1px 0 3px #008edf;}
+
+/*findPassword-next01*/
+.safe_01 .mun_03 span { background-position:-69px -65px;}
+.safe_conten h4 span { color:#008ed6; margin:0 5px;}
+.safe_conten .cont_btn { border:1px solid #ccc; display:inline-block; width:100px; height:26px; line-height:26px; text-align:center; background:#f7f7f6; font-size:13px; border-radius:4px; margin:0 10px; color:#999;}
+.safe_conten .cont_btn:hover { color:#000; box-shadow:1px 2px 3px #ddd;}
+.safe_input { margin:20px 0; text-align:center;}
+.safe_input span { color:#008ed6; margin:0 5px;}
+.safe_input img { width:27px; height:27px; margin:0 5px 4px 5px;}
+
+/*findPassword-next02*/
+.safe_01 .mun_04 span { background-position:-166px -65px; }
+.safe_conten01 { position:relative;}
+.safe_conten01 p { margin:0 0 10px 0;}
+.safe_conten01 span { width:100px; text-align:right; position:absolute; left:280px; font-size:14px; line-height:34px;}
+.safe_conten01 input { border:1px solid #e7e7e7; padding:0 5px; height:34px; line-height:34px; border-radius:4px; width:210px; margin-left:385px;}
+/*=====ЖўЮЌТы=====*/
+.login_wx { position: relative; float: left; width: 300px; height: 335px; background: #fff; margin: 0 10px;}
+.login_wx .tran_img img { width: 132px; height: 132px; margin: 50px 84px 20px 84px; border: 1px solid #ddd; cursor: pointer;}
+
+.login_wx .tran_bg .line_bg { margin: 50px 84px 20px 84px; position: absolute; top: 0; z-index: 100; background: #000; opacity: .5; width: 133px; height: 133px;}
+.login_wx .tran_bg p { position: absolute; z-index: 101; font-size: 20px; width: 100px; padding: 35px 16px; color: #fff; line-height: 31px; margin: 50px 84px 20px 84px;}
+
+.tran_img { position: absolute; top: 0;}
+.tran_img p { text-align: center;}
+.login_wx .tran_bg { width: 100%; height: 100%; position: absolute; z-index: 102; cursor: pointer;}
+.login_wx .tran_success { width: 100%; height: 100%; position: absolute; z-index: 103; background: #fff; cursor: pointer;}
+.tran_success img { width: 60px; height: 60px; border: 0;}
+.success_con { text-align: center; padding: 98px 0 0 0;}
+.success_con .success_wx { padding: 25px 0 10px 0; font-size: 18px;}
+.success_con p { color: #949494;}

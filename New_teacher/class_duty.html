@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+
+        //判断是否为数字
+        function isNumber(str){
+            var number=/^[\d]+$/g;
+            return number.test(str);//test用来测试对象的格式
+        }
+
+        //关闭弹窗
+        function closeModal(){
+            $("#modalAth").hide();
+            window.location.reload();
+        }
+        //未选择跳出的弹窗
+        function modalSelect(){
+            $("#modalHint").show();
+            $("#modalHint").find(".class_modal_con p").remove();
+            $("#modalHint").find(".class_modal_footer a").remove();
+            var hintTxt='<p></p>';
+            $("#modalHint").find(".class_modal_con").append(hintTxt);
+            var foot="<a href='javascript:;' class='closeModal'>确定</a>";
+            $("#modalHint").find(".class_modal_footer").append(foot);
+            $(".closeModal").click(function(){
+                $("#modalHint").hide();
+            });
+        }
+
+        //获取顶部的html
+        $(function() {
+            //changeIndex();//更新序列号
+            $.ajax({
+                url: "class_top.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/dutyIcon.png"><p>值日安排</p></a>');
+                }
+            });
+
+            //安排值日生
+            $(".dutyAth").click(function(){
+                $("#modalAth").show();
+                $("#modalAth").find(".class_modal_top h3").html("值日生安排");
+                var footer='<a href="javascript:;" id="dutyAthBtn">确定</a>'
+                    $("#dutyFooter").append(footer);
+                //星期
+                var weeks=["请选择星期","星期一","星期二","星期三","星期四","星期五","星期六","星期七"];
+                for(var i=0;i<weeks.length;i++){
+                    var opt='<option value="'+i+'">'+weeks[i]+'</option>';
+                    $("#weekDuty").append(opt);
+                }
+
+                //周数
+                var weekNum=["请选择周数","第一周","第二周","第三周","第四周","第五周","第六周","第七周","第八周","第九周","第十周","第十一周","第十二周",
+                    "第十三周","第十四周","第十五周", "第十六周","第十七周", "第十八周","第十九周","第二十周","第二十一周","第二十二周","第二十三周"];
+                for(var i=0;i<weekNum.length;i++){
+                    var optNum='<option value="'+i+'">'+weekNum[i]+'</option>';
+                    $("#dateTime").append(optNum);
+                }
+
+                $("#stuDuty").change(function(){
+                    var optVal=$(this).find("option:selected").val();//被选中的val值,值日生ale
+                    //alert(optVal);
+                    if(optVal!=0){
+                        var opt=$("#stuDuty").find("option:selected").text();//被选中的文本值
+                        var val=$("#stuDuty").find("option:selected").val();
+                        var spanPuse='<span><input class="optVal" type="hidden" value="'+val+'">'+opt+'<i class="iconDuty"></i></span>';
+                        var valRows= $(".duty_rows").find("span");//span标签是否已有
+                        var isExist=true;//是否已存在相同的数据
+                        $(".duty_rows span").each(function(){
+                            var spanVal=$(this).find(".optVal").val();//添加学生的标签中的input隐藏值
+                            if(optVal==spanVal){
+                                isExist=false;
+                            }
+                        });
+                        //如果不存在就添加，存在就弹窗提示
+                        if(isExist){
+                            alert(optVal);
+                            $(".duty_rows").append(spanPuse);
+                        }
+                        else{
+                            alert("此学生已存在！");
+                        }
+
+//                        if(valRows.length>0){
+//
+//                        }
+//                        else{
+//                            alert("-----------")
+//                            $(".duty_rows").append(spanPuse);
+//                        }
+                    }
+
+                    //删除新添加的span
+                    $(".iconDuty").click(function(){
+                        var delName=$(this).siblings(".optVal").val();
+                        $(this).parent("span").remove();
+                    });
+                });
+
+
+                //点击确定
+                $("#dutyAthBtn").click(function(){
+                    var valRows= $(".duty_rows").find("span"),//span标签是否已有
+                            dateTime=$("#dateTime").find("option:selected").val(),//选中的周数
+                            weekDuty=$("#weekDuty").find("option:selected").val(),//选中的星期
+                            stuDuty=$("#stuDuty").find("option:selected").val();//选中的值日生
+                    //判断值日生是否存在
+                    if(valRows.length==0 || dateTime==0 || weekDuty==0){
+                        if(valRows.length==0){
+                            modalSelect();
+                            $("#modalHint").find(".class_modal_con p").html("您还没选择值日学生，请先选了值日学生，再确定！");
+                        }
+                        if(dateTime==0){
+                            modalSelect();
+                            $("#modalHint").find(".class_modal_con p").html("您还没选择周数，请先选周数，再确定！");
+                        }
+                        if(weekDuty==0){
+                            modalSelect();
+                            $("#modalHint").find(".class_modal_con p").html("您还没选择星期，请先选星期，再确定！");
+                        }
+                    }
+                    else{
+                        //后台操作
+                       var trHtml=
+                               '<tr>' +
+                                   '<td  class="dl_width dl_bg">'+dateTime+'</td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td  class="dl_width"></td>' +
+                                   '<td class="class_width">'+
+                                        '<div class="dl_btn">'+
+                                            ' <a class="change changeDuty" href="javascript:;" >修改</a>'+
+                                        '</div>'+
+                                    '</td>'+
+                               '</tr>';
+                        $("#appTabel tbody").append(trHtml);
+                        alert(dateTime+weekDuty+stuDuty);
+                    }
+
+                });
+            });
+
+
+            //修改
+            $(document).on("click",".changeDuty",function(){
+                $("#modalAth").show();
+                $(".class_modal_con").find(".class_modal_row").first().remove();//移除第一个div
+                var footer='<a href="javascript:;" id="changeDutyBtn">确定</a>';
+                    $("#dutyFooter").append(footer);
+                //星期
+                var weeks=["请选择星期","星期一","星期二","星期三","星期四","星期五","星期六","星期七"];
+                for(var i=0;i<weeks.length;i++){
+                    var opt='<option value="'+i+'">'+weeks[i]+'</option>';
+                    $("#weekDuty").append(opt);
+                }
+                var weekOne=$(this).parents("tr").find(".weekOne").val();
+                    $("#weekDuty").val(weekOne);//默认星期一
+                $("#modalAth").find(".class_modal_top h3").html("修改值日生安排");
+                var dyWeekVal=$(this).parents("tr").find(".weekNum").val();//周数的隐藏值
+
+
+
+                var firstDiv=
+                        '<div class="class_modal_row">' +
+                            '<span>周数：</span>' +
+                            '<input type="text" value="'+"第"+dyWeekVal+"周"+'" disabled><input type="hidden" class="dlVal" value="'+dyWeekVal+'">' +
+                        '</div>';
+                $(firstDiv).prependTo(".class_modal_con");
+
+
+                //alert(weed.val())
+                var strName="学生1,学生2,学生3,学生4,学生5,学生6,学生7,学生8,学生9,学生10";
+                var strNum="1001,2,3";
+                var strNames=strName.split(","),
+                        strNums=strNum.split(",");
+                for(var j=0;j<strNames.length;j++){
+                    var rowSpan='<span><input class="optVal" type="hidden" value="'+strNums[j]+'">'+strNames[j]+'<i class="iconDuty"></i></span>';
+                    $(".duty_rows").append(rowSpan);
+                }
+
+
+                //点击星期，更换已安排学生的信息
+                $("#weekDuty").change(function(){
+                    var optVal=$(this).find("option:selected").val();//被选中的val值,星期值
+                    var weeks=$(".dlVal").val();
+
+                   // alert(optVal+','+weeks);
+                    if(optVal!=0){
+                        $(".duty_rows").find("span").remove();
+                        for(var j=3;j<strNames.length;j++){
+                            var rowSpan='<span><input class="optVal" type="hidden" value="'+strNums[j]+'">'+strNames[j]+'<i class="iconDuty"></i></span>';
+                            $(".duty_rows").append(rowSpan);
+                        }
+                    }
+                    else{
+
+                        $(".duty_rows").find("span").remove();
+                    }
+
+                });
+                $("#stuDuty").change(function(){
+                    var optVal=$(this).find("option:selected").val();//被选中的val值,值日生
+                    if(optVal!=0){
+                        var opt=$("#stuDuty").find("option:selected").text();//被选中的文本值
+                        var spanPuse='<span><input class="optVal" type="hidden" value="'+optVal+'">'+opt+'<i class="iconDuty"></i></span>';
+                        var isExist=true;//是否已存在相同的数据
+
+                        $(".duty_rows span").each(function(){
+                            var spanVal=$(this).find(".optVal").val();//添加学生的标签中的input隐藏值
+                            if(optVal==spanVal){
+                                isExist=false;
+                            }
+                        });
+                        //如果不存在就添加，存在就弹窗提示
+                        if(isExist){
+                            $(".duty_rows").append(spanPuse);
+                        }
+                        else{
+                            alert("此学生已存在！");
+                        }
+
+                    }
+                });
+
+
+
+                //删除新添加的span
+                $(document).on("click",".iconDuty",function(){
+//                $(".iconDuty").click(function(){
+                    var delName=$(this).siblings(".optVal").val();
+                    alert(delName)
+                    $(this).parent("span").remove()
+                });
+
+                //点击确认
+                $("#changeDutyBtn").click(function(){
+                    var weeks=$(".dlVal").val();//周数
+                    var weekDuty=$("#weekDuty").find("option:selected").val();//星期
+
+                    $(".duty_rows").find(".optVal").each(function(){
+                        var _thisVal=$(this).val();
+                        alert(_thisVal);
+                    });
+
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+<!--添加-->
+<div class="class_modal" id="modalAth" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3></h3><i onclick="closeModal()">X</i>
+        </div>
+        <div class="class_modal_con">
+            <div class="class_modal_row">
+                <span>周数：</span><select id="dateTime">
+
+            </select>
+            </div>
+            <div class="class_modal_row">
+                <span>星期：</span><select id="weekDuty">
+
+            </select>
+            </div>
+            <div class="class_modal_row">
+                <span>值日学生：</span><select id="stuDuty">
+                <option value="0">请选择学生</option>
+                <option value="1">学生一</option>
+                <option value="2">学生二</option>
+            </select>
+            </div>
+            <div class="class_modal_row">
+                <span class="viewSpan">已安排学生：</span>
+                <div class="duty_rows">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="class_modal_footer" id="dutyFooter"></div>
+    </div>
+</div>
+
+
+<div class="class_modal" id="modalHint" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i class="closeModal">X</i>
+        </div>
+        <div class="class_modal_con">
+        </div>
+        <div class="class_modal_footer"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="declaration">
+        <div class="class_btn">
+            <a  href="javascript:;" onclick="preview()">预览</a>
+            <a class="ath_dl dutyAth" href="javascript:;">安排值日生</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="class_tabel">
+            <table class="tabelStyle" cellpathing="0" cellspacing="0" id="appTabel">
+                <thead>
+                <tr>
+                    <th class="dl_width">周数/星期</th>
+                    <th class="dl_width">星期一</th>
+                    <th class="dl_width">星期二</th>
+                    <th class="dl_width">星期三</th>
+                    <th class="dl_width">星期四</th>
+                    <th class="dl_width">星期五</th>
+                    <th class="dl_width">星期六</th>
+                    <th class="dl_width">星期七</th>
+                    <th class="dl_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="dl_width dl_bg">第一周<input type="hidden" class="weekNum" value="1">
+                            <input type="hidden" class="weekOne" value="1">
+                        </td>
+                        <td class="dl_width list1">
+                            <span>
+                                小刘同学
+                            </span>
+                            <span>
+                                小刘同学
+                            </span>
+                        </td>
+                        <td>
+                            <span>张同学</span>
+                        </td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td class="class_width">
+                            <div class="dl_btn">
+                                <a class="change changeDuty" href="javascript:;" >修改</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="dl_width dl_bg">第二周<input type="hidden" class="weekNum" value="2">
+                            <input type="hidden" class="weekOne" value="1">
+                        </td>
+                        <td class="dl_width">
+                            小刘同学
+                        </td>
+                        <td>
+                        </td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td class="class_width">
+                            <div class="dl_btn">
+                                <a class="change changeDuty" href="javascript:;" >修改</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

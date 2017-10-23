@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="css/phone.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function(){
+            $("#userName").blur(function(){
+                var userVal=$(this).val();
+                if(!isTxt(userVal)){
+                    $(".pTxt1").html("*用户名由2-20位英文字母、数字、下划线组成！");
+                    $(".listReg .pTxt1").css("padding","5px 0");
+                }
+                else{
+                    $(".pTxt1").html("");
+                    $(".listReg .pTxt1").css("padding","0px 0");
+                }
+            });
+            $("#userPhone").blur(function(){
+                var phoneVal=$(this).val();
+                if(!isPhone(phoneVal)){
+                    $(".pTxt2").html("*请输入正确的手机号码！");
+                    $(".listReg .pTxt2").css("padding","5px 0");
+                }
+                else{
+                    $(".pTxt2").html("");
+                    $(".listReg .pTxt2").css("padding","0px 0");
+                }
+            });
+            $("#userPaw").blur(function(){
+                var phoneVal=$(this).val();
+                if(!isPassword(phoneVal)){
+                    $(".pTxt3").html("*密码由6-20位英文字母、数字、下划线组成！");
+                    $(".listReg .pTxt3").css("padding","5px 0");
+                }
+                else{
+                    $(".pTxt3").html("");
+                    $(".listReg .pTxt3").css("padding","0px 0");
+                }
+            });
+            $("#userPawTwo").blur(function(){
+                var pawVal=$(this).val();
+                var userPaws=$("#userPaw").val();
+                if(pawVal!=userPaws){
+                    $(".pTxt4").html("*两次密码不一致，请重新输入");
+                    $(".listReg .pTxt4").css("padding","5px 0");
+                }
+                else{
+                    $(".pTxt4").html("");
+                    $(".listReg .pTxt4").css("padding","0px 0");
+                }
+            });
+            //点击确认
+            $("#btnRegister").click(function(){
+                var userName=$("#userName").val(),
+                        userPhone=$("#userPhone").val(),
+                        userPaw=$("#userPaw").val(),
+                        userPawTwo=$("#userPawTwo").val();
+
+                if(isBlank(userName) || isBlank(userPhone) || isBlank(userPaw) || isBlank(userPawTwo)){
+                    $(".con").html("");
+                    modalAdd();
+                    $(".moadl_con p").html("请您确认是否还有未输入的！");
+                    $(".moadl_con p").css("line-height","90px");
+                    $(".modal_btn a").html("关闭");
+                    $(".modal_btn a").attr("id","close");
+                }
+               else if(!isBlank(userName) && !isBlank(userPhone) && !isBlank(userPaw) && !isBlank(userPawTwo)){
+                    sessionStorage.setItem("userName",userName);
+                    sessionStorage.setItem("userPhone",userPhone);
+                    sessionStorage.setItem("userPaw",userPaw);
+                    sessionStorage.setItem("userPawTwo",userPawTwo);
+                    window.location.href="index.html";
+                }
+                else{
+                    $(".con").html("注册失败！");
+                }
+            });
+            //关闭弹窗
+            $(document).on("click","#close",function(){
+                $(".Modalfixed").remove();
+            });
+        })
+
+    </script>
+</head>
+
+<body id="addHtml">
+    <header class="commonHeader clearfix">
+        <div class="headerList"><a href="index.html"><img src="images/headerLeftIcon.png"></a></div>
+        <div class="headerCenter">注册账号</div>
+        <div class="headerList"></div>
+    </header>
+    <div class="register">
+
+        <div class="listReg">
+            <div class="registerList">
+                <span>用户名：</span><input type="text" id="userName" value="" placeholder="请输入用户名">
+            </div>
+            <p class="pTxt1"></p>
+        </div>
+        <div class="listReg">
+            <div class="registerList">
+                <span>手机号码：</span><input type="text" id="userPhone" value="" placeholder="请输入手机号码">
+            </div>
+            <p class="pTxt2"></p>
+        </div>
+        <div class="listReg">
+            <div class="registerList">
+                <span>密码：</span><input type="password" id="userPaw" value="" placeholder="请输入账号密码">
+            </div>
+            <p class="pTxt3"></p>
+        </div>
+        <div class="listReg">
+            <div class="registerList">
+                <span>确认密码：</span><input type="password" id="userPawTwo" value="" placeholder="请输入账号密码">
+            </div>
+            <p class="pTxt4"></p>
+        </div>
+    </div>
+    <div class="con"></div>
+    <div class="registerBtn">
+        <a id="btnRegister" href="javascript:;">注册</a>
+    </div>
+</body>
+</html>

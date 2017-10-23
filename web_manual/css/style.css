@@ -1,0 +1,49 @@
+/*== common ==*/
+
+* { margin:0; padding:0;}
+body { background:#f9f9f9; font-size:12px; font-family:Arial,Microsoft YaHei; margin:0; padding:0;}
+img { border:0;}
+img,input { vertical-align:middle;}
+input[type="button"], input[type="submit"], input[type="reset"], input[type="text"] { -webkit-appearance:none;}
+textarea { -webkit-appearance: none;}
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+	input, select, textarea { outline:none;}
+	}
+ul,li,ol { list-style:none; margin:0; padding:0;}
+a,a:link, a:hover, a:visited, a:focus { text-decoration:none;}
+h1,h2,h3,h4,h5,h6,p { margin:0; padding:0;}
+audio, canvas, progress, video { width:100%;}
+
+/*== catalog ==*/
+
+
+.catalog { padding:20px;}
+
+.catalog .title { font-size:20px; padding:10px 0; text-align:center;}
+
+.catalog a { color:#000; background:url(../images/arrow_grey.png) center right no-repeat; border-bottom:1px #ddd dotted; display:block; padding:10px 0;}
+.catalog a span { color:#666; font-size:12px; padding:0 5px 0 0;}
+.catalog h1, .catalog h2, .catalog h3 { font-weight:normal;}
+.catalog h1 { font-size:14px;}
+.catalog h2 { font-size:13px;}
+.catalog h3 { font-size:12px;}
+
+/*== manual_content ==*/
+
+.manual_content { padding:20px;}
+
+.goback a { background:url(../images/arrow_blue.png) left center no-repeat; color:#0fa3ed; font-size:14px; padding:5px 0 5px 15px; position:absolute; top:20px; right:20px; z-index:1;}
+
+.manual_content h1, .manual_content h2, .manual_content h3 { font-weight:normal; padding:5px 0;}
+.manual_content h1 { font-size:16px; position:relative;}
+.manual_content h2 { font-size:15px;}
+.manual_content h3 { font-size:14px;}
+.manual_content h1 span, .manual_content h2 span, .manual_content h3 span { font-size:14px; padding:0 5px 0 0;}
+
+.manual_content .title { background:url(../images/point.png) left center no-repeat; color:#0fa3ed; font-size:13px; font-weight:bold; margin:5px 0 5px 2px; padding:0 0 0 12px;}
+.manual_content .content { color:#3d3d3d; line-height:22px; padding:2px 0 10px 14px; text-align:justify;}
+.manual_content .content .pic { padding:10px 30px 5px 10px;}
+.manual_content .content .pic img { width:100%; border:1px #ddd solid;}
+.manual_content .content .pic p { padding:5px 0 0 0; text-align:center;}
+
+

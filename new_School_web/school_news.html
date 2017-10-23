@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <link rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script src="js/school_common.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
+
+    <script>
+        //字符控制
+        function checkLen(obj)
+        {
+            var maxChars = 35;//最多字符数
+            if (obj.value.length > maxChars){
+                obj.value = obj.value.substring(0,maxChars);
+            }
+        }
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        $(function(){
+            changeIndex();//更新序列号
+
+            var ue=UE.getEditor('newEditor');//富文本编辑器
+
+            //实现日期选择联动
+            var start = {
+                format: 'YYYY-MM-DD',
+                minDate: '2010-01-01 23:59:59', //设定最小日期为当前日期
+                //festival:true,
+                maxDate: $.nowDate({DD:0}), //最大日期
+                choosefun: function(elem,datas){
+                    end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                    endDates();
+                },
+                okfun:function (elem,datas) {
+
+                }
+            };
+
+            var end = {
+                format: 'YYYY-MM-DD',
+                minDate: $.nowDate({DD:0}), //设定最小日期为当前日期
+                //festival:true,
+                maxDate: '3000-12-30 23:59:59', //最大日期
+                choosefun: function(elem,datas){
+                    start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+            function endDates() {
+                end.trigger = false;
+                $("#inpend").jeDate(end);
+            }
+            $("#sendStart").jeDate(start);
+            $("#sendEnd").jeDate(end);
+
+
+
+            //新增新闻
+            $(".newsAdd").click(function(){
+                $("#newsModal").show();
+                $("#repFt a").attr("id","newsAddBtn");
+                $("#newsTitle").blur(function(){
+                    var news_title=$(this).val();
+                    if(!isBlank(news_title)){
+                        $(".title_p").css("color","#868686");
+                        $(".title_p").html("*新闻标题不可以超过35个字！");
+                    }
+                });
+
+            });
+            $(document).on("click","#newsAddBtn",function(){
+                var $newsTitle=$("#newsTitle").val();
+                var nameNews= $("#nameNews").val();
+                var arr = [];
+                arr.push(UE.getEditor('newEditor').getContentTxt());
+
+                if(isBlank($newsTitle)){
+                    $(".title_p").css("color","#d6111e");
+                    $(".title_p").html("*新闻标题不能为空！");
+                }
+                else{
+                    alert(newEditor);
+                    //$("#newsForm").submit();
+                }
+
+            });
+            //修改
+            $(".newsChange").click(function(){
+                $("#newsModal").show();
+                $("#repFt a").attr("id","newsChangeBtn");
+
+                var tdChar=$(this).parents("tr").find("td"),
+                    news_content=$(this).parents("tr").find(".news_content").val();//新闻内容
+                    $("#newsTitle").val(tdChar.eq(1).text());//新闻标题
+
+                $("#nameNews").val(tdChar.eq(2).text());
+                var news_id=$(this).parents("tr").find(".news_id").val();
+                $("#inforId").val(news_id);
+                //给文本框编辑器赋值
+                UE.getEditor('newEditor').setContent(news_content);
+            });
+            $(document).on("click","#newsChangeBtn",function(){
+                $("#newsForm").action();
+
+                //alert(newsTitle+nameNews+arr);
+            });
+
+            //删除
+            $(".newsDel").click(function(){
+                $("#newsDelModal").show();
+                var tdChar=$(this).parents("tr").find("td").eq(1).text();//新闻标题
+                var news_id=$(this).parents("tr").find(".news_id").val();//新闻id
+                var addP='<p>'+"您确定要把“"+tdChar+"”删除吗？"+'</p>';
+                $("#delConModal").append(addP);
+
+                //确定删除,后台操作
+                $("#newsDelBtn").click(function(){
+                   // alert(news_id);
+                });
+            });
+
+            //查看新闻
+            $(".newsView").click(function(){
+                $("#newsModal").show();
+                $(".news_modal_con form #newsFirst").remove();
+                var rows=
+                        '<div class="class_modal_row clearfix">' +
+                            '<div class="rows_lf"><span>新闻标题：</span><div class="view viewNewsTitle"></div></div>'+
+                            '<div class="rows_rg"><span>创建人：</span><div class="view viewNewsName"></div></div>'+
+                        '</div>';
+                $(rows).prependTo(".news_modal_con");
+                var tdChar=$(this).parents("tr").find("td"),
+                        news_content=$(".news_content").val();//新闻内容
+                $(".viewNewsTitle").text(tdChar.eq(1).text());
+                $(".viewNewsName").text(tdChar.eq(2).text());
+                UE.getEditor('newEditor').setContent(news_content);
+                UE.getEditor('newEditor').setDisabled('fullscreen');
+                $("#repFt a").remove();
+                var footerBtn='<a href="javascript:;" onclick="modalDel()" >确定</a>';
+                $("#repFt").append(footerBtn);
+
+            });
+        });
+        //查询
+        function searchNews(){
+            var sendStart=$("#sendStart").val(),//开始时间
+                    sendEnd=$("#sendEnd").val(),//结束时间
+                    newsName=$("#newsName").val();//新闻标题
+            alert(sendStart+','+sendEnd+','+newsName);
+        }
+    </script>
+
+</head>
+<body>
+
+
+
+<!--新增-->
+<div class="class_modal" id="newsModal" style="display: none">
+    <div class="class_modal_news">
+        <div class="class_modal_top clearfix">
+            <h3>发布新闻</h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="news_modal_con clearfix">
+            <form id="newsForm">
+                <div class="news_modal_rows clearfix" id="newsFirst">
+                    <div class="rows_lf">
+                        <span>新闻标题：</span><input type="hidden" id="inforId" value=""><input type="text" id="newsTitle" onkeyup="checkLen(this)"><p class="title_p">*新闻标题不可以超过35个字</p>
+                    </div>
+                    <div class="rows_rg">
+                        <span>创建人：</span><input type="text" value="" id="nameNews">
+                    </div>
+                </div>
+                <div class="news_modal_rows">
+                    <span>新闻内容：</span>
+                    <div class="editor">
+                        <textarea id="newEditor" name="content" style="width: 750px; height: 300px;">
+                        </textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="news_modal_footer" id="repFt">
+            <a href="javascript:;">确定</a>
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+<div class="class_modal" id="newsDelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+            </div>
+        <div class="class_modal_con" id="delConModal">
+        </div>
+        <div class="class_modal_footer" id="ftModal">
+            <a href="javascript:;" id="newsDelBtn">确定</a>
+        </div>
+        </div>
+    </div>
+<!--注销-->
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">资讯</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf">
+                <div class="btn">
+                    <span>发布日期：</span>
+                    <input type="text" class="dateIcon" id="sendStart" readonly="readonly" placeholder="请选择时间">-
+                    <input type="text" class="dateIcon" id="sendEnd" readonly="readonly" placeholder="请选择时间">
+
+                </div>
+                <div class="btn">
+                    <span>新闻标题：</span>
+                    <input type="text" id="newsName">
+                </div>
+                <div class="btn">
+                    <button onclick="searchNews()">查询</button>
+                </div>
+            </div>
+            <div class="class_rg">
+                <a class="add_dl newsAdd" href="javascript:;">新增新闻</a>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">标题</th>
+                    <th class="class_width">发布人</th>
+                    <th class="class_width">操作时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">新学期新计划新发展新学期新计划新发展发展<input type="hidden"  class="news_id" value="新闻标题的id值"></td>
+                    <td class="class_width">刘老师<input type="hidden" class="news_content" value='<p>尽快哈是打发但是减肥的是离开房间的时刻发多少发到空间</p><img src=""'></td>
+                    <td class="class_width">2017-09-08 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="change newsChange" type="button" value="修改">
+                            <input class="change newsView" type="button" value="查看">
+                            <input class="del newsDel" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">新学期，新计划，新发展</td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-09-08 11:11:00</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="change" type="button" value="修改">
+                            <input class="del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

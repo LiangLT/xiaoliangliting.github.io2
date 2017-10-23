@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/school_common.js"></script>
+    <script>
+        //关闭modal，添加，修改
+        function modalDel(){
+            $(".class_modal").hide();
+            window.location.reload();
+        }
+        $(function(){
+            changeIndex();//更新序列号
+
+            //注销
+            $(".delUserCard").click(function(){
+                var _this=$(this),
+                        changeClass=$(this).siblings(".change");//修改按钮
+                var stu_id=$(this).parents("tr").find(".stu_id").val(),//学生id
+                    stu_name=$(this).parents("tr").find("td").eq(1).text(),//学生姓名
+                    stu_card=$(this).parents("tr").find("td").eq(2).text(),//学生卡号
+                    stu_state=$(this).parents("tr").find("td").eq(5);//学生卡状态
+                if(_this.val()=="注销"){
+                    $("#cancelModal").show();
+                    $(".class_modal_con p").remove();
+                    $(".class_modal_footer a").remove();
+                    var DivRow='<p>'+"您确定要注销“"+stu_name+"("+stu_card+")”的学生卡吗？"+'</p>';
+                        $("#delModal").append(DivRow);
+                    var footerBtn='<a id="delUserC" href="javascript:;">确定</a>';
+                        $("#ftModal").append(footerBtn);
+                    //点击确认删除，后台操作
+                    $("#delUserC").click(function(){
+                        if(this){
+                            //alert("学生卡号为："+stu_card);
+                            _this.val("恢复");
+                            _this.css("background","#1997EC");
+                            changeClass.css("background","#5d5c5c");
+                            changeClass.attr("disabled","true");
+                            stu_state.html("注销");
+                            $("#cancelModal").hide();//关闭modal
+                        }
+                    });
+                }
+                else{
+                    $("#cancelModal").show();
+                    $(".class_modal_con p").remove();
+                    $(".class_modal_footer a").remove();
+                    var DivRow='<p>'+"您确定要恢复“"+stu_name+"("+stu_card+")”的学生卡吗？"+'</p>';
+                    $("#delModal").append(DivRow);
+                    var footerBtn='<a id="renUserC" href="javascript:;">确定</a>';
+                       $("#ftModal").append(footerBtn);
+                    //点击确认删除，后台操作
+                    $("#renUserC").click(function(){
+                        if(this){
+
+                           // alert("学生卡号为："+stu_card)
+                            _this.val("注销");
+                            _this.css("background","#e93c00");//注销按钮
+                            changeClass.css("background","#1997EC");
+                            changeClass.removeAttr("disabled","true");
+                            stu_state.html("未使用");
+                            var _input='<input type="hidden" class="stuCardState" value="1">';
+                            $(".inputs").append(_input);
+                            $("#cancelModal").hide();//关闭modal
+                        }
+                    });
+                }
+
+            });
+
+            //修改
+            $(".changeUserCard").click(function(){
+                $("#cardModal").show();
+                var ftDiv='<a href="javascript:;" id="changeCard" >确定</a>';
+                    $("#repFt").append(ftDiv);
+                var _tdTxt=$(this).parents("tr").find("td");
+                var stuCardState=$(this).parents("tr").find(".stuCardState").val(),//表格状态值
+                        stu_id=$(this).parents("tr").find(".stu_id").val();//学生id
+                    $("#stuName").val(_tdTxt.eq(1).text());//姓名
+                    $("#stuType").val(_tdTxt.eq(3).text());//类型
+                    $("#stuCard").val(_tdTxt.eq(2).text());//卡号
+                    $("#cardState").val(stuCardState);//状态值
+                    $("#stuId").val(stu_id);//学生id
+            });
+            //确认修改
+            $(document).on("click","#changeCard",function(){
+                var  stuId=$("#stuId").val(),//学生id
+                    stuType=$("#stuType").val(),//类型
+                    stuCard=$("#stuCard").val(),//卡号
+                    cardState=$("#cardState").find("option:selected").val();//状态
+
+                alert(stuId+','+stuCard+','+cardState);
+            });
+
+        });
+
+        //查看
+        function btnStuCart(){
+            var userClassId=$("#userClassId").find("option:selected").val();//班级被选中的val
+            var userStuName=$("#userStuName").val();//学生姓名
+            alert(userClassId+','+userStuName);
+        }
+    </script>
+
+</head>
+<body>
+<!--修改-->
+<div class="class_modal" id="cardModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>修改学生卡</h3><i onclick="modalDel()">X</i>
+        </div>
+        <div class="class_modal_con">
+            <form>
+                <div class="class_modal_row ">
+                   <span>学生姓名：</span><input type="text" id="stuName" disabled placeholder="请输入学生姓名"><input type="hidden" id="stuId">
+                </div>
+                <div class="class_modal_row ">
+                   <span>类型：</span>
+                    <input type="text" id="stuType" disabled>
+                </div>
+                <div class="class_modal_row ">
+                   <span>卡号：</span>
+                    <input type="text" id="stuCard">
+                </div>
+                <div class="class_modal_row ">
+                   <span>状态：</span>
+                    <select id="cardState">
+                        <option value="1">未使用</option>
+                        <option value="2">使用中</option>
+                        <option value="3">挂失</option>
+                        <option value="4">注销</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="class_modal_footer" id="repFt">
+
+        </div>
+    </div>
+</div>
+<!--修改-->
+
+<!--注销-->
+<div class="class_modal" id="cancelModal" style="display: none">
+    <div class="class_modal_container">
+        <div class="class_modal_top clearfix">
+            <h3>温馨提示</h3><i onclick="modalDel()">X</i>
+            </div>
+        <div class="class_modal_con" id="delModal"></div>
+        <div class="class_modal_footer" id="ftModal">
+
+        </div>
+        </div>
+    </div>
+<!--注销-->
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">学生卡管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_lf">
+                <div class="btn">
+                    <span>班级：</span>
+                    <select id="userClassId">
+                        <option>六年级（1）班</option>
+                        <option>六年级（2）班</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <span>学生姓名：</span>
+                    <input type="text" id="userStuName">
+                </div>
+                <div class="btn">
+                    <button onclick="btnStuCart()">查询</button>
+                </div>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">姓名</th>
+                    <th class="class_width">卡号</th>
+                    <th class="class_width">类型</th>
+                    <th class="class_width">操作时间</th>
+                    <th class="class_width">状态</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">兰兰<input type="hidden" class="stu_id"  value="学生id"></td>
+                    <td class="class_width">187700000</td>
+                    <td class="class_width">学生</td>
+                    <td class="class_width">2017-09-08 11:11:00</td>
+                    <td class="class_width inputs">未使用<input type="hidden" class="stuCardState" value="1"></td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="changeUserCard change" type="button" value="修改">
+                            <input class="delUserCard del" type="button" value="注销">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width ">筱筱<input type="hidden" class="stu_id"  value="学生id"></td>
+                    <td class="class_width">187700000</td>
+                    <td class="class_width">教师</td>
+                    <td class="class_width">2017-09-08 11:11:00</td>
+                    <td class="class_width">使用中<input type="hidden" class="stuCardState" value="2"></td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="changeUserCard change" type="button" value="修改">
+                            <input class="delUserCard del" type="button" value="注销">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/school_class.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //更新序列号
+        function changeIndex(){
+            var i=1;
+            $(".class_tabel tbody tr").each(function(){
+                $(this).find("td:first").text(i++);
+            });
+        }
+        //判断是否为空方法
+        function isBlank(_value){
+            if(_value==null || _value=="" || _value==undefined){
+                return true;
+            }
+            return false;
+        }
+        //关闭modal
+        function closeModal(){
+            $("#modalClose").remove();
+        }
+
+        //字符控制
+        function checkLen(obj)
+        {
+            var maxChars = 30;//最多字符数
+            if (obj.value.length > maxChars){
+                obj.value = obj.value.substring(0,maxChars);
+            }
+        }
+
+        $(function(){
+            changeIndex();//更新序列号
+        });
+            //modal
+        var modalDiv=
+                '<div class="class_modal" id="modalClose">' +
+                '<div class="class_modal_container">' +
+                '<div class="class_modal_top clearfix">' +
+                '<h3></h3><i onclick="closeModal()">X</i>' +
+                '</div>' +
+                '<div class="class_modal_con" id="delModal"></div>' +
+                '<div class="class_modal_footer" id="ftModal"></div>' +
+                '</div>' +
+                '</div>';
+
+            var modalCon=
+                '<div class="class_modal_row">'+
+                    '<span>德育名称：</span><input id="educationName" type="text">'+
+                    '<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>'+
+                '</div>' +
+                ' <div class="class_modal_row create">' +
+                    '<span>创建人：</span><input type="text" id="eduCreater">'+
+                    '<div class="name" style="display: none"><i class="bgRed"></i><b class="txt_01"></b></div>'+
+                '</div>' +
+                '<div class="class_modal_row">'+
+                    '<span>备注：</span><textarea id="educationComment" onkeyup="checkLen(this)"></textarea>'+
+                    '<p>（*备注不可超过30个字！）</p>'+
+                '</div>';
+
+            //新增德育
+            $(document).on("click",".education_add",function(){
+                $(modalDiv).prependTo("body");
+                $(".class_modal_con").append(modalCon);
+                $(".class_modal_top h3").html("添加德育");
+                var footerBtn='<a  href="javascript:;" onclick="educationSave()">确定</a>';
+                     $(".class_modal_footer").append(footerBtn);
+
+                $("#educationName").blur(function(){
+                    var educationName=$("#educationName").val();//德育名称
+                    if(!isBlank(educationName)){
+                        $(".class_modal_con").css("padding","20px 20px");
+                        $(this).siblings(".class_modal_row .name").hide();
+                    }
+                });
+                $("#eduCreater").blur(function(){
+                    var eduCreater=$("#eduCreater").val();
+                    if(!isBlank(eduCreater)){
+                        $(".create").css("margin","0");
+                        $(this).siblings(".class_modal_row .name").hide();
+                    }
+                });
+            });
+            //新增德育，点保存的按钮，后台操作
+            function educationSave(){
+                var educationName=$("#educationName").val(),//德育名称
+                        eduCreater=$("#eduCreater").val(),//创建人
+                    educationComment=$("#educationComment").val();//备注
+                $(".create").css("margin","30px 0 0 0");
+                if(isBlank(educationName)){
+                    $(".class_modal_con").css("padding","35px 20px");
+                    $(".class_modal_row .name").show();
+                    $(".class_modal_row .name b").html("德育名称不能为空!");
+                }
+                if(isBlank(eduCreater)){
+                    $(".class_modal_row .name").show();
+                    $(".class_modal_row .name .txt_01").html("创建人不能为空!");
+                }
+                else{
+                    //后台操作
+
+                }
+            }
+
+            //修改德育
+            $(document).on("click",".education_change",function(){
+                $(modalDiv).prependTo("body");
+                $(".class_modal_con").append(modalCon);
+                $(".class_modal_top h3").html("修改德育");
+                var eduId='<div class="class_modal_row">'+
+                        '<span>德育编号：</span><input id="eduId" type="text" disabled>'+
+                        '<div class="name" style="display: none"><i class="bgRed"></i><b></b></div>'+
+                        '</div>';
+                    $(eduId).prependTo(".class_modal_con");
+                var footerBtn='<a href="javascript:;" onclick="educationChange()">确定</a>';
+                    $(".class_modal_footer").append(footerBtn);
+                var stateTxt= $(this).parents("tr").find(".state").val(),//表格里面的状态值
+                    educationId=$("#educationId").val();//德育id
+
+                var tdTxt=$(this).parents("tr").find("td");
+                    $("#educationName").val(tdTxt.eq(1).text());//德育名称
+                    $("#eduCreater").val(tdTxt.eq(2).text());//创建人
+                    $("#educationComment").text(tdTxt.eq(4).text());//备注
+                    $("#eduId").val(educationId);//备注
+
+            });
+            //修改德育，点击确定，后台操作
+            function educationChange(){
+                var educationName=$("#educationName").val(),//德育名称
+                    eduCreater=$("#eduCreater").val(),//创建人
+                    educationComment=$("#educationComment").val(),//备注
+                    educationId=$("#educationId").val();//德育id
+            }
+
+            //删除
+            $(document).on("click",".education_del",function(){
+                $(modalDiv).prependTo("body");
+                $(".class_modal_top h3").html("温馨提示");
+                var educationId=$(this).parents("tr").find("#educationId").val(),//德育编号隐藏值
+                    edu_title=$(this).parents("tr").find(".edu_title").text();//德育名称
+                var DivRow='<p>'+"您确定要删除“"+edu_title+"”吗？"+'</p>';
+                $("#delModal").append(DivRow);
+                var footerBtn='<a id="delEdu" href="javascript:;">确定</a>';
+                    $("#ftModal").append(footerBtn);
+
+                //后台操作
+                $("#delEdu").on("click",function(){
+
+                });
+            });
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="stu_messg">
+        当前位置：<a class="stu_hover" href="javascript:;">德育管理</a>
+    </div>
+    <div class="declaration">
+        <div class="class_btn clearfix">
+            <div class="class_rg">
+                <a class="add_dl education_add" href="javascript:;">新增德育</a>
+            </div>
+        </div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">德育类别名称</th>
+                    <th class="class_width">创建人</th>
+                    <th class="class_width">创建时间</th>
+                    <th class="class_width">备注</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1 </td>
+                    <td class="class_width edu_title">爱国主义教育<input type="hidden" id="educationId" value="99"></td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width">理想教育</td>
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="education_change change" type="button" value="修改">
+                            <input class="education_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width edu_title">理想教育</td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-08-09 11:11:00</td>
+                    <td class="class_width">理想教育</td>
+                    <td class="class_width_08">
+                        <div class="dl_btn">
+                            <input class="education_change change" type="button" value="修改">
+                            <input class="education_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

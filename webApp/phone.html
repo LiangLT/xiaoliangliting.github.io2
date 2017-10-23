@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="css/phone.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:"menu.html",//获取静态页面
+                type: "GET",
+                datatype: "html",
+                success: function (data) {
+                    var dataHtml=$(data).siblings("#navAjax");
+                    var htmlLen=$(dataHtml).find("li");
+                    $(htmlLen).eq(3).find("img").attr("src","images/phone_hover.png");
+                    $(htmlLen).eq(3).find("p").addClass("nav_check");
+                    $("body").append(dataHtml);
+                }
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <header class="commonHeader phoneHead">
+        <div class="headUser">通讯录</div>
+        <div class="phoneAdd"><a href="javascript:;">添加成员</a></div>
+    </header>
+    <div class="phone">
+        <div class="phoneSearch">
+            <input type="text" value="" placeholder="搜索姓名/拼音/电话">
+        </div>
+        <div class="rowPhone">
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/xah_new_friend_icon.png">
+                </div>
+                <div class="list_title">申请与通知</div>
+            </div>
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/xah_groups_icon.png">
+                </div>
+                <div class="list_title">群聊</div>
+            </div>
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/xah_chat_room_icon.png">
+                </div>
+                <div class="list_title">聊天室</div>
+            </div>
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/xah_robot_icon.png">
+                </div>
+                <div class="list_title">讯安小助手</div>
+            </div>
+        </div>
+    </div>
+    <div class="phoneTitle">X</div>
+    <div class="phone">
+        <div class="rowPhone">
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/default.jpg">
+                </div>
+                <div class="list_title">筱筱</div>
+            </div>
+            <div class="list clearfix">
+                <div  class="list_span">
+                    <img src="images/default.jpg">
+                </div>
+                <div class="list_title">筱筱</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="line"></div>
+</body>
+</html>

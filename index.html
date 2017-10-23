@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minmum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+<body>
+    <div class="layout">
+        <!--<nav class="layout_nav">-->
+            <!--<div class="nav_list">-->
+                <!--<a href="#">首页</a>-->
+                <!--<a href="#">关于我</a>-->
+                <!--<a href="#">作品</a>-->
+                <!--<a href="#">联系方式</a>-->
+            <!--</div>-->
+        <!--</nav>-->
+        <header class="layout_header">
+            <div class="header_name">我的博客</div>
+        </header>
+        <div class="layout_banner" id="layout_banner">
+            <ul class="clearfix" id="uls">
+                <li><a href="#"><img src="images/banner.jpg"></a></li>
+                <li><a href="#"><img src="images/banner2.jpg"></a></li>
+                <li><a href="#"><img src="images/banner3.jpg"></a></li>
+            </ul>
+            <ol class="banner_titile" id="title">
+                <li>实践是真理的唯一标准</li>
+                <li>世界那么大，我要去看看</li>
+                <li>身体与灵魂，总有一个要在路上</li>
+            </ol>
+            <ul class="icon" id="icon">
+                <li class="iconHover"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="layout_name">
+            <div class="user_name">
+                <h2>我的名片</h2>
+                <i></i><b></b>
+            </div>
+            <p>名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字：梁丽婷</p>
+            <p>期望岗位：web前端设计师</p>
+            <p>期望月薪：5000+</p>
+            <p>联系方式：13531409665</p>
+            <p>电子邮箱：1140087655@qq.com</p>
+        </div>
+
+        <div class="work_bg clearfix">
+            <div class="user_name">
+                <h2>项目中心</h2>
+                <i></i><b></b>
+            </div>
+            <div class="row">
+                <div class="layout_work">
+                    <a href="web_PC/index.html">
+                        <div class="workLeft"><img src="images/jingxiao.png"></div>
+                        <div class="workRight">
+                            <h3>经销商管理中心（PC端）</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="layout_work">
+                    <a href="adminSchool/AdminIndex.html">
+                        <div class="workLeft"><img src="images/admin.png"></div>
+                        <div class="workRight">
+                            <h3>后台管理系统（PC端）</h3>
+                            <p>技术要点：div+css排版，读取数据；使用正则表达式对表单进行逻辑判断。</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="layout_work">
+                    <a href="new_School_web/index_Left1.html">
+                        <div class="workLeft"><img src="images/admin.png"></div>
+                        <div class="workRight">
+                            <h3>学校管理系统</h3>
+                            <p>技术要点：1、div+css排版，读取数据；
+                                2、使用正则表达式对表单进行逻辑判断;使用ajax跨域请求；
+                                3、使用javascript（jquery）实现效果（如）；
+                                4、增加删除功能实现；数据获取；
+                                5、使用javascript对象；
+                                6、配合与后台开发人员数据获取。
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="layout_work">
+                    <a href="New_teacher/new_teacher.html">
+                        <div class="workLeft"><img src="images/jingxiao.png"></div>
+                        <div class="workRight">
+                            <h3>教师管理系统（PC端）</h3>
+                            <p>
+                                技术要点：1、div+css排版，读取数据；使用iframe框架、ui设计。
+                                2、使用正则表达式对表单进行逻辑判断;使用ajax跨域请求；
+                                3、使用javascript（jquery）实现效果(动态添加数据)；
+                                4、使用ajax请求查询数据，并且实现二级联动
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="layout_work">
+                <a href="webApp/index.html">
+                    <div class="workLeft"><img src="images/jingxiao.png"></div>
+                    <div class="workRight">
+                        <h3>智慧移动教育（webApp）</h3>
+                        <p></p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!--最新动态star-->
+        <main class="layout_main">
+            <section>
+                <div class="user_name">
+                    <h2>最新动态</h2>
+                    <i></i><b></b>
+                </div>
+            </section>
+            <section class="main_content clearfix">
+                <div class="main_title">
+                    <h3>你必须一个人，走过些艰难的日子</h3>
+                    <p class="icon_new"><img src="images/new1.jpg" alt="你必须一个人。。。"></P>
+                </div>
+            </section>
+        </main>
+        <!--最新动态end-->
+
+    </div>
+    <script>
+        window.onload=function(){
+            var layout_banner=document.getElementById("layout_banner"),
+                    uls=document.getElementById("uls"),
+                    lis=uls.getElementsByTagName("li"),
+                    index= 0,
+                    title=document.getElementById("title"),
+                    titleLi=title.getElementsByTagName("li"),
+                    icon=document.getElementById("icon"),
+                    iconBg=icon.getElementsByTagName("li");
+
+            var time=setInterval(function(){
+                for(var i=0;i<lis.length;i++){
+                    lis[i].style.display="none";
+                    titleLi[i].style.display="none";
+                    iconBg[i].className='';
+                }
+                index++;
+                if(index>lis.length-1){
+                    index=0;
+                }
+                lis[index].style.display='block';
+                titleLi[index].style.display='block';
+                iconBg[index].className='iconHover';
+            },1200)
+            layout_banner.onmouseout=function(){
+                window.location.reload();
+            }
+            layout_banner.onmouseover=function(){
+
+                clearInterval(time)
+            }
+
+            return true;
+        }
+
+    </script>
+</body>
+</html>

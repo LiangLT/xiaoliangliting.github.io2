@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/jedate.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/teacher_modal.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+    <script>
+        $(function(){
+            $("#date01").jeDate({
+                ishmsVal:false,
+                minDate: '2000-01-01',
+                maxDate: $.nowDate({DD:0}),
+                format:"YYYY-MM-DD",
+                zIndex:3000,
+            });
+            $(".name_exam").click(function(){
+                var _this=this;
+                $(this).next(".exam_Ul").slideToggle();
+                $(".exam_Ul li").click(function(){
+                    var examLi=$(this).text();
+                    $(_this).val(examLi);
+                    $(".exam_Ul").hide();
+                });
+            });
+
+            var examArr=["单元测试","月考考试","期中考试","期末考试"];
+            for(var i=0;i<examArr.length;i++){
+                var exam="";
+                exam += "<li>"+examArr[i]+"</li>";
+                $(".select_list .exam_Ul").append(exam);
+            }
+
+            //点击全局，隐藏弹窗
+            $(document).on("click",function(e){
+                if($(e.target).closest(".name_exam").length==0){
+                    $(".exam_Ul").hide();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!--通知-->
+    <div class="div_modal" id="divModal" style="display: none;"></div>
+
+    <div class="container">
+        <div class="container_main">
+            <div class="examine">
+                <div class="student_information">
+                    <div class="score_infor">
+                        <div class="score_top">成绩通知</div>
+                        <div class="inform01">
+                            <div class="examine_select">
+                                <span>考试时间：</span>
+                                <div class="select_list">
+                                    <input class="name_exam01" type="text" id="date01" placeholder="请选择时间" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="examine_select">
+                                <span>考试名称：</span>
+                                <div class="select_list">
+                                    <input class="name_exam name_exam01" type="text" placeholder="请选择考试名称" readonly="readonly">
+                                    <ul class="exam_Ul" style="display: none;">
+                                    </ul>
+                                </div>
+                            </div>
+                            <a id="select" href="javascript:;">查看</a>
+                        </div>
+                        <div class="inform">
+                            <a id="inform" href="javascript:;">发送通知</a>
+                            <a id="md" href="javascript:;">11</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="score_tabel">
+                        <table class="gradeTabel" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th  colspan="1"><input type="checkbox" id="Checkbox1" name="all" onclick="seleAll()"></th>
+                                <th colspan="1">姓名</th>
+                                <th colspan="1">学号</th>
+                                <th colspan="1">班级</th>
+                                <th colspan="1">考试科目</th>
+                                <th colspan="1">考试名称</th>
+                                <th colspan="1">考试时间</th>
+                                <th colspan="1">成绩</th>
+                                <th colspan="1">状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td  colspan="1"><input type="checkbox" name="newslist" value="2"></td>
+                                <td  colspan="1" class="stuName">小葉</td>
+                                <td colspan="1" class="sNumber">141803215</td>
+                                <td  colspan="1" class="sClass">1年级1班</td>
+                                <td  colspan="1" class="sSubject">语文</td>
+                                <td  colspan="1" class="sExam">月考</td>
+                                <td  colspan="1" class="sTime">2017-07-19</td>
+                                <td  colspan="1" class="stuScore">99</td>
+                                <td  colspan="1" class="statu_infor">已发送</td>
+                            </tr>
+                            <tr>
+                                <td  colspan="1"><input type="checkbox" name="newslist" value="2"></td>
+                                <td  colspan="1" class="stuName">小莫</td>
+                                <td colspan="1" class="sNumber">131803215</td>
+                                <td  colspan="1" class="sClass">1年级2班</td>
+                                <td  colspan="1" class="sSubject">语文</td>
+                                <td  colspan="1" class="sExam">月考</td>
+                                <td  colspan="1" class="sTime">2017-07-19</td>
+                                <td  colspan="1" class="stuScore">88</td>
+                                <td  colspan="1" class="statu_infor">未发送</td>
+                            </tr>
+                            <tr>
+                                <td  colspan="1"><input type="checkbox" name="newslist" value="2"></td>
+                                <td  colspan="1" class="stuName">小刘</td>
+                                <td colspan="1" class="sNumber">171803215</td>
+                                <td  colspan="1" class="sClass">1年级3班</td>
+                                <td  colspan="1" class="sSubject">语文</td>
+                                <td  colspan="1" class="sExam">月考</td>
+                                <td  colspan="1" class="sTime">2017-07-19</td>
+                                <td  colspan="1" class="stuScore">100</td>
+                                <td  colspan="1" class="statu_infor">已发送</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.easyui.min.js"></script>
+<script>
+
+</script>
+</html>

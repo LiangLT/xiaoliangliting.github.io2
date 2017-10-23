@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title>shopping</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+ <script>
+	$(function(){
+		$(".edit_color").click(function(){
+			$("#ps_hide").toggle();
+			});
+		$(".ps_close").click(function(){
+			$(".ps_hide").hide();
+			});
+		});
+</script>
+
+</head>
+
+<body>
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="stocking.html">库存查询</a><span>></span><a href="#">购物车</a>
+            <div class="con_back">
+            	<a href="stocking.html">返回</a>
+            </div>
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="search">
+            	<div class="search_left">
+                	<input type="text" placeholder="请输入产品名称或编号"><a href="#">搜索</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="tabel_content1">
+               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                        	<th colspan="1"  class="bot_left" >
+                            	<input class="checkbox02" type="checkbox">全选
+                            </th>
+                            <th colspan="3">产品</th>
+                            <th colspan="1">单价（元）</th>
+                            <th colspan="2">购买数量</th>
+                            <th colspan="2">货品重量</th>
+                            <th colspan="2">产品金额</th>
+                            <th class="bor_right" colspan="2">&nbsp;&nbsp;操作&nbsp;&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td class="bot_right_01" colspan="13">
+                            	<div class="user_02">
+                                	<input class="checkbox02" type="checkbox"><span>清远</span>
+                                </div>
+                            </td>
+                        </tr>
+                    	<tr>
+                        	<td class="bot_left" colspan="1"><input type="checkbox"></td>
+                        	<td colspan="3">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3>
+                                        	<span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                            	<ul class="nav_01">
+                                                	<li>
+                                                    	<span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                        	<ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                         </h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        
+                                         <div class="bg_edit" >
+                                        	<span>色号：</span>
+                                            <div class="edit_color">
+                                            	<span>55420</span>
+                                            	<span class="color_span"></span>
+                                            </div>
+                                            <ul class="ps_hide" id="ps_hide" style="display:none;">
+                                            	<li class="ps_h">
+                                                	<span>色号：</span>
+                                                    <select>
+                                                        <option>52365</option>
+                                                        <option>52365</option>
+                                                    </select>
+                                                    <div class="ps_btn">
+                                                        <a class="ps_true" href="#">确认</a>
+                                                        <a class="ps_close" href="#">取消</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                        
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" placeholder="50"><select><option>片</option></select>
+                                    <p> &#40;4000箱 &#41;</p>
+                                </div>
+                            </td>
+                            <td colspan="2">30KG</td>
+                            <td colspan="2">
+                            	<p>26455000.00</p>
+                                <p>运费：5.00</p>
+                            </td>
+                            <td class="del_btn bor_right" colspan="2">
+                            	<a href="#">删除</a>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="1"><input type="checkbox"></td>
+                        	<td colspan="3">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3>
+                                        	<span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                            	<ul class="nav_01">
+                                                	<li>
+                                                    	<span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                        	<ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                         </h3>
+                                         
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <div class="bg_edit" >
+                                        	色号：
+                                            <div class="edit_color">
+                                            	<span>55420</span>
+                                            	<span class="color_span"></span>
+                                            </div>
+                                            <div class="ps_hide" style="display:none;">
+                                            	<div class="ps_h">
+                                                	<span>色号：</span>
+                                                    <select>
+                                                        <option>52365</option>
+                                                        <option>52365</option>
+                                                    </select>
+                                                    <div class="ps_btn">
+                                                        <a class="ps_true" href="#">确认</a>
+                                                        <a class="ps_close" href="#">取消</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                       
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" placeholder="50"><select><option>片</option></select>
+                                    <p> &#40;4000箱 &#41;</p>
+                                </div>
+                            </td>
+                            <td colspan="2">30KG</td>
+                            <td colspan="2">
+                            	<p>26455000.00</p>
+                                <p>运费：5.00</p>
+                            </td>
+                            <td class="del_btn bor_right" colspan="2">
+                            	<a href="#">删除</a>
+                            </td>
+                        </tr>
+                                         
+                    </tbody>
+                    <tbody>
+                        <tr>
+                        	<td class="bot_right_01" colspan="13">
+                            	<div class="user_02">
+                                	<input class="checkbox02" type="checkbox"><span>南庄</span>
+                                </div>
+                            </td>
+                        </tr>
+                    	<tr>
+                        	<td class="bot_left" colspan="1"><input type="checkbox"></td>
+                        	<td colspan="3">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3>
+                                        	<span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                            	<ul class="nav_01">
+                                                	<li>
+                                                    	<span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                        	<ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                         </h3>
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                       <div class="bg_edit" >
+                                        	色号：
+                                            <div class="edit_color">
+                                            	<span>55420</span>
+                                            	<span class="color_span"></span>
+                                            </div>
+                                            <div class="ps_hide" style="display:none;">
+                                            	<div class="ps_h">
+                                                	<span>色号：</span>
+                                                    <select>
+                                                        <option>52365</option>
+                                                        <option>52365</option>
+                                                    </select>
+                                                    <div class="ps_btn">
+                                                        <a class="ps_true" href="#">确认</a>
+                                                        <a class="ps_close" href="#">取消</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                       
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" placeholder="50"><select><option>片</option></select>
+                                    <p> &#40;4000箱 &#41;</p>
+                                </div>
+                            </td>
+                            <td colspan="2">30KG</td>
+                            <td colspan="2">
+                            	<p>26455000.00</p>
+                                <p>运费：5.00</p>
+                            </td>
+                            <td class="del_btn bor_right" colspan="2">
+                            	<a href="#">删除</a>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="1"><input type="checkbox"></td>
+                        	<td colspan="3">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<h3>
+                                        	<span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                            	<ul class="nav_01">
+                                                	<li>
+                                                    	<span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                        	<ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                         </h3>
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" placeholder="50"><select><option>片</option></select>
+                                     <p> &#40;4000箱 &#41;</p>
+                                </div>
+                            </td>
+                            <td colspan="2">30KG</td>
+                            <td colspan="2">
+                            	<p>26455000.00</p>
+                                <p>运费：5.00</p>
+                            </td>
+                            <td class="del_btn bor_right" colspan="2">
+                            	<a href="#">删除</a>
+                            </td>
+                        </tr>
+                        <tr class="gray_bg">
+                        	<td class="bot_left" colspan="1">失效</td>
+                        	<td colspan="3">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class=" posit_bg">
+                                    	<h3><span>抛光砖金版</span><span>AR34556666</span></h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="1">25.50/片</td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" placeholder="50" disabled="true"><select disabled="true"><option>片</option></select>
+                                    <p> &#40;4000箱 &#41;</p>
+                                </div>
+                            </td>
+                            
+                            <td colspan="2">30KG</td>
+                            <td colspan="2">
+                            	<p>26455000.00</p>
+                                <p>运费：5.00</p>
+                            </td>
+                            <td class="del_btn bor_right" colspan="2">
+                            	<a>删除</a>
+                            </td>
+                        </tr>                    
+                    </tbody>
+                    <tbody>
+                        <tr>
+                        	<td class="bor_bottom_01" colspan="13">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                        	<td  class="bor_bottom_01" colspan="5">
+                            	<div class="tab_left bot_01">
+                                	<a href="#"><input class="checkbox02" type="checkbox">全选</a>
+                                    <a href="#">删除</a>
+                                    <a href="#">清除失效产品</a>
+                                </div>
+                            </td>
+                            <td class="bor_bottom_01" colspan="8">
+                            	<div class="tab_right bot_02">
+                                    <p><a href="shopping_order.html">结算</a></p>
+                                    <p>合计（含运费）：<span>￥0.00</span></p>
+                                	<p>已选产品<span>0</span>件</p>
+                                    <div class="clear"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                        	<td colspan="13">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    	<tr>
+                        	<td class="bot_left bor_right" colspan="13">
+                            	<div class="foot_page">
+                                	<a class="page_01" href="#">上一页</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">6</a>
+                                    <a href="#">7</a>
+                                    <span>...</span>
+                                    <a class="page_01" href="#">下一页</a>
+                                    <span>共18页</span><span>到第</span><input class="input_02" type="text">页<button>确定</button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+           
+            <div class="clear"></div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

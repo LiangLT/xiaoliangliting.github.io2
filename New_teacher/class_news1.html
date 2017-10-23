@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/tabs.jquery.js"></script>
+
+    <script>
+        //获取顶部的html
+        $(function() {
+            //changeIndex();//更新序列号
+            $.ajax({
+                url: "class_top.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/honor_white.png"><p>新闻资讯</p></a>');
+                }
+            });
+
+
+            $("#example-two").organicTabs({
+
+                "speed": 100,
+
+            });
+
+
+
+        });
+        //限定字数，出现省略号
+        $(function(){
+           var txtNumber=$(".list_title p");
+            var strHtml=txtNumber.html().slice(0,20)+'...';
+            txtNumber.html(strHtml);
+        });
+
+    </script>
+</head>
+<body>
+<div class="new_container">
+    <div class="news" id="example-two">
+        <div class="news_lf">
+            <div class="news_tab">
+                <h3>资讯中心</h3>
+                <ul class="news_nav">
+                    <li class="nav_one">
+                        <a href="#navOne" class="current">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav_two">
+                        <a href="#navTwo">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav_three">
+                        <a href="#navThree">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav_three">
+                        <a href="#navThree">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav_three">
+                        <a href="#navThree">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav_four">
+                        <a href="#navFour">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#navFour">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#navFour">
+                            <div class="list_news clearfix">
+                                <div class="list_img">
+                                    <img src="images/default.jpg">
+                                </div>
+                                <div class="list_title">
+                                    <h4>学分冬令营，表演出精彩表演出精彩</h4>
+                                    <p>2017年5月20号，学校举行的学分冬令营，同学们的表演非常精彩</p>
+                                    <div class="title_time">
+                                        <span class="clickAll">[阅读全文]</span>
+                                        <span>2017-09-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="news_rg">
+            <div class="list_nav list-wrap">
+                <ul id="navOne" >
+                    <li>88888888888</li>
+                </ul>
+                <ul id="navTwo" class="hide">
+                    <li>6666666666666</li>
+                </ul>
+                <ul id="navThree" class="hide">
+                    <li>999999999</li>
+                </ul>
+                <ul id="navFour" class="hide">
+                    <li>777777777777</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

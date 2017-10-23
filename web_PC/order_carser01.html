@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+<script>
+	$(function() {
+        $("#ser_btn").click(function(){
+			$(".car02").toggle();
+			$(".ser_btn01").show();
+			$("#ser_btn").hide();
+			});
+		$("#ser_btn01").click(function(){
+			$(".car02").toggle();
+			$("#ser_btn").show();
+			$(".ser_btn01").hide();
+			});
+			
+		$("#myBtn02").click(function(){
+			$("#myDiv08 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		$("#closeBtn01").click(function(){
+			$("#myDiv08 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+    });
+</script>
+
+
+</head>
+
+<body id="bodyState">
+<!--modal-->
+	<div class="mengban"></div>
+	<div id="myDiv08">
+        <div class="windows windows_layout_03">
+            <div class="window_Head">
+            	新增车次
+              <div id="closeBtn01" class="ico_close"><img src="images/ico_close.png" width="16" height="8"></div>
+            </div>
+            <div class="window_Content">
+            	<div class="car_reason">
+                	<div class="car_reason01">
+                    	<div class="col-xs-4">
+                            <div class="rea_name">计划提货日期：</div>
+                            <div class="rea_input"><input type="text"><img src="images/dateIco.png"></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="rea_name">车牌号码：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="rea_name">载货重量：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="car_reason01">
+                    	<div class="col-xs-4">
+                            <div class="rea_name">司机名称：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="rea_name">司机电话：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="rea_name">货运公司：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="car_reason01">
+                    	<div class="col-xs-4">
+                            <div class="rea_name">证件号：</div>
+                            <div class="rea_input01"><input type="text"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                	
+                </div>
+            </div>
+            <div class="windows_Footer">
+                <div class="btnArea">
+                    <a class="btn" href="javascript:;">确定</a>
+                </div>
+            </div>
+  		</div>
+	</div>
+ 
+<!--modal-->
+
+
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="order.html">我的订货</a><span>></span><a href="#">我要派车</a>
+            
+            <div class="con_back">
+            	<a href="order.html">返回</a>
+            </div>
+
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="order_info">
+                <div class="line_info04">
+                    <div class="line_info01 bor_done">
+                        <div class="line_mun">1</div>
+                        <div class="line_name">核实提货计划</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="line_info01">
+                        <div class="line_mun">2</div>
+                        <div class="line_name">商家审核</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="line_info01">
+                        <div class="line_mun">3</div>
+                        <div class="line_name">去提货</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="line_info01">
+                        <div class="line_mun">4</div>
+                        <div class="line_name">完成</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>                       
+                <div class="clear"></div>
+            </div> 
+            <div class="car_dl">
+            	<dl>
+                	<dt>客户：</dt>
+                    <dd>广东新陶源陶瓷有限公司</dd>
+                    <dt>提货点：</dt>
+                    <dd>江门</dd>
+                </dl>
+                <div class="car_dl01">
+                    <h3>提货车辆</h3>
+                   	<div class="select_car">
+                    	<a href="order_car.html">选择车辆</a>
+                    </div>
+                    
+                    
+                    <div class="row car_bottom">
+                    	<div class="col-xs-4 car_input">
+                            <div class="car_sname">计划提货日期：</div>
+                            <div class="car_data">
+                                <input type="text"><img src="images/dateIco.png">
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="col-xs-4 car_input01">
+                            <div class="car_sname">车牌号码：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4 car_input01">
+                            <div class="car_sname">载货重量：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="row car_bottom">
+                    	<div class="col-xs-4 car_input">
+                            <div class="car_sname">司机名称：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4 car_input01">
+                            <div class="car_sname">司机电话：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4 car_input01">
+                            <div class="car_sname">货运公司：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="row car_bottom">
+                    	<div class="col-xs-4 car_input">
+                            <div class="car_sname">证件号：</div>
+                            <div class="car_data01"><input type="text"></div>
+                        </div>
+                        <div class="col-xs-4">
+                        	<div class="list_name">已载量：10KG</div>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+
+            <div class="tabel_content1">
+            	<h2>审核单号：12345682120</h2>
+               <table class="tablestyle od_mar" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="bot_left or_width" colspan="1">产品</th>
+                            <th colspan="2">可提货数量</th>
+                            <th colspan="2">计划提货数量</th>
+                            <th colspan="2">提货重量</th>
+                            <th class="bor_right" colspan="2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	
+                    	<tr>
+                        	<td class="bot_left" colspan="1">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                    	<!--<h3><span>抛光砖金版</span><span>AR34556666</span></h3>-->
+                                        <h3>
+                                            <span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                                <ul class="nav_01">
+                                                    <li>
+                                                        <span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                            <ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                            	<p>350片</p>
+                            	<p>100KG</p>
+                            </td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text">
+                                </div>
+                            </td>
+                            <td colspan="2">&nbsp;</td>
+                            <td class=" bor_right user_03" colspan="2">
+                            	<a href="#">移除</a>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="1">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                        <h3>
+                                            <span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                                <ul class="nav_01">
+                                                    <li>
+                                                        <span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                            <ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </h3>
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                            	<p>350片</p>
+                            	<p>100KG</p>
+                            </td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" >
+                                </div>
+                            </td>
+                            <td colspan="2">&nbsp;</td>
+                            <td class=" bor_right user_03" colspan="2">
+                            	<a href="#">移除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bor_right bot_left all_shop" colspan="10">
+                                <span>提货重量：433KG</span>
+                            	
+                            </td>
+                        </tr>  
+                        
+                    </tbody>
+                </table>
+                
+                <h2>审核单号：123456789</h2>
+                <table class="tablestyle od_mar" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="bot_left or_width" colspan="2">产品</th>
+                            <th colspan="2">可提货数量</th>
+                            <th colspan="2">计划提货数量</th>
+                            <th colspan="2">提货重量</th>
+                            <th class="bor_right" colspan="2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	
+                    	<tr>
+                        	<td  class="bot_left" colspan="2">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                        <h3>
+                                            <span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                                <ul class="nav_01">
+                                                    <li>
+                                                        <span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                            <ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                            	<p>350片</p>
+                            	<p>100KG</p>
+                            </td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text">
+                                </div>
+                            </td>
+                            <td colspan="2">&nbsp;</td>
+                            <td class=" bor_right user_03" colspan="2">
+                            	<a href="#">移除</a>
+                            </td>
+                        </tr>
+                      	<tr>
+                        	<td class="bot_left" colspan="2">
+                            	<div class="position">
+                                	<div class="posit_left">
+                                    	<img src="images/info_img.jpg">
+                                    </div>
+                                    <div class="posit_right">
+                                        <h3>
+                                            <span>抛光砖金版</span><span>AR34556666</span>
+                                            <div class="show_i" id="menu">
+                                                <ul class="nav_01">
+                                                    <li>
+                                                        <span class="show_i">异常</span>
+                                                        <div class="panel_s01 hide_i">
+                                                            <ul>
+                                                                <li>数据异常，请修改</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </h3>
+                                        
+                                        <div class="span_pad">
+                                        	<span>规格：800*800</span>
+                                            <span>优等</span>
+                                            <span>24g</span>
+                                        </div>
+                                        <div class="span_pad">包装码：<span>20160407</span><span>0.25CM<sup>2</sup></span></div>
+                                        <p>色号：20160407</p>
+                                        <p class="span_pad"><span>批号：20160308</span><span>提货点：江门</span></p>
+                                    </div>
+                                 	<div class="clear"></div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                            	<p>350片</p>
+                            	<p>100KG</p>
+                            </td>
+                            <td colspan="2">
+                            	<div class="input_01">
+                                	<input type="text" >
+                                </div>
+                            </td>
+                            <td colspan="2">&nbsp;</td>
+                            <td class=" bor_right user_03" colspan="2">
+                            	<a href="#">移除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bor_right bot_left all_shop" colspan="10">
+                                <span>提货重量：433KG</span>
+                            	
+                            </td>
+                        </tr>  
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn_ord">
+                <button>提交订单</button>
+            </div>
+        </div>
+        
+     </div>
+</body>
+</html>

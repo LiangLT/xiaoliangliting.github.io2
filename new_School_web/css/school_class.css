@@ -1,0 +1,180 @@
+.container { min-width:800px;}
+    /*==================class_declaration====================*/
+.declaration {  background: #fff; min-height: 1000px; padding: 0 30px;}
+.class_btn { padding: 20px 20px 0 20px;}
+.class_btn .class_lf { float: left; }
+.class_btn .class_rg { float: right; margin-top: 10px;}
+    .class_btn .btn { float: left; margin-right: 18px; margin-top: 10px;}
+    .class_btn .btn  button { padding: 4px 20px; margin: 0; border: 1px solid #1997EC; background: #1997EC; color: #fff; border-radius: 5px;}
+    .class_btn .btn select { border: 1px solid #ddd; padding: 5px 10px; border-radius: 2px; min-width: 150px; }
+    .class_btn .btn input { border: 1px solid #ddd; padding: 6px 5px; border-radius: 2px; width: 150px;}
+    .class_btn .class_rg  a { padding: 4px 25px; border: 1px solid #1997EC; border-radius: 4px; margin: 0 10px 0 0; color: #1997EC; display: inline-block;}
+.class_btn .class_rg  .add_dl { padding: 4px 16px 4px 25px; background: url("../images/addbtn_blue.png") no-repeat; background-position: 6px 6px;}
+.class_btn .class_rg  .add_dl:hover { background: #1997EC url("../images/addbtn_white.png") no-repeat; color: #fff; background-position: 6px 6px;}
+.class_tabel { padding: 10px 0;}
+.class_tabel table { width: 100%; text-align: center; border: 1px solid #ddd; border-radius: 5px;}
+.class_tabel table thead tr { background: #eaeaea;}
+.class_tabel table thead tr th, .class_tabel table tbody tr td { border-bottom: 1px solid #ddd; padding: 10px 0;}
+.class_width { width: 10%;}
+.class_width_05 { width: 5%;}
+.class_width_20 { width: 20%;}
+.class_width_08 { width: 8%;}
+.class_img .img { width: 100px; height: 100px;}
+.dl_btn {}
+.dl_btn  input {  padding:5px 20px; border-radius: 4px; margin: 5px 10px 5px 0; cursor: pointer;}
+.dl_btn  a {  padding:5px 0; display: inline-block; width: 78px; border-radius: 4px; margin: 5px 10px 5px 0; cursor: pointer;}
+.dl_btn .change { background: #1997EC; color: #fff;}
+.dl_btn .del { background: #e93c00; color: #fff;}
+.dl_btn .gray { background: #5d5c5c; color: #fff;}
+.declaration_txt { padding: 8px 10px; color: #444;}
+/**=============modal=============*/
+.class_modal { position: fixed; width: 100%; height: 100%; background: rgba(80, 80, 80, 0.54); z-index: 101;}
+.class_modal .class_modal_container { position: relative; top: 25%; width: 450px; margin: 0 auto; background: #fff; border: 1px solid #ddd; border-radius: 4px; }
+.class_modal .class_modal_container .class_modal_top { height: 50px; line-height: 50px; border-bottom: 1px solid #ddd; background: #f8f8f8;}
+.class_modal .class_modal_container .class_modal_top h3 { padding: 0 15px; float: left;}
+.class_modal .class_modal_container .class_modal_top i { color: #696969; float: right; padding: 0 20px; display: block; font-size: 20px; font-style: normal; cursor: pointer;}
+.class_modal .class_modal_container .class_modal_con { padding: 20px 20px; min-height: 100px; max-height: 500px; overflow-y: auto;}
+.class_modal_con p { text-align: center; line-height: 24px; padding: 50px 20px;}
+.class_modal_row { padding: 10px 0; position: relative;}
+.class_modal_row input { width: 250px; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px;}
+    .class_modal_row .edNum { width: 200px; vertical-align: middle; margin-right: 10px;}
+.class_modal_row textarea { width: 250px; vertical-align: top; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px;}
+.class_modal_row span { display: inline-block; width: 80px; text-align: right; margin-right: 7px; vertical-align: middle;}
+.class_modal_row select { width: 250px; padding: 6px 10px; vertical-align: middle; border: 1px solid #ddd;}
+.class_modal_row p { padding: 8px 0 8px 110px; color: #6b6b6b; text-align: left;}
+.class_modal_row .pic_name { position: absolute; width: 80px; margin-right: 7px; text-align: right;}
+.class_modal_row .pic_up { position: relative; width: 310px; margin-left: 87px;}
+.class_modal_row .pic_lf {}
+.class_modal_row .pic_lf li p {display: block;position: absolute;top: -21px;right: -14px; cursor: pointer;}
+.class_modal_row .pic_lf li p img { width: 30px; height: 30px; border: 0;}
+.class_modal_row .pic_lf li p img:hover { border: 0;}
+.create { }
+.class_modal_row .pic_lf li {display: inline-block; position: relative;  width: 100px; height: 100px; vertical-align: middle; margin: 0 30px 20px 0;}
+.class_modal_row .pic_lf li img { width: 100px; height: 100px; border: 1px solid #ddd; border-radius: 5px;}
+.class_modal_row .pic_lf li img:hover  { border: 1px solid #1997EC;}
+
+
+.class_modal_row .img_btn { position: relative; }
+.class_modal_row .img_btn input.file {cursor:pointer;filter:alpha(opacity=0);opacity: 0;position:absolute;left:0;top: 0;border: 0;z-index:1;width:100px;height: 100px;}
+.class_modal_row .img_btn a {
+    background: url("../images/upload-to-cloud.png") 37px 25px no-repeat;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+    padding: 3px 20px;
+    border-radius: 5px;
+    height: 100px;
+    display: block;
+    width: 100px;
+    line-height: 114px;
+}
+
+.class_modal_row .name {position: absolute;top: -29px;width: 250px;border: 1px solid #d6111e;border-radius: 5px;background: #ffffff;left: 87px;padding: 5px 20px;z-index: 107;}
+.class_modal_row .name .bgRed {position: absolute;bottom: -14px;width: 13px;left: 10px;height: 13px;background: url("../images/errorIcon.png") no-repeat;}
+.class_modal_row .name b { font-weight: normal; font-style: normal; color: #d6111e;}
+.class_modal_container .class_modal_footer { border-top: 1px solid #ddd; height: 60px; text-align: center; line-height: 60px; background: #f8f8f8;}
+.class_modal_container .class_modal_footer a { border: 1px solid #1997EC; padding: 5px 30px; margin: 0 10px; cursor: pointer; color: #1997EC; border-radius: 5px;}
+.class_modal_container .class_modal_footer a:hover { background: #1997EC; color: #fff;}
+.class_modal_row .edSave {  padding: 6px 16px;  border: 1px solid #1997EC;  vertical-align: middle;  border-radius: 5px;  background: #1997EC;  color:  #fff;  }
+#listEd {
+    position: absolute;  left: 92px;  top: 8px;
+}
+#listEd li { width: 250px; text-align: center;  border: 1px solid #ddd;  padding: 3px 20px 3px 10px;  margin: 0 30px 20px 0; position: relative;}
+#listEd li span { width: auto;}
+#listEd li i {border: 1px solid #ddd;border-radius: 50%;position: absolute;right: -11px;background: #ddd;top: -10px;font-style: normal;padding: 2px 6px; cursor: pointer; }
+    /*location*/
+.stu_messg { padding: 20px 0 10px 17px; margin: 0 20px; font-size: 16px; border-bottom: 1px dashed #ddd;}
+.stu_messg span { padding: 0 8px; color: #666666;}
+.stu_messg a:hover { color: #1997EC; text-decoration: underline;}
+.stu_hover { color: #1997EC; text-decoration: underline;}
+
+.ellipsis { width: 200px; overflow: hidden; white-space: nowrap; margin: 0 auto; text-overflow: ellipsis;}
+.view { display: inline-block; vertical-align: middle;}
+.inforTxt { position: relative; top: -18px; margin-left: 87px; }
+#rep_comment { height: 230px;}
+.rep_title { text-align: center; padding:6px 20px 10px; font-size: 16px; border-top: 1px solid #ddd;}
+.viewReason { position: relative; top: 1px; margin-left: 87px; display: block;}
+.viewReason1 { position: relative; top: 1px; margin-left: 87px; display: block;}
+.viewSpan { position: absolute;}
+.class_btn .btn .dateIcon {padding: 6px 30px 6px 5px;width: 120px;background: url("../images/dateIco.png") 92px 3px no-repeat;background-size: 21px 21px;}
+/*新闻发布弹窗*/
+.class_modal .class_modal_news { position: relative; top: 15%; width: 900px; margin: 0 auto; background: #fff; border: 1px solid #ddd; border-radius: 4px; }
+.class_modal .class_modal_news .class_modal_top { height: 50px; line-height: 50px; border-bottom: 1px solid #ddd; background: #f8f8f8;}
+.class_modal .class_modal_news .class_modal_top h3 { padding: 0 15px; float: left;}
+.class_modal .class_modal_news .class_modal_top i { color: #696969; float: right; padding: 0 20px; display: block; font-size: 20px; font-style: normal; cursor: pointer;}
+.class_modal .class_modal_news .news_modal_con { padding: 20px 20px; min-height: 300px; max-height: 545px; overflow-y: auto;}
+.news_modal_rows { padding: 10px 0; position: relative;}
+    .news_modal_rows input { width: 320px; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px; position: relative; left: 87px;}
+.news_modal_rows textarea { width: 600px; vertical-align: top; border: 1px solid #ddd; border-radius: 2px; padding:8px 5px;}
+.news_modal_rows span { width: 80px; line-height: 33px; vertical-align: middle;text-align: right;position: absolute;margin-right: 7px;vertical-align: middle;}
+.class_modal_news .news_modal_footer { border-top: 1px solid #ddd; height: 60px; text-align: center; line-height: 60px; background: #f8f8f8;}
+.news_modal_footer a { border: 1px solid #1997EC; padding: 5px 30px; margin: 0 10px; cursor: pointer; color: #1997EC; border-radius: 5px;}
+.news_modal_footer a:hover { background: #1997EC; color: #fff;}
+.editor {position: relative;left: 87px;vertical-align: top;width: 91%;top: 0;}
+#newEditor {}
+.newsTitle {}
+.news_modal_rows p { display: inline-block; margin-left: 100px; color: #868686;}
+
+.rows_lf,.rows_rg { float: left;}
+   .news_modal_rows .rows_rg input { width: 150px;}
+   .notice2 textarea { max-height: 200px; min-height: 200px;}
+ .imgWidth { width: 100px; height: 100px; }
+
+ /***************************************************2017-09-26 school_week **********************************************/
+.week_container { margin: 40px 30px; min-width: 820px; box-sizing: border-box;}
+.conHeader { border: 1px solid #ddd; border-radius: 5px; padding: 20px 10px;position: relative; box-shadow: 1px 0 1px #ddd;}
+.conHeaderTitle, .content .contentHeader  { position: absolute; top: -15px; left: 20px; padding: 0 20px; font-size: 20px; background: #fff;}
+.conHeader  .headerList { padding: 25px 0 0 0;}
+.conHeader  .headerList .headerList1 { width: 25%; float: left; }
+.conHeader  .headerList .headerList1 i{  position: absolute; background: url("../images/dateIco.png") 0 0 no-repeat; width: 22px; height: 22px; right: 5px; top: 3px; }
+.conHeader  .headerList .headerList1 span {}
+.conHeader  .headerList .headerList1 select { width: 50%; border: 1px solid #ddd; border-radius: 2px; padding: 6px 8px;}
+.conHeader  .headerList .headerList1 input { width: 50%; border: 1px solid #ddd; border-radius: 2px; padding: 6px 8px;}
+.headerBtn { text-align: center; padding: 30px 0 10px 0;}
+.headerBtn a { border: 1px solid #1997EC; background: #1997EC; color: #fff; padding: 5px 30px; border-radius: 5px; }
+.list_time { position: relative; display: inline-block; width: 50%; }
+.conHeader  .headerList .headerList1 .list_time input { width: 100%; padding: 6px 30px 6px 8px; cursor: pointer; }
+
+.content { position: relative; border: 1px solid #ddd; margin: 25px 0; border-radius: 5px; box-shadow: 1px 0 3px #ddd;}
+/*.content .contentHeader { position: absolute; background: #fff; top: -15px; left: 20px; font-size: 20px;padding: 0 20px;}*/
+.content .contentMain { padding: 20px;}
+.content .contentMain .rows{}
+.content .contentMain .rows{}
+.rows {}
+.rows .contentRow { padding: 10px 0;}
+.rows .contentRow span { margin-right: 3px;}
+.rows .contentRow select{ width: 250px; padding: 7px 0 7px 10px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;}
+.rows .contentRow label input { margin: 1px 6px 2px 0; vertical-align: middle;}
+.rows .contentRow label { margin: 0 15px 0 0; vertical-align: middle; }
+
+.rowManagement { margin: 30px  20px 10px 65px; padding: 0 0 10px 0; border-bottom: 1px dashed #ddd;}
+.rowManagement .managementList { float: left; vertical-align: middle; margin-right: 20px; position: relative;}
+.rowManagement .managementName { width: 75px; float: left; vertical-align: middle; padding: 5px 0;}
+.rowManagement .managementList span {}
+.rowManagement .managementName span { color: #1997EC;}
+.rowManagement .managementList i { position: absolute; right: 5px; top: 4px;  background: url("../images/dateIco.png") 0 0 no-repeat; width: 22px; height: 22px;}
+.rowManagement .managementList select {}
+.rowManagement .managementList input { width: 200px; border:1px solid #ddd; padding: 7px 30px 7px 10px ; border-radius: 2px; cursor: pointer; }
+.manRow { padding: 10px 0; margin-right: 50px; }
+/*.manBtn a { background: #1997EC; color: #fff; }*/
+
+.readList { padding: 10px 0 10px; margin: 10px 64px 10px; border-bottom: 1px dashed #ddd;}
+.readList .readDate { position: relative; float: left; margin-right: 30px;}
+.readList .readDate span {}
+.readList .readDate input { border:1px solid #ddd; padding:7px 30px 7px 10px; cursor: pointer; }
+.readList .readDate i { position: absolute; right: 5px; top: 4px;  background: url("../images/dateIco.png") 0 0 no-repeat; width: 22px; height: 22px;}
+.contentSave { padding: 20px 0 60px 0   ; text-align: center; }
+.contentSave a { border: 1px solid #1997EC; background: #1997EC; color: #fff; padding: 5px 30px; border-radius: 5px;}
+.spans { color: #1997EC; vertical-align: middle;}
+
+.working { margin: 30px 30px;}
+.working .workRow {}
+.workRow .row_list {padding: 0 0 20px 0;position: relative;border: 1px solid #ddd;margin: 40px 0;box-shadow: 1px 0 1px #ddd; border-radius: 5px;}
+.workRow .row_list span { vertical-align: middle;}
+.workRow .row_list select { width: 200px; padding: 7px 0 7px 10px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer; vertical-align: middle; }
+.workRow .row_list i { font-style: normal; padding: 0 5px; vertical-align: middle;}
+.workRow .row_list p {padding-bottom: 10px;position: absolute;top: -10px;left: 30px;background: #fff;padding: 0 10px;}
+.workRow .row_list input { padding: 8px 35px 8px 5px; cursor: pointer; width: 235px;border-radius: 2px; border: 1px solid #ddd;}
+.row_time {display: inline-block;padding: 30px 30px 15px 30px; position: relative;}
+.row_time b { background: url("../images/dateIco.png") 0 0 no-repeat; width: 22px; height: 22px; position: absolute; right: 35px; top: 35px;}
+.row_btn { text-align: center;}
+.row_btn a { padding: 5px 40px; color: #1997EC;  display: inline-block; border: 1px solid #1997EC; border-radius: 5px; text-align: center;}

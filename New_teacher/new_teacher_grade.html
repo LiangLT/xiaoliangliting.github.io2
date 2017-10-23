@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/jedate.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/double-date.js"></script>
+    <script src="js/studentLink.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/teacher_modal.js"></script>
+    <script src="js/jquery.jedate.js"></script>
+
+    <script>
+        $(function(){
+            //关闭
+            $(".closeClick").click(function(){
+                $("#divModal").hide();
+            });
+            //二级联动，考生名称和学号
+            comSelect();
+            selectNumber();
+        });
+
+        //考试名称
+        $(function() {
+            //保存数据
+            $(document).on("click", ".new_data_btn #save", function () {
+                var str = $(this).text() == "保存" ? "修改" : "保存";
+                var emTxt = $(".score_infor em");
+                var dateTxt = $(".date-check").val();//考试时间
+                var nameTxt = $(".select_icon").val();//考试名称
+                var stuYear=$(".year_sele_date input").val();//学年
+                var stuExam=$(".exam_gr").val();//学期
+                var stu_Time=$(".stu_Time").text();
+                if (dateTxt == "" || nameTxt == "" || stuYear=="" || stuExam=="") {
+                    alert("请选择学年、学期、考试时间和考试名称");
+                }
+                else {
+                    if ($(this).text() == "保存") {
+                        $(".gradeTabel tbody tr").remove();
+                        $(".select01 input").addClass("bg");//添加一个类
+                        $(".new_data_btn a").addClass("bg");
+                       // $(".data_bl").show();//成绩栏
+                        $(".select_icon").click(function () {
+                            $(".oUl").hide();
+                        });
+                        $(".date-check").focus(function () {
+                            $(".date-list").hide();
+                        });
+                        //学年学期
+                        $(document).on("click",".name_exam01",function(){
+                            $(".sele_exam").hide();
+                            $(".date_year").hide();
+                        });
+                        $(document).on("click","")
+                        emTxt.text(dateTxt + '（' + nameTxt + '）');
+                        //2017-08-08读后台数据库
+                        var $jsondata={};
+                        var btn=function(json){
+                            var data=json["row"];
+                            var item=[];
+                            for(var i=0; i<data.length; i++) {
+                                var opt='<tr>' +
+                                            '<td colspan="1">'+data[i]["name"]+'</td>' +
+                                            '<td colspan="1" class="stu_Number">'+data[i]["number"]+'</td>' +
+                                            '<td colspan="1" id="class_Id" value="'+data[i]["class"]+'">'+data[i]["class"]+'</td>' +
+                                            '<td colspan="1" id="subject_Id" value="'+data[i]["subject"]+'">'+data[i]["subject"]+'</td>' +
+                                            '<td colspan="1">'+data[i]["exam"]+'</td>' +
+                                            '<td colspan="1" class="stu_Time">'+data[i]["time"]+'</td>' +
+                                            '<td colspan="1" class="edit_grade">'+data[i]["grade"]+'</td>' +
+                                            '<td  colspan="1" class="width_10">' +
+                                                '<input class="tb_btn" type="button" value="修改" name="btn">' +
+                                                '<input class="tb_del" type="button" value="删除" name="del">' +
+                                            '</td>' +
+                                        '</tr>';
+                                //2017-08-13
+                                if(data[i]["time"]==dateTxt){
+                                    item.push(opt);
+                                    $(".gradeTabel").find("tbody").html(item);
+                                }
+                            }
+                            $jsondata=json;
+                        }
+                        var ajaxConfig = {
+                            url : "js/data.js",
+                            dataType : "jsonp",
+                            jsonpCallback : "callback",
+                            success : btn
+                        }
+                        $.ajax(ajaxConfig);
+                        //读后台数据end
+
+
+                    }
+                    else {
+                        $(".select01 input").removeClass("bg");
+                        $(".new_data_btn a").removeClass("bg");
+                        $(".select_icon").click(function () {
+                            $(".oUl").show();
+                        });
+                        $(".date-check").focus(function () {
+                            $(".date-list").show();
+                        });
+                        //学年学期
+                        $(document).on("click",".name_exam01",function(){
+                            $(".sele_exam").show();
+                            $(".date_year").show();
+                        });
+
+                    }
+                    $(this).text(str);
+                }
+            });
+            //学期star
+            var examArr = ["第一学期", "第二学期"];
+            for (var i = 0; i < examArr.length; i++) {
+                var _item = "";
+                _item += "<li>" + examArr[i] + "</li>";
+                $(".year_sele").find(".sele_exam").append(_item);
+            }
+            // $(".exam_gr").val(examArr[0]);//默认第一个值
+//            $(".exam_gr").click(function(){
+//
+//            });
+            $(document).on("click", ".exam_gr", function () {
+                $(this).siblings(".sele_exam").show();
+                $(".sele_exam li").click(function () {
+                    $(".exam_gr").val($(this).text());
+                    $(this).parents(".sele_exam").hide();
+                });
+
+            });
+            $(document).on("click", function (e) {
+                //学期弹出框隐藏
+                if ($(e.target).closest(".year_sele input").length == 0) {//输入框的选择器
+                    $(".sele_exam").hide();//弹出框
+                }
+                //学年弹出框隐藏
+                if ($(e.target).closest(".year_sele_date  input").length == 0) {
+                    $(".date_year").hide();
+                }
+
+                //考试时间弹出框隐藏
+                if ($(e.target).closest(".date1 input").length == 0) {
+                    $(".date-list").hide();
+                }
+                //考试名称弹出框隐藏
+                if ($(e.target).closest(".select02 input").length == 0) {
+                    $(".oUl").hide();
+                }
+
+            });
+            //学期end
+
+            //学年
+            var getYear = $(".year_sele_date");
+            var getYear_input = $(".year_sele_date input");
+            var date = new Date(),
+                    date_years = date.getFullYear(),
+                    date_years_next = date.getFullYear() + 1;
+            var allYear = date_years + '-' + date_years_next;
+            //年份循环
+            for (var i = 2017; i < 3000; i++) {
+                var number;
+                number = i + 1;
+                var optionTxt = "";
+                optionTxt += "<p>" + i + '-' + number + "</p>"
+                $(getYear).find(".date_year").append(optionTxt);
+            }
+            //getYear_input.val(allYear);
+            $(".date_year").hide();
+            $(getYear_input).click(function () {
+                $(".date_year").slideToggle();
+                $(".date_year p").each(function () {
+                    $(this).removeClass("current_year");
+                    if ($(this).text() == allYear) {
+                        $(this).addClass("current_year").focus();
+                        $(this).attr("id", "newYearId");
+                        if ($(this).hasClass("current_year")) {
+                            window.location.hash = "newYearId";
+                        }
+                        else {
+                            $(this).removeClass("current_year").focus();
+                        }
+                    }
+                });
+            });
+            $(".date_year p").click(function () {
+                var _this = $(this).text();
+                getYear_input.val(_this);
+                $(".date_year").slideUp();
+            });
+
+        })
+
+
+    </script>
+</head>
+<body>
+<!--删除-->
+<div class="div_modal" id="divModal"></div>
+<!--删除-->
+<div class="container" style="min-height: 1000px;">
+    <div class="container_main clearfix" style="padding: 10px 20px;">
+        <div class="score_input">
+            <div class="score">
+                <p>学生成绩录入</p>
+                <div class="all_data">
+                    <h4>温馨提示：录入成绩时，请先选考试时间和考试名称，然后保存！</h4>
+                    <div class="data clearfix" >
+                        <div class="data_width">
+                            <span>学年：</span>
+                            <div class="select year_sele_date select01">
+                                <input class="name_exam01"  type="text" readonly="readonly" placeholder="请选择学年">
+                                <div class="date_year">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data_width">
+                            <span>学期：</span>
+                            <div class="select year_sele select01">
+                                <input class="name_exam01 exam_gr"  type="text" readonly="readonly" placeholder="请选择学期">
+                                <ul class="sele_exam">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="data_width">
+                            <span>科目名称：</span>
+                            <div class="data_name">
+                                语文
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data clearfix">
+                        <div class="data_width outer" id="removeDate">
+                            <span>考试时间：</span>
+                            <div class="select select01 date date1" id="from">
+                                <input class="time_icon date-check" id="test_time" type="text" readonly="true" placeholder="请选择时间">
+                            </div>
+                        </div>
+                        <div class="data_width">
+                            <span>考试名称：</span>
+                            <div class="select select01 select02 ">
+                                <input class="select_icon" id="test_name" type="text" readonly="readonly" placeholder="请选择考试名称">
+                                <ul class="oUl">
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="data_width">
+                            <div class="new_data_btn">
+                                <a href="javascript:;" id="save">保存</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="data data_bl clearfix"  style="display: none" >-->
+                        <!--<div class="data_width data_span">-->
+                            <!--<span>考生姓名：</span>-->
+                            <!--<div class="dt_select sl_name" id="student_name">-->
+                                <!--<em value="1">请选择考生姓名</em><i class="icon_jt"><input id="test_code"  type="hidden" name="student_name"></i>-->
+                                <!--<ul class="ul_Text">-->
+                                    <!--<li data-value="">请选择考生姓名</li>-->
+                                    <!--<li data-value="" value="1">学生（20180202）</li>-->
+                                    <!--<li data-value="" value="2">学生（20180203）</li>-->
+                                    <!--<li data-value="" value="3">学生（20180204）</li>-->
+                                    <!--<li data-value="" value="3">学生（20180205）</li>-->
+                                    <!--<li data-value="" value="3">学生（20180206）</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="data_width">-->
+                            <!--<span>考生成绩：</span>-->
+                            <!--<div class="select">-->
+                                <!--<input id="test_mark" class="student_grade"  type="text">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="data_width">-->
+                            <!--<div class="data_btn data_bl" style="display: none">-->
+                                <!--<a href="javascript:;" id="confirm">确认添加</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+
+            <div class="student_information">
+                <div class="score_infor">
+                    <span>学生成绩表</span><span> ></span> <em></em>
+                </div>
+                <div class="score_tabel">
+                    <table class="gradeTabel" cellpadding="0" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th colspan="1">姓名</th>
+                            <th colspan="1">学号</th>
+                            <th colspan="1">班级</th>
+                            <th colspan="1">考试科目</th>
+                            <th colspan="1">考试名称</th>
+                            <th colspan="1">考试时间</th>
+                            <th colspan="1">成绩</th>
+                            <th colspan="1"  class="width_10">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

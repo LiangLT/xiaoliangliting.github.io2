@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/phone.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:"menu.html",//获取静态页面
+                type: "GET",
+                datatype: "html",
+                success: function (data) {
+                    var dataHtml=$(data).siblings("#navAjax");
+                    var htmlLen=$(dataHtml).find("li");
+                    $(htmlLen).eq(0).find("img").attr("src","images/news_hover.png");
+                    $(htmlLen).eq(0).find("p").addClass("nav_check");
+                    $("body").append(dataHtml);
+                }
+            })
+        })
+    </script>
+</head>
+<body class="whiteBg">
+    <header class="commonHeader">
+        <div class="headUser">消息</div>
+    </header>
+    <div class="newContent">
+        <div class="phoneSearch">
+            <input type="text" value="" placeholder="搜索">
+        </div>
+        <div class="newRow">
+            <div class="newCol ">
+                <div class="col_lf"><img src="images/default.jpg"></div>
+                <div class="col_rg">
+                    <div class="cloTop clearfix">
+                        <h4>刘老师</h4>
+                        <span>20:34</span>
+                    </div>
+                    <div class="con">
+                        刘老师您好，您还有一份工作未完成！
+                    </div>
+                </div>
+            </div>
+            <div class="newCol ">
+                <div class="col_lf"><img src="images/xah_robot_icon.png"></div>
+                <div class="col_rg">
+                    <div class="cloTop clearfix">
+                        <h4>讯安汇团队</h4>
+                        <span>20:34</span>
+                    </div>
+                    <div class="con">
+                       请查看入门使用帮助
+                    </div>
+                </div>
+            </div>
+            <div class="newCol ">
+                <div class="col_lf">
+                    <div class="listImg">
+                        <img src="images/default.jpg">
+                        <i>1</i>
+                    </div>
+
+                </div>
+                <div class="col_rg">
+                    <div class="cloTop clearfix">
+                        <h4>刘老师</h4>
+                        <span>20:34</span>
+                    </div>
+                    <div class="con">
+                        刘老师您好，您还有一份工作未完成！
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

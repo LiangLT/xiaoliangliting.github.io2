@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/Administrator.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/select_box.js"></script>
+    <script src="js/modal_blur.js"></script>
+    <script>
+
+    </script>
+    <script>
+        $(function(){
+
+            //注销内容---用户管理
+            $(".del_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Agname=$(this).parents("td").siblings(".Agname").text();
+                        var AgId=$(this).parents("td").siblings(".AgId").text();
+                        $(".modal_footer a").first().addClass("Ag_del");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要注销”"+Agname+"("+AgId+"）"+"“吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".Ag_del").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+
+            //锁定内容
+            $(".lock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Agname=$(this).parents("td").siblings(".Agname").text();
+                        var AgId=$(this).parents("td").siblings(".AgId").text();
+                        $(".modal_footer a").first().addClass("Ag_lock");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要锁定”"+Agname+"("+AgId+"）"+"“吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".Ag_lock").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+
+            //解锁内容
+            $(".Ulock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Agname=$(this).parents("td").siblings(".Agname").text();
+                        var AgId=$(this).parents("td").siblings(".AgId").text();
+                        $(".modal_footer a").first().addClass("Ag_ulock");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定为”"+Agname+"("+AgId+"）"+"“解锁吗？");
+                        $(".Ag_ulock").click(function(){
+                            //后台
+                        });
+                    });
+
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<!-- ====注销，锁定，解锁窗口==-->
+<div class="div_modal" id="divModal"></div>
+<!-- ====注销，锁定，解锁窗口===-->
+
+<!-- 新增用户窗口-->
+<div class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>新建用户</p><i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <form id="submit_fm" method="post" action="">
+                <p><span>经销商名称：</span><input id="name" type="text"><span class="name_err"></span></p>
+                <p><span>经销商账号：</span><input id="account" type="text" placeholder="请输入6-12位数字、英文"><span class="name_err1"></span></p>
+                <p><span>经销商密码：</span><input id="password" type="password"><span class="name_err5"></span></p>
+                <p><span>联系方式：</span><input id="phone" type="text"><span class="p_txt"></span></p>
+                <p><span>地址：</span><input type="text"><span class="name_err2"></span></p>
+                <!--<p><span>收费情况：</span><input class="check" type="checkbox"><label>未缴费</label><input class="check" type="checkbox"><label>已缴费</label></p>-->
+
+            </form>
+        </div>
+        <div class="us_modal_footer">
+            <a class="true_btn" id="adg_add" href="javascript:;">确认添加</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+
+    </div>
+</div>
+<!-- 新增用户窗口-->
+
+    <div class="Admin_layout">
+        <div class="Admin_top clearfix">
+            <div class="top_left">
+                <h2>管理员后台</h2>
+            </div>
+            <div class="top_right">
+                <a href="javascript:;">用户名：Administrator</a><span>|</span><a href="AdminLogin.html">安全退出</a>
+            </div>
+        </div>
+        <div class="Admin_con clearfix">
+            <div class="con_left">
+                <div class="left_bg">
+                    <ul>
+                        <li><a href="AdminIndex.html"><span class="Ico_img_01"></span><span class="span_title">主页</span></a> </li>
+                        <li><a href="AdminUser.html"><span class="Ico_img_02"></span><span class="span_title">用户管理</span></a> </li>
+                        <li class="ahover"><a href="AdAgency.html"><span class="Ico_img_03"></span><span class="span_title">经销商管理</span></a> </li>
+                        <li><a href="AdSchool.html"><span class="Ico_img_04"></span><span class="span_title">学校管理</span></a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="con_right">
+                <div class="con_body">
+                    <div class="body_title">
+                        当前位置：<a href="AdminIndex.html">首页</a><span>></span><a class="text_color" href="javascript:;">经销商管理</a>
+                    </div>
+                    <div class="seach clearfix">
+                        <form class="from_lf">
+                            <input type="text" placeholder="请输入账号" style="border-radius: 5px 0 0 5px"><input class="input_btn" type="button" value="搜索">
+                        </form>
+                        <div class="add_btn">
+                            <a class="del_data" href="#">注销</a>
+                            <a class="lock_data" href="#">锁定</a>
+                            <a class="Ulock_data" href="#">解锁</a>
+                            <a id="add_user" href="#">新增用户</a>
+                        </div>
+                    </div>
+                    <div class="ly_con">
+                        <div class="con_tabel">
+                            <table class="table" cellspacing="0" cellpadding="0">
+                                <tr class="con_th Newcon_th">
+                                    <th></th>
+                                    <th>经销商名称</th>
+                                    <th>账号</th>
+                                    <th>联系方式</th>
+                                    <th>地址</th>
+                                    <th>注册时间</th>
+                                    <th>最后登录时间</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Agname">某某经销商</td>
+                                    <td class="AgId">12345678900</td>
+                                    <td>12345678900</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Agname">某某经销商</td>
+                                    <td class="AgId">12345678900</td>
+                                    <td>12345678900</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Agname">8888</td>
+                                    <td class="AgId">9999</td>
+                                    <td>12345678900</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                    <td>2017-06-16 09:42:00</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

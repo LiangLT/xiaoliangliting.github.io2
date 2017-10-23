@@ -1,0 +1,9 @@
+.nav a { *padding: 11px 28px;}
+.default { *position: relative; *padding: 20px 30px 20px 30px; *background: #f9f9f9;}
+.default_icon {*float: left; *margin-right: 15px; *display: inline;}
+.default_information { *display: inline; *position: relative; *top: 0; *padding: 0; *margin: 0;}
+.work_content { *background: #f9f9f9;}
+.work_content .work .work_right .work_date { *float: left; *line-height: 30px;}
+.date_name { *float: left;}
+.work_content .work .work_right { *margin:0 0 14px 0;}
+.work_content .work .work_check { *float: left;}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=decive-width, initial-scale=1.0 ">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/basestyle.css">
+<link type="text/css" rel="stylesheet" href="css/tabel.css">
+
+
+<script type="text/javascript">
+function setTab(name,cursel,n){
+	for(i=1;i<=n;i++){
+	  var menu=document.getElementById(name+i);
+	  var con=document.getElementById("con_"+name+"_"+i);
+	  
+	  menu.className=i==cursel?"hover":"";
+	  con.style.display=i==cursel?"block":"none";
+	}
+}
+</script>
+
+</head>
+
+<body>
+	<div class="layoutTop">
+    	<div class="top_left">
+        	<a href="index.html"><img src="images/iconfont-androidhome.png"><span>首页</span></a>
+        </div>
+        <div class="top_right">
+        	<a href="javascript:;">用户名：<span>XXXXXXX经销商</span></a><span>|</span>
+            <a href="javascript:;"><img class="img_04" src="images/ice_guowubg.png">我的购物车<span class="span_01">0</span>件</a><span>|</span>
+            <a href="javascript:;">信息提醒<b class="blue">(2)</b></a><span>|</span>
+            <a href="login.html">退出</a>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="heading">
+    	<img src="images/logotitle.png">
+    </div>
+    <div class="container">
+    	<div class="con_nav">
+        	当前位置：经销商服务中心<span>></span><a href="#">我的订单</a>
+            
+        </div>
+        <div class="content_tab bor_top">
+        	<div class="search01">
+            	<div id="lib_Tab1" class="lib_Tab">
+                    <div class="lib_Menubox">
+                        <ul>
+                          <li id="one1" onclick="setTab('one',1,3)" class="hover">单号</li>
+                          <li id="one2" onclick="setTab('one',2,3)" >司机</li>
+                          <li id="one3" onclick="setTab('one',3,4)" >车牌号码</li>
+                          <li id="one4" onclick="setTab('one',4,4)" >产品</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lib_Contentbox lib_tabborder">  
+                      <div id="con_one_1">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入订单单号"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      
+                      <div id="con_one_2" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入司机姓名"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      <div id="con_one_3" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入车牌号码"><a href="#">搜索</a>
+                        </div>
+                      </div>
+                      <div id="con_one_4" style="display:none;">
+                        <div class="search_left01">
+                           <input type="text" placeholder="请输入产品"><a href="#">搜索</a>
+                        </div>
+                      </div>	
+                    </div>	
+                </div>
+            
+                <div class="clear"></div>
+            </div>
+            <div class="con_heading">
+                <div class="col-xs-5 ">
+                    <div class="s_input">
+                    	<span>日期：</span><input type="text"><img src="images/dateIco.png"><span>至</span><input type="text"><img src="images/dateIco.png">
+                    </div>
+                </div>
+                <div class="col-xs-3 ">
+                	<div class="s_input">
+                    	<span>单据状态</span><select><option>商家已审核</option></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                	<div class="s_input">
+                    	<span>产品情况</span><select><option>全部</option></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                	<div class="span_name002">
+                    	<a href="order.html"><span>单据显示</span><img src="images/list.png"></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="tabel_content1">
+               <table class="tablestyle" style="width:100%;" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                        	<th class="bot_left" colspan="2" >订单单号</th>
+                            <th colspan="1">订单日期</th>
+                            <th colspan="1">提货点</th>
+                            <th colspan="1">货品重量</th>
+                            <th colspan="1">订单金额</th>
+                            <th colspan="1">订单数量</th>
+                            <th colspan="1">单据状态</th> 
+                            <th class="bor_right" colspan="1">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	
+                    	<tr>
+                        	<td class="bot_left" colspan="2">
+                            	<p>DD4234442</p>
+                            </td>
+                        	<td colspan="1">2016-3-6</td>
+                            <td colspan="1">佛山</td>
+                            <td colspan="1">36KG </td>
+                            <td colspan="1">￥533,953,39.00</td>
+                            <td colspan="1">350箱</td>
+                            <!--<td colspan="2">
+                            	<div class="left_p">
+                                	<p class="left_pname">提货量：</p>
+                                    <p class="left_pnum">0片</p>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="left_p">
+                                	<p class="left_pname">未提量：</p>
+                                    <p class="left_pnum">10箱</p>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="left_p">
+                                	<p class="left_pname">冲销量：</p>
+                                    <p class="left_pnum">100箱</p>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="left_p">
+                                	<p class="left_pname">退货量：</p>
+                                    <p class="left_pnum">100箱</p>
+                                    <div class="clear"></div>
+                                </div>
+                            </td>-->
+                            <td colspan="1">
+                            	<p>商家已审核</p>
+                                
+                            </td>
+                            <td class="bor_right " colspan="1">
+                            	<div class="od_btn">
+                                	<p class="btn_info"><a href="#">详情</a></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left" colspan="2">
+                            	<p>DD4234442</p>
+                            </td>
+                        	<td colspan="1">2016-3-6</td>
+                            <td colspan="1">佛山</td>
+                            <td colspan="1">36KG </td>
+                            <td colspan="1">￥5339.00</td>
+                            <td colspan="1">350箱</td>
+                            
+                            <td  colspan="1">
+                            	<p>商家已审核</p>
+                            </td>
+                            <td class="bor_right" colspan="1">
+                            	<div class="od_btn">
+                                	<p class="btn_info"><a href="#">详情</a></p>
+                                 	<p class="btn_del"><a href="javascript:">取消订单</a></p>
+                               		<p class="btn_cg"><a href="javascript:">修改订单</a></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="bot_left" colspan="2">
+                            	<p>DD4234442</p>
+                            </td>
+                        	<td colspan="1">2016-3-6</td>
+                            <td colspan="1">佛山</td>
+                            <td colspan="1">36KG </td>
+                            <td colspan="1">￥5339.00</td>
+                            <td colspan="1">56片</td>
+                            
+                            <td class="del_btn" colspan="1">
+                            	<p>未提交</p>
+                            </td>
+                             <td class="bor_right" colspan="1">
+                            	<div class="od_btn">
+                                	<p class="btn_info"><a href="#">详情</a></p>
+                                 	<p class="btn_del"><a href="javascript:">取消订单</a></p>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                        	<td  class="bot_left" colspan="2">
+                            	<p>DD4234442</p>
+                            </td>
+                        	<td colspan="1">2016-3-6</td>
+                            <td colspan="1">佛山</td>
+                            <td colspan="1">36KG </td>
+                            <td colspan="1">￥5339.00</td>
+                            <td colspan="1">56片</td>
+                            
+                            <td class="del_btn" colspan="1">
+                            	<p>未提交</p>
+                            </td>
+                            <td class="bor_right " colspan="1">
+                            	<div class="od_btn">
+                                	<p class="btn_info"><a href="#">详情</a></p>
+                                 	<p class="btn_del"><a href="javascript:">取消订单</a></p>
+                                </div>
+                            </td>
+                        </tr>
+                    <tbody>
+                        <tr class="trhover">
+                        	<td class="td_pad" colspan="9">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    	<tr>
+                        	<td class="bot_left bor_right td_pad" colspan="9">
+                            	<div class="foot_page">
+                                	<a class="page_01" href="#">上一页</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">6</a>
+                                    <a href="#">7</a>
+                                    <span>...</span>
+                                    <a class="page_01" href="#">下一页</a>
+                                    <span>共18页</span><span>到第</span><input class="input_02" type="text">页<button>确定</button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        
+     </div>
+</body>
+</html>

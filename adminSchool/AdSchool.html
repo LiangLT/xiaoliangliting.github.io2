@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/Administrator.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/select_box.js"></script>
+    <script src="js/modal_blur.js"></script>
+    <script>
+        /*$(function(){
+            $("#slName").blur(function(){
+                var slName=$("#slName").val();
+                if(isBlank(slName)){
+                    $(".name_err").html("*学校名称不能为空！");
+                    return false;
+                }
+                else{
+                    $(".name_err").html("");
+                }
+            });
+
+            $("#slLocation").blur(function() {
+                var slLocation=$("#slLocation").val();
+                if (isBlank(slLocation)) {
+                    $(".name_err1").html("*地理位置不能为空！");
+                }
+                else{
+                    $(".name_err1").html("");
+                }
+            });
+            $("#slnum").blur(function() {
+                var slnum=$("#slnum").val();
+                if (isBlank(slnum)) {
+                    $(".name_err2").html("*学校账号不能为空！");
+                }
+                else{
+                    $(".name_err2").html("");
+                }
+            });
+            $("#slId").blur(function() {
+                var slId=$("#slId").val();
+                if (isBlank(slId)) {
+                    $(".name_err3").html("*学校编号不能为空！");
+                }
+                else{
+                    $(".name_err3").html("");
+                }
+            });
+            $("#slAgent").blur(function() {
+                var slAgent=$("#slAgent").val();
+                if (isBlank(slAgent)) {
+                    $(".name_err4").html("*代理商不能为空！");
+                }
+                else{
+                    $(".name_err4").html("");
+                }
+            });
+
+
+            $("#mobile").blur(function(){
+                var mobile=$("#mobile").val();
+                if(isBlank(mobile)){
+                    $(".p_txt").html("*手机号码不能为空！");
+                }
+                if(!isPhone(mobile)){
+                    $(".p_txt").html("*手机号码有误，请重填！");
+                    return false;
+                }
+                return;
+            });
+
+            //点击确认
+            $(".true_btn").click(function(){
+                var text=$("#submit_fm").find("input").val();
+                if(text == null || text == "" || text==undefined){
+                    alert("请输入，再确认！")
+                    return false;
+                }
+                return;
+            });
+        });*/
+
+        /**判断是否为空
+        function isBlank(_value){
+            if(_value==null || _value=="" || _value==undefined){
+                return true;
+            }
+            return false;
+        }
+        **/
+        /**检查是否为手机号码形式
+        function isPhone(str){
+            var mobile = /^1(3|4|5|7|8)\d{9}$/;
+            return mobile.test(str);
+        }
+        **/
+    </script>
+    <script>
+        $(function(){
+            //注销内容
+            $(".del_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Sname=$(this).parents("td").siblings(".Sname").text();
+                        $(".modal_footer a").first().addClass("School_del");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要注销“"+Sname+"”吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".School_del").click(function(){
+                            alert("777");
+                        });
+                    });
+
+                }
+            });
+
+            //锁定内容
+            $(".lock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Sname=$(this).parents("td").siblings(".Sname").text();
+                        $(".modal_footer a").first().addClass("School_del");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定要锁定“"+Sname+"”吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".School_del").click(function(){
+                            alert("777");
+                        });
+                    });
+
+                }
+            });
+
+            //解锁内容
+            $(".Ulock_data").click(function(){
+                var del_data=$('input:radio[name="rd"]:checked').val();
+                if(del_data==null){
+                    //未选中时执行
+                    shouTxt();
+                    return false;
+                }
+                else{
+                    //已选中执行
+                    showMd();
+                    $(".table input:radio[name='rd']:checked").each(function(){
+                        var Sname=$(this).parents("td").siblings(".Sname").text();
+                        $(".modal_footer a").first().addClass("School_ulock");
+                        $("#divModal").show();
+                        $(".p_con").html("您确定为“"+Sname+"”解锁吗？");
+                        //跳出弹窗，点击确认事件
+                        $(".School_ulock").click(function(){
+                            alert("999");
+                        });
+                    });
+
+                }
+            });
+        });
+
+    </script>
+    <script>
+
+    </script>
+</head>
+<body>
+<!-- ====注销，锁定，解锁窗口==-->
+<div class="div_modal" id="divModal"></div>
+<!-- ====注销，锁定，解锁窗口===-->
+
+<!-- 新增用户窗口-->
+<div class="user_modal">
+    <div class="us_modal_con">
+        <div class="us_modal_top clearfix">
+            <p>新建用户</p><i class="close_btn">X</i>
+        </div>
+        <div class="us_modal_body">
+            <form>
+                <p><span>学校名称：</span><input id="slName" type="text"><span class="name_err"></span></p>
+                <p><span>地理位置：</span><input id="slLocation" type="text"><span class="name_err1"></span></p>
+                <p><span>学校账号：</span><input id="slnum" type="text"><span class="name_err2"></span></p>
+                <p><span>学校编号：</span><input id="slId" type="text"><span class="name_err3"></span></p>
+                <p><span>代理商：</span><input id="slAgent" type="text"><span class="name_err4"></span></p>
+                <p><span>联系方式：</span><input id="mobile" type="text"><span class="p_txt"></span></p>
+                <!--<p><span>收费情况：</span><input class="check" type="checkbox"><label>未缴费</label><input class="check" type="checkbox"><label>已缴费</label></p>-->
+
+            </form>
+        </div>
+        <div class="us_modal_footer">
+            <a class="true_btn" href="javascript:;">确认添加</a>
+            <a class="close_btn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+<!-- 新增用户窗口-->
+
+
+    <div class="Admin_layout">
+        <div class="Admin_top clearfix">
+            <div class="top_left">
+                <h2>管理员后台</h2>
+            </div>
+            <div class="top_right">
+                <a href="javascript:;">用户名：Administrator</a><span>|</span><a href="AdminLogin.html">安全退出</a>
+            </div>
+        </div>
+        <div class="Admin_con clearfix">
+            <div class="con_left">
+                <div class="left_bg">
+                    <ul>
+                        <li><a href="AdminIndex.html"><span class="Ico_img_01"></span><span class="span_title">主页</span></a> </li>
+                        <li><a href="AdminUser.html"><span class="Ico_img_02"></span><span class="span_title">用户管理</span></a> </li>
+                        <li><a href="AdAgency.html"><span class="Ico_img_03"></span><span class="span_title">经销商管理</span></a> </li>
+                        <li class="ahover"><a href="javacript:;"><span class="Ico_img_04"></span><span class="span_title">学校管理</span></a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="con_right">
+                <div class="con_body">
+                    <div class="body_title">
+                        当前位置：<a href="AdminIndex.html">首页</a><span>></span><a class="text_color" href="javascript:;">学校管理</a>
+                    </div>
+                    <div class="seach clearfix">
+                        <form class="from_lf">
+                            <div class="select_div">
+                                <select>
+                                    <option>账号</option>
+                                    <option>学校名称</option>
+                                </select>
+                            </div>
+                            <input type="text"><input class="input_btn" type="button" value="搜索">
+                        </form>
+                        <div class="add_btn">
+                            <a class="del_data" href="#">注销</a>
+                            <a class="lock_data" href="#">锁定</a>
+                            <a class="Ulock_data" href="#">解锁</a>
+                            <a id="add_user" href="#">新增用户</a>
+                        </div>
+                    </div>
+                    <div class="ly_con">
+                        <div class="con_tabel">
+                            <table class="table" cellpadding="0" cellspacing="0">
+                                <tr class="con_th Newcon_th">
+                                    <th></th>
+                                    <th>学校名称</th>
+                                    <th>地理位置</th>
+                                    <th>账号</th>
+                                    <th>学校编号</th>
+                                    <th>代理商</th>
+                                    <th>联系方式</th>
+                                    <th>注册时间</th>
+                                    <th>最后登录时间</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Sname">佛山职业技术学院</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>123456789001111</td>
+                                    <td>123456</td>
+                                    <td>莫筱筱经销商</td>
+                                    <td>13536409885</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Sname">佛山职业技术学院1</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>12345678900</td>
+                                    <td>123456</td>
+                                    <td>莫筱筱经销商</td>
+                                    <td>13536409885</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="rd"></td>
+                                    <td class="Sname">佛山职业技术学院2</td>
+                                    <td>佛山市三水区乐平镇职教路3号</td>
+                                    <td>12345678900</td>
+                                    <td>123456</td>
+                                    <td>莫筱筱经销商</td>
+                                    <td>13536409885</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                    <td>2017-06-16 09:19:00</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

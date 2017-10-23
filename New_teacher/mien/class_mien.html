@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/class_mien.js"></script>
+    <script src="js/imgUpMien.js"></script>
+
+    <script>
+        //获取顶部的html
+        $(function() {
+            changeIndex();//更新序列号
+
+            $.ajax({
+                url: "class_top.html",//获取静态页面
+                type: "GET",
+                datatype: "text",
+                success: function (data) {
+                    $(data).prependTo("body");
+                    $(".nav a").removeClass("hoverBg");//移除原来的类
+                    $(".nav").append('<a class="hoverBg" href="javascript:;"><img src="images/classNav_mien.png"><p>班级风采</p></a>');
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="declaration">
+        <div class="class_btn">
+            <a  href="javascript:;" onclick="preview()">预览</a>
+            <a class="add_dl mien_add" href="javascript:;">新增风采</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="class_tabel">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="class_width_05">序号</th>
+                    <th  class="class_width ">风采标题</th>
+                    <th  class="class_width">班级</th>
+                    <th  class="class_width ">风采图片</th>
+                    <th class="class_width">发布人</th>
+                    <th class="class_width">操作时间</th>
+                    <th class="class_width">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width mien_txt">春雨<input type="hidden" value="888"></td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width mien_pic"><img src="images/default_pic.png"></td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-09-02 11:11:11</td>
+
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="mien_change change" type="button" value="修改">
+                            <input class="mien_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="class_width_05">1</td>
+                    <td class="class_width mien_txt">春雨<input type="hidden" value="888"></td>
+                    <td class="class_width">六年级（1）班</td>
+                    <td class="class_width mien_pic"><img src="images/logo.png"></td>
+                    <td class="class_width">刘老师</td>
+                    <td class="class_width">2017-09-02 11:11:11</td>
+
+                    <td class="class_width">
+                        <div class="dl_btn">
+                            <input class="mien_change change" type="button" value="修改">
+                            <input class="mien_del del" type="button" value="删除">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="classId" value="六年级（2）班">
+<input type="hidden" id="teacherId" value="余老师">
+</body>
+</html>

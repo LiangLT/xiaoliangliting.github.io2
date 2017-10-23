@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/basestyle.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/schedule_template.js"></script>
+    <script src="js/schedule_data.js"></script>
+    <script>
+        $(document).ready(function(){
+            //调用拖动方法
+            dragg();
+        });
+        $(function(){
+
+            //时间
+            var dateVal20=$("#dateVal20").val();//早读时间
+            var dateVal0=$("#dateVal0").val(),//第一节
+                    dateVal1=$("#dateVal1").val(),//第二节
+                    dateVal2=$("#dateVal2").val(),//第三节
+                    dateVal3=$("#dateVal3").val(),//第四节
+                    dateVal4=$("#dateVal4").val(),//第五节
+                    dateVal5=$("#dateVal5").val(),//第六节
+                    dateVal6=$("#dateVal6").val(),//第七节
+                    dateVal7=$("#dateVal6").val(),//第八节
+                    dateVal8=$("#dateVal6").val(),//第九节
+                    dateVal9=$("#dateVal6").val(),//第十节
+                    dateVal10=$("#dateVal6").val(),//第十一节
+                    dateVal11=$("#dateVal6").val();//第十二节
+            //早读
+            var read1=$("#row20").find("dd").eq(0).text(),//星期一
+                 read2=$("#row20").find("dd").eq(1).text(),//星期二
+                 read3=$("#row20").find("dd").eq(2).text(),//星期三
+                 read4=$("#row20").find("dd").eq(3).text(),//星期四
+                 read5=$("#row20").find("dd").eq(4).text(),//星期五
+                 read6=$("#row20").find("dd").eq(5).text(),//星期六
+                 read7=$("#row20").find("dd").eq(6).text();//星期七
+           // alert('0:'+read1+read2+read3+read4+read5+read6+read7);
+
+            //第一节
+            var one1=$("#row0").find("dd").eq(0).text(),//星期一
+                 one2=$("#row0").find("dd").eq(1).text(),//星期二
+                 one3=$("#row0").find("dd").eq(2).text(),//星期三
+                 one4=$("#row0").find("dd").eq(3).text(),//星期四
+                 one5=$("#row0").find("dd").eq(4).text(),//星期五
+                 one6=$("#row0").find("dd").eq(5).text(),//星期六
+                 one7=$("#row0").find("dd").eq(6).text();//星期七
+            //alert('1:'+one1+one2+one3+one4+one5+one6+one7);
+
+            //第二节
+            var two1=$("#row1").find("dd").eq(0).text(),//星期一
+                 two2=$("#row1").find("dd").eq(1).text(),//星期二
+                 two3=$("#row1").find("dd").eq(2).text(),//星期三
+                 two4=$("#row1").find("dd").eq(3).text(),//星期四
+                 two5=$("#row1").find("dd").eq(4).text(),//星期五
+                 two6=$("#row1").find("dd").eq(5).text(),//星期六
+                 two7=$("#row1").find("dd").eq(6).text();//星期七
+            //alert('2:'+two1+two2+two3+two4+two5+two6+two7)
+
+            //第三节
+            var three1=$("#row2").find("dd").eq(0).text(),//星期一
+                three2=$("#row2").find("dd").eq(1).text(),//星期二
+                three3=$("#row2").find("dd").eq(2).text(),//星期三
+                three4=$("#row2").find("dd").eq(3).text(),//星期四
+                three5=$("#row2").find("dd").eq(4).text(),//星期五
+                three6=$("#row2").find("dd").eq(5).text(),//星期六
+                three7=$("#row2").find("dd").eq(6).text();//星期七
+            //alert('3:'+three1+three2+three3+three4+three5+three6+three7)
+
+            //第四节
+            var four1=$("#row3").find("dd").eq(0).text(),//星期一
+                four2=$("#row3").find("dd").eq(1).text(),//星期二
+                four3=$("#row3").find("dd").eq(2).text(),//星期三
+                four4=$("#row3").find("dd").eq(3).text(),//星期四
+                four5=$("#row3").find("dd").eq(4).text(),//星期五
+                four6=$("#row3").find("dd").eq(5).text(),//星期六
+                four7=$("#row3").find("dd").eq(6).text();//星期七
+            //alert('4:'+four1+four2+four3+four4+four5+four6+four7)
+
+            //第五节
+            var five1=$("#row4").find("dd").eq(0).text(),//星期一
+                five2=$("#row4").find("dd").eq(1).text(),//星期二
+                five3=$("#row4").find("dd").eq(2).text(),//星期三
+                five4=$("#row4").find("dd").eq(3).text(),//星期四
+                five5=$("#row4").find("dd").eq(4).text(),//星期五
+                five6=$("#row4").find("dd").eq(5).text(),//星期六
+                five7=$("#row4").find("dd").eq(6).text();//星期七
+            //alert('5:'+five1+five2+five3+five4+five5+five6+five7);
+
+            //第六节
+            var six1=$("#row5").find("dd").eq(0).text(),//星期一
+                six2=$("#row5").find("dd").eq(1).text(),//星期二
+                six3=$("#row5").find("dd").eq(2).text(),//星期三
+                six4=$("#row5").find("dd").eq(3).text(),//星期四
+                six5=$("#row5").find("dd").eq(4).text(),//星期五
+                six6=$("#row5").find("dd").eq(5).text(),//星期六
+                six7=$("#row5").find("dd").eq(6).text();//星期七
+           // alert('6:'+six1+six2+six3+six4+six5+six6+six7);
+
+            //第七节
+            var seven1=$("#row6").find("dd").eq(0).text(),//星期一
+                seven2=$("#row6").find("dd").eq(1).text(),//星期二
+                seven3=$("#row6").find("dd").eq(2).text(),//星期三
+                seven4=$("#row6").find("dd").eq(3).text(),//星期四
+                seven5=$("#row6").find("dd").eq(4).text(),//星期五
+                seven6=$("#row6").find("dd").eq(5).text(),//星期六
+                seven7=$("#row6").find("dd").eq(6).text();//星期七
+            //alert('7:'+seven1+','+seven2+','+seven3+','+seven4+','+seven5+','+seven6+','+seven7)
+            //第八节
+            var eight1=$("#row7").find("dd").eq(0).text(),//星期一
+                 eight2=$("#row7").find("dd").eq(1).text(),//星期二
+                 eight3=$("#row7").find("dd").eq(2).text(),//星期三
+                 eight4=$("#row7").find("dd").eq(3).text(),//星期四
+                 eight5=$("#row7").find("dd").eq(4).text(),//星期五
+                 eight6=$("#row7").find("dd").eq(5).text(),//星期六
+                 eight7=$("#row7").find("dd").eq(6).text();//星期七
+            //alert('8:'+eight1+eight2+eight3+eight4+eight5+eight6+eight7);
+
+            //第九节
+            var nine1=$("#row8").find("dd").eq(0).text(),//星期一
+                 nine2=$("#row8").find("dd").eq(1).text(),//星期二
+                 nine3=$("#row8").find("dd").eq(2).text(),//星期三
+                 nine4=$("#row8").find("dd").eq(3).text(),//星期四
+                 nine5=$("#row8").find("dd").eq(4).text(),//星期五
+                 nine6=$("#row8").find("dd").eq(5).text(),//星期六
+                 nine7=$("#row8").find("dd").eq(6).text();//星期七
+            //alert('9:'+nine1+nine2+nine3+nine4+nine5+nine6+nine7)
+            //第十节
+            var ten1=$("#row9").find("dd").eq(0).text(),//星期一
+                 ten2=$("#row9").find("dd").eq(1).text(),//星期二
+                 ten3=$("#row9").find("dd").eq(2).text(),//星期三
+                 ten4=$("#row9").find("dd").eq(3).text(),//星期四
+                 ten5=$("#row9").find("dd").eq(4).text(),//星期五
+                 ten6=$("#row9").find("dd").eq(5).text(),//星期六
+                 ten7=$("#row9").find("dd").eq(6).text();//星期七
+            //alert('10:'+ten1+ten2+ten3+ten4+ten5+ten6+ten7);
+            //第十一节
+            var eleven1=$("#row10").find("dd").eq(0).text(),//星期一
+                 eleven2=$("#row10").find("dd").eq(1).text(),//星期二
+                 eleven3=$("#row10").find("dd").eq(2).text(),//星期三
+                 eleven4=$("#row10").find("dd").eq(3).text(),//星期四
+                 eleven5=$("#row10").find("dd").eq(4).text(),//星期五
+                 eleven6=$("#row10").find("dd").eq(5).text(),//星期六
+                 eleven7=$("#row10").find("dd").eq(6).text();//星期七
+           // alert('11:'+eight1+'2:'+eight2+"3:"+eight3+"4:"+eight4+"5:"+eight5+"6:"+eight6+'7:'+eight7);
+
+            //第十二节
+            var twelve1=$("#row11").find("dd").eq(0).text(),//星期一
+                 twelve2=$("#row11").find("dd").eq(1).text(),//星期二
+                 twelve3=$("#row11").find("dd").eq(2).text(),//星期三
+                 twelve4=$("#row11").find("dd").eq(3).text(),//星期四
+                 twelve5=$("#row11").find("dd").eq(4).text(),//星期五
+                 twelve6=$("#row11").find("dd").eq(5).text(),//星期六
+                 twelve7=$("#row11").find("dd").eq(6).text();//星期七
+            //alert('12:'+twelve1+'2:'+twelve2+"3:"+twelve3+"4:"+eight4+"5:"+twelve5+"6:"+twelve6+'7:'+twelve7);
+
+            var classId=$("#classId").find("option:selected").val();
+
+        })
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <div class="layout_contrian">
+            <div class="ly_body clearfix">
+                <div class="ly_rg">
+                    <div class="stu_messg">
+                        当前位置：<a class="stu_hover" href="javascript:;">课程表管理</a>
+                    </div>
+                    <div class="schedule_title">
+                        课程表
+                    </div>
+                    <div class="schedule">
+                        <div class="schedule_list clearfix">
+                            <div class="list_left">
+                                <div class="schedule_select">
+                                    <span>班级：</span>
+                                    <select id="classId">
+                                        <option value="0">请选择班级</option>
+                                        <option value="1">一年级（1）班</option>
+                                        <option value="2">一年级（2）班</option>
+                                    </select>
+                                </div>
+                                <div class="schedule_select">
+                                    <p>班主任：刘老师<input type="hidden" value="1" id="className"></p>
+                                </div>
+                            </div>
+                            <div class="list_right">
+                                <div class="list_save">
+                                    <a class="btn_revise" id="saveBtn" href="#">保存课程</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schedule_tabel" id="schedule_tabel">
+                            <dl class="schedule_thead clearfix">
+                                <dt>课程</dt>
+                                <dd>星期一</dd>
+                                <dd>星期二</dd>
+                                <dd>星期三</dd>
+                                <dd>星期四</dd>
+                                <dd>星期五</dd>
+                                <dd>星期六</dd>
+                                <dd>星期日</dd>
+                            </dl>
+
+                        </div>
+                    </div>
+                    <div class="schedule_droppable" id="schedule_droppable">
+                        <dl>
+                            <dt>请拖动以下的科目，添加到上面的课程表：</dt>
+                            <dd>语文<input type="hidden" class="subId" value="1" ></dd>
+                            <dd>数学<input type="hidden" class="subId" value="2"></dd>
+                            <dd>英语<input type="hidden" class="subId" value="3"></dd>
+                            <dd>音乐</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="0" id="read">
+</body>
+<script>
+
+</script>
+</html>
