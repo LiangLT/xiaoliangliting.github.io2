@@ -20,6 +20,22 @@
                 }
             })
         })
+        window.onload=function(){
+            var banner=document.getElementById("banner"),
+                    bnUl=document.getElementById("bnUl"),
+                    bnLi=bnUl.getElementsByTagName("li");
+            var index=0;
+            setInterval(function(){
+                for(var i=0; i<bnLi.length;i++){
+                    bnLi[i].style.display='none';
+                }
+                index++;
+                if(index>bnLi.length-1){
+                    index=0;
+                }
+                bnLi[index].style.display='block';
+            },800)
+        }
     </script>
 </head>
 <body>
@@ -27,7 +43,7 @@
         <div class="headUser">应用</div>
     </header>
     <div class="bannerIndex" id="banner">
-        <ul>
+        <ul id="bnUl">
             <li>
                 <img src="images/banner.png">
             </li>

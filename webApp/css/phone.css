@@ -261,7 +261,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .listAll { padding: 5px 0;}
 .listAll a {border: 1px solid #ddd;background: #eee;color: #333;line-height: 28px;display: block;text-align: center;margin: 0 5px;}
-.listAll a:hover, .listAll .listHover { color: #12b7f5; border: 1px solid #12b7f5;}
+.listAll .listHover { color: #12b7f5; border: 1px solid #12b7f5;}
 .col_02 { width: 25%; float: left;}
 
 .noticeList { position: relative; padding: 10px 15px;}

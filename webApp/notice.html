@@ -18,7 +18,15 @@
                     $(htmlLen).eq(1).find("p").addClass("nav_check");
                     $("body").append(dataHtml);
                 }
-            })
+            });
+            $("#boxMain .col_02 a").hover(function(){
+                if($(this)){
+                    $(this).addClass("listHover");
+                }
+                else{
+                    $("#boxMain .col_02 a").removeClass("listHover");
+                }
+            });
         })
     </script>
 </head>
@@ -26,10 +34,10 @@
     <header class="commonHeader">
         <div class="headUser">通知</div>
     </header>
-    <div class="userMain">
+    <div class="userMain" id="boxMain">
         <div class="listAll clearfix">
             <div class="col_02">
-                <a class="listHover" href="javascript:;">全部</a>
+                <a class="" href="javascript:;">全部</a>
             </div>
             <div class="col_02">
                 <a href="javascript:;">考勤</a>
@@ -40,7 +48,6 @@
             <div class="col_02">
                 <a href="javascript:;">作业</a>
             </div>
-
         </div>
         <div class="listAll clearfix">
             <div class="col_02">
