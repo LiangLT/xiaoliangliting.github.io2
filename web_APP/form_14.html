@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 		
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+			
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#pulldown_head_03").click(function(){
+			$("#pulldown_content_03").slideToggle(200);
+		});
+	
+	});
+</script>
+
+</head>
+
+<body>
+
+<div id="myDiv01">
+  <div class="windows other">
+    
+      <div class="form text_center">
+        <div class="formHead">
+          <div class="col-xs-3">冲销数量</div>
+          <div class="col-xs-3">发货数量</div>
+          <div class="col-xs-3">排货数量</div>
+          <div class="col-xs-3">退货数量</div>
+          <div class="clear"></div>
+        </div>
+        <div class="formList">
+          <div class="panel_list">
+            <div class="col-xs-3">1,200</div>
+            <div class="col-xs-3">50,00</div>
+            <div class="col-xs-3">1,200</div>
+            <div class="col-xs-3">50,00</div>
+            <div class="clear"></div>
+          </div>      
+        </div>
+      </div>
+      
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;" id="closeBtn01">关闭</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="form_05.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">发货情况</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="customInfor">
+  <p>产品名称</p>
+</div>
+
+<div class="order_panel">
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-6 pad_right">发货日期</div>
+      <div class="col-xs-6">发货数量</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">2015.12.22</div>
+        <div class="col-xs-6">100 箱</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">2015.12.22</div>
+        <div class="col-xs-6">100 箱</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">2015.12.22</div>
+        <div class="col-xs-6">100 箱</div>
+        <div class="clear"></div>
+      </div>      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

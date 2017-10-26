@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});	
+		
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+          </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="search">
+      <div class="col-xs-9 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+      <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="member">
+  
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel border_bt">人员名称</div>
+      <div class="member_panel">人员名称</div>
+      
+    </div>
+    
+    <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div> 
+
+  </div>
+  
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">价格申请</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="condition.html">
+        <span>筛选</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="search bg_white border_bt_02 pad_bt">
+  <div class="col-xs-9 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="workOrder" id="order">
+  <div class="orderHead">销售单号：600205898114
+    <div class="state grey_03">2015.10.22 10:22</div>
+  </div>
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>数量：<br>1000</p>
+          <p>金额：<br>12,000.00 </p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="discount">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-5 dis_02"><span class="word">折扣金额</span><input name="" type="text"></div>
+        <div class="col-xs-4 dis_03"><span class="word">折扣</span><input name="" type="text"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>数量：<br>1000</p>
+          <p>金额：<br>12,000.00 </p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="discount">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-5 dis_02"><span class="word">折扣金额</span><input name="" type="text"></div>
+        <div class="col-xs-4 dis_03"><span class="word">折扣</span><input name="" type="text"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+    <div class="discount border_top">
+      <div class="col-xs-3 dis_01"><img src="images/ico_select_blue.png">整单打折</div>
+      <div class="col-xs-5 dis_02"><span class="word">折扣金额</span><input name="" type="text"></div>
+      <div class="col-xs-4 dis_03"><span class="word">折扣</span><input name="" type="text"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="addForm">
+    <div class="panel_input">
+        <div class="col-xs-3 name">审批人</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="审批人名称">
+          <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+  </div>
+  <div class="singlebtn_min"><input class="btns" data-class="touchstart" name="" type="button" value="提交"></div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv01">
+  <div class="windows other window_top_02">
+    <div class="windowsHead">取消原因
+      <div id="closeBtn01" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <div class=""><textarea class="textarea_01" name="" type="text"></textarea></div>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">取消</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">提交</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userOrder.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">订单详情</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right orange font_02">待付款</div>
+    <div class="clear"></div>
+    <div class="grey_04 pad_top_04">2016.6.2</div>
+  </div>
+  
+  <div class="userFunction_panel border_top" data-class="touchstart">
+    <a href="groupInfor.html">
+    <div class="left">华东销区<span class="grey_03 font_01">（5）</span></div>
+    <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+    <div class="clear"></div>
+    </a>
+  </div>
+  
+  <div class="store_order">
+  
+      <div class="store_panel">
+          <div class="order_infor">
+            <div class="order_photo"><img src="images/pro_pic_01.jpg"></div>
+            <h2>ERP查询</h2>
+            <p class="left grey_04">优惠价￥6,000.00/月<span class="through">￥8,000.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80,000.00</p>
+          </div>
+          <div class="del" id="show_del"><img src="images/ico_del_word.png"></div>
+          <div class="mengban_order"></div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_02.jpg"></div>
+            <h2>移动审批</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_03.jpg"></div>
+            <h2>CRM</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_04.jpg"></div>
+            <h2>企业文化</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">订单金额</div>
+            <div class="col-xs-8 price red">￥122,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="立即支付" onClick="javascript:window.location.href='userApplication_pay.html'"></span></div>
+      </div>
+      
+  </div>
+  
+</div>
+
+<div class="fix_bottom"></div>
+
+<!--<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right orange font_02">已付款</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="subHead black">购买应用：</div>
+  <div class="orderCon">
+    <p>应用编号：FU321123333</p>
+    <p>应用名称：CRM报表服务</p>
+    <p>所属应用类别：XXX</p>
+  </div>
+  
+  <div class="subHead black">购买年限：一年50元</div>
+  
+  <div class="orderCon border_top">
+    <div class="fin_price grey_02 pad_top">
+      <div class="col-xs-6">订单金额：</div>
+      <div class="col-xs-6 text_right">800.00</div>
+      <div class="clear"></div>
+      <div class="col-xs-6">折扣金额：</div>
+      <div class="col-xs-6 text_right">200.00</div>
+      <div class="clear"></div>
+      <div class="col-xs-6 font_02"><strong>应付金额：</strong></div>
+      <div class="col-xs-6 text_right orange font_02"><strong>600.00</strong></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>-->
+
+</body>
+</html>

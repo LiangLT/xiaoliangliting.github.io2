@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/swiper.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	var swiper_horizontal = new Swiper('#swiper_horizontal', {
+        pagination: '.swiper-pagination',
+        centeredSlides: true,
+        autoplayDisableOnInteraction: false
+    });
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+		
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto";
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows experience window_top_03">
+    
+      <div class="content">
+        <h2>您已进入<span class="blue">模拟演示帐号</span></h2>
+        <p>该帐号中显示的是模拟内容，希望有助于您了解联成平台。</p>
+      </div>
+      
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;" id="closeBtn00">我知道了</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head_app">
+    <div class="col-xs-7">
+      <a class="topIcon left" href="index_添.html">
+        <span><img src="images/headIcon_01.png"></span>
+        <span>返回</span>
+        <span><img class="head_line" src="images/head_line.png"></span>
+      </a>
+      <div class="logo left"><span>陶瓷企业名称</span></div><!--小屏机.名称最长显示6个字-->
+    </div>
+    <div class="col-xs-5">
+      <div class="username" onClick="javascript:window.location.href='user_change.html'">陶瓷企业用户<span class="pad_left_01">[切换]</span></div><!--小屏机.名称最长显示6个字-->
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="fix_top"></div>
+
+<div class="banner">
+
+  <div id="myCarousel" class="carousel slide display_no" data-ride="carousel" data-interval="3000">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active" id="myBtn_qrcode"><img src="images/banner_mingyan.jpg"></div>
+      <div class="item"><img src="images/banner_01.jpg"></div>
+      <div class="item"><img src="images/banner_02.jpg"></div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+  
+            $("#myCarousel").swipe({
+                swipe: function (event, direction, distance, duration, fingerCount) {
+                    if (distance > 10) {
+                        if (direction == "left") {
+                            $('.carousel').carousel('next');
+                        } else if (direction == "right") {
+                            $('.carousel').carousel('prev');
+                        }
+                    }
+                    setTimeout(function () { $('.carousel').carousel('pause'); }, 800);
+                }
+            });
+			
+  </script>
+
+  <!--<img src="images/banner_mingyan.jpg">--><!--静态图片版本-->
+
+  <!--<div class="animationm">
+    <div class="animationm_build">
+      <div class="animationm_func"><img src="images/animationm_func.png"></div>
+      <div class="animationm_cloud"></div>
+    </div>
+  </div>--><!--动画版本-->
+</div>
+
+<div class="mainMenu">
+  <div class="col-xs-4">
+    <a class="current" href="index.html">
+    <p><img src="images/menuIco_04_hover.png"></p>
+    <h3>应用</h3>
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a href="workStation.html">
+    <p><img src="images/menuIco_03.png"><span style="display:none;" class="number">12</span></p>
+    <h3>工作</h3>
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a href="userCenter.html">
+    <p><img src="images/menuIco_02.png"></p>
+    <h3>我的</h3>
+    </a>
+  </div>
+</div>
+
+<div class="appFunction">
+
+  <div class="appFunction_panel border_bt border_top" data-class="touchstart" id="pulldown_head_01">
+    <div class="left ico"><img src="images/ico_panel.png"></div>
+    <div class="left">ERP查询</div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="applicationIcon border_bt">
+    	<div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_06.html'">
+          <p><img src="images/functionIco_02.png"></p>
+          <p>库存查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_04.html'">
+          <p><img src="images/functionIco_03.png"></p>
+          <p>业绩查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_01.html'">
+          <p><img src="images/functionIco_05.png"></p>
+          <p>客户未提</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_02.html'">
+          <p><img src="images/functionIco_01.png"></p>
+          <p>客户资金</p>
+        </div>
+        <div class="clear"></div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_03.html'">
+          <p><img src="images/functionIco_07.png"></p>
+          <p>统计</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_05.html'">
+          <p><img src="images/functionIco_08.png"></p>
+          <p>销售单查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/functionIco_04.png"></p>
+          <p>订货单查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/functionIco_21.png"></p>
+          <p>留货单查询</p>
+        </div>
+        <div class="clear"></div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/functionIco_14.png"></p>
+          <p>排货单查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='saleSummary.html'">
+          <p><img src="images/functionIco_26.png"></p>
+          <p>销售汇总</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='task.html'">
+          <p><img src="images/functionIco_15.png"></p>
+          <p>任务</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='account.html'">
+          <p><img src="images/functionIco_16.png"></p>
+          <p>账龄</p>
+        </div>
+        <div class="clear"></div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_15.html'">
+          <p><img src="images/functionIco_20.png"></p>
+          <p>滞提分析</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='achievement.html'">
+          <p><img src="images/functionIco_17.png"></p>
+          <p>我的业绩</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='accounts.html'">
+          <p><img src="images/functionIco_22.png"></p>
+          <p>应收账款</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='userManage.html'">
+          <p><img src="images/functionIco_25.png"></p>
+          <p>用户管理</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/functionIco_19.png"></p>
+          <p>登录验证</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='sales_searching.html'">
+          <p><img src="images/functionIco_32.png"></p>
+          <p>客户订单</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='join_us.html'">
+          <p><img src="images/functionIco_33.png"></p>
+          <p>邀请加入</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='produce.html'">
+          <p><img src="images/functionIco_38.png"></p>
+          <p>排产查询</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='produce.html'">
+          <p><img src="images/functionIco_39.png"></p>
+          <p>我的客户</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='myTeam.html'">
+          <p><img src="images/functionIco_40.png"></p>
+          <p>我的团队</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='achievement_mingyan.html'">
+          <p><img src="images/functionIco_17.png"></p>
+          <p>（名宴）</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='form_18_jintuo.html'">
+          <p><img src="images/functionIco_01.png"></p>
+          <p>（金驼）</p>
+        </div>
+        <div class="clear"></div>
+  </div>
+
+</div>
+
+<div class="appFunction">
+  
+  <div class="appFunction_panel border_bt border_top" data-class="touchstart" id="pulldown_head_01">
+    <div class="left ico"><img src="images/ico_panel.png"></div>
+    <div class="left">ERP业务</div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="applicationIcon border_bt">
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_13.png"></p>
+      <p>留货</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_12.png"></p>
+      <p>价格申请</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_23.png"></p>
+      <p>备货计划</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_24.png"></p>
+      <p>授信申请</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_37.png"></p>
+      <p>物资销售</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>         
+    <div class="clear"></div>
+  </div>
+  
+</div>
+  
+<div class="appFunction">
+
+  <div class="appFunction_panel border_bt border_top" data-class="touchstart" id="pulldown_head_01">
+    <div class="left ico"><img src="images/ico_panel.png"></div>
+    <div class="left">CRM</div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="applicationIcon border_bt">
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='workStation.html'">
+      <p><img src="images/functionIco_10.png"></p>
+      <p>业务洽谈</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>            
+    <div class="clear"></div>
+  </div>
+  
+</div>
+
+<div class="appFunction">
+  
+  <div class="appFunction_panel border_bt border_top" data-class="touchstart" id="pulldown_head_01">
+    <div class="left ico"><img src="images/ico_panel.png"></div>
+    <div class="left">企业文化</div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="applicationIcon border_bt">
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='directory.html'">
+      <p><img src="images/functionIco_09.png"></p>
+      <p>通讯录</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_11.png"></p>
+      <p>工作分享</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_00.png"></p>
+      <p>&nbsp;</p>
+    </div>            
+    <div class="clear"></div>
+  </div>
+    
+</div>
+
+<div class="appFunction">
+  
+  <div class="appFunction_panel border_bt border_top" data-class="touchstart" id="pulldown_head_01">
+    <div class="left ico"><img src="images/ico_panel.png"></div>
+    <div class="left">客户中心</div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="applicationIcon border_bt">
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_stock.html'">
+      <p><img src="images/functionIco_06.png"></p>
+      <p>下订单</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_myorder.html'">
+      <p><img src="images/functionIco_27.png"></p>
+      <p>我的订单</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_money.html'">
+      <p><img src="images/functionIco_18.png"></p>
+      <p>我的资金</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_account_check.html'">
+      <p><img src="images/functionIco_29.png"></p>
+      <p>账户对账</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_30.png"></p>
+      <p>促销</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_31.png"></p>
+      <p>新品</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_complaint.html'">
+      <p><img src="images/functionIco_28.png"></p>
+      <p>我要投诉</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_05.png"></p>
+      <p>我的未提</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_14.png"></p>
+      <p>派车提货</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_35.png"></p>
+      <p>业务通知</p>
+    </div>
+    <div class="col-xs-3 icon" data-class="touchstart">
+      <p><img src="images/functionIco_34.png"></p>
+      <p>企业资讯</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+    
+</div>
+
+<div class="fix_bottom"></div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+		
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#myBtn01").click(function(){
+		$("#myDiv01 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn01").click(function(){
+		$("#myDiv01 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	
+	//功能项下拉
+	$("#pulldown_head_01").click(function(){
+		$("#pulldown_content_01").slideToggle(200);
+		document.getElementById("bodyState").className ="scrollState_auto";
+	});
+	
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">很抱歉，您的密码不正确，请重新输入</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">取消</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">确定</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myDiv01">
+  <div class="windows load">
+    <div class="windowsContent">
+      <h2 class="cen"><img class="loading_min" src="images/loading.gif">登录中，请耐心等待 ...</h2>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head row">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="javascript:;">
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">登录</div>
+    </div>
+    <div class="col-xs-2" style="text-align:right;">
+      <a class="topWord text_right pad_right" href="javascript:;">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="login">
+  <div class="logo" id="myBtn01"><img src="images/logo_login.png"></div>
+  <div class="inputArea">
+    <div class="user border_bt"><img src="images/ico_login_01.png"><input name="" type="text" placeholder="请输入企业账号">
+      <div class="ico_pull" id="pulldown_head_01"><a href="javascript:;"><img src="images/arrow_login.png"></a></div>
+    </div>
+    <div class="pullArea" id="pulldown_content_01">
+      <p class="btns border_bt_01">hd123</p>
+      <p class="btns border_bt_01">victop001</p>
+      <p class="btns border_bt_01">hd123</p>
+      <p class="btns border_bt_01">victop001</p>
+      <p class="btns border_bt_01">hd123</p>
+      <p class="btns border_bt_01">victop001</p>
+      <p class="btns border_bt_01">hd123</p>
+      <p class="btns border_bt_01">victop001</p>      
+      <p class="btns">kathy</p>
+    </div>
+    <div class="user border_bt"><img src="images/ico_login_02.png"><input name="" type="text" placeholder="请输入个人账号"></div>
+    <div class="user"><img src="images/ico_login_03.png"><input name="" type="password" placeholder="请输入密码"></div>
+  </div>
+  <div class="rememberMe left"><a href="javascript:;">注册</a></div>
+  <div class="rememberMe right"><a href="findpassword.html">忘记密码？</a></div>
+  <div class="clear"></div>
+  <div class="singlebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="立即登录" onClick="javascript:window.location.href='index.html'"></div>
+  <div class="whitebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="体验一下" onClick="javascript:window.location.href='register.html'"></div>
+  <div class="clear"></div>
+</div>
+
+</body>
+</html>

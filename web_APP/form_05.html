@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<!--日期选择器.css-->
+<link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.ios.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+<!--日期选择器.css-->
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<!--日期选择器.js-->
+<script src="js/mobiscroll.core.js"></script>
+<script src="js/mobiscroll.widget.js"></script>
+<script src="js/mobiscroll.scroller.js"></script>
+<script src="js/mobiscroll.util.datetime.js"></script>
+<script src="js/mobiscroll.datetimebase.js"></script>
+<script src="js/mobiscroll.widget.ios.js"></script>
+<script src="js/mobiscroll.i18n.zh.js"></script>
+<!--日期选择器.js-->
+
+<script>
+
+	$(function () {
+		var nowData=new Date();
+		var opt= { 
+			theme:'ios', //设置显示主题 
+			mode:'scroller', //设置日期选择方式，这里用滚动
+			display:'bottom', //设置控件出现方式及样式
+			preset : 'date', //日期:年 月 日 时 分
+			minDate: nowData, 
+			maxDate:new Date(nowData.getFullYear(),nowData.getMonth(),nowData.getDate()+7,22,00),
+	//              dateFormat: 'yy-mm-dd', // 日期格式
+	//              dateOrder: 'yymmdd', //面板中日期排列格式
+			stepMinute: 5, //设置分钟步长
+			yearText:'年', 
+			monthText:'月',
+			dayText:'日',
+			hourText:'时',
+			minuteText:'分',
+			lang:'zh' //设置控件语言};
+		};
+		$('#dateinput').mobiscroll(opt);
+	});
+	
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#myBtn02").click(function(){
+			$("#myDiv02 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn02").click(function(){
+			$("#myDiv02 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+		
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+	});
+	
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  
+  <div class="windows screening">
+
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+        </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_01">仓库
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">01仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">02仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">2003仓</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_02">品牌
+          <div class="number"><a href="javascript:;">东鹏陶瓷<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <a class="btns" data-class="touchstart" href="javascript:;">全部</a>
+          <a class="btns current" data-class="touchstart" href="javascript:;">东鹏陶瓷</a>
+          <a class="btns" data-class="touchstart" href="javascript:;">博华</a>
+          <a class="btns" data-class="touchstart" href="javascript:;">其他品牌</a>
+          <div class="clear"></div>
+        </div>
+      </div>
+            
+      <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div>
+      
+    </div>
+    
+    <div class="fix_bottom"></div>
+    
+    <div class="btFuncBtns">
+      <div class="cen_area">
+        <div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定"></div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<div id="myDiv01">
+  <div class="windows other window_top_01">
+    
+      <div class="form text_center">
+        <div class="formHead">
+          <div class="col-xs-3">冲销数量</div>
+          <div class="col-xs-3">发货数量</div>
+          <div class="col-xs-3">排货数量</div>
+          <div class="col-xs-3">退货数量</div>
+          <div class="clear"></div>
+        </div>
+        <div class="formList">
+          <div class="panel_list">
+            <div class="col-xs-3">1,200</div>
+            <div class="col-xs-3">50,00</div>
+            <div class="col-xs-3">1,200</div>
+            <div class="col-xs-3">50,00</div>
+            <div class="clear"></div>
+          </div>      
+        </div>
+      </div>
+      
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;" id="closeBtn01">关闭</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myDiv02">
+  <div class="windows other window_top_01">
+    
+      <div class="form text_center">
+        <div class="formHead">
+          <div class="col-xs-12">发货数量</div>
+          <div class="clear"></div>
+        </div>
+        <div class="formList">
+          <div class="panel_list">
+            <div class="col-xs-12">1,200</div>
+            <div class="clear"></div>
+          </div>      
+        </div>
+      </div>
+      
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;" id="closeBtn02">关闭</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8" onClick="javascript:window.location.href='form_05_condition.html'">
+      <div class="mainTitle">销售单查询</div>
+    </div>
+    <div class="col-xs-2">
+      <!--<a class="topWord text_right pad_right" href="condition.html">
+        <span>筛选</span>
+      </a>-->
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="search_total pad_left_01">
+  <div class="date">
+    <div class="col-xs-3">起止日期：</div>
+    <div class="col-xs-4"><input name="" type="text" id="dateinput"></div>
+    <div class="col-xs-1 text_center">至</div>
+    <div class="col-xs-4"><input name="" type="text"></div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="search pad_10 bg_white">
+  <div class="col-xs-9 input_search pad_right_01"><input class="btn_pro" name="" type="text" placeholder="请输入关键字">
+    <div class="ico_close" style="display:none;"><img src="images/ico_minclose.png"></div>
+    <div class="allpro" data-class="touchstart" onClick="javascript:window.location.href='proList.html'">产品 ></div>
+  </div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="bg_white border_bt_02 text_center pad_bt">
+  <div class="col-xs-6 border_right pad_left_02 pad_right_02 font_03">
+    <p>￥9,101,320,200.00</p>
+    <p>货品总额</p>
+  </div>
+  <div class="col-xs-6 pad_left_02 pad_right_02 font_03">
+    <p>￥9,101,320,200.00</p>
+    <p>销售总额</p>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="formFilter mar_top">
+    <div>
+      <div class="col-xs-3 category" data-class="touchstart">品牌<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">品类<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">仓库<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">排序<img src="images/arrow_pulldown.png"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="border_top">  
+      <div class="col-xs-3 category" data-class="touchstart">销区<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">规格<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">销售类型<img src="images/arrow_pulldown.png"></div>
+      <div class="col-xs-3 category" data-class="touchstart">业务员<img src="images/arrow_pulldown.png"></div>
+      <div class="clear"></div>
+    </div>
+</div>
+
+<div class="bg_white border_top_01">
+
+  <div class="orderHead">
+    <div class="left font_02">销售单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02">东鹏陶瓷有限公司</p>
+    <p class="grey_02"><span class="pad_right">业务员：刘晓军</span><span>跟单员：李晓红</span></p>
+  </div>
+    
+  <div class="subHead border_bt touchEffect" data-class="touchstart" onclick="javascript:window.location.href='phoneCall.html'">
+    <div class="left"><img class="ico_phone" src="images/ico_call_hover.png">电话沟通</div>
+    <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="form">
+    
+    <div class="formList">
+      
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">
+          <div class="">
+            <h2>抛光砖SSD33221</h2>
+            <p><span class="pad_right">100cm x 100cm</span><span>优等</span></p>
+            <p>色号：RE226#</p>
+            <p>本厂成品仓</p>
+          </div>
+        </div>
+        <div class="col-xs-6 number pad_top_03 pad_right_04" onclick="javascript:window.location.href='form_20.html'">
+          <p><span class="left">数量：</span><span class="right">666箱</span></p>
+          <div class="clear"></div>
+          <p><span class="left">金额：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">装车：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">发货：</span><span class="right">1000箱</span></p>
+          <div class="clear"></div>
+          <div class="ico_arrow_02"><img src="images/arrow_grey.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">
+          <div class="">
+            <h2>抛光砖SSD33221</h2>
+            <p><span class="pad_right">100cm x 100cm</span><span>优等</span></p>
+            <p>色号：RE226#</p>
+            <p>本厂成品仓</p>
+          </div>
+        </div>
+        <div class="col-xs-6 number pad_top_03 pad_right_04" onclick="javascript:window.location.href='form_20.html'">
+          <p><span class="left">数量：</span><span class="right">666箱</span></p>
+          <div class="clear"></div>
+          <p><span class="left">金额：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">装车：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">发货：</span><span class="right">1000箱</span></p>
+          <div class="clear"></div>
+          <div class="ico_arrow_02"><img src="images/arrow_grey.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="panel_list">
+        <div class="col-xs-6 pad_right">
+          <div class="">
+            <h2>抛光砖SSD33221</h2>
+            <p><span class="pad_right">100cm x 100cm</span><span>优等</span></p>
+            <p>色号：RE226#</p>
+            <p>本厂成品仓</p>
+          </div>
+        </div>
+        <div class="col-xs-6 number pad_top_03 pad_right_04" onclick="javascript:window.location.href='form_20.html'">
+          <p><span class="left">数量：</span><span class="right">666箱</span></p>
+          <div class="clear"></div>
+          <p><span class="left">金额：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">装车：</span><span class="right">￥60,200,000.00</span></p>
+          <div class="clear"></div>
+          <p><span class="left">发货：</span><span class="right">1000箱</span></p>
+          <div class="clear"></div>
+          <div class="ico_arrow_02"><img src="images/arrow_grey.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">合计</div>
+            <div class="col-xs-8 price red">￥122,158,665,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<!--<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">销售单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span class="pad_right">业务员：刘晓军</span><span>跟单员：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" id="myBtn01" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4 number" onClick="javascript:window.location.href='form_14.html'">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+          <p>已发<span class="orange">1000</span>箱</p>
+          <div class="ico_arrow"><img src="images/arrow_grey.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>-->
+
+<!--<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">销售单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span class="pad_right">业务员：刘晓军</span><span>跟单员：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" id="myBtn02" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>-->
+
+<!--<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">销售单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span class="pad_right">业务员：刘晓军</span><span>跟单员：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>-->
+
+<!--<div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">加载更多</a></div>-->
+
+</body>
+</html>

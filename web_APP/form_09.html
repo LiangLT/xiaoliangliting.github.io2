@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">恭喜您！留货成功！<br>3秒后将返回应用界面...</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;">立即返回</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="form_08.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">留货确认</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="workOrder">
+  <div class="orderHead">留货产品</div>
+  <div class="form">
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-2">
+          <p>01仓</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+        </div>
+        <div class="col-xs-1 fucIcon text_right"><img src="images/ico_del_blue.png"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-2">
+          <p>01仓</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+        </div>
+        <div class="col-xs-1 fucIcon text_right"><img src="images/ico_del_blue.png"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-2">
+          <p>01仓</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+        </div>
+        <div class="col-xs-1 fucIcon text_right"><img src="images/ico_del_blue.png"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-2">
+          <p>01仓</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+        </div>
+        <div class="col-xs-1 fucIcon text_right"><img src="images/ico_del_blue.png"></div>
+        <div class="clear"></div>
+    </div>      
+    </div>
+  </div>
+  <div class="addForm">
+  	  <div class="panel_input">
+        <div class="col-xs-3 name">留货客户</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="">
+          <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_input">
+        <div class="col-xs-3 name">留货日期</div>
+        <div class="col-xs-4 input"><input class="text_center" name="" type="text" placeholder=""></div>
+        <div class="col-xs-1 name">至</div>
+        <div class="col-xs-4 input"><input class="text_center" name="" type="text" placeholder=""></div>
+        <div class="clear"></div>
+      </div>
+  </div>
+  <div class="singlebtn_min"><input class="btns" data-class="touchstart" name="" type="button" value="确认" id="myBtn00"></div>
+</div>
+
+</body>
+</html>

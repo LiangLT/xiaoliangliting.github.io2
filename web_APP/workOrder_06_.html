@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#btn_submit").click(function(){
+			$("#suggest").hide();
+			$("#result").show();
+		});
+		
+		$("#funcIcon").click(function(){
+			$("#funcIcon_con").slideToggle(200);
+		});
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .photoLarge").show();
+			$(".mengban_black").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		})
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .photoLarge").hide();
+			$(".mengban_black").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		//功能项下拉
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+			
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#more_head_01").click(function(){
+	    	$("#more_content_01").slideToggle(200);
+		});
+	
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban_black"></div>
+
+<div id="myDiv01">
+  <div class="photoLarge"><img id="closeBtn01" src="images/userLogo.png"></div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">余额变动通知</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="javascript:;">
+        
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="workOrder station">
+
+  <div class="station_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/workStationIco_12.png"></div>
+            <div class="title">
+              <div class="col-xs-12"><h2>余额变动通知</h2></div>
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">您可开单账户余额为3330098.00</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+  </div>
+  
+  <div class="orderHead">
+    <p class="grey_02">您当前抛光砖返利账户发生额为3099.00.当前账户可开单余额为3333300.00。</p>
+  </div>
+    
+</div>
+
+</body>
+</html>

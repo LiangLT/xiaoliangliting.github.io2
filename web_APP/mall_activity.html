@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/swiper.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	var swiper_horizontal = new Swiper('#swiper_horizontal', {
+        pagination: '.swiper-pagination',
+        centeredSlides: true,
+        autoplayDisableOnInteraction: false
+    });
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+		
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto";
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="topIcons">
+      <div class="col-xs-10">
+        <div class="mainTitle_left"><a href="mall.html"><img src="images/headIcon_01.png">大理石顶级盛宴抢先看</a></div>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="icons">
+        <span><a href="javascript:;" id="myBtn01"><img src="images/headIcon_09.png"></a></span>
+        <span><a href="search_mall.html"><img src="images/headIcon_08.png"></a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fix_top"></div>
+
+<div class="activity_banner">
+  <img src="images/activity_01.jpg">
+  <div class="title">大理石顶级盛宴抢先看
+    <div class="time">剩<span class="red pad_03">4</span>小时<span class="red pad_03">2</span>分</div>
+  </div>
+</div>
+
+<div class="mall_activity">
+
+  <div class="formFilter">
+    <div class="left width_20 category" data-class="touchstart">品牌<img src="images/arrow_pulldown.png"></div>
+    <div class="left width_20 category" data-class="touchstart">品类<img src="images/arrow_pulldown.png"></div>
+    <div class="left width_20 category" data-class="touchstart">等级<img src="images/arrow_pulldown.png"></div>
+    <div class="left width_20 category" data-class="touchstart">规格<img src="images/arrow_pulldown.png"></div>
+    <div class="left width_20 category" data-class="touchstart">提货点<img src="images/arrow_pulldown.png"></div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="mallList product">
+    <div class="col-xs-6">
+      <img src="images/mallpro_01.jpg">
+      <div class="title">商品名称商品名称商品名称商品名称</div>
+      <div class="price">￥100,220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_02.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_01.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_02.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_03.jpg">
+      <div class="title">商品名称商品名称商品名称商品名称</div>
+      <div class="price">￥100,220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_04.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_03.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="col-xs-6">
+      <img src="images/mallpro_04.jpg">
+      <div class="title">KC-JIHHF0</div>
+      <div class="price">￥220.00</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  
+</div>
+
+</body>
+</html>

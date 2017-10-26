@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">恭喜您！订单支付成功！<br>3秒后将返回应用界面...</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;">立即返回</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">任务</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="order_panel">
+
+  <div class="subHead text_center border_bt_02">
+    年份：<select name="" size="1">
+        <option>请选择</option>
+        <option>2016</option>
+        <option>2015</option>
+        <option>2014</option>
+        <option>2013</option>
+        <option>2012</option>
+      </select>
+  </div> 
+  
+  <div class="form">
+    <div class="formThirdHead text_center border_bt">
+      <div class="col-xs-2">月份</div>
+      <div class="col-xs-5">任务额</div>
+      <div class="col-xs-5">销售额</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList text_center">
+      <div class="panel_list">
+        <div class="col-xs-2">1月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">2月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">3月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">4月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">5月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">6月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">7月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">8月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">9月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">10月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">11月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">12月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">1月</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="col-xs-5">962,266,002.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="">
+      <div class="price_panel border_bt">
+        <div class="col-xs-4 priceName">货品总额：</div>
+        <div class="col-xs-8 priceNum">￥696,158,665,000.00</div>
+        <div class="clear"></div>
+      </div>
+      <div class="price_panel">
+        <div class="col-xs-4 priceName">销售总额：</div>
+        <div class="col-xs-8 priceNum">￥15,000,000.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+
+	});
+</script>
+
+</head>
+
+<body id="bodyState" class="bg_white">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">恭喜您！订单支付成功！<br>3秒后将返回应用界面...</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;">立即返回</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userApplication_pay.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">线下支付</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="pay_method">
+  <div class="note">
+    <p>感谢您购买联成应用，请您按以下方式完成线下缴款手续。</p>
+  </div>
+  <div class="pad_top pad_bt grey_02">
+    <div class="infor_panel">
+      <div class="col-xs-3">开户名</div>
+      <div class="col-xs-9 text">
+        <p>佛山市七七讯隧信息科技有限公司</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="infor_panel">
+      <div class="col-xs-3">帐号</div>
+      <div class="col-xs-9 text">
+        <p>44050166863900000022</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="infor_panel">
+      <div class="col-xs-3">开户银行</div>
+      <div class="col-xs-9 text">
+        <p>中国建设银行股份有限公司 佛山分行同华支行</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="infor_panel">
+      <div class="col-xs-3">联系电话</div>
+      <div class="col-xs-9 text">
+        <p>0765-8777733333</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <p class="pad_top_01 border_top red">* 转账时请备注以下信息：转账单位及订单单号。</p>
+</div>
+  
+</div>
+
+<!--<div class="pay_method">
+  <div class="note">
+    <p>感谢您购买联成应用，请您按以下方式完成线下缴款手续。</p>
+  </div>
+  <h2>一、现金缴款</h2>
+  <div class="content">
+    <p>缴款地址：佛山市禅城区汤圆路12号113室财务部</p>
+    <p>联系人：白小姐</p>
+    <p>联系电话：0757-83376567</p>
+  </div>
+  <h2>二、转账缴款</h2>
+  <div class="content">
+    <p>开户银行：中国农业银行飞来支行</p>
+    <p>开户名：白小姐</p>
+    <p>账号：622202666666666666</p>
+    <p>联系电话：0757-83376567</p>
+    <p class="red">* 转账时请备注以下信息：转账单位及订单单号。</p>
+  </div>
+</div>-->
+
+<div class="fix_bottom"></div>
+
+<div class="btFuncBtns">
+  <div class="cen_area">
+	<div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定" id="myBtn00"></div>
+  </div>
+</div>
+
+</body>
+</html>

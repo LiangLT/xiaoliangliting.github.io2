@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/phone.css" rel="stylesheet">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<script type="text/javascript">
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows_pull").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows_pull").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto bg_white";
+		});
+		
+	});
+</script>
+</head>
+
+<body id="bodyState" class="bg_white">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows_pull">
+    <p><a href="javascript:;">拍照</a></p>
+    <p><a id="closeBtn00" href="javascript:;">取消</a></p>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+      <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">新建水单</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+      
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="fix_top"></div>
+
+<div class="userCenter row">
+  <div class="user_infor">
+    <div class="panel_input">
+      <div class="col-xs-3 name">汇款人名称</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="请输入汇款人名称"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">汇款金额</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="请输入汇款金额"></div>
+      <div class="clear"></div>
+      <div class="capital_word" style="display:none;">一千一百一十万五千五百五十五元</div><!--没有金额时整行隐藏-->
+    </div>
+  </div>
+  <div class="userCenter_suggest">
+    <textarea name="" placeholder="请输入您要填写的汇款摘要..."></textarea>
+    <div class="photoArea">
+      <ul>
+        <li><img src="images/test1.jpg"></li>
+        <li><img src="images/test2.jpg"></li>
+        <li><img src="images/mallpro_02.jpg"></li>
+        <li><img src="images/mallpro_02.jpg"></li>
+        <li><img src="images/mallpro_02.jpg"></li>
+        <li>
+          <div id="myBtn00" class="addphoto" data-class="touchstart"><img src="images/btn_addphoto.png"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btns_bottom">
+  <div class="col-xs-12 btn_buy" data-class="touchstart">提交</div>
+</div>
+
+</body>
+</html>

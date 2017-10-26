@@ -1,0 +1,54 @@
+
+.bor_right {}
+/*senior_search */
+.sen_form { font-size:13px;}
+.sen_form .sen_spanel { border-bottom:1px solid #eeeeee; position:relative; padding:2px 10px;}
+.sen_form .sen_name { line-height:35px; color:#666;}
+.sen_form .sen_input { line-height:35px;}
+.sen_form .sen_input input { border:0; width:100%; height:35px;}
+.sen_form .sen_input img { margin:0 0 0 10px;}
+.sen_form .sen_input01 { line-height:35px;}
+.sen_form .sen_input01 input { border:0; width:42%; text-align:center;}
+.sen_form .sen_input01 span  { padding:0 10px;} 
+
+/*accounts_receivable */
+.rece_form { background:#fff; padding:15px 10px;}
+.rece_input input { border:1px solid #dcdcdc; border-radius:4px  0 0 4px; height:33px; width:75%; padding:0 5px; }
+.rece_input a { padding:8px 4px 9px 5px; background:#ddd; border-radius:0 4px 4px 0; color:#555; font-size:14px;}
+.rece_input a img { width:15px; height:15px; margin:0 2px 4px 2px;}
+.rece_search input { width:100%; height:33px; border-radius:4px; border-right:0; background:#008edf; color:#fff; font-size:14px; border:0;}
+
+.rece_info { padding:10px 0; line-height:35px; font-size:22px;}
+.rece_info p { color:#000; font-weight:500;}
+.rece_info .rece_mun { font-weight:bold; }
+.rece_panel { padding:0 4px;}
+.rece_panel .panel_re { padding:10px 0; border-bottom:1px solid #eeeeee; line-height:24px;}
+.repanel_right01 { margin:0 19px 0 0;}
+.repanel_right img { width:18px; height:18px;}
+.repanel_right span { font-weight:400;  font-size:16px;}
+.grey_re { color:#8d8d8d;}
+.repanel_left { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-size:16px;}
+
+/*accounts_receinfo */
+.ad_info { height:45px; line-height:45px; background:#fff; padding:0 10px; font-size:14px;}
+.ad_rece { margin-top:10px; background:#fff; border-bottom:1px solid #ddd; border-top:1px solid #ddd;}
+.ad_mun { font-size:18px; color:#008edf; height:50px; line-height:50px;}
+.ad_rebody { border-top:1px solid #eee; height:50px; line-height:50px;}
+.ad_rebody p { padding:0 9px;}
+.ad_content { margin-top:10px; background:#fff; }
+.ad_content .ad_con01 { margin:0 10px; padding:10px 0;}
+.ad_content .ad_con01 p { line-height:24px;}
+.ad_content .ad_con01 p span { padding:0 20px 0 0; white-space:nowrap;}
+.ad_content .ad_con01 .ad_right { float:right;} 
+.ad_content .ad_con01 .ad_span { font-weight:bold; font-size:16px;}
+
+/*business */
+.business_con { padding: 10px; text-align: center; font-family: Arial, Microsoft YaHei;}
+.business_con .bs_pic { padding: 25px 0 5px 0;}
+.business_con .bs_pic img { width: 50%; height: auto;}
+.business_con .business_title { padding: 0 0 5px 0; font-size: 1.6rem; font-weight: bold;}
+.business_con .bs_gray { font-size: 1.5rem; color: #737d86;}
+.bs_btn { padding: 20px 10px 10px 10px; font-size: 1.5rem;}
+.bs_btn a { display: block; width: 100%; height: 38px; line-height: 38px; color: #0fa3ee; border: 1px solid #0fa3ee; border-radius: 4px;}
+.bs_btn a.btns:active, .bs_btn a.btns_touchstart { background: #0fa3ee; color: #fff;}
+

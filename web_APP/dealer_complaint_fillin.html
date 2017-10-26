@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<!--<script>
+
+$(function(){
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto bg_white";
+	});
+	
+	$("#category_single_01").click(function(){
+		$("#category_show_01").slideToggle(200);
+	});
+	
+	$("#category_single_02").click(function(){
+		$("#category_show_02").slideToggle(200);
+	});
+	
+});
+
+</script>-->
+
+<script type="text/javascript">
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows_pull").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows_pull").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows_pull">
+    <p><a href="javascript:;">拍照</a></p>
+    <p><a href="javascript:;">从相册选择</a></p>
+    <p><a id="closeBtn00" href="javascript:;">取消</a></p>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="dealer_complaint.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">我要投诉</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span>保存</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="addForm">
+  
+  <div class="complaint_box">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉产品</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="panel_input">
+      <div class="col-xs-4 name">销售单号</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="销售单号">
+        <div class="ico_close" style="display:none;"><img src="images/ico_minclose.png"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">购买日期</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="购买日期"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">产品编号</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="产品编号"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">产品名称</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="产品名称"></div>
+      <div class="clear"></div>
+    </div>    
+    <div class="panel_input">
+      <div class="col-xs-4 name">规格</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="规格"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">等级</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="等级"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">包装码</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="包装码"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">发货数量（片）</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="发货数量"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-4 name">缺陷数量（片）</div>
+      <div class="col-xs-8 input"><input name="" type="text" placeholder="缺陷数量"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <div class="complaint_box">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉类型</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="type">
+        <ul>
+          <li>平整度</li>
+          <li class="current">色差</li>
+          <li>尺寸</li>
+          <li>针孔</li>
+          <li>杂质</li>
+          <li>渗污</li>
+          <li>破损</li>
+          <li>错发</li>
+          <li>少发</li>
+          <li>其它</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    
+  </div>
+  
+  <div class="complaint_box">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉描述</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="userCenter row">
+      <div class="userCenter_suggest">
+        <textarea name="" placeholder="请描述您的建议或意见"></textarea>
+        <div class="photoArea">
+          <ul>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li>
+              <div id="myBtn00" class="addphoto" data-class="touchstart"><img src="images/btn_addphoto.png"></div>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+    
+  <div class="singlebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="提交" id="myBtn00"></div>
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<style>
+
+html { height:100%;}
+body { height:100%;}
+.login { height:100%;}
+
+</style>
+
+<script>
+
+$(function(){
+		
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+		document.getElementById("bodyState").className ="bg_white";
+	});
+	
+	$("#myBtn01").click(function(){
+		$("#myDiv01 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn01").click(function(){
+		$("#myDiv01 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	
+	//功能项下拉
+	$("#pulldown_head_01").click(function(){
+		$("#pulldown_content_01").slideToggle(200);
+		document.getElementById("bodyState").className ="scrollState_auto";
+	});
+	
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState" class="bg_white">
+
+<div class="mengban" style="display:none";></div>
+
+<div id="myDiv00">
+  <div class="windows tips" style="display:none";>
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">很抱歉，您的密码不正确，请重新输入</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">取消</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">确定</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myDiv01">
+  <div class="windows load">
+    <div class="windowsContent">
+      <h2 class="cen"><img class="loading_min" src="images/loading.gif">登录中，请耐心等待 ...</h2>
+    </div>
+  </div>
+</div>
+
+<div class="login">
+
+  <div class="logo" id="myBtn01"><img src="images/logo_login.png"></div>
+  
+  <div class="mar_01 pad_bt_01">
+  
+      <div class="panel_input">
+        <div class="col-xs-3 name">企业账号</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="请输入企业账号"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_input">
+        <div class="col-xs-3 name">企业名称</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="请输入企业名称"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_input">
+        <div class="col-xs-3 name">个人账户</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="请输入个人帐号"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_input">
+        <div class="col-xs-3 name">登录密码</div>
+        <div class="col-xs-9 input"><input name="" type="password" placeholder="请输入登录密码">
+          <div class="ico_eye"><img src="images/ico_eye.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>  
+        
+    </div>
+    
+  <div class="singlebtnArea opa_06"><input class="btns" data-class="touchstart" name="" type="button" value="登录" onClick="javascript:window.location.href='index.html'"></div><!--输入完成后,去掉opa_06-->
+    
+  <div class="text_center font_03 pad_06"><a href="login_experience.html">快速体验</a></div>
+  
+  <div class="login_Func">
+    <div class="content">
+      <div class="title"><span>其他功能</span></div>
+      <div class="icons">
+        <a href="register.html"><img src="images/loginFuncIcon_04.png"></a>
+        <a href="user_change.html"><img src="images/loginFuncIcon_02.png"></a>
+        <a href="findpassword.html"><img src="images/loginFuncIcon_03.png"></a>
+        <a href="scan_login.html"><img src="images/loginFuncIcon_01.png"></a>
+      </div>
+    </div>
+  </div>
+     
+</div>
+
+</body>
+</html>

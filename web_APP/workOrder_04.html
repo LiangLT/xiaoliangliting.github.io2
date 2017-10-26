@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#btn_submit").click(function(){
+			$("#suggest").hide();
+			$("#result").show();
+		});
+		
+		$("#funcIcon").click(function(){
+			$("#funcIcon_con").slideToggle(200);
+		});
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .photoLarge").show();
+			$(".mengban_black").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		})
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .photoLarge").hide();
+			$(".mengban_black").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		//功能项下拉
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+			
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#more_head_01").click(function(){
+	    	$("#more_content_01").slideToggle(200);
+		});
+	
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban_black"></div>
+
+<div id="myDiv01">
+  <div class="photoLarge"><img id="closeBtn01" src="images/userLogo.png"></div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">企业资讯</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="javascript:;">
+        
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="workOrder station">
+
+  <div class="station_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/workStationIco_11.png"></div>
+            <div class="title">
+              <div class="col-xs-12"><h2>热烈庆祝我司在开平召开陶瓷博览会</h2></div>
+              <div class="clear"></div>
+            </div>
+            <div class="date">2016.2.12</div>
+          </div>
+  </div>
+  
+  <div class="orderDetail">
+      <div class="detail_infor">
+        <div class="text">
+          <p>我司于2016年2月1日在开平市召开陶瓷博览会，详细内容详细内容详细内容详细内容详细内容详细内容</p>
+          <p><img src="images/mallpro_02.jpg"></p>
+        </div>
+        <div class="video"><img src="images/videobtn_play.png"></div>
+        <div class="videoContent">
+          <p class="text_center">视频名称</p>
+        </div>
+      </div>
+  </div>
+    
+</div>
+
+<div class="workOrder station">
+  
+  <div class="like"><img src="images/ico_like.png"><span class="red">10</span><span class="name">谭卫权，李祥祥，潘峻岳，李双双，谭卫权，李祥祥，潘峻岳，李双双，谭卫权，李祥祥</span></div>
+  
+  <div class="achievement">
+      
+      <div class="panel_single">
+        <h2><span class="deepblue">王晓霞</span><span class="date">2012.11.25 20:00</span></h2>
+        <div class="photo">
+          <div class="col-xs-4"><img id="myBtn01" src="images/userLogo.png"></div>
+          <div class="col-xs-4"><img src="images/userLogo.png"></div>
+          <div class="col-xs-4"><img src="images/userLogo.png"></div>
+          <div class="clear"></div>
+          <div class="col-xs-4"><img src="images/userLogo.png"></div>
+          <div class="col-xs-4"><img src="images/userLogo.png"></div>
+          <div class="col-xs-4"><img src="images/userLogo.png"></div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div class="comment">
+          <div class="panel_comment">
+            <h2><span class="deepblue">系统</span></h2>
+            <p>已审批。</p>
+          </div>
+          <div class="panel_comment">
+            <h2><span class="deepblue">黎小杰</span></h2>
+            <p>已经和李经理报备了,已经和李经理报备了,已经和李经理报备了,已经和李经理报备了。</p>
+          </div>
+          <div class="panel_comment">
+            <h2><span class="deepblue">李文</span></h2>
+            <p>好的，<span class="deepblue">@黎小杰</span>，收到了。</p>
+          </div>
+          <div class="panel_comment">
+            <h2><span class="deepblue">黎小杰</span></h2>
+            <p>已经和李经理报备了,已经和李经理报备了,已经和李经理报备了,已经和李经理报备了。</p>
+          </div>
+          <div class="panel_comment">
+            <h2><span class="deepblue">李文</span></h2>
+            <p>好的，<span class="deepblue">@黎小杰</span>，收到了。</p>
+          </div>
+    </div>
+      
+    </div>
+    
+</div>
+
+<div class="chat">
+  <div class="inputArea">
+    <input name="" type="text">
+    <div class="icon_r" id="funcIcon"><img src="images/ico_add.png"></div>
+  </div>
+  <div class="pulldown border_top" id="funcIcon_con">
+    	<div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/funcIco_01.png"></p>
+          <p>图片</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/funcIco_04.png"></p>
+          <p>点赞</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/funcIco_05.png"></p>
+          <p>关注</p>
+        </div>
+        <div class="col-xs-3 icon" data-class="touchstart">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="clear"></div>
+  </div>
+</div>
+
+<div class="fix_bottom"></div>
+
+</body>
+</html>

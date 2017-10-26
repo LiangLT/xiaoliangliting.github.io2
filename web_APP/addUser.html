@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto bg_white";
+	});
+	
+	$("#category_single_01").click(function(){
+		$("#category_show_01").slideToggle(200);
+	});
+	
+	$("#category_single_02").click(function(){
+		$("#category_show_02").slideToggle(200);
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">是否去开通应用</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">暂不开通</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">马上开通</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userManage.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">添加用户</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span>取消</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="addForm">
+
+  <div class="bg_white border_top_01 border_bt_02">
+    <div class="panel_input">
+      <div class="col-xs-3 name">用户帐号</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="用户帐号">
+        <div class="ico_close" style="display:block;"><img src="images/ico_minclose.png"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">用户姓名</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="用户姓名"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">登录密码</div>
+      <div class="col-xs-9 input"><input name="" type="password" placeholder="登录密码"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">确认密码</div>
+      <div class="col-xs-9 input"><input name="" type="password" placeholder="确认密码"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_note border_bt_02" style="display:none;">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-9">* 密码长度为6-16位数字或字母，区分大小写</div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">角色</div>
+      <div class="col-xs-9 input">
+        
+        <div class="selectSP pad_top" id="category_single_01">请选择<img class="ico_arrow" src="images/arrow_pulldown.png"></div>
+        <div class="selectSHOW" id="category_show_01">
+          <div class="togbg"></div>
+          <div class="list">
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">业务员</div>
+              <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+              <div class="clear"></div>
+            </div>
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">跟单员</div>
+              <div class="right"></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">手机号码</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="手机号码"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <div class="pad_01 text_left font_03"><strong class="pad_left_02">人员绑定</strong></div>
+  
+  <div class="bg_white border_top_01 border_bt_02">
+    <div class="panel_input">
+      <div class="col-xs-3 name">人员来源</div>
+      <div class="col-xs-9 input">
+        
+        <div class="selectSP pad_top" id="category_single_02">请选择<img class="ico_arrow" src="images/arrow_pulldown.png"></div>
+        <div class="selectSHOW" id="category_show_02">
+          <div class="togbg"></div>
+          <div class="list">
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">业务员</div>
+              <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+              <div class="clear"></div>
+            </div>
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">跟单员</div>
+              <div class="right"></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          </div>
+        
+      <!--<select class="select_01" name="" size="1">
+      <option>请选择</option>
+      <option>业务员</option>
+    </select>--></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">人员</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="选择人员">
+        <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <div class="singlebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="完成" id="myBtn00"></div>
+  
+</div>
+
+</body>
+</html>

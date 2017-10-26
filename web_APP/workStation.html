@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<link rel="stylesheet" href="css/pullToRefresh.css" />
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/pullToRefresh.js"></script>
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});	
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});		
+		
+		$("#category_01").click(function(){
+			$("#condition_01").slideToggle(200);
+			//$(".mengban_sub").show();
+		});
+		
+		$("#category_02").click(function(){
+			$("#condition_02").slideToggle(200);
+		});
+		
+		$("#category_03").click(function(){
+			$("#condition_03").slideToggle(200);
+			
+			if ($(".mengban_sub").is(':visible')) {
+				$(".mengban_sub").hide();
+				}else{
+				$(".mengban_sub").show();
+			}
+		});
+		
+		$("#sub_cata_01").click(function(){
+			
+			if ($("#subcond_01").is(':visible')) {
+				document.getElementById("main_condition").className ="maincondition";
+				}else{
+				document.getElementById("main_condition").className ="maincondition_cut";
+			}
+			$("#subcond_01").toggle(200);
+		});
+				
+		$("#category_04").click(function(){
+			$("#condition_04").slideToggle(200);
+		});
+		
+		$("#category_05").click(function(){
+			$("#condition_05").slideToggle(200);
+			if ($(".mengban_sub").is(':visible')) {
+				$(".mengban_sub").hide();
+				}else{
+				$(".mengban_sub").show();
+			}
+		});
+		
+	});
+</script>
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div class="mengban_sub"></div>
+
+<div id="myDiv01">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">创建新工作</div>
+          </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn01" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="content">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">系统通知</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">备货审核</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">授信审批</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">价格申请</a></div>   
+            <div class="clear"></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">客户拜访</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">门店巡访</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">群体拜访</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">报销</a></div>   
+            <div class="clear"></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart">业务洽谈</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+            
+    </div>
+        
+  </div>
+  
+</div>
+
+<div class="navbar-fixed-top">
+
+  <div class="head">
+    <div class="topIcons">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+        <div class="mainTitle">工作</div>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="icons">
+        <span><a href="search_all.html"><img src="images/headIcon_08.png"></a></span>
+        <span><a href="javascript:;" id="myBtn01"><img src="images/headIcon_02.png"></a></span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="formFilter">
+    <div class="left width_20 category current" data-class="touchstart" id="category_04">全部</div>
+    <div class="left width_20 category" data-class="touchstart" id="category_02">待处理</div>
+    <div class="left width_20 category" data-class="touchstart" id="category_01">已处理</div>
+    <div class="left width_20 category" data-class="touchstart" id="category_03">分类<img src="images/arrow_pulldown.png"></div>
+    <div class="left width_20 category" data-class="touchstart" id="category_05">更多<img src="images/arrow_pulldown.png"></div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="filter_condition" id="condition_03">
+  
+    <div class="maincondition" id="main_condition">
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">全部</div>
+        <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel current" data-class="touchstart" id="sub_cata_01">
+        <div class="left">外省区</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">广东区</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">内务部</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">外省销区</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">大一区</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">大二区</div>
+        <div class="right"><span><img src="images/arrow_grey.png"></span></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="condition_panel" data-class="touchstart">
+        <div class="left">其他</div>
+        <div class="right"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    
+    <div class="subcondition" id="subcond_01">
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">全部</div>
+          <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">山东省</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">广西省</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">海南省</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">台湾省</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <div class="left">测试项..</div>
+          <div class="right"></div>
+          <div class="clear"></div>
+        </div>
+    </div>
+   
+  </div>
+  
+  <div class="pulldown filter_condition" id="condition_05">
+    
+    <div class="condition_panel" data-class="touchstart">
+      <div class="left">全部</div>
+      <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="condition_panel" data-class="touchstart">
+      <div class="left">紧急</div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="condition_panel" data-class="touchstart">
+      <div class="left">重要</div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="condition_panel" data-class="touchstart">
+      <div class="left">我关注的</div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+  </div>
+
+</div>
+
+<div class="fix_top_tab"></div>
+
+<div class="mainMenu">
+  <div class="col-xs-3">
+    <a href="mall.html">
+    <p><img src="images/menuIco_01.png"></p>
+    <h3>首页</h3>
+    </a>
+  </div>
+  <div class="col-xs-3">
+    <a href="index.html">
+    <p><img src="images/menuIco_04.png"></p>
+    <h3>应用</h3>
+    </a>
+  </div>
+  <div class="col-xs-3">
+    <a class="current" href="workStation.html">
+    <p><img src="images/menuIco_03_hover.png"><span style="display:none;" class="number">12</span></p>
+    <h3>工作</h3>
+    </a>
+  </div>
+  <div class="col-xs-3">
+    <a href="userCenter.html">
+    <p><img src="images/menuIco_02.png"></p>
+    <h3>我的</h3>
+    </a>
+  </div>
+</div>
+
+<div class="station">
+  
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='systemMsg.html'">
+            <div class="point"></div>
+            <div class="order_photo"><img src="images/workStationIco_01.png"></div>
+            <div class="title">
+              <h2>系统升级通知</h2>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">通知内容通知内容通知内容通知内容通知内容通知内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:00</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+        <div class="order_infor touchEffect" data-class="touchstart">
+          <div class="point"></div>
+          <div class="order_photo"><img src="images/workStationIco_02.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3 blue state">进行中</div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+            <div class="station_label">
+              <div class="left"><span>等待你处理</span></div>
+              <div class="right"><span>已关注</span><span>紧急</span><span>重要</span></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+            <div class="point"></div>
+            <div class="order_photo"><img src="images/workStationIco_03.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_03.html'">
+          <div class="order_photo"><img src="images/workStationIco_04.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3 orange state">待审核</div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+            <div class="station_label">
+              <div class="left"><span>等待你处理</span></div>
+              <div class="right"><span>重要</span></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+            <div class="order_photo"><img src="images/workStationIco_05.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+          <div class="order_photo"><img src="images/workStationIco_06.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3 grey_03 state">已审核</div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+            <div class="station_label">
+              <div class="left"><span>等待你处理</span></div>
+              <div class="right"><span>已关注</span><span>紧急</span><span>重要</span></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_02.html'">
+          <div class="order_photo"><img src="images/workStationIco_07.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：1008203695</h2></div>
+              <div class="col-xs-3 grey_03 state">已审核</div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+            <div class="station_label">
+              <div class="left"><span>等待你处理</span></div>
+              <div class="right"><span>已关注</span><span>紧急</span><span>重要</span></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+            <div class="order_photo"><img src="images/workStationIco_08.png"></div>
+            <div class="title">
+              <h2>新品发布</h2>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:00</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+            <div class="order_photo"><img src="images/workStationIco_09.png"></div>
+            <div class="title">
+              <h2>促销优惠</h2>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:00</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+            <div class="order_photo"><img src="images/workStationIco_10.png"></div>
+            <div class="title">
+              <h2>登录验证</h2>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:00</div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_04.html'">
+          <div class="order_photo"><img src="images/workStationIco_11.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>企业资讯</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">热烈庆祝我司在开平召开陶瓷博览会</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_05.html'">
+          <div class="order_photo"><img src="images/workStationIco_13.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>销售单审核通知</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+          <div class="order_photo"><img src="images/workStationIco_14.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>物资销售</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_06.html'">
+          <div class="order_photo"><img src="images/workStationIco_16.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>水单</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">您的水单，单号332111233333，已提交成功。</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart">
+          <div class="order_photo"><img src="images/workStationIco_15.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>采购申请</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+      <div class="station_panel">
+          <div class="order_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='workOrder_07.html'">
+          <div class="order_photo"><img src="images/workStationIco_17.png"></div>
+            <div class="title">
+              <div class="col-xs-9"><h2>订单编号：KST1008203695</h2></div>
+              <div class="col-xs-3 grey_03 state"></div>   
+              <div class="clear"></div>
+            </div>
+            <div class="date">
+              <div class="col-xs-12 content">您的投诉，单号KST1008203695，已提交成功。</div>
+              <div class="col-xs-12 text_right">2016.2.12 22:20</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </div>
+</div>
+
+<div class="fix_bottom"></div>
+
+</body>
+</html>

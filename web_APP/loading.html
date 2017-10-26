@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/swiper.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	$("#openLoad").click(function(){
+		$("#loading").show();
+		$(".mengban_white").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban_white"></div>
+
+<div class="loading" id="loading">
+  <p class="logoPic"><img src="images/logo_login.png"></p>
+  <p class="loadPic"><img src="images/loading.gif"></p>
+  <p class="text">正在加载</p>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="javascript:;">   </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle" id="openLoad">click hrer show loading</div>
+    </div>
+    <div class="col-xs-2" style="text-align:right;">
+      <a class="topWord text_right pad_right" href="javascript:;">
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	$("#pulldown_head_01").click(function(){
+		$("#pulldown_content_01").slideToggle(200);
+	});
+		
+	$("#pulldown_head_02").click(function(){
+		$("#pulldown_content_02").slideToggle(200);
+	});
+	
+	$("#pulldown_head_03").click(function(){
+		$("#pulldown_content_03").slideToggle(200);
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body class="bg_white">
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">新建业务洽谈</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="addForm">
+  <div class="panel_input">
+    <div class="col-xs-3 name">主题</div>
+    <div class="col-xs-9 input"><input name="" type="text" placeholder="主题名称"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_input">
+    <div class="col-xs-3 name">客户</div>
+    <div class="col-xs-9 input"><input name="" type="text" placeholder="客户名称">
+      <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_input">
+    <div class="col-xs-3 name">负责人</div>
+    <div class="col-xs-9 input"><input name="" type="text" placeholder="负责人名称">
+      <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_input">
+    <div class="col-xs-3 name">参与人</div>
+    <div class="col-xs-9 input"><input name="" type="text" placeholder="参与人名称">
+      <div class="ico_add" onClick="javascript:window.location.href='selectUser.html'"><img src="images/ico_add.png"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_input">
+    <div class="col-xs-3 name">工作内容</div>
+    <div class="col-xs-9 input">
+      <textarea name="" placeholder="输入工作内容"></textarea>
+    </div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="panel_pull">
+    <div class="name">
+      <div class="left">是否外勤</div>
+      <div class="right"><span><img id="pulldown_head_01" src="images/ico_select_grey.png"></span></div>
+      <div class="clear"></div>
+    </div>      
+    <div class="pullCon" id="pulldown_content_01">
+      <div class="panel_input">
+        <div class="col-xs-3 name">签到地址</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="输入地址"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_input">
+        <div class="col-xs-3 name">签到日期</div>
+        <div class="col-xs-4 input"><input class="text_center" name="" type="text" placeholder=""></div>
+        <div class="col-xs-1 name">至</div>
+        <div class="col-xs-4 input"><input class="text_center" name="" type="text" placeholder=""></div>
+        <div class="clear"></div>
+      </div>
+    </div> 
+  </div>
+  
+  <div class="panel_pull">
+    <div class="name">
+      <div class="left">是否需提交成果</div>
+      <div class="right"><span><img id="pulldown_head_02" src="images/ico_select_grey.png"></span></div>
+      <div class="clear"></div>
+    </div>      
+    <div class="pullCon" id="pulldown_content_02">
+      <div class="panel_input">
+        <div class="col-xs-4 text_center"><img src="images/ico_select_blue.png">文档</div>
+        <div class="col-xs-4 text_center"><img src="images/ico_select_grey.png">图片</div>
+        <div class="col-xs-4 text_center"><img src="images/ico_select_grey.png">视频</div>
+        <div class="clear"></div>
+      </div>
+    </div> 
+  </div>
+  
+  <div class="panel_pull">
+    <div class="name">
+      <div class="left">是否需领导审核</div>
+      <div class="right"><span><img id="pulldown_head_03" src="images/ico_select_grey.png"></span></div>
+      <div class="clear"></div>
+    </div>      
+    <div class="pullCon" id="pulldown_content_03">
+      <div class="panel_input">
+        <div class="col-xs-3 name">审批人</div>
+        <div class="col-xs-9 input"><input name="" type="text" placeholder="审批人名称">
+          <div class="ico_add" onClick="javascript:window.location.href='selectMember.html'"><img src="images/ico_add.png"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div> 
+  </div> 
+  
+  <div class="singlebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="生成工作事情" ></div>
+  
+</div>
+
+</body>
+</html>

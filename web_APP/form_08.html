@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});		
+		
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  
+  <div class="windows screening">
+
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+        </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_01">仓库
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">01仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">02仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">2003仓</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_02">等级
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_03">类别
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_03">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">抛光砖</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">全抛釉</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">瓷片</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+            
+      <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div>
+      
+    </div>
+    
+    <div class="fix_bottom"></div>
+    
+    <div class="btFuncBtns">
+      <div class="cen_area">
+        <div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定"></div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">选择产品</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="form_10.html">
+        <span><img src="images/headIcon_05.png"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="search bg_white border_bt_02 pad_bt">
+  <div class="col-xs-8 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+  <div class="col-xs-2 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="col-xs-2 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="筛选" onClick="javascript:window.location.href='condition.html'"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="workOrder">
+ 
+  <div class="form">
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-3">
+          <p>01仓</p>
+          <p>库存：<br>21620箱</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+          <p><input class="btn_02" name="" type="button" value="留货"></p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-2">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-3">
+          <p>01仓</p>
+          <p>库存：<br>21620箱</p>
+        </div>
+        <div class="col-xs-2">
+          <p><input class="input_04" name="" type="text"></p>
+          <p><input class="btn_02" name="" type="button" value="留货"></p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="singlebtn_min"><input class="btns" data-class="touchstart" name="" type="button" value="核实留货" onClick="javascript:window.location.href='form_09.html'"></div>
+</div>
+
+</body>
+</html>

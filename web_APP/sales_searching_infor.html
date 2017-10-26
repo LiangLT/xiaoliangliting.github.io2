@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+
+<script>
+
+		$(function(){
+			
+			$("#con_01").show();
+			
+			$("#tab_01").click(function(){
+				$("#con_01").show();
+				$("#con_02").hide();
+				$("#con_03").hide();
+				$("#con_04").hide();
+				document.getElementById("tab_01").className ="col-xs-3 category current";
+				document.getElementById("tab_02").className ="col-xs-3 category";		
+				document.getElementById("tab_03").className ="col-xs-3 category";		
+				document.getElementById("tab_04").className ="col-xs-3 category";				
+			});
+ 
+			$("#tab_02").click(function(){
+				$("#con_01").hide();
+				$("#con_02").show();
+				$("#con_03").hide();
+				$("#con_04").hide();
+				document.getElementById("tab_01").className ="col-xs-3 category";
+				document.getElementById("tab_02").className ="col-xs-3 category current";		
+				document.getElementById("tab_03").className ="col-xs-3 category";		
+				document.getElementById("tab_04").className ="col-xs-3 category";				
+			});
+			
+			$("#tab_03").click(function(){
+				$("#con_01").hide();
+				$("#con_02").hide();
+				$("#con_03").show();
+				$("#con_04").hide();
+				document.getElementById("tab_01").className ="col-xs-3 category";
+				document.getElementById("tab_02").className ="col-xs-3 category";		
+				document.getElementById("tab_03").className ="col-xs-3 category current";		
+				document.getElementById("tab_04").className ="col-xs-3 category";				
+			});
+			
+			$("#tab_04").click(function(){
+				$("#con_01").hide();
+				$("#con_02").hide();
+				$("#con_03").hide();
+				$("#con_04").show();
+				document.getElementById("tab_01").className ="col-xs-3 category";
+				document.getElementById("tab_02").className ="col-xs-3 category";		
+				document.getElementById("tab_03").className ="col-xs-3 category";		
+				document.getElementById("tab_04").className ="col-xs-3 category current";				
+			});
+					
+		});
+	
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="sales_searching.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">订单详情</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="javascript;:">
+        
+      </a>
+    </div>
+  </div>
+  
+  <div class="formFilter">
+    <div class="col-xs-3 category current" data-class="touchstart" id="tab_01">原始单</div>
+    <div class="col-xs-3 category" data-class="touchstart" id="tab_02">商家审核</div>
+    <div class="col-xs-3 category" data-class="touchstart" id="tab_03">提货计划</div>
+    <div class="col-xs-3 category" data-class="touchstart" id="tab_04">已提明细</div>
+      <div class="clear"></div>
+  </div>
+
+</div>
+
+<div class="fix_top_tab"></div>
+
+<div class="dealerTabCon" id="con_01">
+
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">订单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="right blue font_02">商家已审核</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">
+              <div class="left">X120箱</div><div class="right red">￥220,250.00</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">
+              <div class="left">X120箱</div><div class="right red">￥220,250.00</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">运费</div>
+          <div class="col-xs-8 price grey_04">￥122,000.00</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">货品金额</div>
+          <div class="col-xs-8 price grey_04">￥88,000,000.00</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">本单金额</div>
+          <div class="col-xs-8 price red">￥88,122,000.00</div>
+          <div class="clear"></div>
+        </div>
+      </div>    
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+<div class="dealerTabCon" id="con_02">
+
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">订单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="right blue font_02">商家已审核</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">
+              <div class="left">X120箱</div><div class="right red">￥220,250.00</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="border_top_02 pad_01 text_center">
+          <div class="col-xs-3">已提2000</div>
+          <div class="col-xs-3">未提20</div>
+          <div class="col-xs-3">冲销20</div>
+          <div class="col-xs-3">退货20</div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">
+              <div class="left">X120箱</div><div class="right red">￥220,250.00</div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="border_top_02 pad_01 text_center">
+          <div class="col-xs-3">已提2000</div>
+          <div class="col-xs-3">未提20</div>
+          <div class="col-xs-3">冲销20</div>
+          <div class="col-xs-3">退货20</div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">运费</div>
+          <div class="col-xs-8 price grey_04">￥122,000.00</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">货品金额</div>
+          <div class="col-xs-8 price grey_04">￥88,000,000.00</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">本单金额</div>
+          <div class="col-xs-8 price red">￥88,122,000.00</div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="我要派车"></span></div>
+      </div>    
+      
+    </div>
+    
+  </div>
+
+</div>
+
+<div class="dealerTabCon" id="con_03">
+
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">派车单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="right orange font_02">待商家审核</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="title_panel">
+          <div class="col-xs-6">计划提货日：2016.5.30</div>
+          <div class="col-xs-6 text_right">粤E4123456</div>
+          <div class="clear"></div>
+          <div class="col-xs-6">司机：王磊</div>
+          <div class="col-xs-6 text_right">13458789987</div>
+          <div class="clear"></div>
+        </div>
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">计划提货</div>
+          <div class="col-xs-8 price grey_04">9995箱</div>
+          <div class="clear"></div>
+        </div>        
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="详情"></span><span><input class="btns" data-class="touchstart" name="" type="button" value="取消提货计划"></span><span><input class="btns" data-class="touchstart" name="" type="button" value="货运信息修改"></span></div>
+      </div>    
+      
+    </div>
+    
+  </div>
+  
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">派车单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="right blue font_02">商家已审核</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="store_panel">
+        <div class="title_panel">
+          <div class="col-xs-6">计划提货日：2016.5.30</div>
+          <div class="col-xs-6 text_right">粤E4123456</div>
+          <div class="clear"></div>
+          <div class="col-xs-6">司机：王磊</div>
+          <div class="col-xs-6 text_right">13458789987</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="store_panel">
+        <div class="title_panel">
+          <div class="col-xs-6">计划提货日：2016.5.30</div>
+          <div class="col-xs-6 text_right">粤E4123456</div>
+          <div class="clear"></div>
+          <div class="col-xs-6">司机：王磊</div>
+          <div class="col-xs-6 text_right">13458789987</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">计划提货</div>
+          <div class="col-xs-8 price grey_04">9995箱</div>
+          <div class="clear"></div>
+        </div>        
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="详情"></span><span><input class="btns" data-class="touchstart" name="" type="button" value="货运信息修改"></span></div>
+      </div>    
+      
+    </div>
+    
+  </div>
+
+</div>
+
+<div class="dealerTabCon" id="con_04">
+  
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">提货单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">合计已提</div>
+          <div class="col-xs-8 price grey_04">9995箱</div>
+          <div class="clear"></div>
+        </div>        
+      </div>
+            
+    </div>
+    
+  </div>
+  
+  <div class="order_panel">
+    
+    <div class="orderHead border_bt">
+      <div class="left font_02">提货单号：2258100014</div>
+      <div class="left date">(2016.10.22)</div>
+      <div class="clear"></div>
+      <p class="font_02 grey_02">客户信息：广东博华</p>
+    </div> 
+    
+    <div class="store_dealer">
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="store_panel">
+        <div class="col-xs-12">
+          <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='dealer_product.html'">
+            <div class="ser_photo"><img src="images/product_default.jpg"></div>
+            <h2>抛光砖SSD33221</h2>
+            <div class="infor">
+              <p><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+              <p><span class="pad_right">品牌</span><span>ER4333333</span></p>
+              <p>提货点：佛山</p>
+            </div>
+            <div class="price font_03">X120箱</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="totalPrice_sp">
+        <div class="price_panel">
+          <div class="col-xs-4 name">总重</div>
+          <div class="col-xs-8 price grey_04">8000kg</div>
+          <div class="clear"></div>
+        </div>
+        <div class="price_panel">
+          <div class="col-xs-4 name">合计已提</div>
+          <div class="col-xs-8 price grey_04">9995箱</div>
+          <div class="clear"></div>
+        </div>        
+      </div>
+            
+    </div>
+    
+  </div>
+
+</div>
+
+</body>
+</html>

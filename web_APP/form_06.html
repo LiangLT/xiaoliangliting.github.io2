@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#btnClolse").click(function(){
+			$(".guide_021").hide();
+			$(".guide_022").hide();
+			$(".guide_023").hide();
+			$(".guide_024").hide();
+			$(".mengban_guide").hide();
+		});	
+		
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div style="display:none;">
+  <div class="guide_021"><img src="images/guide_02_04.png"></div>
+  <div class="guide_022"><img src="images/guide_02_03.png"></div>
+  <div class="guide_023"><img src="images/guide_02_07.png"></div>
+  <div class="guide_024" id="btnClolse"><img src="images/guide_02_10.png"></div>
+</div>
+
+<div class="mengban_guide" style="display:none;"></div>
+
+<div id="myDiv00">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+        </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_01">仓库
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">01仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">02仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">2003仓</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_02">等级
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_03">类别
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_03">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">抛光砖</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">全抛釉</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+          <div class="title border_top_02 border_bt_01 mar_top">瓷片</div>
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">优等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">二等品</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">及格品</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+            
+      <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div>
+      
+    </div>
+    
+    <div class="fix_bottom"></div>
+    
+    <div class="btFuncBtns">
+      <div class="cen_area">
+        <div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定"></div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<!--<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-10 topIcons">
+      <div class="col-xs-10">
+        <div class="mainTitle">库存查询</div>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="icons">
+        <span><a href="dealer_cart.html"><img src="images/headIcon_05.png"></a></span>
+        <span><a href="javascript:;"><img src="images/headIcon_09.png"></a></span>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>-->
+
+<div class="navbar-fixed-top">  
+  <div class="head">
+    <div class="topIcons">
+      <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+      </div>
+      <div class="col-xs-8">
+        <div class="mainTitle">库存查询</div>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="icons">
+        <span><a href="dealer_cart.html"><img src="images/headIcon_05.png"></a></span>
+        <span><a href="javascript:;"><img src="images/headIcon_09.png"></a></span>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="fix_top"></div>
+
+<div class="search pad_10 bg_white border_bt_02 mar_bt">
+  <div class="col-xs-9 input_search pad_right_01"><input class="btn_pro" name="" type="text" placeholder="请输入关键字">
+    <div class="ico_close" style="display:none;"><img src="images/ico_minclose.png"></div>
+    <div class="allpro" data-class="touchstart" onClick="javascript:window.location.href='proList.html'">产品 ></div>
+  </div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="formFilter">
+  <div class="left width_20 category" data-class="touchstart">品牌<img src="images/arrow_pulldown.png"></div>
+  <div class="left width_20 category" data-class="touchstart">品类<img src="images/arrow_pulldown.png"></div>
+  <div class="left width_20 category" data-class="touchstart">等级<img src="images/arrow_pulldown.png"></div>
+  <div class="left width_20 category" data-class="touchstart">规格<img src="images/arrow_pulldown.png"></div>
+  <div class="left width_20 category" data-class="touchstart">提货点<img src="images/arrow_pulldown.png"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="stock_dealer">
+  <div class="stock_panel">
+    <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='stock_01.html'">
+      <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+      <h2>抛光砖SSD33221</h2>
+      <div class="infor">
+        <div class="data">
+          <span class="pad_right">规格:100cm x 100cm</span><span class="pad_right">品质:优等</span><span class="pad_right">重量:0.5kg</span><span class="pad_right">品牌:金丝玉玛</span><span class="pad_right">色码：EDR435</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+        </div>
+        <p><span class="pad_right">本厂成品仓</span><span class="orange">25/片</span></p>
+        <div class="ico_arrow"><img src="images/arrow_grey.png"></div>
+      </div>
+      <div class="stock_num">
+        <div class="col-xs-6 pad_right border_right">
+          <div class="left">实物</div>
+          <div class="right">80000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-6 pad_left orange">
+          <div class="left">自由</div>
+          <div class="right">60000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="stock_panel">
+    <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='stock_01.html'">
+      <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+      <h2>抛光砖SSD33221</h2>
+      <div class="infor">
+        <div class="data">
+          <span class="pad_right">规格:100cm x 100cm</span><span class="pad_right">品质:优等</span><span class="pad_right">重量:0.5kg</span><span class="pad_right">品牌:金丝玉玛</span><span class="pad_right">色码：EDR435</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+        </div>
+        <p><span class="pad_right">本厂成品仓</span><span class="orange">25/片</span></p>
+        <div class="ico_arrow"><img src="images/arrow_grey.png"></div>
+      </div>
+      <div class="stock_num">
+        <div class="col-xs-6 pad_right border_right">
+          <div class="left">实物</div>
+          <div class="right">80000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-6 pad_left orange">
+          <div class="left">自由</div>
+          <div class="right">60000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="stock_panel">
+    <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='stock_01.html'">
+      <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+      <h2>抛光砖SSD33221</h2>
+      <div class="infor">
+        <div class="data">
+          <span class="pad_right">规格:100cm x 100cm</span><span class="pad_right">品质:优等</span><span class="pad_right">重量:0.5kg</span><span class="pad_right">品牌:金丝玉玛</span><span class="pad_right">色码：EDR435</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+        </div>
+        <p><span class="pad_right">本厂成品仓</span><span class="orange">25/片</span></p>
+        <div class="ico_arrow"><img src="images/arrow_grey.png"></div>
+      </div>
+      <div class="stock_num">
+        <div class="col-xs-6 pad_right border_right">
+          <div class="left">实物</div>
+          <div class="right">80000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-6 pad_left orange">
+          <div class="left">自由</div>
+          <div class="right">60000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="stock_panel">
+    <div class="ser_infor touchEffect" data-class="touchstart" onClick="javascript:window.location.href='stock_01.html'">
+      <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+      <h2>抛光砖SSD33221</h2>
+      <div class="infor">
+        <div class="data">
+          <span class="pad_right">规格:100cm x 100cm</span><span class="pad_right">品质:优等</span><span class="pad_right">重量:0.5kg</span><span class="pad_right">品牌:金丝玉玛</span><span class="pad_right">色码：EDR435</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+        </div>
+        <p><span class="pad_right">本厂成品仓</span><span class="orange">25/片</span></p>
+        <div class="ico_arrow"><img src="images/arrow_grey.png"></div>
+      </div>
+      <div class="stock_num">
+        <div class="col-xs-6 pad_right border_right">
+          <div class="left">实物</div>
+          <div class="right">80000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-6 pad_left orange">
+          <div class="left">自由</div>
+          <div class="right">60000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

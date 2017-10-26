@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/swiper.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		//手机轮播图滑动图层
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			//paginationClickable: true,
+			centeredSlides: true,
+			//autoplay: 3500,
+			autoplayDisableOnInteraction: false
+		});
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});	
+		
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userCenter.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">我的订单</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+  
+  <div class="orderTab">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-xs-4 tabTitle current" data-class="touchstart">最近三个月</div>
+            <div class="col-xs-4 tabTitle" data-class="touchstart">待付款</div>
+            <div class="col-xs-4 tabTitle" data-class="touchstart">已付款</div>
+            <div class="clear"></div>
+            <div class="arrowRight"><img src="images/arrow_pullright.png"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="col-xs-4 tabTitle data-class="touchstart"">已过期</div>
+            <div class="col-xs-4 tabTitle data-class="touchstart"">已取消</div>
+            <div class="col-xs-4 tabTitle data-class="touchstart""></div>
+            <div class="clear"></div>
+            <div class="arrowLeft"><img src="images/arrow_pullleft.png"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="fix_top_tab"></div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right orange font_02">待付款</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="store_order">
+  
+      <div class="store_panel">
+          <div class="order_infor">
+            <div class="order_photo"><img src="images/pro_pic_01.jpg"></div>
+            <h2>ERP查询</h2>
+            <p class="left grey_04">优惠价￥6,000.00/月<span class="through">￥8,000.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80,000.00</p>
+          </div>
+          <div class="del" id="show_del"><img src="images/ico_del_word.png"></div>
+          <div class="mengban_order"></div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_02.jpg"></div>
+            <h2>移动审批</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_03.jpg"></div>
+            <h2>CRM</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_04.jpg"></div>
+            <h2>企业文化</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_05.jpg"></div>
+            <h2>资金、库存</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_07.jpg"></div>
+            <h2>自助查询</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_08.jpg"></div>
+            <h2>自助业务</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_09.jpg"></div>
+            <h2>体验馆</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_10.jpg"></div>
+            <h2>产品展示</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">订单金额</div>
+            <div class="col-xs-8 price red">￥122,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="查看详情" onClick="javascript:window.location.href='userOrder_infor_01.html'"></span><span><input class="btns" data-class="touchstart" name="" type="button" value="立即支付" onClick="javascript:window.location.href='userApplication_pay.html'"></span></div>
+      </div>
+      
+  </div>
+  
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right blue font_02">已付款</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="store_order">
+      
+      <div class="store_panel">
+          <div class="order_infor">
+            <div class="order_photo"><img src="images/pro_pic_01.jpg"></div>
+            <h2>ERP查询</h2>
+            <p class="left grey_04">优惠价￥6,000.00/月<span class="through">￥8,000.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="left red font_04">￥80,000.00</p>
+            <p class="right grey_04 pad_top_05">有效期至2018.10.10</p>
+            <div class="clear"></div>
+          </div>
+          <div class="del" id="show_del"><img src="images/ico_del_word.png"></div>
+          <div class="mengban_order"></div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_02.jpg"></div>
+            <h2>移动审批</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="left red font_04">￥80,000.00</p>
+            <p class="right grey_04 pad_top_05">有效期至2018.10.10</p>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">订单金额</div>
+            <div class="col-xs-8 price red">￥122,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="查看详情" onClick="javascript:window.location.href='userOrder_infor_02.html'"></span></div>
+      </div>
+      
+  </div>
+  
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right grey_03 font_02">已过期</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="store_order">
+  
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_03.jpg"></div>
+            <h2>CRM</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_04.jpg"></div>
+            <h2>企业文化</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">订单金额</div>
+            <div class="col-xs-8 price red">￥122,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="查看详情"></span></div>
+      </div>
+      
+  </div>
+  
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right grey_03 font_02">已取消</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="store_order">
+  
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_03.jpg"></div>
+            <h2>CRM</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      <div class="store_panel">
+          <div class="order_infor">
+          <div class="order_photo"><img src="images/pro_pic_04.jpg"></div>
+            <h2>企业文化</h2>
+            <p class="left grey_04">优惠价￥80.00/月<span class="through">￥100.00/月</span></p>
+            <p class="right">X120</p>
+            <div class="clear"></div>
+            <p class="red font_04">￥80.00</p>
+          </div>
+      </div>
+      
+      <div class="totalPrice_sp">
+          <div class="price_panel">
+            <div class="col-xs-4 name">订单金额</div>
+            <div class="col-xs-8 price red">￥122,000.00</div>
+            <div class="clear"></div>
+          </div>
+      </div>
+      
+      <div class="pad_10 text_right">
+        <div class="btnArea"><span><input class="btns" data-class="touchstart" name="" type="button" value="查看详情"></span></div>
+      </div>
+      
+  </div>
+  
+</div>
+
+<div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">加载更多</a></div>
+
+</body>
+</html>

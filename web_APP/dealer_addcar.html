@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto bg_white";
+	});
+	
+	$("#category_single_01").click(function(){
+		$("#category_show_01").slideToggle(200);
+	});
+	
+	$("#category_single_02").click(function(){
+		$("#category_show_02").slideToggle(200);
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">是否去开通应用</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">暂不开通</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">马上开通</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="dealer_myorder_car.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">新增车辆</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span>保存</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="addForm">
+
+  <div class="bg_white border_top_01 border_bt_02">
+    <div class="panel_input">
+      <div class="col-xs-3 name">车牌号码</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="车牌号码">
+        <div class="ico_close" style="display:none;"><img src="images/ico_minclose.png"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">载货重量</div>
+      <div class="col-xs-9 input"><input name="" type="password" placeholder="载货重量"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">司机名称</div>
+      <div class="col-xs-9 input"><input name="" type="password" placeholder="司机名称"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">司机电话</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="司机电话"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">货运公司</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="货运公司名称"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">证件号</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="证件号"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+    
+</div>
+
+</body>
+</html>

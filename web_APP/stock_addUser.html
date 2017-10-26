@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+$(function(){
+	
+	$("#myBtn00").click(function(){
+		$("#myDiv00 .windows").show();
+		$(".mengban").show();
+		document.getElementById("bodyState").className ="scrollState_hidden";
+	});
+	
+	$("#closeBtn00").click(function(){
+		$("#myDiv00 .windows").hide();
+		$(".mengban").hide();
+		document.getElementById("bodyState").className ="scrollState_auto bg_white";
+	});
+	
+	$("#category_single_01").click(function(){
+		$("#category_show_01").slideToggle(200);
+	});
+	
+	$("#category_single_02").click(function(){
+		$("#category_show_02").slideToggle(200);
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  <div class="windows tips">
+    <div class="windowsHead">温馨提示
+      <div id="closeBtn00" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <h2 class="cen">是否去开通应用</h2>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">暂不开通</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">马上开通</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userSelect.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">新建客户</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="addForm">
+
+  <div class="bg_white border_top_01 border_bt_02">
+    <div class="panel_input">
+      <div class="col-xs-3 name">客户名称</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="客户名称">
+        <div class="ico_close" style="display:none;"><img src="images/ico_minclose.png"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_note border_bt_02" style="display:none;">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-9">* 密码长度为6-16位数字或字母，区分大小写</div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">客户级别</div>
+      <div class="col-xs-9 input">
+        
+        <div class="selectSP pad_top" id="category_single_01">请选择<img class="ico_arrow" src="images/arrow_pulldown.png"></div>
+        <div class="selectSHOW" id="category_show_01">
+          <div class="togbg"></div>
+          <div class="list">
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">重要客户</div>
+              <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+              <div class="clear"></div>
+            </div>
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">普通客户</div>
+              <div class="right"></div>
+              <div class="clear"></div>
+            </div>
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">一般客户</div>
+              <div class="right"></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">地址</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="地址"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">联系人</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="联系人"></div>
+      <div class="clear"></div>
+    </div>
+    <div class="panel_input">
+      <div class="col-xs-3 name">电话</div>
+      <div class="col-xs-9 input"><input name="" type="text" placeholder="电话"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="singlebtnArea"><input class="btns" data-class="touchstart" name="" type="button" value="保存"></div>
+  
+</body>
+</html>

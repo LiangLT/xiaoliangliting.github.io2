@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
+<script>
+
+		$(function(){
+			
+			$("#tab_detail").click(function(){
+				$("#con_detail").show();
+				$("#con_spro").hide();
+				document.getElementById("tab_detail").className ="col-xs-6 category current";
+				document.getElementById("tab_spro").className ="col-xs-6 category";				
+			});
+ 
+			$("#tab_spro").click(function(){
+				$("#con_spro").show();
+				$("#con_detail").hide();
+				document.getElementById("tab_detail").className ="col-xs-6 category";
+				document.getElementById("tab_spro").className ="col-xs-6 category current";
+			});
+			
+			$("#pulldown_head_01").click(function(){
+				$("#pulldown_content_01").slideToggle(200);
+			});
+					
+			$("#btnSelect").click(function(){
+				$("#select_content").slideToggle(200);
+				$(".mengban").show();
+				document.getElementById("bodyState").className ="scrollState_hidden";
+			});
+			
+			$("#select_close").click(function(){
+				$("#select_content").hide();
+				$(".mengban").hide();
+				document.getElementById("bodyState").className ="scrollState_auto";
+			});
+		
+		});
+
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="proClassify" id="select_content">
+  <div class="title">
+    <h2>抛光砖SSD33221</h2>
+    <p>已选："KB789H889"</p>
+    <div class="ico_close" id="select_close"><img src="images/ico_del_deepgrey.png"></div>
+  </div>
+  <div class="color">
+    <h2>色号</h2>
+    <ul>
+      <li>R56</li>
+      <li class="current">yellow</li>
+      <li>KB789H8</li>
+      <li>R56</li>
+      <li>R56</li>
+      <li>R56JFK</li>
+      <li>我是很长的色码测试版一</li>
+      <li>R56</li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="amount">
+    <div class="col-xs-4 font_03">购买数量</div>
+    <div class="col-xs-8 text_right"><img class="touch" data-class="touchstart" src="images/ico_down.png"><input class="editInput" name="" type="text" value="1"><img class="touch" data-class="touchstart" src="images/ico_up.png"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="btns">
+    <div class="col-xs-12 btn_buy" data-class="touchstart" onClick="javascript:window.location.href='stock_order.html'">确定</div>
+  </div>
+</div>
+
+<div class="mengban" style="display:none;"></div>
+
+<!--<div class="navbar-fixed-top">
+  
+  <div class="head_pro">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="form_06.html">
+        <span><img src="images/headIcon_pro_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-10 topIcons">
+      <div class="icons">
+        <span class="store_cart"><a href="dealer_cart.html"><img src="images/headIcon_pro_05.png"></a>
+          <span class="number">22</span>
+        </span>
+        <span><a href="javascript:;"><img src="images/headIcon_pro_07.png"></a></span>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>-->
+
+<div class="navbar-fixed-top">
+  
+  <div class="head_pro">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="form_06.html">
+        <span><img src="images/headIcon_pro_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-10 topIcons">
+      <div class="icons">
+        <div class="store_cart left"><a href="dealer_cart.html"><img src="images/headIcon_pro_05.png"></a>
+          <div class="number">22</div>
+        </div>
+        <div class="left"><a href="javascript:;"><img src="images/headIcon_pro_07.png"></a></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+
+<div>  
+  
+  <div id="myCarousel" class="carousel slide display_no" data-ride="carousel" data-interval="3000">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active"><img src="images/mallpro_02.jpg"></div>
+      <div class="item"><img src="images/mallpro_02.jpg"></div>
+      <div class="item"><img src="images/mallpro_02.jpg"></div>
+      <div class="item"><img src="images/mallpro_02.jpg"></div>
+    </div>
+  </div>
+    
+  <script type="text/javascript">
+  
+            $("#myCarousel").swipe({
+                swipe: function (event, direction, distance, duration, fingerCount) {
+                    if (distance > 10) {
+                        if (direction == "left") {
+                            $('.carousel').carousel('next');
+                        } else if (direction == "right") {
+                            $('.carousel').carousel('prev');
+                        }
+                    }
+                    setTimeout(function () { $('.carousel').carousel('pause'); }, 800);
+                }
+            });
+			
+  </script>
+  
+  <div class="clear"></div>
+  
+  <div class="dealer_product">
+  
+    <h2>抛光砖SSD33221</h2>
+    
+    <div class="infor">
+      <p>
+        <span class="pad_right">800cm x 800cm</span><span class="pad_right">优等</span><span class="pad_right">0.5kg</span>
+        
+      </p>
+      <p>
+        <span class="pad_right">品牌名称</span><span class="pad_right">ER4333333</span>
+        <span class="right orange font_04 mar_top_03">25/片</span><!--加粗文字-->
+        <span class="clear"></span>
+      </p>
+      <div class="stock_num pad_top">
+        <div class="col-xs-6 pad_right border_right">
+          <div class="left">总实物库存</div>
+          <div class="right">10880000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="col-xs-6 pad_left">
+          <div class="left">总自由库存</div>
+          <div class="right">10660000箱</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+<div class="stock">
+
+  <div class="pad_top_07 text_left font_01"><strong class="pad_left_02">本厂成品仓的库存</strong></div>
+  
+  <div class="workFunction">
+    
+    <div class="workFunction_panel border_bt_02" data-class="touchstart">
+      <a href="javascript:;">
+      <div class="left black">实物库存</div>
+      <div class="right"><span class="pad_right_02">8000 箱</span><span class="pad_right_05">24000 件</span></div>
+      <div class="clear"></div>
+      </a>
+    </div>
+    
+    <div class="workFunction_panel border_bt" data-class="touchstart" id="pulldown_head_01">
+      <a href="javascript:;">
+      <div class="left black">锁定量</div>
+      <div class="right"><span class="pad_right_02">2000 箱</span><span class="pad_right_03">16000 件</span><span><img class="ico_arrow_min" src="images/arrow_pulldown.png"></span></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+      </a>
+    </div>
+    
+    <div class="pulldown" id="pulldown_content_01">
+      <div class="workFunction_panel border_bt">
+        <a href="form_16.html">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>销售开单</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+      
+      <div class="workFunction_panel border_bt">
+        <a href="javascript:;">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>留货</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+      
+      <div class="workFunction_panel border_bt">
+        <a href="javascript:;">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>订货</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+      
+      <div class="workFunction_panel border_bt">
+        <a href="javascript:;">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>返工</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+      
+      <div class="workFunction_panel border_bt">
+        <a href="javascript:;">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>调仓</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+      
+      <div class="workFunction_panel border_bt">
+        <a href="javascript:;">
+          <div class="left"><span class="pad_right_02"><img src="images/point_3square.png" width="3" height="3"></span>加工</div>
+          <div class="right"><span class="state">99999 箱</span><span><img class="ico_arrow_min02" src="images/arrow_grey.png"></span></div>
+          <div class="clear"></div>
+        </a>
+       </div>
+    </div>
+    
+    <div class="workFunction_panel border_bt_02" data-class="touchstart">
+      <a href="javascript:;">
+      <div class="left black">自由库存</div>
+      <div class="right"><span class="pad_right_02">6000 箱</span><span class="pad_right_05">18000 件</span></div>
+      <div class="clear"></div>
+      </a>
+    </div>
+    
+  </div>
+  
+</div>
+
+<div class="dealerTab">
+<div class="col-xs-6 category current" data-class="touchstart" id="tab_detail"><a href="javascript:;">商品详情</a></div>
+    <div class="col-xs-6 category" data-class="touchstart" id="tab_spro"><a href="javascript:;">同类产品</a></div>
+    <div class="clear"></div>
+</div>
+
+<div class="dealer_detail" id="con_detail">
+  <div class="detail_infor">
+    <div class="video"><img src="images/videobtn_play.png"></div>
+    <div class="videoContent">
+      <p>视频名称</p>
+      <p>视频简介视频简介视频简介视频简介...</p>
+    </div>
+    <div class="text">
+      <p>使用场景：浴室、客厅、厨房、阳台。</p>
+      <p>概念：灵感来源于硅化木，其晶体剔透，有木的纹理。</p>
+      <p><img src="images/mallpro_02.jpg"></p>
+      <p><img src="images/mallpro_02.jpg"></p>
+    </div>
+  </div>
+</div>
+
+<div class="similarpro" id="con_spro">
+        
+    <div class="user_productList_row">
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>商品名称商品名称商品名称商品名称商品名称</h2>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>抛光砖SSD33221</h2>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>抛光砖SSD33221</h2>
+          </div>
+      </div>
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>抛光砖SSD33221</h2>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>抛光砖SSD33221</h2>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="panel_row" data-class="touchstart">
+            <a href="javascript:;"><img src="images/mallpro_02.jpg"></a>
+            <h2>抛光砖SSD33221</h2>
+          </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+   
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btns_bottom">
+  <div class="col-xs-6 btn_cart blue" data-class="touchstart" onClick="javascript:window.location.href='dealer_cart.html'">加入购物车</div>
+  <div class="col-xs-6 btn_buy" data-class="touchstart" id="btnSelect">立即购买</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#btn_submit").click(function(){
+			$("#suggest").hide();
+			$("#result").show();
+		});
+		
+		$("#funcIcon").click(function(){
+			$("#funcIcon_con").slideToggle(200);
+		});
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .photoLarge").show();
+			$(".mengban_black").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		})
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .photoLarge").hide();
+			$(".mengban_black").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		//功能项下拉
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+			
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#more_head_01").click(function(){
+	    	$("#more_content_01").slideToggle(200);
+		});
+	
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban_black"></div>
+
+<div id="myDiv01">
+  <div class="photoLarge"><img id="closeBtn01" src="images/userLogo.png"></div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">我的投诉</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="javascript:;">
+        
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="workOrder station">
+
+  <div class="station_panel">
+        <div class="order_infor_heightAuto">
+          <div class="order_photo"><img src="images/workStationIco_17.png"></div>
+            <div class="title">
+              <h2>KST1008203695</h2>
+            </div>
+            <div class="date">
+              <div class="content">您的投诉，单号KST1008203695，已提交成功。</div>
+              <div class="text_right">2016.2.12 22:20</div>
+            </div>
+        </div>
+  </div>
+  
+</div>
+
+<div class="workOrder">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉产品</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="complainInfor">
+      <div class="infor_panel">
+        <div class="col-xs-4">销售单号</div>
+        <div class="col-xs-8 grey_04">YHI7896786</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">购买日期</div>
+        <div class="col-xs-8 grey_04">2012.10.22</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">产品编号</div>
+        <div class="col-xs-8 grey_04">HOI-I7896786</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">产品名称</div>
+        <div class="col-xs-8 grey_04">抛光砖</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">规格</div>
+        <div class="col-xs-8 grey_04">标准</div>
+        <div class="clear"></div>
+      </div> 
+      <div class="infor_panel">
+        <div class="col-xs-4">等级</div>
+        <div class="col-xs-8 grey_04">A1</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">包装码</div>
+        <div class="col-xs-8 grey_04">005TE67344765</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">发货数量（片）</div>
+        <div class="col-xs-8 grey_04">20000000</div>
+        <div class="clear"></div>
+      </div>
+      <div class="infor_panel">
+        <div class="col-xs-4">缺陷数量（片）</div>
+        <div class="col-xs-8 grey_04">500</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+</div>
+
+<div class="workOrder">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉类型</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="complainInfor">
+      <div class="col-xs-3">平整度</div>
+      <div class="col-xs-3">色差</div>
+      <div class="col-xs-3">尺寸</div>
+      <div class="col-xs-3">针孔</div>
+      <div class="col-xs-3">杂质</div>
+      <div class="col-xs-3">渗污</div>
+      <div class="col-xs-3">破损</div>
+      <div class="col-xs-3">错发</div>
+      <div class="clear"></div>      
+    </div>
+
+</div>
+
+<div class="workOrder station">
+  
+    <div class="userFunction_panel border_bt">
+      <div class="left ico"><img src="images/ico_panel.png"></div>
+      <div class="left"><strong>投诉描述</strong></div>
+      <div class="right"></div>
+      <div class="clear"></div>
+    </div>
+  
+  <div class="complainInfor">
+      
+        <p>和上次发出的有色差,和上次发出的有色差,和上次发出的有色差,和上次发出的有色差,和上次发出的有色差,和上次发出的有色差..</p>
+        <div class="photo">
+          <ul>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+            <li><img src="images/mallpro_02.jpg"></li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+
+    </div>
+    
+</div>
+
+<div class="fix_bottom"></div>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<!--日期选择器.css-->
+<link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.ios.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+<!--日期选择器.css-->
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<!--日期选择器.js-->
+<script src="js/mobiscroll.core.js"></script>
+<script src="js/mobiscroll.widget.js"></script>
+<script src="js/mobiscroll.scroller.js"></script>
+<script src="js/mobiscroll.util.datetime.js"></script>
+<script src="js/mobiscroll.datetimebase.js"></script>
+<script src="js/mobiscroll.widget.ios.js"></script>
+<script src="js/mobiscroll.i18n.zh.js"></script>
+<!--日期选择器.js-->
+
+<script>
+
+	$(function () {
+		var nowData=new Date();
+		var opt= { 
+			theme:'ios', //设置显示主题 
+			mode:'scroller', //设置日期选择方式，这里用滚动
+			display:'bottom', //设置控件出现方式及样式
+			preset : 'date', //日期:年 月 日 时 分
+			minDate: nowData, 
+			maxDate:new Date(nowData.getFullYear(),nowData.getMonth(),nowData.getDate()+7,22,00),
+	//              dateFormat: 'yy-mm-dd', // 日期格式
+	//              dateOrder: 'yymmdd', //面板中日期排列格式
+			stepMinute: 5, //设置分钟步长
+			yearText:'年', 
+			monthText:'月',
+			dayText:'日',
+			hourText:'时',
+			minuteText:'分',
+			lang:'zh' //设置控件语言};
+		};
+		$('#dateinput').mobiscroll(opt);
+	});
+	
+	$(function(){
+		
+		$("#btn_del").click(function(){
+			$("#show_del").toggle(200);
+			if ($("#mengban_del").is(':visible')) {
+				$("#mengban_del").hide();
+				}else{
+				$("#mengban_del").show();
+				$("#show_reason").hide();
+				$("#mengban_reason").hide();
+			}
+		});
+		
+		$("#btn_reason").click(function(event){
+			event.preventDefault();
+			$("#show_reason").toggle(200);
+			$("#mengban_reason").show();
+		});
+			
+		$("#reason_close").click(function(event){
+			event.preventDefault();
+			$("#show_reason").toggle(200);
+			$("#mengban_reason").hide();			
+		});
+		
+	});
+	
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="dealer_myorder.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">派车</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;" id="btn_del">
+        <span>删除</span>
+      </a>
+    </div>
+  </div>
+    
+</div>
+<div class="fix_top"></div>
+
+<div class="userManage">
+    	<div class="col-xs-6 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_addcar.html'">
+          <p><img src="images/ico_car_01.png"></p>
+          <p class="grey_04">新增车辆</p>
+        </div>
+        <div class="col-xs-6 icon" data-class="touchstart" onClick="javascript:window.location.href='dealer_selcar.html'">
+          <p><img src="images/ico_car_02.png"></p>
+          <p class="grey_04">选择其他车辆</p>
+        </div>
+        <div class="clear"></div>
+</div>
+
+<div class="bg_white border_top border_bt mar_top_01">
+  <div class="font_02 pad_07 border_bt_02 black">提货点：佛山</div>
+  <div class="car_infor">
+    <!--<div class="font_03 pad_bt_02 black">提货车辆</div>-->
+    <div class="car_plan">
+      <div class="common_panel">
+        <div class="col-xs-4 font_02 blue">计划提货日</div>
+        <div class="col-xs-8 date"><input name="" type="text" id="dateinput" placeholder="选择日期"> <img src="images/arrow_blue.png"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="common_panel">
+        <div class="col-xs-2">司机</div>
+        <div class="col-xs-10 text_right">王磊<span class="pad_left_04 pad_right_06">|</span>13458789987<span class="pad_left_04 pad_right_06">|</span>粤E4123456</div>
+        <div class="clear"></div>
+      </div>
+      <div class="common_panel">
+        <div class="col-xs-6">可载</div>
+        <div class="col-xs-6 text_right">145KG</div>
+        <div class="clear"></div>
+      </div>
+      <div class="common_panel">
+        <div class="col-xs-6">已载</div>
+        <div class="col-xs-6 text_right">50kg</div>
+        <div class="clear"></div>
+      </div>
+      <div class="common_panel">
+        <div class="col-xs-6">货运公司</div>
+        <div class="col-xs-6 text_right">货运公司名称</div>
+        <div class="clear"></div>
+      </div>
+      <div class="common_panel">
+        <div class="col-xs-6">证件号</div>
+        <div class="col-xs-6 text_right">KB171211454</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="car_plan" style="display:none;">暂无</div>
+  </div>
+  <!--<div class="subHead font_03 touchEffect" data-class="touchstart" onclick="javascript:window.location.href='dealer_addcar.html'">
+    <div class="left">新增车辆</div>
+    <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="subHead font_03 border_bt touchEffect" data-class="touchstart" onclick="javascript:window.location.href='dealer_selcar.html'">
+    <div class="left">选择其他车辆</div>
+    <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+    <div class="clear"></div>
+  </div>-->
+</div>
+
+
+
+<div class="store_order_sp">
+
+  <div class="order_panel">
+    <div class="orderHead font_02">审核单号：2258100014</div>
+  </div>
+  
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <div class="ser_content">
+          <h2>抛光砖SSD33221<span class="state yellow" id="btn_reason">异常<img src="images/ico_wrongPoint.png"></span></h2>
+          <div class="data">
+             <span class="pad_right">等级:优等</span><span class="pad_right">重量:51kg/片</span><span class="pad_right">色号:工程板D113V</span><span class="pad_right">包装码:800X800X3</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+          </div>
+          <p class="grey_04">提货点：佛山</p>
+          <p><input class="input_06" name="" type="text">箱<img class="ico_transform" src="images/ico_transform.png">5000片，共20kg</p>
+          <div class="showArea_del" id="show_del">
+            <div class="col-xs-10"></div>
+            <div class="col-xs-2 del"><img src="images/ico_del_word.png"></div>
+            <div class="clear"></div>
+          </div>
+          <div class="mengban_del_opa" id="mengban_del"></div>
+          <div class="showArea_reason" id="show_reason">
+            <div class="col-xs-10 reason">
+              <div class="title">异常原因</div>
+              <div class="content">我的位置是商品订单异常原因，我的位置是商品订单异常原因，我的位置是商品订单。</div>
+            </div>
+            <div class="col-xs-2 know" id="reason_close"><img src="images/ico_know_word.png"></div>
+            <div class="clear"></div>
+          </div>
+          <div class="mengban_reason" id="mengban_reason"></div>
+        </div>
+    </div>
+      
+  </div>
+  
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <div class="ser_content">
+          <h2>抛光砖SSD33221</h2>
+          <div class="data">
+             <span class="pad_right">等级:优等</span><span class="pad_right">重量:51kg/片</span><span class="pad_right">色号:工程板D113V</span><span class="pad_right">包装码:800X800X3</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+          </div>
+          <p class="grey_04">提货点：佛山</p>
+          <p><input class="input_06" name="" type="text">箱<img class="ico_transform" src="images/ico_transform.png">5000片，共20kg</p>
+        </div>
+      </div>
+  </div> 
+  
+</div>
+
+<div class="store_order_sp">
+
+  <div class="order_panel">
+    <div class="orderHead font_02">审核单号：2258100014</div>
+  </div>
+  
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <div class="ser_content">
+          <h2>抛光砖SSD33221</h2>
+          <div class="data">
+             <span class="pad_right">等级:优等</span><span class="pad_right">重量:51kg/片</span><span class="pad_right">色号:工程板D113V</span><span class="pad_right">包装码:800X800X3</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+          </div>
+          <p class="grey_04">提货点：佛山</p>
+          <p><input class="input_06" name="" type="text">箱<img class="ico_transform" src="images/ico_transform.png">5000片，共20kg</p>
+        </div>
+    </div>
+      
+  </div>
+  
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <div class="ser_content">
+          <h2>抛光砖SSD33221</h2>
+          <div class="data">
+             <span class="pad_right">等级:优等</span><span class="pad_right">重量:51kg/片</span><span class="pad_right">色号:工程板D113V</span><span class="pad_right">包装码:800X800X3</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span><span class="pad_right">其他属性</span>
+          </div>
+          <p class="grey_04">提货点：佛山</p>
+          <p><input class="input_06" name="" type="text">箱<img class="ico_transform" src="images/ico_transform.png">5000片，共20kg</p>
+        </div>
+      </div>
+  </div> 
+  
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btFuncBtns">
+    <div class="col-xs-6">
+      <p class="pad_top_04">提货<span class="pad_left_01">9995箱</span></p>
+      <p>载重<span class="pad_left_01">8000kg</span></p>
+    </div>
+	<div class="col-xs-6 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="提交派车"></div>
+</div>
+
+</body>
+</html>

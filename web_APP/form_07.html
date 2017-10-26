@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+		
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+		
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv00">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+        </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+   
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_01">仓库
+          <div class="number"><a href="javascript:;">全部<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">全部</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">01仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">02仓</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">2003仓</a></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_02">品牌
+          <div class="number"><a href="javascript:;">东鹏陶瓷<img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <a class="btns" data-class="touchstart" href="javascript:;">全部</a>
+          <a class="btns current" data-class="touchstart" href="javascript:;">东鹏陶瓷</a>
+          <a class="btns" data-class="touchstart" href="javascript:;">博华</a>
+          <a class="btns" data-class="touchstart" href="javascript:;">其他品牌</a>
+          <div class="clear"></div>
+        </div>
+      </div>
+            
+      <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div>
+      
+    </div>
+    
+    <div class="fix_bottom"></div>
+    
+    <div class="btFuncBtns">
+      <div class="cen_area">
+        <div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定"></div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<div id="myDiv01">
+  <div class="windows other window_top_02">
+    
+      <div class="form text_center">
+        <div class="formHead">
+          <div class="col-xs-4">留货数量</div>
+          <div class="col-xs-4">开单数量</div>
+          <div class="col-xs-4">冲销数量</div>
+          <div class="clear"></div>
+        </div>
+        <div class="formList">
+          <div class="panel_list">
+            <div class="col-xs-4">1,200</div>
+            <div class="col-xs-4">50,00</div>
+            <div class="col-xs-4">1,200</div>
+            <div class="clear"></div>
+          </div>      
+        </div>
+      </div>
+      
+      <div class="form text_center">
+        <div class="formHead">
+          <div class="col-xs-4">发货数量</div>
+          <div class="col-xs-4">排货数量</div>
+          <div class="col-xs-4">退货数量</div>
+          <div class="clear"></div>
+        </div>
+        <div class="formList">
+          <div class="panel_list">
+            <div class="col-xs-4">1,200</div>
+            <div class="col-xs-4">50,00</div>
+            <div class="col-xs-4">1,200</div>
+            <div class="clear"></div>
+          </div>      
+        </div>
+      </div>
+      
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <a class="btns" data-class="touchstart" href="javascript:;" id="closeBtn01">关闭</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">销售订单</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="condition.html">
+        <span>筛选</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="search">
+  <div class="col-xs-9 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span>开单：刘晓军</span><span>销售：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" id="myBtn01" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span>开单：刘晓军</span><span>销售：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right grey_02 font_02">2015.10.20</div>
+    <div class="clear"></div>
+    <p class="grey_02"><span>开单：刘晓军</span><span>销售：李晓红</span></p>
+  </div>
+  <div class="subHead">东鹏陶瓷有限公司
+    <div class="others" style="display:none;">后续业务量<img src="images/arrow_grey.png"></div>
+  </div> 
+  
+  <div class="form">
+    <div class="formHead">
+      <div class="col-xs-3">产品</div>
+      <div class="col-xs-5">属性</div>
+      <div class="col-xs-4">销售</div>
+      <div class="clear"></div>
+    </div>
+    <div class="formList">
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="panel_list">
+        <div class="col-xs-3">瓷砖</div>
+        <div class="col-xs-5">
+          <p>规格：10cm x 10cm</p>
+          <p>色号：白色</p>
+          <p>等级：一等品</p>
+        </div>
+        <div class="col-xs-4">
+          <p>1000（箱）</p>
+          <p>20,000.00（元）</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="formFoot">
+      <div class="col-xs-3">04仓库</div>
+      <div class="col-xs-9 text_right">共<span>200000</span>箱，合计<span class="orange">54,400.00</span>元</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">加载更多</a></div>
+
+</body>
+</html>

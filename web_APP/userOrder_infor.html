@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			$(".mengban").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			$(".mengban").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});
+
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<div id="myDiv01">
+  <div class="windows other window_top_02">
+    <div class="windowsHead">取消原因
+      <div id="closeBtn01" class="ico_close">&nbsp;</div>
+    </div>
+    <div class="windowsContent">
+      <div class=""><textarea class="textarea_01" name="" type="text"></textarea></div>
+    </div>
+    <div class="windowsFoot">
+      <div class="btnArea">
+        <div class="btnLeft"><a class="btns" data-class="touchstart" href="javascript:;">取消</a></div>
+        <div class="btnRight"><a class="btns" data-class="touchstart" href="javascript:;">提交</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head row">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userOrder.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">订单详情</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="order_panel">
+
+  <div class="orderHead">
+    <div class="left font_02">订单号：2258100014</div>
+    <div class="right blue font_02">已付款</div>
+    <div class="clear"></div>
+  </div> 
+  
+  <div class="subHead black">购买应用：</div>
+  <div class="orderCon">
+    <p>应用编号：FU321123333</p>
+    <p>应用名称：CRM报表服务</p>
+    <p>所属应用类别：XXX</p>
+  </div>
+  
+  <div class="subHead black">购买年限：一年50元</div>
+  
+  <div class="orderCon border_top">
+    <div class="fin_price grey_02 pad_top">
+      <div class="col-xs-6">订单金额：</div>
+      <div class="col-xs-6 text_right">800.00</div>
+      <div class="clear"></div>
+      <div class="col-xs-6">折扣金额：</div>
+      <div class="col-xs-6 text_right">200.00</div>
+      <div class="clear"></div>
+      <div class="col-xs-6 font_02"><strong>应付金额：</strong></div>
+      <div class="col-xs-6 text_right orange font_02"><strong>600.00</strong></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btFuncBtns">
+  <div class="cen_area">
+	<div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="取消订单" id="myBtn01"></div>
+  </div>
+</div>
+
+</body>
+</html>

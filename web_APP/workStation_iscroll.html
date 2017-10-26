@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<link rel="stylesheet" href="css/pullToRefresh.css" />
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/pullToRefresh.js"></script>
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});	
+		
+		$("#myBtn01").click(function(){
+			$("#myDiv01 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn01").click(function(){
+			$("#myDiv01 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});		
+
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+		
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#pulldown_head_03").click(function(){
+			$("#pulldown_content_03").slideToggle(200);
+		});
+	});
+</script>
+</head>
+
+<body id="bodyState">
+
+<div class="mengban"></div>
+
+<!--<div id="myDiv00">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">筛选</div>
+          </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn00" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_01">ERP业务
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">留货</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">价格申请</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_02">客户服务
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">业务洽谈</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart" id="pulldown_head_03">企业文化
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_03">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">工作分享</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+            
+      <div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">清除选项</a></div>
+      
+    </div>
+    
+    <div class="fix_bottom"></div>
+    
+    <div class="btFuncBtns">
+      <div class="cen_area">
+        <div class="col-xs-12 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="确定"></div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>-->
+
+<div id="myDiv01">
+  
+  <div class="windows screening">
+  
+    <div class="navbar-fixed-top">
+      <div class="head">
+        <div class="col-xs-2">
+          <a class="topWord text_left pad_left" href="javascript:;">
+          </a>
+          </div>
+        <div class="col-xs-8">
+          <div class="mainTitle">选择工作事项</div>
+          </div>
+        <div class="col-xs-2">
+          <a class="topWord text_right pad_right" id="closeBtn01" href="javascript:;">
+            <span>取消</span>
+          </a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="fix_top"></div>
+    
+    <div class="condition">
+    
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart">ERP业务
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_01">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="form_08.html">留货</a></div>
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="form_11.html">价格申请</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart">客户服务
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="workNewOrder_01.html">业务洽谈</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel_condition">
+        <div class="title" data-class="touchstart">企业文化
+          <div class="number"><a href="javascript:;"><img src="images/arrow_pulldown.png"></a></div>
+        </div>
+        <div class="content" id="pulldown_content_02">
+          <div class="average">
+            <div class="col-xs-3"><a class="btns" data-class="touchstart" href="javascript:;">工作分享</a></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>   
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+            
+    </div>
+        
+  </div>
+  
+</div>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="classify.html">
+        <span><img src="images/headIcon_06.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">工作</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topIcon text_right pad_right" href="javascript:;" id="myBtn01">
+        <span><img src="images/headIcon_02.png"></span>
+      </a>
+    </div>
+  </div>
+  <div class="search bg_white border_bt_02 pad_bt">
+      <div class="col-xs-9 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+      <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+      <div class="clear"></div>
+  </div>
+</div>
+<div class="fix_top"></div>
+<div class="fix_top_search"></div>
+
+<div class="mainMenu">
+  <div class="col-xs-4">
+    <a href="index.html">
+    <p><img src="images/menuIco_04.png"></p>
+    <h3>应用</h3>
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a class="current" href="workStation.html">
+    <p><img src="images/menuIco_03_hover.png"><span class="number">12</span></p>
+    <h3>工作</h3>
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a href="userCenter.html">
+    <p><img src="images/menuIco_02.png"></p>
+    <h3>我的</h3>
+    </a>
+  </div>
+</div>
+
+<!--<style type="text/css">
+li {
+	line-height: 80px;
+}
+</style>
+
+<div id="wrapper">
+	<ul>
+		<li><div>row 10</div></li>
+		<li>row 9</li>
+		<li>row 8</li>
+		<li>row 7</li>
+		<li>row 6</li>
+		<li>row 5</li>
+		<li>row 4</li>
+		<li>row 3</li>
+		<li>row 2</li>
+		<li>row 1</li>
+	</ul>
+</div>-->
+
+<div id="wrapper">
+  <ul>
+	<li>
+        <div class="tabOrder">
+          <div class="col-xs-1 tab_green">
+            <div class="tabName tab_green"><img src="images/tag_01.png"></div>
+          </div>
+          <div class="col-xs-11">
+            <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+              <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+                <div class="state blue">生效</div>
+              </div>
+              <div class="orderInfor">
+                <p>留货单号：LH422123879930988</p>
+                <p>留货时间：2015.10.22 至 2012.12.11</p>
+                <p>留货：49箱</p>
+              </div>
+              <div class="ico_new">26</div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </li>
+	<li>
+        <div class="tabOrder">
+          <div class="col-xs-1 tab_green">
+            <div class="tabName tab_green"><img src="images/tag_01.png"></div>
+          </div>
+          <div class="col-xs-11">
+            <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+              <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+                <div class="state grey_03">到期</div>
+              </div>
+              <div class="orderInfor">
+                <p>留货单号：LH422123879930988</p>
+                <p>留货时间：2015.10.22 至 2012.12.11</p>
+                <p>留货：49箱</p>
+              </div>
+              <div class="ico_new">26条未读消息</div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </li>
+    <li>
+        <div class="tabOrder">
+          <div class="col-xs-1 tab_green">
+            <div class="tabName tab_orange"><img src="images/tag_02.png"></div>
+          </div>
+          <div class="col-xs-11">
+            <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+              <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+                <div class="state orange">待审批</div>
+              </div>
+              <div class="orderInfor">
+                <p>销售单：322112</p>
+                <p>货品折扣金额：2000元</p>
+              </div>
+              <div class="ico_new">2016</div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </li>
+    <li>
+    	<div class="tabOrder">
+          <div class="col-xs-1 tab_green">
+            <div class="tabName tab_orange"><img src="images/tag_02.png"></div>
+          </div>
+          <div class="col-xs-11">
+            <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+              <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+                <div class="state blue">已审批</div>
+              </div>
+              <div class="orderInfor">
+                <p>销售单：322112</p>
+                <p>货品折扣金额：2000元</p>
+              </div>
+              <div class="ico_new">2</div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </li>
+    <li>
+    	<div class="tabOrder">
+          <div class="col-xs-1 tab_green">
+            <div class="tabName tab_blue"><img src="images/tag_03.png"></div>
+          </div>
+          <div class="col-xs-11">
+            <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_02.html'">
+              <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+                <div class="state orange">未审批</div>
+              </div>
+              <div class="orderInfor">
+                <p>客户：金丝玉玛</p>
+                <p>讨论项目前期工作。</p>
+              </div>
+              <div class="ico_new">6</div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+refresher.init({
+	id: "wrapper",
+	pullDownAction: Refresh,
+	pullUpAction: Load
+});
+var generatedCount = 0;
+function Refresh() {
+	setTimeout(function () {
+		var el, li, i;
+		el = document.querySelector("#wrapper ul");
+		el.innerHTML = '';
+		for (i = 0; i < 11; i++) {
+			li = document.createElement('li');
+			li.appendChild(document.createTextNode('async row ' + (++generatedCount)));
+			el.insertBefore(li, el.childNodes[0]);
+		}
+		wrapper.refresh();
+		
+	}, 1000);
+
+}
+
+function Load() {
+	setTimeout(function () {
+		var el, li, i;
+		el = document.querySelector("#wrapper ul");
+		for (i = 0; i < 2; i++) {
+			li = document.createElement('li');
+			li.appendChild(document.createTextNode('async row ' + (++generatedCount)));
+			el.appendChild(li, el.childNodes[0]);
+		}
+		wrapper.refresh();
+		
+	}, 1000);
+}
+</script>
+
+<!--<div class="tabOrder">
+  <div class="col-xs-1 tab_green">
+    <div class="tabName tab_green"><img src="images/tag_01.png"></div>
+  </div>
+  <div class="col-xs-11">
+    <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+      <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+        <div class="state blue">生效</div>
+      </div>
+      <div class="orderInfor">
+        <p>留货单号：LH422123879930988</p>
+        <p>留货时间：2015.10.22 至 2012.12.11</p>
+        <p>留货：49箱</p>
+      </div>
+      <div class="ico_new">26</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="tabOrder">
+  <div class="col-xs-1 tab_green">
+    <div class="tabName tab_green"><img src="images/tag_01.png"></div>
+  </div>
+  <div class="col-xs-11">
+    <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+      <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+        <div class="state grey_03">到期</div>
+      </div>
+      <div class="orderInfor">
+        <p>留货单号：LH422123879930988</p>
+        <p>留货时间：2015.10.22 至 2012.12.11</p>
+        <p>留货：49箱</p>
+      </div>
+      <div class="ico_new">26条未读消息</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="tabOrder">
+  <div class="col-xs-1 tab_green">
+    <div class="tabName tab_orange"><img src="images/tag_02.png"></div>
+  </div>
+  <div class="col-xs-11">
+    <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+      <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+        <div class="state orange">待审批</div>
+      </div>
+      <div class="orderInfor">
+        <p>销售单：322112</p>
+        <p>货品折扣金额：2000元</p>
+      </div>
+      <div class="ico_new">2016</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="tabOrder">
+  <div class="col-xs-1 tab_green">
+    <div class="tabName tab_orange"><img src="images/tag_02.png"></div>
+  </div>
+  <div class="col-xs-11">
+    <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_01.html'">
+      <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+        <div class="state blue">已审批</div>
+      </div>
+      <div class="orderInfor">
+        <p>销售单：322112</p>
+        <p>货品折扣金额：2000元</p>
+      </div>
+      <div class="ico_new">2</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="tabOrder">
+  <div class="col-xs-1 tab_green">
+    <div class="tabName tab_blue"><img src="images/tag_03.png"></div>
+  </div>
+  <div class="col-xs-11">
+    <div class="mainCon work_panel" data-class="touchstart" onClick="javascript:window.location.href='workOrder_02.html'">
+      <div class="orderHead">李文<span class="date">2015.10.22 10:22</span>
+        <div class="state orange">未审批</div>
+      </div>
+      <div class="orderInfor">
+        <p>客户：金丝玉玛</p>
+        <p>讨论项目前期工作。</p>
+      </div>
+      <div class="ico_new">6</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>-->
+
+<div class="fix_bottom"></div>
+
+</body>
+</html>

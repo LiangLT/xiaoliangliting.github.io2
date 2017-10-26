@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});		
+		
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="userCenter.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">开通/续期</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+  
+</div>
+
+<div class="fix_top"></div>
+
+<div class="search bg_white border_bt_02 pad_bt mar_bt">
+  <div class="col-xs-9 input_search"><input name="" type="text" placeholder="请输入关键字"></div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="store_order" id="show_del">
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_blue.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_01.jpg"></div>
+        <h2>ERP查询</h2>
+        <div class="edit">10元/月 x 1</div>
+        <div class="date">有效期到2020.10.10</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_blue.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_02.jpg"></div>
+        <h2>移动审批</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_03.jpg"></div>
+        <h2>CRM</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_04.jpg"></div>
+        <h2>企业文化</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_05.jpg"></div>
+        <h2>库存、资金</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_07.jpg"></div>
+        <h2>自助查询</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_08.jpg"></div>
+        <h2>自助业务</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_09.jpg"></div>
+        <h2>体验馆</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="store_panel" onClick="javascript:window.location.href='userApplication_infor_opened.html'">
+    <div class="col-xs-1 ico_select"><img src="images/ico_select_grey.png"></div>
+    <div class="col-xs-11">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/pro_pic_10.jpg"></div>
+        <h2>产品展示</h2>
+        <div class="edit">10元/月 x 1</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btFuncBtns">
+  <div class="cen_area">
+    <div class="col-xs-4 textArea"><img src="images/ico_select_grey.png">全选</div>
+    <div class="col-xs-4 textArea">已选<span>2</span>件</div>
+	<div class="col-xs-4 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="选好了" onClick="javascript:window.location.href='userApplication_order.html'"></div>
+  </div>
+</div>  
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+
+		$(function(){
+			
+			$("#con_01").show();
+			
+			$("#tab_01").click(function(){
+				$("#con_01").show();
+				$("#con_02").hide();
+				document.getElementById("tab_01").className ="current";
+				document.getElementById("tab_02").className ="";
+			});
+ 
+			$("#tab_02").click(function(){
+				$("#con_01").hide();
+				$("#con_02").show();
+				document.getElementById("tab_01").className ="";
+				document.getElementById("tab_02").className ="current";		
+			});
+			
+		});
+	
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="register.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">体验用户登录</div>
+    </div>
+    <div class="col-xs-2" style="text-align:right;">
+      <a class="topWord text_right pad_right" href="javascript:;">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="register row">
+
+  <!--<div class="registerTab">
+    <div class="col-xs-6 category current radius_left" id="tab_01" data-class="touchstart">客户</div>
+    <div class="col-xs-6 category radius_right" id="tab_02" data-class="touchstart">企业</div>
+    <div class="clear"></div>
+  </div>-->
+  
+  <div class="userSelect">
+    <div class="col-xs-2 name">我是</div>
+    <div class="col-xs-10">
+      <ul>
+        <li class="current" id="tab_01">客户</li>
+        <li id="tab_02">企业</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="commonInputArea row" id="con_01">
+      <div class="inputArea">
+        <div class="input_panel border_bt"><input class="input_noborder" name="" type="text" placeholder="请客户输入手机号码">
+          <div class="btn_codeSend"><input class="linebtnbg" data-class="touchstart" name="" type="button" value="获取验证码"></div>
+        </div>
+        <div class="input_panel"><input class="input_noborder" name="" type="password" placeholder="请输入验证码"></div>
+      </div>
+      <div class="singlebtnArea opa_06"><input class="btns" data-class="touchstart" name="" type="button" value="马上体验"></div>
+      <p>模拟真实工作场景的演示数据，有助于你对联成价值了解得更加充分、具体。</p><!--输入完成后,去掉opa_06-->
+  </div>
+  
+  <div class="commonInputArea row dis" id="con_02">
+      <div class="inputArea">
+        <div class="input_panel border_bt"><input class="input_noborder" name="" type="text" placeholder="请企业输入手机号码">
+          <div class="btn_codeSend"><input class="linebtnbg" data-class="touchstart" name="" type="button" value="获取验证码"></div>
+        </div>
+        <div class="input_panel"><input class="input_noborder" name="" type="password" placeholder="请输入验证码"></div>
+      </div>
+      <div class="singlebtnArea opa_06"><input class="btns" data-class="touchstart" name="" type="button" value="马上体验"></div>
+      <p>模拟真实工作场景的演示数据，有助于你对联成价值了解得更加充分、具体。</p><!--输入完成后,去掉opa_06-->
+  </div>
+  
+</div>
+
+</body>
+</html>

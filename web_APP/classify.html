@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+$(function() {
+	$(".leftNav ul li").click( function(){
+		 $(".classify .leftNav li").removeClass("hover");
+		 $(this).addClass("hover");
+	});
+});
+</script>
+
+</head>
+
+<body class="bg_white">
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="workStation.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">分类</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="index.html">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="classify">
+  <div class="leftNav">
+    <div class="fix_top"></div>
+    <ul>
+      <li class="hover"><a href="#con_0">ERP业务</a></li>
+      <li><a href="#con_1">客户服务</a></li>
+      <li><a href="#con_2">企业文化</a></li>
+    </ul>
+  </div>
+  <div class="rightContent">
+	<div class="contentbox" id="con_0">
+      <div class="fix_top"></div>
+	  <div class="title">ERP业务</div>
+      <div>
+        <div class="col-xs-4 icon" data-class="touchstart">
+          <p><img src="images/functionIco_13.png"></p>
+          <p>留货</p>
+        </div>
+        <div class="col-xs-4 icon" data-class="touchstart">
+          <p><img src="images/functionIco_12.png"></p>
+          <p>价格申请</p>
+        </div>
+        <div class="col-xs-4 icon">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="clear"></div>
+      </div>      
+    </div>
+    <div class="contentbox" id="con_1">
+      <div class="fix_top"></div>
+	  <div class="title">客户服务</div>
+      <div>
+        <div class="col-xs-4 icon" data-class="touchstart">
+          <p><img src="images/functionIco_10.png"></p>
+          <p>业务洽谈</p>
+        </div>
+        <div class="col-xs-4 icon">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-xs-4 icon">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="clear"></div>
+      </div>      
+    </div>
+    <div class="contentbox" id="con_2">
+      <div class="fix_top"></div>
+	  <div class="title">企业文化</div>
+      <div>
+        <div class="col-xs-4 icon" data-class="touchstart">
+          <p><img src="images/functionIco_11.png"></p>
+          <p>工作分享</p>
+        </div>
+        <div class="col-xs-4 icon">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-xs-4 icon">
+          <p><img src="images/functionIco_00.png"></p>
+          <p>&nbsp;</p>
+        </div>
+        <div class="clear"></div>
+      </div>      
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

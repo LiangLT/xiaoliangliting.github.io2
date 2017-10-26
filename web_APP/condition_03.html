@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+ 
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+		
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+		$("#pulldown_head_03").click(function(){
+			$("#pulldown_content_03").slideToggle(200);
+		});
+		
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="condition.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">类别</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="form_06.html">
+        <span>确定</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="condition row">
+    
+  <div class="userFunction">
+      <div class="condition_panel border_bt" data-class="touchstart">
+        <a href="javascript:;">
+        <div class="col-xs-11 omit">全部</div>
+        <div class="col-xs-1 text_right"><span><img src="images/ico_select_blue.png"></span></div>
+        <div class="clear"></div>
+        </a>
+      </div>
+      
+      <div class="userFunction_panel border_bt omit" data-class="touchstart" id="pulldown_head_01">
+        <a href="javascript:;">
+        <div class="col-xs-11 omit">抛光砖抛光砖抛光砖抛光砖抛光砖抛光砖抛光砖抛光砖</div>
+        <div class="col-xs-1 text_right"><span><img src="images/arrow_pulldown.png"></span></div>
+        <div class="clear"></div>
+        </a>
+      </div>
+      
+      <div class="pulldown" id="pulldown_content_01">
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">01</div>
+          <div class="col-xs-1 text_right"><span><img src="images/ico_select_blue.png"></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">02</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">03</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">04</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="userFunction_panel border_bt" data-class="touchstart" id="pulldown_head_02">
+        <a href="javascript:;">
+        <div class="col-xs-11 omit">全抛釉</div>
+        <div class="col-xs-1 text_right"><span><img src="images/arrow_pulldown.png"></span></div>
+        <div class="clear"></div>
+        </a>
+      </div>
+      
+      <div class="pulldown" id="pulldown_content_02">
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">01</div>
+          <div class="col-xs-1 text_right"><span><img src="images/ico_select_blue.png"></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">02</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">03</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">04</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="userFunction_panel border_bt" data-class="touchstart" id="pulldown_head_03">
+        <a href="javascript:;">
+        <div class="col-xs-11 omit">瓷片</div>
+        <div class="col-xs-1 text_right"><span><img src="images/arrow_pulldown.png"></span></div>
+        <div class="clear"></div>
+        </a>
+      </div>
+      
+      <div class="pulldown" id="pulldown_content_03">
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">01</div>
+          <div class="col-xs-1 text_right"><span><img src="images/ico_select_blue.png"></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">02</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel border_bt" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">03</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+        <div class="condition_panel" data-class="touchstart">
+          <a href="javascript:;">
+          <div class="col-xs-11 omit">04</div>
+          <div class="col-xs-1 text_right"><span></span></div>
+          <div class="clear"></div>
+          </a>
+        </div>
+      </div>
+      
+  </div>
+    
+</div>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<!--日期选择器.css-->
+<link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.widget.ios.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+<!--日期选择器.css-->
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+<!--日期选择器.js-->
+<script src="js/mobiscroll.core.js"></script>
+<script src="js/mobiscroll.widget.js"></script>
+<script src="js/mobiscroll.scroller.js"></script>
+<script src="js/mobiscroll.util.datetime.js"></script>
+<script src="js/mobiscroll.datetimebase.js"></script>
+<script src="js/mobiscroll.widget.ios.js"></script>
+<script src="js/mobiscroll.i18n.zh.js"></script>
+<!--日期选择器.js-->
+
+<script>
+
+	$(function () {
+		var nowData=new Date();
+		var opt= { 
+			theme:'ios', //设置显示主题 
+			mode:'scroller', //设置日期选择方式，这里用滚动
+			display:'bottom', //设置控件出现方式及样式
+			dateOrder:'mm',
+			dateFormat:'mm',
+			preset : 'date', //日期:年 月 日 时 分
+			minDate: nowData, 
+			maxDate:new Date(nowData.getFullYear(),nowData.getMonth(),nowData.getDate()+7,22,00),
+	//              dateFormat: 'yy-mm-dd', // 日期格式
+	//              dateOrder: 'yymmdd', //面板中日期排列格式
+			stepMinute: 5, //设置分钟步长
+			yearText:'年', 
+			monthText:'月',
+			dayText:'日',
+			hourText:'时',
+			minuteText:'分',
+			lang:'zh' //设置控件语言};
+		};
+		$('#dateinput').mobiscroll(opt);
+	});
+	
+	$(function(){
+		
+		$("#category_single").click(function(){
+			$("#category_show").slideToggle(200);
+		});
+
+	});
+	
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">财务对账</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<!--<div class="search_total">
+  <div class="date border_top">期间<input class="month" name="" type="text" id="dateinput">月<span class="grey_04 mar_left pad_left_02 border_left">2016.4.26 至 2016.5.25</span></div>
+  <div class="border_top pad_10">
+      <div class="col-xs-6 pad_right border_right font_02">
+        <p><span class="left">期初</span><span class="right">￥66,622,300.00</span></p>
+        <div class="clear"></div>
+      </div>
+      <div class="col-xs-6 pad_left font_02">         
+        <p><span class="left">期末</span><span class="right">￥66,622,300.00</span></p>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <div class="left font_02 pad_top_03 black">本月发生额：￥233,000,000.00</div>
+      <div class="right blue pad_top" onClick="javascript:window.location.href='dealer_account_summary.html'">详细汇总数 <img class="ico_arrow" src="images/arrow_blue.png"></div>
+      <div class="clear"></div>
+  </div>
+</div>-->
+
+<div class="search_total">
+ 
+  <div class="date border_top">期间<input class="month" name="" type="text" id="dateinput">月<span class="grey_04 mar_left pad_left_02 border_left">2016.4.26 至 2016.5.25</span></div>
+  
+  <div class="border_top pad_10">
+      <div class="col-xs-6 font_02">
+        <div class="selectSP" id="category_single">选择账户<img class="ico_arrow" src="images/arrow_pulldown.png"></div>
+        <div class="selectSHOW" id="category_show">
+          <div class="togbg"></div>
+          <div class="list">
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">内部客户往来</div>
+              <div class="right"><span><img src="images/ico_confirm.png"></span></div>
+              <div class="clear"></div>
+            </div>
+            <div class="condition_panel" data-class="touchstart">
+              <div class="left">其他账户</div>
+              <div class="right"></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 blue text_right" onClick="javascript:window.location.href='dealer_account_summary.html'">详细汇总数 <img class="ico_arrow" src="images/arrow_blue.png"></div>
+      <div class="clear"></div>
+  </div>
+  
+  <div class="border_top pad_10">
+    <div class="font_02 pad_bt_02">本月发生额</div>
+    <div class="col-xs-6 pad_right_06 border_right grey_02">
+      <p><span class="left">借方</span><span class="right">￥30,000,000.00</span></p>
+      <div class="clear"></div>
+      <p class="pad_top_06"><span class="left">贷方</span><span class="right">￥30,000,000.00</span></p>
+      <div class="clear"></div>
+    </div>
+    <div class="col-xs-6 pad_left_04 grey_02">
+      <p><span class="left">期初余额</span><span class="right">￥30,000,000.00</span></p>
+      <div class="clear"></div>
+      <p class="pad_top_06"><span class="left">期末余额</span><span class="right">￥30,000,000.00</span></p>
+      <div class="clear"></div>
+    </div>    
+    <div class="clear"></div>
+  </div>
+  
+</div>
+
+<div class="surplus_detail">
+  <div class="formHead border_bt">
+    <div class="col-xs-4">摘要</div>
+    <div class="col-xs-4 text_center">划入金额</div>
+    <div class="col-xs-4 text_center">提货金额</div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart" onClick="javascript:window.location.href='surplus_detail_01.html'">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">正常销售</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4">
+      <p class="money_s blue">+88,008,611.00</p>
+      <p class="user">余:26,000,000.00</p>      
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart" onClick="javascript:window.location.href='surplus_detail_02.html'">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">折让</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <p class="money_s orange">-19,200,000.00</p>
+      <p class="user">余:26,000,000.00</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">退货</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <p class="money_s orange">-9,200,000.00</p>
+      <p class="user">余:26,000,000.00</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">贷款</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <p class="money_s orange">-9,200,000.00</p>
+      <p class="user">余:26,000,000.00</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">正常销售</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <p class="money_s orange">-9,200,000.00</p>
+      <p class="user">余:26,000,000.00</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="panel_surplus" data-class="touchstart">
+    <div class="col-xs-4">
+      <p class="name">FW58522695000</p>
+      <p class="note">正常销售</p>
+      <p class="date">2015.10.20</p>
+    </div>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <p class="money_s orange">-9,200,000.00</p>
+      <p class="user">余:26,000,000.00</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btns_bottom">
+  <div class="col-xs-12 btn_buy" data-class="touchstart">核对</div>
+  <div class="col-xs-12 btn_ban" style="display:none;">已核对</div>
+</div>
+
+<!--<div class="btns_bottom">
+  <div class="col-xs-6 btn_cart blue" data-class="touchstart">不相符</div>
+  <div class="col-xs-6 btn_buy" data-class="touchstart">相符</div>
+</div>-->
+
+</body>
+</html>

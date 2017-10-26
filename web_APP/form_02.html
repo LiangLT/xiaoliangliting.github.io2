@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/phone.css">
+<link rel="stylesheet" href="css/swiper.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	
+	$(function(){
+		
+		var swiper_horizontal = new Swiper('#swiper_horizontal_01', {
+			pagination: '#swiper_pagination_01',
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false
+		});
+		
+		var swiper_horizontal = new Swiper('#swiper_horizontal_02', {
+			pagination: '#swiper_pagination_02',
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false
+		});
+		
+		var swiper_horizontal = new Swiper('#swiper_horizontal_03', {
+			pagination: '#swiper_pagination_03',
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false
+		});
+		
+		var swiper_horizontal = new Swiper('#swiper_horizontal_04', {
+			pagination: '#swiper_pagination_04',
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false
+		});
+ 
+		$("#category_single").click(function(){
+			$("#category_show").slideToggle(200);
+		});
+ 
+		$("#myBtn00").click(function(){
+			$("#myDiv00 .windows").show();
+			document.getElementById("bodyState").className ="scrollState_hidden";
+		});
+		
+		$("#closeBtn00").click(function(){
+			$("#myDiv00 .windows").hide();
+			document.getElementById("bodyState").className ="scrollState_auto";
+		});		
+		
+		$("#pulldown_head_01").click(function(){
+			$("#pulldown_content_01").slideToggle(200);
+		});
+		
+		$("#pulldown_head_02").click(function(){
+			$("#pulldown_content_02").slideToggle(200);
+		});
+		
+	});
+</script>
+
+</head>
+
+<body id="bodyState">
+
+<div class="navbar-fixed-top">
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="index.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">客户资金</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fix_top"></div>
+
+<div class="search pad_10 bg_white border_bt_02 mar_bt">
+  <div class="col-xs-9 input_search pad_right_01"><input class="btn_pro" name="" type="text" placeholder="请输入关键字">
+    <div class="allpro" data-class="touchstart" onClick="javascript:window.location.href='proList.html'">客户    ></div>
+  </div>
+  <div class="col-xs-3 btn_search"><input class="btns" data-class="touchstart" name="" type="button" value="搜索"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="border_bt_02 border_top_01">
+
+  <div class="bg_white border_top border_bt_03" onClick="javascript:window.location.href='form_18.html'">
+    
+    <div class="pad_left pad_right">
+      <div class="black pad_top">
+        <div class="left font_03">客户名称位置</div>
+        <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <div class="left pad_top">可开单余额</div>
+        <div class="right font_06 orange pad_top_04">￥9,101,320,200.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    
+    <div class="deaMoney">    
+      <div class="swiper-container" id="swiper_horizontal_01">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-xs-4 content">
+              <p>￥1,320,200.00</p>
+              <p>账上资金</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥9,320,200.00</p>
+              <p>信贷额度</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥320,200.00</p>
+              <p>返点余额</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="col-xs-4 content">
+              <p>￥320,200.00</p>
+              <p>其他返点</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="swiper-pagination page_deaMoney" id="swiper_pagination_01"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="bg_white border_top border_bt_03" onClick="javascript:window.location.href='form_18.html'">
+    <div class="pad_left pad_right">
+      <div class="black pad_top">
+        <div class="left font_03">客户名称位置</div>
+        <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <div class="left pad_top">可开单余额</div>
+        <div class="right font_06 orange pad_top_04">￥9,101,320,200.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    
+    <div class="deaMoney">    
+      <div class="swiper-container" id="swiper_horizontal_02">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-xs-4 content">
+              <p>￥1,320,200.00</p>
+              <p>账上资金</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥9,320,200.00</p>
+              <p>信贷额度</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥320,200.00</p>
+              <p>返点余额</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="swiper-pagination page_deaMoney" id="swiper_pagination_02"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="bg_white border_top border_bt_03">
+    <div class="pad_left pad_right">
+      <div class="black pad_top">
+        <div class="left font_03">客户名称位置</div>
+        <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <div class="left pad_top">可开单余额</div>
+        <div class="right font_06 orange pad_top_04">￥9,101,320,200.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="deaMoney">    
+      <div class="swiper-container" id="swiper_horizontal_03">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-xs-4 content">
+              <p>￥1,320,200.00</p>
+              <p>账上资金</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥9,320,200.00</p>
+              <p>信贷额度</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥320,200.00</p>
+              <p>返点余额</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="swiper-pagination page_deaMoney" id="swiper_pagination_03"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg_white border_top">
+    <div class="pad_left pad_right">
+      <div class="black pad_top">
+        <div class="left font_03">客户名称位置</div>
+        <div class="right"><img class="ico_arrow" src="images/ico_arrow_circle.png"></div>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <div class="left pad_top">可开单余额</div>
+        <div class="right font_06 orange pad_top_04">￥9,101,320,200.00</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="deaMoney">    
+      <div class="swiper-container" id="swiper_horizontal_04">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-xs-4 content">
+              <p>￥1,320,200.00</p>
+              <p>账上资金</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥9,320,200.00</p>
+              <p>信贷额度</p>
+            </div>
+            <div class="col-xs-4 content">
+              <p>￥320,200.00</p>
+              <p>返点余额</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="swiper-pagination page_deaMoney" id="swiper_pagination_04"></div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!--<div class="panelMore"><a class="btns" data-class="touchstart" href="javascript:;">加载更多</a></div>-->
+
+</body>
+</html>

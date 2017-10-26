@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/phone.css">
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/touchstate.js"></script>
+
+<script>
+	$(function(){
+		
+		$("#btn_del").click(function(){
+			$("#show_del").toggle(200);
+			if ($(".mengban_order").is(':visible')) {
+				$(".mengban_order").hide();
+				}else{
+				$(".mengban_order").show();
+			}
+		});
+		
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar-fixed-top">
+
+  <div class="head">
+    <div class="col-xs-2">
+      <a class="topIcon text_left pad_left" href="stock_02.html">
+        <span><img src="images/headIcon_01.png"></span>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <div class="mainTitle">确定订单</div>
+    </div>
+    <div class="col-xs-2">
+      <a class="topWord text_right pad_right" href="javascript:;" id="btn_del">
+        <span>删除</span>
+      </a>
+    </div>
+  </div>
+  
+</div>
+
+<div class="fix_top"></div>
+
+<div class="userFunction">
+  <div class="userFunction_panel" onClick="javascript:window.location.href='userSelect.html'">
+    <div class="left">客户名称：<span class="grey_03">请选择客户</span></div><!--选择完毕后所显示的客户名称变成黑色，直接把“grey_03”去掉即可-->
+    <div class="right"><span class="ico_arrow"><img src="images/arrow_grey.png"></span></div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="store_order">
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <div style="position:relative;">
+          <h2>抛光砖SSD33221</h2>
+          <p class="grey_04 pad_top_04 omit"><span class="pad_right">提货点：佛山</span><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+          <p class="pad_top_04"><span class="grey_04 pad_right_03">x</span><span class="font_04 pad_right_03">2000</span>箱</p>
+          <p><span class="left red font_04 pad_top_06">￥80,000.00</span><span class="right grey_03 pad_top_05 font_01">运费￥50.00</span></p>
+          <div class="clear"></div>
+          
+          <div class="del" id="show_del"><img src="images/ico_del_word.png"></div>
+      <div class="mengban_order"></div>
+          
+        </div>
+      </div>
+      
+  </div>
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <h2>抛光砖SSD33221</h2>
+        <p class="grey_04 omit"><span class="pad_right">提货点：佛山</span><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+        <div class="edit"><img class="touch" data-class="touchstart" src="images/ico_down.png"><input class="editInput" name="" type="text" value="1"><img class="touch" data-class="touchstart" src="images/ico_up.png"></div>
+        <p><span class="left red font_04 pad_top_06">￥28,880,000.00</span><span class="right grey_03 pad_top_05 font_01">运费￥150.00</span></p>
+        <div class="clear"></div>
+      </div>
+  </div>
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <h2>抛光砖SSD33221</h2>
+        <p class="grey_04 omit"><span class="pad_right">提货点：佛山</span><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+        <div class="edit"><img class="touch" data-class="touchstart" src="images/ico_down.png"><input class="editInput" name="" type="text" value="1"><img class="touch" data-class="touchstart" src="images/ico_up.png"></div>
+        <p><span class="left red font_04 pad_top_06">￥80,000.00</span><span class="right grey_03 pad_top_05 font_01">免运费</span></p>
+        <div class="clear"></div>
+      </div>
+  </div>
+  <div class="store_panel">
+      <div class="ser_infor">
+        <div class="ser_photo"><img src="images/mallpro_01.jpg"></div>
+        <h2>抛光砖SSD33221</h2>
+        <p class="grey_04 omit"><span class="pad_right">提货点：佛山</span><span class="pad_right">100cm x 100cm</span><span class="pad_right">优等</span><span>0.5kg</span></p>
+        <div class="edit"><img class="touch" data-class="touchstart" src="images/ico_down.png"><input class="editInput" name="" type="text" value="1"><img class="touch" data-class="touchstart" src="images/ico_up.png"></div>
+        <p><span class="left red font_04 pad_top_06">￥80,000.00</span><span class="right grey_03 pad_top_05 font_01">运费￥50.00</span></p>
+        <div class="clear"></div>
+      </div>
+  </div>
+</div>
+
+<div class="fix_bottom"></div>
+
+<div class="btFuncBtns">
+  <div class="cen_area">
+    <div class="col-xs-8">
+      <p class="font_02 pad_top_04">合计<span class="red">￥200,000.00</span></p>
+      <p class="grey_04">重量2000kg</p>
+    </div>
+	<div class="col-xs-4 singlebtnArea"><input class="btns" name="" data-class="touchstart" type="button" value="提交订单" onClick="javascript:window.location.href='userApplication_pay.html'"></div>
+  </div>
+</div>  
+
+</body>
+</html>
